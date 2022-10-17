@@ -30,10 +30,10 @@
                     <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
                 </div>
                 <ul>
-                    <li><a href="#home">Domov</a></li>
-                    <li><a href="#about">O mne</a></li>
-                    <li><a href="#projects">Projekty</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="index.html#home">Domov</a></li>
+                    <li><a href="index.html#about">O mne</a></li>
+                    <li><a href="index.html#projects">Projekty</a></li>
+                    <li><a href="index.html#contact">Kontakt</a></li>
                 </ul>
                 <div>
                     <img src="assets\smile.svg" alt="smile" class="smile">
@@ -44,71 +44,24 @@
             </nav>
         </header>
         <main>
-            <a href="#home">
+            <a href="#top"> <!-- Top button -->
                 <button id="top-button" title="Go to top">
                     <img src="assets\arrow.svg" alt="Top" width="40">
                 </button>
             </a>
-            <div id="home" class="center gradient">
-                <div class="center">
-                    <a href="#about">
-                        <h1>O mne</h1>
-                    </a>
-                    <a href="#projects">
-                        <h1>Projekty</h1>
-                        <p>Návrh schodiska</p>
-                        <p>Výpočet zaťaženia</p>
-                    </a>
-                    <a href="#contact">
-                        <h1>Kontakt</h1>
-                    </a>
+            <div id="top" style="background-image: var(--gradient); height:100vh;">
+                <h1 style="padding-bottom: 12px;">Návrh schodiska</h1>
+                <div id="dotaznik">
+                    <h2>Konštrukčná výška</h2>
+                    <input type="number" id="kv" name="kv" placeholder="mm">
+
+                    <h2>Počet stupňov</h2>
+                    <h2>Výška stupňa</h2>
+                    <h2>Šírka stupňa</h2>
+
+                    <h2>Dĺžka ramena</h2>
+                    <h2>Sklon</h2>
                 </div>
-                
-            </div>
-            <div id="about" class="gray-background">
-                <div style="width: 100%; height: 90px" class="gradient"></div>
-                O mne
-            </div>
-            <div id="projects" class="gradient">
-                <div style="width: 100%; height: 90px;" class="gray-background"></div> <!-- Navbar fix -->
-                <div style="width: 100%; height: 100%;">
-                    <div style="padding: 24px">
-                        <h1>Projekty</h1>
-                        <h3>Projekty, na ktorých pracujem</h3>
-                        <div style="padding-left: 8px">
-                            <p>Tieto projekty slúžia najmä študentom ako pomôcka pri výpočtoch</p>
-                            <p>Programy nie sú určené na profesionáne použitie</p>
-                            <p>Autor nenesie zodpovednosť za prípadné škody</p>
-                        </div>
-                    </div>
-                    <div id="navrh-schodiska">
-                        <h2>Návrh schodiska</h2>
-                        <p>Tento program Vám po zadaní údajov vypočíta potrebné údaje ku schodisku v stavebnom výkrese:</p>
-                            <ul>
-                                <li>ideálna výška stupňa, šírka stupňa a počet stupňov</li>
-                                <li>sklon ramena</li>
-                                <li>podchodná a priechodná výška</li>
-                            </ul>
-                        <a href="navrh-schodiska.html">
-                            <button>
-                                <div style="width: fit-content;">
-                                    <p style="padding: 20px 36px;">ZAČAT</p>
-                                    <div class="button-arrow">
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </button>
-                        </a>
-                    </div>
-                    <div id="vypocet-zatazenia">
-                       <h2>Výpočet zaťaženia</h2>
-                    </div>
-                </div>
-            </div>
-            <div id="contact" class="gray-background">
-                <div style="width: 100%; height: 90px" class="black-background"></div>
-                Kontakt
             </div>
         </main>
         <footer class="black-background">
