@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of 'useful' stuff">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <link rel="stylesheet" href="styles.css">
+        <link rel = "icon" href = "assets/favicon.svg" type = "image/x-icon">
+
+        <title>Cypo's Website</title>
+
+        <!-- 1st 2 lines came with font but idk what its supposed to do -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="black-background">
+            <img class="logo" src="assets\logo.svg" alt="logo" width="120px">
+            <nav>
+                <ul class="navbar-links">
+                    <li><a href="#home">Domov</a></li>
+                    <li><a href="#about">O mne</a></li>
+                    <li><a href="#projects">Projekty</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
+        <a href="#home">
+            <button id="top-button" title="Go to top">
+                <img src="assets\arrow.svg" alt="Top" width="40">
+            </button>
+        </a>
+        <main>
+            </div>
+                <div id="home">
+                    <div class="center">
+                        <a href="#about">
+                            <h1 style>O mne</h1>
+                        </a>
+                        <a href="#projects">
+                            <h1>Projekty</h1>
+                            <p>Návrh schodiska</p>
+                            <p>Výpočet zaťaženia</p>
+                        </a>
+                        <a href="#contact">
+                            <h1>Kontakt</h1>
+                        </a>
+                    </div>
+                </div>                
+                <div id="about"></div>
+                <div id="projects"></div>
+                <div id="contact"></div>
+            </div>  
+        </main>
+        <footer class="black-background">
+            <p>Cypo's Website <span style="color: rgb(80, 80, 80);">v2</span></p>
+            <p>Created by Cypo</p>   
+            <p>2020 - 2022</p>
+        </footer>
+    </body>
+    <script>
+        // Get the button:
+        let mybutton = document.getElementById("top-button");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+    </script>
+</html>

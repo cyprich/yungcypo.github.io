@@ -1,0 +1,380 @@
+<script>
+    console.log("Hello World")
+</script>
+
+Using separate files is better
+    I will store all code into file called index.js
+    To get the file to html:
+        <script src="index.js"></script>
+
+To open file in Node (you dont have to, it can be opened with browser)
+    Open CMD, head to folder with the file and enter following code:
+        Node index.js
+    You can also do this in vscode:
+        View -> Terminal
+        node index.js
+
+// This is comment, this wont be printed in console
+    /*****
+        * this is used for more lines
+        * so you can write something like this
+        * or i think so at least
+        * xd
+    */
+
+
+some math stuff
+    shortcuts
+        != not equals - opposite of =
+
+        a = a + 3 
+        ...is the same as...
+        a += 3
+        ...works the same with + - * /
+
+        a = a + 1
+        ...is the same as...
+        a ++
+
+    finding remainder 
+        remainder of the division of 2 numbers
+        11 % 3 = 2 
+
+escape characters
+    to put double quotes in string, add \ before " 
+        let myStr = "I am a \"double quoted\" string"
+    you can also use single quotes to define string
+        let myStr = 'I am a "dobule quoted" string'
+    you can also use the ` symbol
+        let myStr = `I am "duoble quoted" and 'single quoted' string
+
+    another:
+    \'  single quote
+    \"  doble quote
+    \\  backslash
+    \n  newline
+    \r  carriage return
+    \t  tab
+    \b  backspace
+    \f  form fed
+
+
+Variables
+    // let is better to define a variable than var
+    let name = "Peter";
+    console.log(name);
+
+    // let - make a variable
+    // name - name of the variable
+    // = "Peter" - value of variable
+        
+    names has some rules:
+        name cannot be reserved keyword 
+            let let;
+            let var;
+            let if;
+            let else;
+            //and so on...
+        name cannot start with a number
+            let 1name;
+        name cannot contain space or hyphen (-)
+            let first name; // not like this
+            let first-name; // not like this
+            let firstName; // like this
+        names are case sensitive
+            let firstName 
+            let FirstName
+            // these are different variables
+        
+        name should be meaningful
+
+    its better to declare each variable in single line
+        let firstName = "Peter", lastName = "Cypo"; //not like this
+        let firstName = "Peter";
+        let lastName = "Cypo";
+
+strings
+    you can add strings like this
+        let str = "This is 1st. " + "This is 2nd.";
+    ...or like this 
+        let str = "This is 1st. ";
+        str += "This is 2nd.";
+    to add more strings together
+        let name = "Cypo";
+        let str = "Hi, my name is " + name + ", how are you?";
+    to append a string to another string
+        let adjective = "awesome!";
+        let str = "rezeň so šalátom je ";
+        str += adjective;
+
+    to find lenght of string
+        let someNameLenght = 0;
+        let someName = "Jerguš";
+        someNameLenght = someName.lenght;
+
+    find letters in string
+        let someName = "Jerguš";
+        let firstLetterOfName = someName[0];
+        // counting starts at 0, not at 1
+    to find last letter
+        let name = "Jerguš";
+        let lastLetterOfName = name[name.lenght - 1]
+        // lastLetterOfName = name with index of 
+        // lenght (how many letters) - 1 (counting starts at 0)
+    or like 3rd (4th, 5th,...) from the end
+        let name = "Jerguš"
+        let letter = name[name.lenght - 4] 
+        // 3rd from the end 
+        // - 4 because counting starts at 0
+
+Constants
+    let interestRate = 0.3;
+    interestRate = 1;
+    console.log(interestRate);
+    // we'll see the new value - 1
+
+    // but sometimes we dont want to change value of something
+    const interestRate = 0.3;
+    // we'll get an error, we cant change value of const
+
+    // if you want to change the value, use let
+    // if you dont want to change the value, use const
+
+Primitive / Value types
+    let name = "Peter"; // string literal
+    let age = 18; //number literal
+    let isApproved = false; // boolean literal, can be true or false
+    let firstName; // undefined
+    let firstName; = undefined; // also undefined
+    let lastName; = null;
+
+Dynamic Typing
+    let name = "Peter";
+    typeof name;
+    // we'l see "string"
+
+    // we can change type of variables:
+    name = 1;
+    typeof name;
+    // we'll see "number"
+
+    // in js, int and float are the same thing, names number
+    let age = 18;
+    typeof age
+    age = 18.1
+    typeof age
+    // in both cases we'll get "number"
+
+    let selectedColor = null;
+    typeof selectedColor;
+    // we'll get object...
+
+Reference types - object, array, function
+
+Objects
+    // something like objects in real world
+    let name = "Peter";
+    let age = 18;
+
+    let person = {
+        name: "Peter",
+        age: 18,
+    }
+    console.log(person)
+    // we'll get {name: "Peter", age: 18}
+
+    // there are 2 ways of changing object values:
+        // dot notation
+        person.name = "Fero";
+        // you can also log to console like this
+        console.log(person.name);
+
+        // bracket notation
+        person["name"] = "Jožo";
+        // you can also log to console like this
+        console.log(person["name"])
+
+        let selection = "name";
+        person["selection"] = "Jožo"
+
+Arrays
+    // an array is a data structure, that represents list of items
+
+    // something like list of something
+    let selectedColors = ["red", "green"];
+    console.log(selectedColors);
+    console.log(selectedColors[0]); 
+    // element with index 0 - 1st element - "red"
+    // counting starts from 0
+
+    selectedColors[2] = "blue"
+    // adding 3rd element
+
+    //elements in js can have different values
+    selectedColors[2] = 1
+
+    // technically, array is an object
+    typeof selectedColors;
+    // we'll get object
+
+    // arrays have different properties: 
+    console.log(selectedColors.);
+    // after we type . we'll see all the properties
+
+    // push()
+    // append data to the end of array 
+    let array = ["Simpson", "J", "cat"]
+    array.push("happy", "joy")
+    // array will now have all of the attributes
+    // you can push another arrays as well
+
+    // pop()
+    let array = [1, 2, 3];
+    let removedFromArray = array.pop();
+    // this removes the last element from array
+    // ..and it saves it to variable
+
+    // shift()
+    // something like pop(), but it removes the 1st element 
+    // ..instead of the last one
+
+    // unshift()
+    // something like push() (add something to the end)
+    // ..but push adds element to the beginning of array
+
+nested arrays
+    nested arrays are basically arrays in arrays
+        let array = [
+            ["the universe", 42],
+            ["everything", 101010],
+            ["Bull", 32],
+            ["White", 54]
+        ];
+
+    // to access, you can use this
+        console.log(array[1][1])
+        // this will log 101010 (2nd array, 2nd value)
+
+
+    //another way to access it, you need to imagine it as 2D 
+        console.log(array[0, 2])
+        // this will log ["the universe", 32]
+        // - 1st value from array with index 0 = "the universe"
+        // - 2nd value from array with index 2 = 32
+
+    //you can change values in arrays like this (unlike strings)
+        let array = [16, 31, 64]
+        array[1] = 32 
+
+Functions
+    // function - makes function
+    // greet() - name of the function
+    // (name) - input of function - parameter
+        // parameter is variable that is only meaningful in the function
+        // parameter is optional, it doesnt need to be there
+    // {} - actual code of function
+
+    function greet(name) {
+        console.log("Hello " + name);
+    }
+    // function doesnt need semicolon at the end
+
+    // to call the function:
+    greet("Štefan");
+    // "Štefan" is an argument
+
+    // parameter is at defining of function, 
+    // while argument is at calling the function
+
+    // we can use functions like this
+    greet("Adam");
+    greet("Bruno");
+    greet("Cecilka");
+
+
+    // functions can have multiple parameters
+    function greet(name, lastName) {
+        console.log("Hello " + name + " " + lastName);
+    }
+
+    greet("Adam", "Vysoký")
+    // Hello Adam Vysoký
+    greet("Bruno")
+    // Hello Bruno undefined
+    // we didnt pass the value, by default its undefined
+
+
+
+Types of functions
+    // performing a task
+    function greet(name, lastName) {
+        console.log("Hello " + name + " " + lastName);
+    }
+
+    // calculating a value
+    function square(number) {
+        return number * number
+    }
+    square(2);
+    // this returns value of 4, so we can use it later on
+
+    // we can use funtion to return a value and save it as variable
+    let number = square(2);
+    console.log(number);
+    // if you wanna just log the number, you dont need a variable
+    console.log(square(2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ended at tutorial at 1:05:52
+stand in line
+https://www.youtube.com/watch?v=PkZNo7MFNFg&t=3952s&ab_channel=freeCodeCamp.org

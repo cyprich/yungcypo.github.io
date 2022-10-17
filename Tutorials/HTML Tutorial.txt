@@ -1,0 +1,417 @@
+FIRST STEPS/INTRO:
+    
+    First file - index.html
+        - web browser will think that its our homepage
+
+    <!DOCTYPE html> 
+        - defines, what a document type of file is gonna be
+        - this is gonna be html document
+
+    Container tags 
+        - start tag and end tag and you can put another tags inside of them
+        - it can be content or other html files 
+
+    Starting tag: <html>
+    Ending tag: </html>
+        - basically starting tag with backslash after <
+        - together they are paired tags
+        - this one is main tag of our file, like overall container/
+        highest level tag, contains all of data
+
+    There are 2 more sets of tag you need to create:
+    <head> tag - data of document/settings (type, image, resources)
+    <body> tag - actually all of content
+
+    <head> and <body> are inside <html>, so they need to be indented
+        something like <html> is parent of <head> and <body>
+        so <head> and <body> are kids of <html> because they are iside of if
+        <head> and <body> are siblings
+
+    <title> in <head> - defines name of webpage - before it was "index.html"
+        i put text inside of it:
+            <title>
+                Peto's Website
+            </title>
+
+BASIC TAGS:
+    Inside of these tags we have something called "attributes" or "properties"
+    <meta charset="UTF-8">  
+        - 1st in <head>
+        - meta tag 
+        - tells browser what characters im using
+        - UTF-8 is like a basic set of characters
+    <meta name="description" content="This is an awesome website">
+        - 2nd in <head>
+        - meta description tag
+        - gives desc to the website
+        - inside of this meta tag im telling what type of info i want to define
+        (description) and im telling that what that description should be 
+        (This is an...)
+    <h1>
+        - header tag
+        - can be from <h1> to <h6>    
+        - h2 will be smaller, h3 will be even smaller and so on...
+    <p>
+        - paragraph tag
+        - anything that i will write inside of this will go into its own 
+        paragraph
+        - they will automatically format theyself, if im gonna put another <p> 
+        bellow, it will be in its own paragraph (under it)
+    <b>
+        - paragraph for bold text
+        - inside <p>, around text that we want to be bold
+        <p>This is my <b>paragraph</b></p> - the word "paragraph" will be bold
+    <i>
+        - same as <b>, but this makes text italic
+    
+    * <b> and <i> can be used together
+        <p>This is my <b><i>paragraph</i></b></p>
+    * <h1> and <p> and any other tags will be shown in order as we write it
+        if we write <h1> 1st and <p> 2nd, <h1> will be above <p>
+        if we write <p> 1st and <h1> 2nd, <p> will be above <h1>
+    * html files doesnt care about whitespaces, if you put random whitespaces
+    in your code, it will be the same
+
+    <br/>
+        - break tag
+        - adds whitespace to code, if youll hit just enter it will do nothing
+        - you can use them as many as you want:
+            <br/><br/><br/><br/><br/> will make 5 empty lines
+    <hr/>
+        - horizontal rule tag
+        - draws straing line across our webpage thats gonna help us to separate 
+        some contents in our webpage
+
+    * <hr/> tag is simillar to <br/> tag, these are called SINGLE TAG
+        - there is nothing that needs to go inside of them, so they are single
+        - lotta times they are gonna be formated this way
+            <
+            *name*
+            /
+            >
+        - in certain cases we can get rid of / but its technically correct 
+        like this
+        - you can also put there as many as you want of the
+    <big> and <small>
+        <p><big>This is</big> <small>my</small> <b>paragraph</b></p>
+        - in this case, it makes "This is" bigger and "my" smaller
+    <sub> and <sup>
+        - subscript and superscript / lower and upper index
+
+COMMENTS:
+    - comments are small pieces of code, that are going to be ignored by html
+    - purpose of comments are yourself/other developers to read the code
+    <!-- Redoing this or sth...
+        this line is actually a comment and it wont be shown in our page 
+    -->
+    <!-- is open tag
+    --> is close tag
+    - there dont have to be anything in line after <!--, it just helps 
+    you/someone other to know why is some lines of codes disabled 
+
+STYLE AND COLORS:
+    CSS - entire other subject
+        - means "Cascading Style Sheets"
+    <p style="color:blue">Text</p>
+        "style="color:blue"" makes whole paragraph blue
+    <p style="color:blue; background-color:red">Text</p>
+        makes text blue and background red
+    
+    * this can be too done on headers or body
+    * we can see that background color of <h3> overwrites color of <body>, 
+    because it was printed after that, so its on top of it
+    * website for colors:
+        https://www.w3schools.com/colors/colors_names.asp
+    * instead of color name (blue) you can put a hex tag inside (#0000FF)
+
+FORMATTING A PAGE:
+    * example of blog page
+
+    <html>
+        <head>
+            <title>
+            </title>
+        </head>
+        <body>
+            <header>
+                <nav>
+                </nav>
+            </header>
+            <main>
+                <arcticle>
+                    <section>
+                        <h3></h3>
+                    </section>
+                    <section>
+                        <aside>
+                        </aside>
+                    </section>
+                </arcticle>
+            </main>
+            <footer>
+
+            </footer>
+        </body>
+    </html>
+
+    * in webpage you should have one <h1> that will be like main header of 
+    your webpage
+    * bellow <h1> youll have <h2> which defines a different sections of website
+    * after <h2> will be <h3> and so on...
+    * its not required, but its a good practice that are lot of people gonna
+    use when they are desingning they websites
+
+    <aside>
+        this tag will basically mean this content is on the page and its 
+        getting shown to the users, but its not directly related to like the
+        core content of our website
+
+    * you dont have to use these tags, but its gonna help you to organize
+    your webpage. One of your goal is to make the file as readable as possible
+
+LINKS:
+    * you needs to use special tag <a>
+    <a href="https://www.google.com" target="_blank">Open google</a>
+    * we just told this tag to open google when clicked
+    target="_blank"
+        - opens link in new tab
+    * we can put any html tags inside  <a> *here* </a>
+        <a><b></b></a>
+    * we can link to other pages or files of our website
+        <a href="image.jpg">Open google</a>
+            this will open image on new tab. Image has to be in the same 
+            directory
+
+IMAGES:
+    <img width="" height="" src="" alt="Really hard-working workers"/>
+        * one of those SINGLE TAGs
+        width and height
+            sets width and height of picture :D
+            can be number (pixels)
+            image can be squished afrer resizing, so you need to check the 
+            aspect ratio
+            you can set either width or height and HTML will automatically 
+            resize the second dimension in correct aspect ratio
+        src = source of image
+            inside of there can be weblink to an image or path to image of your
+            device
+        alt = what its gonna do if that image is deleted/unavailable/...
+            inside of there can be a phrase thats gonna be shown is the image
+            is unavailable
+    you can combine images with link:
+        <a href="image.jpg" target="_blank">
+            <img width="500"  src="https://upload.wikimedia.org/wikipedia/commons/3/35/Pat_Mat.jpg" alt="Workers, who work really hard" />
+        </a>
+
+Videos & YouTube iFrames:
+    <video src="video.mp4"></video>
+        - add source of video
+            src="location_of_video.mp4"
+        - add controls so you can play, skip, ... the video
+            controls
+        - add width and/or height to change w/h
+            width="800"
+            height="600"
+        - add poster to thumbnail
+            poster="thumbnail_of_video.jpg"
+        - add autoplay to play automatically when the page loads
+            autoplay
+        - add loop to start video over when it ends
+            loop
+    Youtube iFrame:
+        - find video you want on YouTube
+        - click share, then embed and copy it
+        - paste copied code into your html file
+        - you can change code to adjust width/height
+
+LISTS:
+    <ul>
+        <li>Apples</li>
+        <li>Oranges</li>
+        <li>Bananas</li>
+    </ul>
+        - unordered list
+        - you can put other html tags between <li>, such as <a href="">
+    
+    <ol>
+        - ordered list
+        - same as <ul>, but there will be numbers before items in list
+        instead of dots
+    
+    <dl>
+        <dt>Apples</dt>
+        <dd>- They are red</dd>
+
+    </dl>
+        - <dl> - description list
+        - <dt> - description term
+        - <dd> - describe description term
+        - you can put items <dt> inside a list <dl> 
+        and describe them <dd>        
+    
+    - you can specify style of <ul> or <ol>:
+        <ol type="1"> - 1. 2. 3. - default
+        <ol type="A"> - A. B. C.
+        <ol type="a"> - a. b. c.
+        <ol type="I"> - I. II. III.
+        <ol type="i"> - i. ii. iii.
+    - you can also put lists inside of lists
+
+TABLES:
+    <table>
+    <thead> - table head
+    <caption> - title of table
+    <tr> - row - horizontal
+    <td> - table data - represents one column - vertical
+    <th> - table header - bold <td>
+    <td colspan="2">one</td> - column span - makes "one" to take 2
+    places horizontally
+
+    <table>
+        <caption>List of numbers</caption>
+        <tr>
+            <td>one</td>
+            <td>two</td>
+            <td>three</td>
+        </tr>
+    </table>
+        - three informations in one row + "List of numbers" title
+    - you can define as much rows and columns as you want
+    - <thead> and <tbody> doesnt have to be used, it allows us to format
+    and organize our file better; its just a visual thing in our file,
+    it wont change look of our table on page
+
+SPANS & DIVS:
+    - containers
+    - helps you to organize your file better; when youre using CSS,
+    you can apply something to container to apply something to all
+    things in container 
+    - inline elements and block elements:
+        - inline display element <a href="">
+            - in 1 line on page there can be as many <a> tag as there 
+            can fit
+        - block element <p>
+            - in 1 line on page there can be just 1 <p> tag, even if 
+            more can fit there
+    - spans are inline elements
+    - divs are block element
+
+INPUT & FORMS:
+    - if you want to learn how to get input from users, you need to learn
+    JavaScript. We'll just be learning how to define things like text
+    boxes and text areas
+    
+    <input type="text" value="Enter your username"/>
+        - single tag - doesnt need </input>
+        - type=""
+            - there are lots of them
+            - "text" - you can write there
+            - "password"  - something like "text", but your INPUT
+            will be hidden - replaced by "•"
+            - "date"
+                - dd/mm/yyyy
+                - different on different browsers
+            - "email"
+            - "range"
+            - "file"
+            - "checkbox"
+            - "radio"
+                - radio button
+                <input name="button" type="radio"/>
+                - if some have the same name, only one at time can be
+                checked
+            - "submit"
+        - value=""
+            - main value - whats gonna be written before typing in
+    <textarea>
+        - like <input>, but its a lot bigger and can be resized
+        - you can put default value between <textarea> and </textarea>
+    <form><input></form>
+        - stores input, useful when youre working with JavaScript
+
+iFRAMES:
+    - you can see another website inside your webpage
+    <iframe src="https://www.google.com/" frameborder="0">Some text</iframe>
+        - "Some text" is gonna be displayed if the page cant be viewed
+        - you can add height and width
+        - frameborder="0" hides grey frame around iframe
+        - some pages will block access 
+
+META TAGS:
+    - used for metadata - data about data - we can define info about
+    our webpage
+    <meta name="description" content="This is an awesome website">
+        - describes description of page - can be used for serch engines
+        to help out to find whats your page about
+        - about 160 is ideal; if its over 200, most search engines 
+        will ignore it or even penalize you in search ranking
+        - its very important, you should keep it brief
+    <meta name="author" content="Peťo">
+    <meta name="keywords" content="HTML, Tutorial">
+        - search engine can use these to better search, similar to
+        description
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        - this is gonna control how your website is gonna be displayed
+        on different devices
+        - without this, you will see the website same on mobile an PC
+
+
+
+
+audio
+    <audio id="meowClip" controls>
+        <source src="audio/meow.mp3" type="audio/mpeg">
+        <source src="audio/meow.ogg" type="audio/ogg">
+    </audio>
+
+figure/figcaption
+    <figure>
+        <img src="roundhouseDestruction.jpeg" alt="Photo">
+        <br>
+        <figcaption>
+            Master Camper Cat demonstrates proper form of a roundhouse kick.
+        </figcaption>
+    </figure>
+
+form, label, fieldset, legend
+    - used with radio buttons
+
+    example1
+        <form>
+            <label for="name">Name:</label>  <!-- for value has to be same as id bellow -->
+            <input type="text" id="name" name="name">
+        </form>
+
+    example2
+        <form>
+            <fieldset>
+                <legend>Choose one of these three items:</legend>
+                <input id="one" type="radio" name="items" value="one">
+                <label for="one">Choice One</label><br>
+                <input id="two" type="radio" name="items" value="two">
+                <label for="two">Choice Two</label><br>
+                <input id="three" type="radio" name="items" value="three">
+                <label for="three">Choice Three</label>
+            </fieldset>
+        </form>
+
+tabindex, accesskey
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
