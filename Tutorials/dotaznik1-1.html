@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of 'useful' stuff">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Cypo's website</title>
+    </head>
+    <body>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                color: white;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            .black-background {
+                background-color: black;
+            }
+            .gray-background {
+                background-color: rgb(20, 20, 20);
+            }
+            .blue {
+                color: #42bfdd;
+            }
+            .light-gray {
+                color:rgb(120, 120, 120)
+            }
+
+            .button {
+                color: white;
+                background-color: rgb(20, 20, 20);
+                border: 2px solid #42bfdd; 
+                border-radius: 4px;
+                padding: 10px;
+            }
+            .button:hover {
+                background-color: rgb(50, 50, 50);
+            }
+
+            input {
+                color: white;
+            }
+            input[type="text"] {
+                background-color: rgb(30, 30, 30);
+                border: white;
+            }
+
+            a:link {
+                text-decoration: none;
+            }
+
+            a:visited {
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+            a:active {
+                text-decoration: none;
+            }
+            
+        </style>
+        <header class="black-background" style="text-align: center; padding-top: 20px;">
+            <a href="index.html" >
+                <b class="blue" style="font-size: 40px;">Cypo's website</b>
+            </a>
+            <p style="font-size: 15px; padding: 5px 0px 20px 0px;">Dotazník</p>
+        </header>
+        <main class="gray-background" >
+            <div style="padding-left: 20px;">
+                <form action="dotaznik1-2.html" method="post">
+                    <div style="font-size: 15px; padding-top: 20px;">
+                        <p>
+                            <i class="blue">Vážený respondent,</i>
+                            <i>prosíme Vás o vyplnenie tohto </i><i class="blue">anonymného dotazníka </i><i>ohľadom nášho nového produktu</i>.
+                        </p>
+                        <p>
+                            <i>Dotazník má rozsah </i><i class="blue">10 otázok </i>a zaberie približne <i class="blue">2-3 minúty.</i>
+                        </p>
+                        <p>
+                            <i>Slúži nám na zistenie vašej spokojnosti, vďaka vyplneniu údajov nám pomáhate zistiť nedostatky nášho produktu a následne ho zlepšovať.</i>
+                        </p>
+                        <p>
+                            <i class="blue">Ďakujeme za spoluprácu.</i>
+                        </p>
+                    </div>
+                    
+                    <h2 style="padding-top: 25px; font-size: 35px;">Hodnotenie produktu</h2>
+                    
+                    <div >
+                        <div>
+                            <h3  style="padding-top: 15px; font-size: 25px;" class="blue">Pohlavie</h3>
+                            <div>
+                                <input type="radio" id="muz" value="muz" name="pohlavie" required>
+                                <label for="muz">Muž</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="zena" value="zena" name="pohlavie" required>
+                                <label for="zena">Žena</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nezelam" value="nezelam" name="pohlavie" required>
+                                <label for="nezelam">Neželám si uviesť</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Vek</h3>
+                            <div>
+                                <input type="radio" id="vek18" value="vek18" name="vek" required>
+                                <label for="vek18">Menej ako 18 rokov</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="vek30" value="vek30" name="vek" required>
+                                <label for="vek30">18 - 30 rokov</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="vek50" value="vek50" name="vek" required>
+                                <label for="vek50">31 - 50 rokov</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="vek60" value="vek50+" name="vek" required>
+                                <label for="vek50+">Viac ako 50 rokov</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Vzdelanie</h3>
+                            <div>
+                                <input type="radio" id="zakladne" value="zakladne" name="vzdelanie" required>
+                                <label for="zakladne">Základné</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="stredoskolske1" value="stredoskolske1" name="vzdelanie" required>
+                                <label for="stredoskolske1">Stredoškolské bez maturity</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="stredoskolske2" value="stredoskolske2" name="vzdelanie" required>
+                                <label for="stredoskolske2">Stredoškolské s maturitou</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="vysokoskolske" value="vysokoskolske" name="vzdelanie" required>
+                                <label for="vysokoskolske">Vysokoškolské</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Počuli ste už o našom novom produkte?</h3>
+                            <div>
+                                <input type="radio" id="poculiste-ano" value="poculiste-ano" name="poculiste" required>
+                                <label for="poculiste-ano">Áno</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="poculiste-nie" value="poculiste-nie" name="poculiste" required>
+                                <label for="poculiste-nie">Nie</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Ak ste odpovedali áno, ako ste sa dozvedeli o produkte?</h3>
+                            <div>
+                                <input type="radio" id="znamy" value="znamy" name="dozvedeliste">
+                                <label for="znamy">Od známeho, rodinného príslušníka a pod.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="tv" value="tv" name="dozvedeliste" required>
+                                <label for="tv">Z reklamy (TV, rádio...)</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="obchod" value="obchod" name="dozvedeliste" required>
+                                <label for="obchod">Videl/a som ho v obchode</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nespominam" value="nespominam" name="dozvedeliste" required>
+                                <label for="nespominam">Nespomínam si</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="ine" value="ine" name="dozvedeliste" required>
+                                <label for="ine">Iné...</label>
+                                <input type="text" id="doplnte" name="dozvedeliste">
+                                <label for="doplnte"><i class="light-gray"> (Doplňte prosím)</i></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Ako by ste ohodnotili náš produkt na stupnici od 1 do 5?</h3>
+                            <div style="padding-top: 8px;">
+                               <input type="range" min="1" max="5" step="1" oninput="this.nextElementSibling.value = this.value" required> 
+                               <output style="padding-left: 10px;">3</output>
+                               <p class="light-gray" style="padding-top: 2px;">1 - nebol/a som vôbec spokojný/á</p>
+                               <p class="light-gray">5 - bol/a som veľmi spokojný/á</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">S čím ste boli najviac spokojný pri našom produkte?</h3>
+                            <div>
+                                <input type="radio" id="spokojny-cena" value="spokojny-cena" name="spokojny">
+                                <label for="spokojny-cena">Cena</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="spokojny-kvalita" value="spokojny-kvalita" name="spokojny" required>
+                                <label for="spokojny-kvalita">Kvalita</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="spokojny-vizual" value="spokojny-vizual" name="spokojny" required>
+                                <label for="spokojny-vizual">Vizuálna stránka produktu</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="spokojny-dostupnost" value="spokojny-dostupnost" name="spokojny" required>
+                                <label for="spokojny-dostupnost">Dostupnosť</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="spokojny-ine" value="spokojny-ine" name="spokojny">
+                                <label for="spokojny-ine">Iné...</label>
+                                <input type="text" id="doplnte" name="spokojny">
+                                <label for="doplnte"><i class="light-gray">(Doplňte prosím)</i></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">S čím ste boli najmenej spokojný pri našom produkte?</h3>
+                            <div>
+                                <input type="radio" id="nespokojny-cena" value="nespokojny-cena" name="nespokojny" required>
+                                <label for="nespokojny-cena">Cena</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nespokojny-kvalita" value="nespokojny-kvalita" name="nespokojny" required>
+                                <label for="nespokojny-kvalita">Kvalita</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nespokojny-vizual" value="nespokojny-vizual" name="nespokojny" required>
+                                <label for="nespokojny-vizual">Vizuálna stránka produktu</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nespokojny-dostupnost" value="nespokojny-dostupnost" name="nespokojny" required>
+                                <label for="nespokojny-dostupnost">Dostupnosť</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nespokojny-ine" value="nespokojny-ine" name="nespokojny" required>
+                                <label for="nespokojny-ine">Iné...</label>
+                                <input type="text" id="doplnte" name="nespokojny">
+                                <label for="doplnte"><i class="light-gray"> (Doplňte prosím)</i></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Odporučili by ste náš produkt známemu/rodinnému príslušníkovi a pod.?</h3>
+                            <div>
+                                <input type="radio" id="odporucili-ano" value="odporucili-ano" name="odporucili" required>
+                                <label for="odporucili-ano">Áno, určite by som odporučil/a</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="odporucili-mozno" value="odporucili-mozno" name="odporucili" required>
+                                <label for="odporucili-mozno">Možno by som odporučil/a, možno nie</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="odporucili-nie" value="odporucili-nie" name="odporucili" required>
+                                <label for="odporucili-nie">Nie, určite by som neodporučil/a</label>
+                            </div>
+                            <div>
+                                <p style="padding-top: 10px;">Mohli by ste stručne odôvodniť Vašu odpoveď? <i class="light-gray">(Nepovinné)</i></p>
+                                <input type="text" id="odovodnit" name="odovodnit" >
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="padding-top: 25px; font-size: 25px;" class="blue">Prečo by ste sa rozhodli nepoužívať náš produkt?</h3>
+                            <div>
+                                <input type="radio" id="nepotrebujem" value="nepotrebujem" name="nepouzivat" required>
+                                <label for="nepotrebujem">Nepotrebujem tento produkt</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="drahy" value="drahy" name="nepouzivat" required>
+                                <label for="drahy">Produkt je veľmi drahý</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="konkurencny" value="konkurencny" name="nepouzivat" required>
+                                <label for="konkurencny">Som viac spokojný s konkurenčným produktom</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="nevyhovuje" value="nevyhovuje" name="nepouzivat" required>
+                                <label for="nevyhovuje">Jednoducho mi produkt nevyhovuje</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="ine" value="ine" name="nepouzivat" required>
+                                <label for="ine">Iné...</label>
+                                <input type="text" id="doplnte" name="nepouzivat">
+                                <label for="doplnte"><i class="light-gray"> (Doplňte prosím)</i></label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button" style="margin: 30px 0px 20px 0px">Odovzdať dotazník</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer class="black-background">
+            <br><br><br><br><br>
+        </footer>
+    </body>
+</html>

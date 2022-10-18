@@ -7,6 +7,7 @@
     text-decoration: none;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    transition: all 0.3s ease 0s;
 }
 
 :root {
@@ -102,7 +103,7 @@
     font-size: 72px;
     padding: 40px 10px 0px 10px;
     color:white;
-    transition: 0.3s ease;
+    /*transition: 0.3s ease;*/
 }
 .center h1:hover {
     color: var(--lightgray); 
@@ -112,6 +113,11 @@
     padding: 10px 10px 0px 10px;
 }
 
+
+.dotaznik-padding {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
 
 #top-button {
     display: none; /* Hidden by default */
@@ -142,7 +148,6 @@
 #projects {
     color: var(--background);
 }
-
 #projects h1 {
     font-size: 72px;
     padding-bottom: 8px;
@@ -210,9 +215,40 @@
 }
 #dotaznik h2 {
     padding-bottom: 4px;
+    font-size: 24px;
 }
 #dotaznik input{
     margin-bottom: 16px;
+}
+#dotaznik input[type=radio]{
+    margin: 0;
+    /*make it as card maybe*/
+}
+#dotaznik button[type=submit]:disabled{
+    display: none;
+}
+
+
+#dotaznik-typ {
+    display: block;
+}
+#dotaznik-kv {
+    display: none;
+}
+#dotaznik-n {
+    display: none;
+}
+#dotaznik-h {
+    display: none;
+}
+#dotaznik-b {
+    display: none;
+}
+#dotaznik-l {
+    display: none;
+}
+#dotaznik-alfa {
+    display: none;
 }
 
 
@@ -247,10 +283,13 @@ nav ul li {
     display: inline-block;
     padding: 0px 20px;
 }
-
+ 
+/*
 nav ul li a{
     transition: all 0.3s ease 0s;
 }
+*/
+
 
 nav ul li a:hover{
     color: var(--color1);
@@ -289,29 +328,24 @@ ul {
 
 button {
     cursor: pointer;
-    transition: 0.3s;
+    /*transition: 0.3s;*/
 }
-
+button[type=submit]{
+    color: var(--background);
+    background-color: white;
+    border: none;
+    padding: 4px;
+    /*transition: 0.3s;*/
+}
+button[type=submit]:hover{
+    background-color: var(--lightgray);
+}
 
 input[type=number]{
     border: none;
     color: black;
     padding: 4px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -374,14 +408,3 @@ input[type=number]{
         padding-bottom: 10px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

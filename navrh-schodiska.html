@@ -15,20 +15,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 
-        <!-- PyScript 
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <!-- PyScript
+            <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+            <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         -->
     </head>
     <body>
         <header>
             <nav>
-                <div>
+                <div><a href="index.html">
                     <img src="assets\logo.svg" alt="logo" class="logo">
                     <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
                     <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
                     <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                </div>
+                </a></div>
                 <ul>
                     <li><a href="index.html#home">Domov</a></li>
                     <li><a href="index.html#about">O mne</a></li>
@@ -51,16 +51,64 @@
             </a>
             <div id="top" style="background-image: var(--gradient); height:100vh;">
                 <h1 style="padding-bottom: 12px;">Návrh schodiska</h1>
+                <p style="color:black">Program je stále vo vývoji</p>
+                <p style="color:black">Ďakujem za pochopenie</p>
                 <div id="dotaznik">
-                    <h2>Konštrukčná výška</h2>
-                    <input type="number" id="kv" name="kv" placeholder="mm">
+                    <div id="dotaznik-typ">
+                        <h2 style="padding-bottom: 8px;">Typ schodiska </h2>
+                        <div class="dotaznik-padding">
+                            <div style="padding-bottom: -4px;">
+                                <input type="radio" id="jednoramenne" value="Jednoramenné" name="typ-schodiska" onclick="getTyp()">
+                                <label for="jednoramenne">Jednoramenné</label>
+                            </div>
+                            <div style="padding-bottom: -4px;">
+                                <input type="radio" id="dvojramenne" value="Dvojramenné" name="typ-schodiska" onclick="getTyp()">
+                                <label for="dvojramenne">Dvojramenné</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="dotaznik-kv">
+                        <h2>Konštrukčná výška</h2>
+                        <div class="dotaznik-padding">
+                            <input type="number" id="kv" name="kv" placeholder="mm">
+                            <button type="submit" id="kv-button" onclick="getKv()">Potvrdiť</button>
+                        </div>
+                    </div>
 
-                    <h2>Počet stupňov</h2>
-                    <h2>Výška stupňa</h2>
-                    <h2>Šírka stupňa</h2>
-
-                    <h2>Dĺžka ramena</h2>
-                    <h2>Sklon</h2>
+                    <div id="dotaznik-n">
+                        <h2>Počet stupňov</h2>
+                        <div class="dotaznik-padding">
+                            <p>n = KV ÷ 170</p>
+                            <p>&nbsp;&nbsp;&nbsp;= <span class="kv"></span> ÷ 170</p>
+                            <p>&nbsp;&nbsp;&nbsp;= <span class="n"></span></p>
+                            <p>&nbsp;</p>
+                            <p><strong>Počet stupňov môže byť: </strong></p>
+                            <div class="dotaznik-padding">
+                                <div style="padding-bottom: -4px;">
+                                    <input type="radio" id="n1" value="n1" name="n">
+                                    <label for="n1" id="n1-label">stupňov</label>
+                                </div>
+                                <div style="padding-bottom: -4px;">
+                                    <input type="radio" id="n2" value="n2" name="n">
+                                    <label for="n2" id="n2-label">stupňov</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dotaznik-h">
+                        <h2>Výška stupňa</h2>
+                    </div>
+                    <div id="dotaznik-b">
+                        <h2>Šírka stupňa</h2>
+                    </div>
+                    <div id="dotaznik-l">
+                        <h2>Dĺžka ramena</h2>
+                    </div>
+                    <div id="dotaznik-alfa">
+                        <h2>Sklon</h2>
+                    </div>
+                    
                 </div>
             </div>
         </main>
@@ -86,7 +134,7 @@
 
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {scrollFunction()};
-
+        
         function scrollFunction() {
             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
                 mybutton.style.display = "block";
@@ -95,4 +143,5 @@
             }
         }
     </script>
+    <script src="schodisko.js"></script>
 </html>
