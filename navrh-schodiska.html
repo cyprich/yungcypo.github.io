@@ -44,12 +44,10 @@
             </nav>
         </header>
         <main>
-            <a href="#top"> <!-- Top button -->
-                <button id="top-button" title="Go to top">
-                    <img src="assets\arrow.svg" alt="Top" width="40">
-                </button>
-            </a>
-            <div id="top" style="background-image: var(--gradient); height:100vh;">
+            <button id="top-button" title="Go to top" onclick="scrollToTop()"> <!-- Top button -->
+                <img src="assets\arrow.svg" alt="Top" width="40px">
+            </button>
+            <div id="top" style="background-image: var(--gradient); min-height:100vh;">
                 <h1 style="padding-bottom: 12px;">Návrh schodiska</h1>
                 <p style="color:black">Program je stále vo vývoji</p>
                 <p style="color:black">Ďakujem za pochopenie</p>
@@ -67,7 +65,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div id="dotaznik-kv">
                         <h2>Konštrukčná výška</h2>
                         <div class="dotaznik-padding">
@@ -75,22 +72,21 @@
                             <button type="submit" id="kv-button" onclick="getKv()">Potvrdiť</button>
                         </div>
                     </div>
-
                     <div id="dotaznik-n">
                         <h2>Počet stupňov</h2>
                         <div class="dotaznik-padding">
                             <p>n = KV ÷ 170</p>
-                            <p>&nbsp;&nbsp;&nbsp;= <span class="kv"></span> ÷ 170</p>
-                            <p>&nbsp;&nbsp;&nbsp;= <span class="n"></span></p>
+                            <p>n = <span class="kv"></span> ÷ 170</p>
+                            <p>n = <span class="kv/170"></span></p>
                             <p>&nbsp;</p>
                             <p><strong>Počet stupňov môže byť: </strong></p>
-                            <div class="dotaznik-padding">
+                            <div style="padding-left: 16px;">
                                 <div style="padding-bottom: -4px;">
-                                    <input type="radio" id="n1" value="n1" name="n">
+                                    <input type="radio" id="n1" value="n1" name="n" onclick="getH()">
                                     <label for="n1" id="n1-label">stupňov</label>
                                 </div>
                                 <div style="padding-bottom: -4px;">
-                                    <input type="radio" id="n2" value="n2" name="n">
+                                    <input type="radio" id="n2" value="n2" name="n" onclick="getH()">
                                     <label for="n2" id="n2-label">stupňov</label>
                                 </div>
                             </div>
@@ -98,17 +94,79 @@
                     </div>
                     <div id="dotaznik-h">
                         <h2>Výška stupňa</h2>
+                        <div class="dotaznik-padding">
+                            <p>h = KV ÷ n</p>
+                            <p>
+                                h = <span class="kv"></span>&nbsp;÷&nbsp;<span class="n"></span>
+                            </p>
+                            <p>h = <span class="h"></span><span> mm</span></p>
+                        </div>
                     </div>
                     <div id="dotaznik-b">
                         <h2>Šírka stupňa</h2>
+                        <div class="dotaznik-padding">
+                            <p>b = 630 - 2h</p>
+                            <p>b = 630 - 2×<span class="h"></span></p>
+                            <p>b = <span class="b"></span><span> mm</span></p>
+                        </div>
                     </div>
                     <div id="dotaznik-l">
                         <h2>Dĺžka ramena</h2>
+                        <div class="dotaznik-padding">
+                            <div id="dotaznik-l-jednoramenne">
+                                <p>L = (n - 1) × b</p>
+                                <p>L = (<span class="n"></span> - 1) × <span class="b"></span></p>
+                                <p>L = <span class="l"></span><span> mm</span></p>
+                            </div>
+                            <div id="dotaznik-l-dvojramenne">
+                                <p>L = (n ÷ 2 - 1) × b</p>
+                                <p>L = (<span class="n"></span> ÷ 2 - 1) × <span class="b"></span></p>
+                                <p>L = <span class="l"></span><span> mm</span></p>
+                            </div>
+                        </div> 
                     </div>
                     <div id="dotaznik-alfa">
                         <h2>Sklon</h2>
+                        <div class="dotaznik-padding">
+                            <p style="margin-top: -10px;">α = tg<sup>-1</sup>(h ÷ b)</p>
+                            <p style="margin-top: -4px">
+                                α = tg<sup>-1</sup>
+                                (<span class="h"></span> ÷ <span class="b"></span>)
+                            </p>
+                            <p>α ≈ <span class="alfa"></span><span>°</span></p>
+                        </div>
                     </div>
-                    
+                    <div id="dotaznik-h1">
+                        <h2>Podchodná výška</h2>
+                        <div class="dotaznik-padding">
+                            <div id="dotaznik-h1-vyhovuje">
+                                <p>h1 = 1500 + (750 ÷ cos(α)</p>
+                                <p>h1 = 1500 + (750 ÷ cos(<span class="alfa"></span>)</p>
+                                <p>h1 = <span class="h1"></span> mm > 2100 mm → Vyhovuje</p>
+                            </div>
+                            <div id="dotaznik-h1-nevyhovuje">
+                                <p>h1 = 1500 + (750 ÷ cos(α)</p>
+                                <p>h1 = 1500 + (750 ÷ cos(<span class="alfa"></span>)</p>
+                                <p style="color: black;">h1 = <span class="h1"></span> mm ≤ 2100 mm → Nevyhovuje</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dotaznik-h2">
+                        <h2>Priechodná výška</h2>
+                        <div class="dotaznik-padding">
+                            <div id="dotaznik-h2-vyhovuje">
+                                <p>h2 = 750 + 1500 × cos(α)</p>
+                                <p>h2 = 750 + 1500 × cos(<span class="alfa"></span>)</p>
+                                <p>h2 = <span class="h2"></span> mm > 1900 mm → Vyhovuje</p>
+                            </div>
+                            <div id="dotaznik-h2-nevyhovuje">
+                                <p>h2 = 750 + 1500 × cos(α)</p>
+                                <p>h2 = 750 + 1500 × cos(<span class="alfa"></span>)</p>
+                                <p style="color: black;">h2 = <span class="h2"></span> mm ≤ 1900 mm → Nevyhovuje</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div><button type="reset" id="resetbutton" onclick="reset()">Reset</button></div>
                 </div>
             </div>
         </main>
@@ -136,12 +194,13 @@
         window.onscroll = function() {scrollFunction()};
         
         function scrollFunction() {
-            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+            if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
             }
         }
     </script>
+    <script src="scrollToTop.js"></script>
     <script src="schodisko.js"></script>
 </html>

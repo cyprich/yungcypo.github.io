@@ -44,11 +44,9 @@
             </nav>
         </header>
         <main>
-            <a href="#home">
-                <button id="top-button" title="Go to top">
-                    <img src="assets\arrow.svg" alt="Top" width="40">
-                </button>
-            </a>
+            <button id="top-button" title="Go to top" onclick="scrollToTop()">
+                <img src="assets\arrow.svg" alt="Top" width="40">
+            </button>
             <div id="home" class="center gradient">
                 <div class="center">
                     <a href="#about">
@@ -67,7 +65,7 @@
             </div>
             <div id="about" class="gray-background">
                 <div style="width: 100%; height: 90px" class="gradient"></div>
-                O mne
+                <h1>O mne</h1>
             </div>
             <div id="projects" class="gradient">
                 <div style="width: 100%; height: 90px;" class="gray-background"></div> <!-- Navbar fix -->
@@ -85,7 +83,8 @@
                         <h2>Návrh schodiska</h2>
                         <p>Tento program Vám po zadaní údajov vypočíta potrebné údaje ku schodisku v stavebnom výkrese:</p>
                             <ul>
-                                <li>ideálna výška stupňa, šírka stupňa a počet stupňov</li>
+                                <li>ideálny počet stupňov</li>
+                                <li>ideálna výška a šírka stupňa</li>
                                 <li>sklon ramena</li>
                                 <li>podchodná a priechodná výška</li>
                             </ul>
@@ -108,7 +107,8 @@
             </div>
             <div id="contact" class="gray-background">
                 <div style="width: 100%; height: 90px" class="black-background"></div>
-                Kontakt
+                <h1>Kontakt</h1>
+                <p>Nekontaktuje ma pls <span style="font-size: 1em;">😭</span></p>
             </div>
         </main>
         <footer class="black-background">
@@ -142,4 +142,5 @@
             }
         }
     </script>
+    <script src="scrollToTop.js"></script>
 </html>
