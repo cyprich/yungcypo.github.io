@@ -28,6 +28,7 @@ function getTyp(){
             document.getElementById("jednoramenne").disabled = true;
             document.getElementById("dotaznik-kv").style.display = "inline";
     }
+    document.getElementById("kv").focus();
 }
 
 function getKv(){
@@ -82,21 +83,21 @@ function getH(){
     if (document.getElementById("n1").checked){
         document.getElementById("n2").disabled = true;
         n = n1;
-        h = Math.round(((kv/n) / 5) * 5);
+        h = kv/n;
+        h = Math.round((kv/n) / 5) * 5;
         b = 630 - 2 * h;
         l = (n - 1) * b;
         document.getElementById("dotaznik-l-jednoramenne").style.display = "inline";
     } if (document.getElementById("n2").checked){
         document.getElementById("n1").disabled = true;
         n = n2;
-        h = Math.round(((kv/n) / 5) * 5);
+        h = Math.round((kv/n) / 5) * 5;
         b = 630 - 2 * h;
         l = (n/2 - 1) * b;
         document.getElementById("dotaznik-l-dvojramenne").style.display = "inline";
-        
     }
     
-
+    
     alfa = Math.round(Math.atan(h/b) * 180/Math.PI);
     h1 = Math.round(1500 + (750/(Math.cos(alfa * (Math.PI/180)))));
     h2 = Math.round(750 + 1500 * Math.cos(alfa * (Math.PI/180)));
@@ -173,6 +174,8 @@ function reset(){
     document.getElementById("kv-button").disabled = false;
     document.getElementById("n1").checked = false;
     document.getElementById("n2").checked = false;
+    document.getElementById("n1").disabled = false;
+    document.getElementById("n2").disabled = false;
 
     // hide all unwanted elements
     document.getElementById("dotaznik-kv").style.display = "none";
