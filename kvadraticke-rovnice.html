@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of 'useful' stuff">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="kvadraticke-rovnice.css">
+        <link rel = "icon" href = "assets/favicon.ico" type = "image/x-icon">
+
+        <title>Cypo | Kvadratické rovnice</title>
+
+        <!-- Fonts -->
+        <!-- 1st 2 lines came with font but idk what its supposed to do -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+        <!-- PyScript 
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        -->
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div><a href="index.html">
+                    <img src="assets\logo.svg" alt="logo" class="logo">
+                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
+                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
+                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
+                </a></div>
+                <ul>
+                    <li><a href="index.html#home">Domov</a></li>
+                    <li><a href="index.html#about">O mne</a></li>
+                    <li><a href="index.html#projects">Projekty</a></li>
+                    <li><a href="index.html#contact">Kontakt</a></li>
+                </ul>
+                <div>
+                    <img src="assets\smile.svg" alt="smile" class="smile">
+                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
+                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
+                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
+                </div>
+            </nav>
+        </header>
+        <main>
+            <button id="top-button" title="Go to top" onclick="scrollToTop()">
+                <img src="assets\arrow.svg" alt="Top" width="40">
+            </button>
+            <div id="top" class="gradient" style="min-height: 100vh;">
+                <h1>Kvadratické rovnice</h1>
+                <img src="assets/kvadraticke-rovnice-vzorce.svg" alt="" width="200px">
+                <p>Program je vo vývoji</p>
+                <p>Ďakujem za pochopenie</p>
+            </div>
+        </main>
+        <footer class="black-background">
+            <div>
+                <p>Cypo's Website <span style="color: rgb(80, 80, 80);">v2</span></p>
+                <p>Created by Cypo</p>   
+                <p>2020 - 2022</p>
+            </div>
+            <div style="margin-right: 80px; text-align: right;">
+                <p>
+                    Zdrojový kód je sprístupnený na
+                    <span><a href="https://github.com/yungcypo/Website" target="_blank">GitHub</a></span>
+                </p>
+                <p>Akékoľvek širenie povolené len s písomným súhlasom</p>
+                <p>Všetky práva vyhradené</p>
+            </div>
+        </footer>
+    </body>
+    <script>
+        // Get the button:
+        let mybutton = document.getElementById("top-button");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+    </script>
+    <script src="scrollToTop.js"></script>
+</html>

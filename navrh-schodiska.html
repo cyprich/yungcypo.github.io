@@ -5,9 +5,10 @@
         <meta name="description" content="Website full of 'useful' stuff">
         <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="schodisko.css">
         <link rel = "icon" href = "assets/favicon.ico" type = "image/x-icon">
 
-        <title>Cypo's Website</title>
+        <title>Cypo | Návrh schodiska</title>
 
         <!-- Fonts -->
         <!-- 1st 2 lines came with font but idk what its supposed to do -->
@@ -203,4 +204,21 @@
     </script>
     <script src="scrollToTop.js"></script>
     <script src="schodisko.js"></script>
+    <script>
+        // Sumbit KV when enter is pressed
+        var input = document.getElementById("kv");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("kv-button").click();
+        }
+        });
+    </script>
+    <script>
+        // Alert when exiting, aka prevent from accidental exit
+        window.onbeforeunload = confirmExit;
+        function confirmExit() {
+            return;
+        }
+    </script>
 </html>

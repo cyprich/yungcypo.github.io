@@ -35,17 +35,6 @@
     background-image: var(--gradient)
 }
 
-.gradient-text {
-    background-color: red;
-    background-image: var(--gradient);
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-}
-
 .logo {
     height: 34px;
 }
@@ -113,11 +102,43 @@
     padding: 10px 10px 0px 10px;
 }
 
-
-.dotaznik-padding {
-    padding-left: 16px;
-    padding-bottom: 24px;
+.project {
+    min-height: 25vh;
+    padding: 24px;
 }
+
+.project h1 {
+    font-size: 64px;
+    padding-bottom: 8px;
+}
+.project h2 {
+    font-size: 32px;
+    padding-bottom: 8px;
+}
+.project h3 {
+    font-size: 24px;
+    padding-bottom: 8px;
+}
+.project div div {
+    width: 100%;
+}
+
+.project div {
+    padding-left: 16px;
+}
+.project ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.project button{
+    margin-top: 16px;
+    background-color: var(--background);
+}
+.project button:hover{
+    background-color: rgba(0, 0, 0, 0.33);
+}
+
+
 
 #top-button {
     display: none; /* Hidden by default */
@@ -142,139 +163,46 @@
 #home {
     height: 100vh;
 }
-#about {
-    height: 100vh;
+
+
+#about h1{
+    font-size: 56px;
 }
-#projects {
-    color: var(--background);
+#projects-title {
+    padding: 24px;
 }
-#projects h1 {
-    font-size: 72px;
+#projects-title p{
+    color: rgba(255,255,255, 0.8);
+}
+#projects-title h1{
+    font-size: 64px;
     padding-bottom: 8px;
 }
-#projects h2 {
+#projects-title h2{
     font-size: 32px;
     padding-bottom: 8px;
 }
-#projects h3 {
+#projects-title h3{
     font-size: 24px;
     padding-bottom: 8px;
 }
-
-#projects div div {
-    width: 100%;
-}
 #contact {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #navrh-schodiska {
-    background-color: rgba(0, 0, 0, 0.33);
-    height: fit-content;
-    padding: 24px;
-}
-#navrh-schodiska h2 {
-    padding-bottom: 12px;
-}
-#navrh-schodiska ul {
-    list-style-type:disc;
-    padding-left: 20px;
-}
-#navrh-schodiska button {
-    display: flex;
-    justify-content: left;
-    margin-top: 16px;
-    background-color: var(--background);
-}
-#navrh-schodiska button:hover {
-    background-color: var(--gray);
-}
-#navrh-schodiska a div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #vypocet-zatazenia {
-    background-color: rgba(0, 0, 0, 0.66);
-    height: 50vh;
-    padding: 24px;
+    background-color: rgba(0, 0, 0, 0.2);
 }
-
-#top {
-    margin-top: 90px;
-    padding: 24px;
+#kvadraticke-rovnice {
+    background-color: rgba(0, 0, 0, 0.3);
 }
-#top h1 {
-    font-size: 56px;
+#vypocet-odpisov {
+    background-color: rgba(0, 0, 0, 0.4);
 }
-
-#dotaznik {
-    padding: 8px 0px;
-}
-#dotaznik h2 {
-    padding-bottom: 4px;
-    font-size: 24px;
-}
-#dotaznik input{
-    margin-bottom: 16px;
-}
-#dotaznik input[type=radio]{
-    margin: 0;
-    /*make it as card maybe*/
-}
-#dotaznik button[type=submit]:disabled{
-    display: none;
-}
-
-
-#dotaznik-typ {
-    display: inline;
-}
-#dotaznik-kv {
-    display: none;
-}
-#dotaznik-n {
-    display: none;
-}
-#dotaznik-h {
-    display: none;
-}
-#dotaznik-b {
-    display: none;
-}
-#dotaznik-l {
-    display: none;
-}
-#dotaznik-l-jednoramenne {
-    display: none;
-}
-#dotaznik-l-dvojramenne {
-    display: none;
-}
-#dotaznik-alfa {
-    display: none;
-}
-#dotaznik-h1 {
-    display: none;
-}
-#dotaznik-h1-vyhovuje {
-    display: none;
-}
-#dotaznik-h1-nevyhovuje {
-    display: none;
-}
-#dotaznik-h2 {
-    display: none;
-}
-#dotaznik-h2-vyhovuje {
-    display: none;
-}
-#dotaznik-h2-nevyhovuje {
-    display: none;
-}
-
 
 
 
@@ -309,13 +237,6 @@ nav ul li {
     padding: 0px 20px;
 }
  
-/*
-nav ul li a{
-    transition: all 0.3s ease 0s;
-}
-*/
-
-
 nav ul li a:hover{
     color: var(--color1);
 }
@@ -360,6 +281,7 @@ button[type=submit]{
     color: var(--background);
     background-color: white;
     border: none;
+    border-width: 0px;
     padding: 4px;
     /*transition: 0.3s;*/
 }
@@ -390,7 +312,7 @@ input[type=number]{
 
 
 
-@media (main-width: 1000px) {
+@media (min-width: 1000px) {
     
 }
 
