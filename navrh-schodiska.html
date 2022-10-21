@@ -5,7 +5,7 @@
         <meta name="description" content="Website full of 'useful' stuff">
         <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
         <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="schodisko.css">
+        <link rel="stylesheet" href="navrh-schodiska.css">
         <link rel = "icon" href = "assets/favicon.ico" type = "image/x-icon">
 
         <title>Cypo | Návrh schodiska</title>
@@ -83,11 +83,11 @@
                             <p><strong>Počet stupňov môže byť: </strong></p>
                             <div style="padding-left: 16px;">
                                 <div style="padding-bottom: -4px;">
-                                    <input type="radio" id="n1" value="n1" name="n" onclick="getH()">
+                                    <input type="radio" id="n1" value="n1" name="n" onclick="getN()">
                                     <label for="n1" id="n1-label">stupňov</label>
                                 </div>
                                 <div style="padding-bottom: -4px;">
-                                    <input type="radio" id="n2" value="n2" name="n" onclick="getH()">
+                                    <input type="radio" id="n2" value="n2" name="n" onclick="getN()">
                                     <label for="n2" id="n2-label">stupňov</label>
                                 </div>
                             </div>
@@ -125,6 +125,50 @@
                                 <p>L = <span class="l"></span><span> mm</span></p>
                             </div>
                         </div> 
+                    </div>
+                    <div id="dotaznik-rameno">
+                        <h2>Šírka ramena</h2>
+                        <div class="dotaznik-padding">
+                            <div id="dotaznik-rameno1">
+                                <p>Šírka ramena v rodinnom dome = min. 900 mm</p>
+                                <p>Šírka ramena v bytovom dome a iných občianskych stavbách = min. 1200 mm</p>
+                                <div>
+                                    <input type="number" id="rameno" name="rameno" placeholder="mm">
+                                    <button type="submit" id="rameno-button" onclick="getRameno()">Potvrdiť</button>
+                                </div>
+                            </div>
+                            <p id="dotaznik-rameno2">Šírka ramena = <span class="rameno"></span> mm</p>
+                        </div>
+                    </div>
+                    <div id="dotaznik-podesta">
+                        <h2>Šírka podesty</h2>
+                        <table class="dotaznik-padding">
+                            <tr>
+                                <td>Šírka podesty = </td>
+                                <td>&nbsp;min. šírka ramena + 100</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;min. <span class="rameno"></span> + 100</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;min. <span class="podesta"></span> mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="dotaznik-medzipodesta">
+                        <h2>Šírka medzipodesty</h2>
+                        <table class="dotaznik-padding">
+                            <tr>
+                                <td>Šírka medzipodesty = </td>
+                                <td>&nbsp;min. šírka ramena</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;min. <span class="rameno"></span> mm</td>
+                            </tr>
+                        </table>
                     </div>
                     <div id="dotaznik-alfa">
                         <h2>Sklon</h2>
@@ -167,7 +211,95 @@
                             </div>
                         </div>
                     </div>
-                    <div><button type="reset" id="resetbutton" onclick="reset()">Reset</button></div>
+                    <div>
+                        <button type="reset" id="resetbutton" onclick="reset()">Reset</button>
+                        <button id="printbutton" onclick="printpage(1)">Tlačiť</button>
+                    </div>
+                    <div>
+                        <input type="text" id="nadpis" name="nadpis" placeholder="Zadajte nadpis" maxlength="44">
+                        <button id="nadpis-button" type="submit" onclick="printpage(2)">Potvrdiť</button>
+                    </div>
+                </div>
+            </div>
+            <div id="print">
+                <h2 id="printnadpis" class="print-element">Návrh schodiska</h2>              
+                <p class="print-element">KV = <span class="kv"></span> mm</p></span>
+                <div class="print-element">
+                    <p>1. n = KV/170</p>
+                    <p><span class="white">1. </span>n = <span class="kv"></span>/170</p>
+                    <p><span class="white">1. </span>n = <span class="kv/170"></span> → <span class="n1"></span> STUPŇOV</p>
+                    <p><span class="white">1. n = <span class="kv/170"></span></span> → <span class="n2"></span> STUPŇOV</p>
+                    <p><span class="white">1. </span>n = <span class="n"></span> STUPŇOV</p>
+                </div>
+                <div class="print-element">
+                    <p>2. h = KV/n</p>
+                    <p><span class="white">2. </span>h = <span class="kv"></span>/<span class="n"></span></p>
+                    <p><span class="white">2. </span>h = <span class="h"></span> mm</p>
+                </div>
+                <div class="print-element">
+                    <p>3. b = 630 - 2h</p>
+                    <p><span class="white">3. </span>b = 630 - 2 × <span class="h"></span></p>
+                    <p><span class="white">3. </span>b = <span class="b"></span> mm</p>
+                </div>
+                <div class="print-jednoramenne print-element" style="margin: 0.5em 0em;">
+                    <p>
+                        4. 
+                        <span style="border: 1pt solid black; padding: 0.25em 0.5em;"><span class="n"></span> × <span class="h"></span> × <span class="b"></span></span>
+                        <span> V JEDNOM RAMENE</span>
+                    </p>
+                </div>
+                <div class="print-dvojramenne print-element" style="margin: 0.5em 0em;">
+                    <p>
+                        4. 
+                        <span style="border: 1pt solid black; padding: 0.25em 0.5em;"><span class="n0"></span> × <span class="h"></span> × <span class="b"></span></span>
+                        <span> V JEDNOM RAMENE</span>
+                    </p>
+                </div>
+                <div class="print-jednoramenne print-element">
+                    <p>5. L = (n - 1) × b</p>
+                    <p><span class="white">5. </span>L = (<span class="n"></span> - 1) × <span class="b"></span></p>
+                    <p><span class="white">5. </span>L = <span class="l"></span> mm</p>
+                </div>
+                <div class="print-dvojramenne print-element">
+                    <p>5. L = (n/2 - 1) × b</p>
+                    <p><span class="white">5. </span>L = (<span class="n"></span>/2 - 1) × <span class="b"></span></p>
+                    <p><span class="white">5. </span>L = <span class="l"></span> mm</p>
+                </div>
+                <div class="print-element">
+                    <p>6. ŠÍRKA RAMENA = <span class="rameno"></span> mm</p>
+                </div>
+                <div class="print-element">
+                    <p>7. ŠÍRKA → PODESTY = min. ŠÍRKA RAMENA + 100</p>
+                    <p><span class="white">7. ŠÍRKA → PODESTY = </span>min. <span class="rameno"></span> + 100</p>
+                    <p><span class="white">7. ŠÍRKA → PODESTY = </span>min. <span class="podesta"></span> mm</p>
+                    <p><span class="white">7. ŠÍRKA </span>→ MEDZIPODESTY = min. ŠÍRKA RAMENA</p>
+                    <p><span class="white">7. ŠÍRKA → MEDZIPODESTY = </span>min. <span class="medzipodesta"></span></p>
+                </div>
+                <div class="print-element">
+                    <p>8. α = tg<sup>-1</sup>(h/b)</p>
+                    <p><span class="white">8. </span> α = tg<sup>-1</sup>(<span class="h"></span>/<span class="b"></span>)</p>
+                    <p style="padding-top: 0.25em;"><span class="white">8. </span> α = <span class="alfatg"></span>°</p>
+                    <p style="padding-top: 0.25em;"><span class="white">8. </span> α = <span class="alfa"></span>°</p>
+                </div>
+                <div id="print-h1-vyhovuje" class="print-element">
+                    <p>9. h<sub>1</sub> = 1500 + (750/cos(α))</p>
+                    <p><span class="white">9. </span>h<sub>1</sub> = 1500 + (750/cos(<span class="alfa"></span>°))</p>
+                    <p><span class="white">9. </span>h<sub>1</sub> = <span class="h1"></span> mm > 2100 mm → VYHOVUJE</p>
+                </div>
+                <div id="print-h1-nevyhovuje" class="print-element">
+                    <p>9. h<sub>1</sub> = 1500 + (750/cos(α))</p>
+                    <p><span class="white">9. </span>h<sub>1</sub> = 1500 + (750/cos(<span class="alfa"></span>°))</p>
+                    <p><span class="white">9. </span>h<sub>1</sub> = <span class="h1"></span> mm ≤ 2100 mm → NEVYHOVUJE</p>
+                </div>
+                <div id="print-h2-vyhovuje" class="print-element">
+                    <p>10. h<sub>2</sub> = 750 + 1500 × cos(α)</p>
+                    <p><span class="white">10. </span>h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>°)</p>
+                    <p><span class="white">10. </span>h<sub>2</sub> = <span class="h2"></span> mm > 1900 mm → VYHOVUJE</p>
+                </div>
+                <div id="print-h2-nevyhovuje" class="print-element">
+                    <p>10. h<sub>2</sub> = 750 + 1500 × cos(α)</p>
+                    <p><span class="white">10. </span>h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>°)</p>
+                    <p><span class="white">10. </span>h<sub>2</sub> = <span class="h2"></span> mm ≤ 1900 mm → NEVYHOVUJE</p>
                 </div>
             </div>
         </main>
@@ -187,38 +319,38 @@
             </div>
         </footer>
     </body>
+    <script src="scrollToTop.js"></script>
+    <script src="navrh-schodiska.js"></script>
+    <script src="topbutton.js"></script>
     <script>
-        // Get the button:
-        let mybutton = document.getElementById("top-button");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-        
-        function scrollFunction() {
-            if (document.body.scrollTop > 64 || document.documentElement.scrollTop > 64) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
+        // Alert when exiting, aka prevent from accidental exit
+        window.onbeforeunload = confirmExit;
+        function confirmExit() {
+            return /*""*/;
         }
     </script>
-    <script src="scrollToTop.js"></script>
-    <script src="schodisko.js"></script>
     <script>
-        // Sumbit KV when enter is pressed
+        // Sumbit kv when enter key is pressed
         var input = document.getElementById("kv");
-        input.addEventListener("keypress", function(event) {
+        document.getElementById("kv").addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("kv-button").click();
         }
         });
-    </script>
-    <script>
-        // Alert when exiting, aka prevent from accidental exit
-        window.onbeforeunload = confirmExit;
-        function confirmExit() {
-            return;
+        // Submit rameno when enter key is pressed
+        document.getElementById("rameno").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("rameno-button").click();
         }
+        });
+        // Submit nadpis when enter key is pressed
+        document.getElementById("nadpis").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("nadpis-button").click();
+        }
+        });
     </script>
 </html>

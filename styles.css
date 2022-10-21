@@ -138,7 +138,9 @@
     background-color: rgba(0, 0, 0, 0.33);
 }
 
-
+#print {
+    display: none;
+}
 
 #top-button {
     display: none; /* Hidden by default */
@@ -278,15 +280,17 @@ button {
     /*transition: 0.3s;*/
 }
 button[type=submit]{
-    color: var(--background);
-    background-color: white;
-    border: none;
-    border-width: 0px;
-    padding: 4px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    padding: 4px 8px;
+    border-radius: 4px;
     /*transition: 0.3s;*/
 }
 button[type=submit]:hover{
-    background-color: var(--lightgray);
+    color: white;
+    border: 2px solid black;
+    background-color: rgba(0,0,0, 0.5);
 }
 button[type=reset]{
     color: var(--background);
@@ -303,7 +307,7 @@ button[type=reset]:hover{
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-input[type=number]{
+input{
     border: none;
     color: black;
     padding: 4px;

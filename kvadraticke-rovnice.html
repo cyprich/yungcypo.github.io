@@ -50,9 +50,82 @@
             </button>
             <div id="top" class="gradient" style="min-height: 100vh;">
                 <h1>Kvadratické rovnice</h1>
-                <img src="assets/kvadraticke-rovnice-vzorce.svg" alt="" width="200px">
-                <p>Program je vo vývoji</p>
-                <p>Ďakujem za pochopenie</p>
+                <div class="rovnice-padding">
+                </div>
+                
+                <div id="rovnica" class="rovnice-padding">
+                    <div>
+                        <h2>Zadajte nasledovné hodnoty</h2>
+                    </div>
+                    <div style="padding-left: 0.5em;">
+                        <div>
+                            <img src="assets/kvadraticke-rovnice-1.svg" alt="" height="24px">
+                        </div>
+                        <input type="number" id="a-input", placeholder="a">
+                        <input type="number" id="b-input", placeholder="b">
+                        <input type="number" id="c-input", placeholder="c">
+                        <button type="submit" id="abc-submit" onclick="getD()">Potvrdiť</button>
+                    </div>
+                </div>
+                <div id="d" class="rovnice-padding">
+                    <h2>Diskriminant</h2>
+                    <div style="padding-left: 0.5em;">
+                        <p><i>D = b<sup>2</sup> - 4ac</i></p>
+                        <p><i>
+                            D = (<span class="b"></span>)<sup>2</sup> - 4 × (<span class="a"></span>) × (<span class="c"></span>)
+                        </i></p>
+                        <p style="padding-top: 0.3em;"><i>D = <span class="d"></span></i></p>
+    
+                    </div>
+                </div>
+                <div id="x1x2" class="rovnice-padding">
+                    <div>
+                        <h2>Riešenie rovnice</h2>
+                    </div>
+                    <div style="padding-left: 0.5em;">
+                        <div>
+                            <img src="assets/kvadraticke-rovnice-3.svg" alt="" height="48px">
+                        </div>
+                        <p><i>x<sub>1</sub> = -b + √D / 2a</i></p>
+                        <p><i>
+                            x<sub>1</sub> = -(<span class="b"></span>) + √<span class="d"></span> / 2 × (<span class="a"></span>)
+                        </i></p>
+                        <p style="padding-bottom: 0.25em;"><i>x<sub>1</sub> = <span class="x1"></span></i></p>
+                        <p><i>x<sub>2</sub> = -b - √D / 2a</i></p>
+                        <p><i>
+                            x<sub>2</sub> = -(<span class="b"></span>) - √<span class="d"></span> / 2 × (<span class="a"></span>)
+                        </i></p>
+                        <p><i>x<sub>2</sub> = <span class="x2"></span></i></p>
+                        <p style="font-size: 1.5em;">K{<span class="x1" style="font-size: 1em;"></span>; <span class="x2" style="font-size: 1em;"></span>}</p>
+                    </div>
+                </div>
+                <div id="x1" class="rovnice-padding">
+                    <div>
+                        <h2>Riešenie rovnice</h2>
+                    </div>
+                    <div style="padding-left: 0.5em;">
+                        <div>
+                            <img src="assets/kvadraticke-rovnice-3.svg" alt="" height="48px">
+                        </div>
+                        <p><i>x<sub>1,2</sub> = -b + √D / 2a</i></p>
+                        <p><i>
+                            x<sub>1,2</sub> = -(<span class="b"></span>) + √<span class="d"></span> / 2 × (<span class="a"></span>)
+                        </i></p>
+                        <p style="padding-bottom: 0.25em;"><i>x<sub>1,2</sub> = <span class="x1"></span></i></p>
+                        <p style="font-size: 1.5em;">K{<span class="x1" style="font-size: 1em;"></span>}</p>
+                    </div>
+                </div>
+                <div id="x0" class="rovnice-padding">
+                    <div>
+                        <h2>Riešenie rovnice</h2>
+                    </div>
+                    <div>
+                        <p>Rovnica nemá žiaden koreň, pretože <i>D < 0</i></p>
+                    </div>
+                </div>
+                <div>
+                    <button type="reset" id="resetbutton" onclick="reset()">Reset</button>
+                </div>
             </div>
         </main>
         <footer class="black-background">
@@ -71,20 +144,28 @@
             </div>
         </footer>
     </body>
-    <script>
-        // Get the button:
-        let mybutton = document.getElementById("top-button");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-    </script>
+    <script src="topbutton.js"></script>
     <script src="scrollToTop.js"></script>
+    <script src="kvadraticke-rovnice.js"></script>
+    <script>
+        // Sumbit a,b,c when enter is pressed
+        document.getElementById("a-input").addEventListener("keypress", function(event){
+            if (event.key === "Enter" && document.getElementById("a-input").value != ""){
+                event.preventDefault();
+                document.getElementById("b-input").focus()
+            }
+        });
+        document.getElementById("b-input").addEventListener("keypress", function(event){
+            if (event.key === "Enter" && document.getElementById("b-input").value != ""){
+                event.preventDefault();
+                document.getElementById("c-input").focus()
+            }
+        });
+        document.getElementById("c-input").addEventListener("keypress", function(event){
+            if (event.key === "Enter" && document.getElementById("c-input").value != ""){
+                event.preventDefault();
+                document.getElementById("abc-submit").click();
+            }
+        });
+    </script>
 </html>

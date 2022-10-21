@@ -141,8 +141,7 @@
                             <p style="padding-bottom: 8px;"><i>ax<sup>2</sup> + bx + c = 0</i></p>
                             <p style="padding-bottom: 4px;">Po zadaní potrebných údajov Vám program vypočíta nasledovné:</p>
                             <ul>
-                                <li>Koreň rovnice <i>D</i></li>
-                                <li>Počet riešení rovnice</li>
+                                <li>Diskriminant <i>D</i></li>
                                 <li>Samotné riešenie rovnice</li>
                             </ul>
                             <button>  
@@ -198,20 +197,6 @@
             </div>
         </footer>
     </body>
-    <script>
-        // Get the button:
-        let mybutton = document.getElementById("top-button");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-    </script>
+    <script src="topbutton.js"></script>
     <script src="scrollToTop.js"></script>
 </html>
