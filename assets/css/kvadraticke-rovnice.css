@@ -1,0 +1,65 @@
+main {
+    min-height: 100vh;
+    background-image: var(--gradient);
+    padding: 2em;
+}
+h1 {
+    font-size: 2.4em; 
+    padding-bottom: 0.4em;
+}
+h2 {
+    font-size: 1.6em; 
+    padding-bottom: 0.2em; 
+    padding-left: 0.4em;
+}
+h3 {
+    font-size: 1.25em;
+    padding-top: 0.8em;
+    padding-left: 0.4em;
+}
+p {
+    font-size: 1.1em; 
+    padding-left: 0.8em; 
+}
+table {
+    font-size: 1.1em; 
+    padding-left: 1em; 
+}
+input {
+    width: 5em; 
+    margin: 0.5em 0.05em;
+}
+span {
+    font-size: 1.1em;
+}
+
+/* Make maths 'italic' kinda */
+main p {transform: skew(-15deg)}
+main table {transform: skew(-15deg)}
+main span {transform: skew(-15deg)}
+
+#abc-div{height: fit-content; padding-left: 1em;}
+#d-div{height: fit-content; padding-left: 1em; display: none;}
+#k2-div{height: fit-content; padding-left: 1em; display: none;}
+#k1-div{height: fit-content; padding-left: 1em; display: none;}
+#k0-div{height: fit-content; padding-left: 1em; display: none;}
+
+#abc-button {height: 2.5em; padding: 0.5em 1em;}
+
+/* Remove arrows from number input */
+input::-webkit-outer-spin-button {-webkit-appearance: none;margin: 0;} /* Chrome, Safari, Edge, Opera */
+input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;} /* Chrome, Safari, Edge, Opera */
+input[type=number] {-moz-appearance: textfield;} /* Firefox */
+
+button[type=reset]{
+    margin: 0.8em;
+    color: black;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 0.5em;
+    padding: 0.5em 2em;
+    cursor: pointer;
+}
+button[type=reset]:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}

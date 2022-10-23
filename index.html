@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="description" content="Website full of 'useful' stuff">
         <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
-        <link rel="stylesheet" href="styles.css">
-        <link rel = "icon" href = "assets/favicon.ico" type = "image/x-icon">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
 
         <title>Cypo's Website</title>
 
@@ -22,19 +22,23 @@
     </head>
     <body>
         <header>
-            <a id="logo" href="index.html" style="height: 50%;">
-                <img src="assets/logo.svg" alt="" height="100%" width="100%">
-            </a>
-            <span>
-                <a href="#home">Domov</a>
-                <a href="#about">O mne</a>
-                <a href="#projects">Projekty</a>
-                <a href="#contact">Kontakt</a>
+            <span style="width: 20%;">
+                <a id="logo" href="index.html" style="height: 100%;">
+                    <img src="assets/images/logo.svg" alt="" height="50%">
+                </a>
             </span>
-            <img src="assets/smile.svg" id="smile" alt="" height="50%" width="auto">
+            <span style="width: 60%;">
+                <a href="index.html#home">Domov</a>
+                <a href="index.html#about">O mne</a>
+                <a href="index.html#projects">Projekty</a>
+                <a href="index.html#contact">Kontakt</a>
+            </span>
+            <span style="width: 20%;">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%">
+            </span>
         </header>
         <button id="top-button" onclick="scrollToTop()">
-            <img src="assets\arrow.svg" alt="Top" width="100%">
+            <img src="assets\images\arrow.svg" alt="Top" width="100%">
         </button>
         <main>
             <div id="home">
@@ -127,5 +131,5 @@
             </div>
         </footer>
     </body>
-    <script src="topbutton.js"></script>
+    <script src="assets/js/topbutton.js"></script>
 </html>
