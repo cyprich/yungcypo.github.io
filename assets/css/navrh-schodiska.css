@@ -1,0 +1,44 @@
+main {
+    background-image: var(--gradient);
+    padding: 2em;
+}
+h1 {font-size: 2.4em; padding-bottom: 0.4em;}
+h2 {font-size: 1.6em; padding-bottom: 0.2em;}
+main p {font-size: 1.1em;}
+main table {font-size: 1.1em; transform: skew(-15deg);}
+span {font-size: 1em;}
+
+
+/* Radio button as kinda 'cards' */
+ul {list-style: none; padding-bottom: 1em;}
+li {display: inline-block; margin-right: 0.5em; margin-right: -0.25em;}
+input[type="radio"] {visibility:hidden;}
+label {
+    cursor: pointer; 
+    padding: 1em; 
+    border: 2px solid white;
+    border-radius: 0.5em;
+    background-color: rgba(0,0,0, 0.05);
+}
+input:hover + label {background-color: rgba(0,0,0, 0.125);}
+input:checked + label {background-color: rgba(0,0,0, 0.2);}
+input:disabled + label {color: rgba(255,255,255, 0.5); border: 2px solid rgba(255,255,255, 0.5); background-color: rgba(0,0,0, 0.1); }
+
+
+
+
+#div-typ-schodiska{padding-bottom: 1em;}
+#div-kv, #div-n, #div-h, #div-b, #div-l, #div-rameno, #div-podesta, #div-medzipodesta, #div-h1, #div-h2{
+    padding-bottom: 2em;
+}
+
+
+
+
+
+button[type="submit"]{
+    padding: 0.5em 1em;
+    height: 2.5em;
+}
+
+

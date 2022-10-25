@@ -17,26 +17,25 @@ h3 {
     padding-top: 0.8em;
     padding-left: 0.4em;
 }
-p {
+main p {
     font-size: 1.1em; 
     padding-left: 0.8em; 
+    transform: skew(-15deg);
 }
-table {
+main table {
     font-size: 1.1em; 
     padding-left: 1em; 
+    transform: skew(-15deg);
+}
+main span {
+    font-size: 1.1em;
+    transform: skew(-15deg);
 }
 input {
     width: 5em; 
     margin: 0.5em 0.05em;
 }
-span {
-    font-size: 1.1em;
-}
 
-/* Make maths 'italic' kinda */
-main p {transform: skew(-15deg)}
-main table {transform: skew(-15deg)}
-main span {transform: skew(-15deg)}
 
 #abc-div{height: fit-content; padding-left: 1em;}
 #d-div{height: fit-content; padding-left: 1em; display: none;}
@@ -46,10 +45,7 @@ main span {transform: skew(-15deg)}
 
 #abc-button {height: 2.5em; padding: 0.5em 1em;}
 
-/* Remove arrows from number input */
-input::-webkit-outer-spin-button {-webkit-appearance: none;margin: 0;} /* Chrome, Safari, Edge, Opera */
-input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;} /* Chrome, Safari, Edge, Opera */
-input[type=number] {-moz-appearance: textfield;} /* Firefox */
+
 
 button[type=reset]{
     margin: 0.8em;
