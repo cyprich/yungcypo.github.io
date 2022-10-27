@@ -25,19 +25,22 @@ function getD(){
         b = E("b").value;
         c = E("c").value;
         d = Math.pow(b, 2) - 4 * a * c
-        x1 = (-b + Math.sqrt(d)) / 2 * a
-        x2 = (-b - Math.sqrt(d)) / 2 * a
+        x1 = (-b + Math.sqrt(d)) / (2 * a)
+        x2 = (-b - Math.sqrt(d)) / (2 * a)
 
-        
-        
         
         const valuesToFill = [a, b, c, d, x1, x2];
         const classesToFill = [".a", ".b", ".c", ".d", ".x1", ".x2"];
+        
         /* Fill all classes with coresponding values */
         for(i = 0; i < classesToFill.length; i++){
             let cl = document.querySelectorAll(classesToFill[i])
             cl.forEach(element=>{
-                element.innerHTML = valuesToFill[i]
+                if (valuesToFill[i] < 0 && i < (classesToFill.length - 2)){  /* Add () around negative number (instead of x1, x2, bacause thats not needes) */
+                    element.innerHTML = "(" + valuesToFill[i] + ")"
+                } else{
+                    element.innerHTML = valuesToFill[i]
+                }
             })
         }
         

@@ -13,9 +13,9 @@ h2 {
     padding-left: 0.4em;
 }
 h3 {
-    font-size: 1.25em;
+    font-size: 1.4em;
     padding-top: 0.8em;
-    padding-left: 0.4em;
+    padding-left: 0.6em;
 }
 main p {
     font-size: 1.1em; 
@@ -28,7 +28,7 @@ main table {
     transform: skew(-15deg);
 }
 main span {
-    font-size: 1.1em;
+    font-size: 1em;
     transform: skew(-15deg);
 }
 input {

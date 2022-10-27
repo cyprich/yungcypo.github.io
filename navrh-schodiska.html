@@ -48,11 +48,11 @@
                     <h2>Typ schodiska</h2>
                     <ul>
                         <li>
-                            <input type="radio" name="typ-schodiska" id="jednoramenne" onclick="getKV()">
+                            <input type="radio" name="typ-schodiska" id="jednoramenne" onclick="stage1()">
                             <label for="jednoramenne">Jednoramenné</label>
                         </li>
                         <li>
-                            <input type="radio" name="typ-schodiska" id="dvojramenne" onclick="getKV()">
+                            <input type="radio" name="typ-schodiska" id="dvojramenne" onclick="stage1()">
                             <label for="dvojramenne">Dvojramenné</label>
                         </li>
                     </ul>
@@ -61,12 +61,12 @@
                     <h2>Konštrukčná výška</h2>
                     <div style="margin-left: 1em; margin-bottom: 1em;">
                         <input type="number" id="kv" placeholder="Konštrukčná výška [mm]">
-                        <button type="submit" id="kv-button" onclick="getN()">Potvrdiť</button>
+                        <button type="submit" id="kv-button" onclick="stage2()">Potvrdiť</button>
                     </div>
                 </div>
                 <div id="div-n">
                     <h2>Počet stupňov</h2>
-                    <div style="margin-left: 1em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">n =&nbsp;</td>
@@ -94,11 +94,12 @@
                         <h3 style="margin-top: 1em;">Počet stupňov môže byť</h3>
                             <ul>
                                 <li>
-                                    <input type="radio" name="n" id="n1">
+                                    <input type="radio" name="n" id="n1" onclick="stage3()">
                                     <label for="n1" class="n1">1</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="n" id="n2">
+                                    
+                                    <input type="radio" name="n" id="n2" onclick="stage3()">
                                     <label for="n2" class="n2">2</label>
                                 </li>
                             </ul>
@@ -106,7 +107,7 @@
                 </div>
                 <div id="div-h">
                     <h2>Výška stupňa</h2>
-                    <div style="margin-left: 1em">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">h =&nbsp;</td>
@@ -119,7 +120,7 @@
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">h =&nbsp;</td>
-                                <td style="border-bottom: solid 1px; text-align: center;">KV</td>
+                                <td style="border-bottom: solid 1px; text-align: center;" class="kv"></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center;"><span class="n"></span></td>
@@ -128,14 +129,14 @@
                         <table style="padding-top: 0.5em;">
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">h =&nbsp;</td>
-                                <td style="border-bottom: solid 1px; text-align: center;" class="h"></td>
+                                <td style="text-align: center;"><span class="h"></span> mm</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div id="div-b">
                     <h2>Šírka stupňa</h2>
-                    <div style="margin-left: 1em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">b =&nbsp;</td>
@@ -151,37 +152,57 @@
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">b =&nbsp;</td>
-                                <td style="text-align: center;" class="b"></td>
+                                <td style="text-align: center;"><span class="b"></span> mm</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div id="div-l">
                     <h2>Dĺžka ramena</h2>
-                    <div id="dotaznik-l-dvojramenne">
-                        <div style="margin-left: 1em;">
+                    <div id="div-l-jednoramenne">
+                        <div class="div-margin">
                             <table>
                                 <tr>
-                                    <td style="vertical-align: middle;" rowspan="2">L =&nbsp;</td>
-                                    <td style="border-bottom: solid 1px; text-align: center;">KV</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">n</td>
+                                    <td style="vertical-align: middle;" rowspan="2">L = (n-1) × b</td>
                                 </tr>
                             </table>
                             <table>
                                 <tr>
-                                    <td style="vertical-align: middle;" rowspan="2">L =&nbsp;</td>
-                                    <td style="border-bottom: solid 1px; text-align: center;" class="kv"></td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;" class="n"></td>
+                                    <td style="vertical-align: middle;" rowspan="2">L = (<span class="n"></span>-1) × <span class="b"></span></td>
                                 </tr>
                             </table>
-                            <table style="padding-top: 0.5em;">
-                                <tr style="padding-bottom: 0.5em;">
-                                    <td style="vertical-align: middle;" rowspan="2">L =&nbsp;</td>
-                                    <td style="border-bottom: solid 1px; text-align: center;" class="l"></td>
+                            <table>
+                                <tr>
+                                    <td style="vertical-align: middle;" rowspan="2">L = <span class="l"></span> mm</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="div-l-dvojramenne">
+                        <div class="div-margin">
+                            <table>
+                                <tr>
+                                    <td style="vertical-align: middle;" rowspan="2">L = <span style="font-size: 2em;">(</span></td>
+                                    <td style="border-bottom: solid 1px; text-align: center;">n</td>
+                                    <td style="text-align: center;" rowspan="2">&nbsp;- 1<span style="font-size: 2em;">)</span> × b</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td style="vertical-align: middle;" rowspan="2">L = <span style="font-size: 2em;">(</span></td>
+                                    <td style="border-bottom: solid 1px; text-align: center;" class="n"></td>
+                                    <td style="text-align: center;" rowspan="2"> - 1<span style="font-size: 2em;">)</span> × <span class="b"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                </tr>
+                            </table>
+                            <table style="padding-top: 0.75em;">
+                                <tr>
+                                    <td style="vertical-align: middle;" rowspan="2">L = <span class="l"></span> mm</td>
                                 </tr>
                             </table>
                         </div>
@@ -189,40 +210,46 @@
                 </div>
                 <div id="div-rameno">
                     <h2>Šírka ramena</h2>
-                    <div style="margin-left: 1em;">
-                        <p>Šírka ramena v rodinnom dome = min. 900mm</p>
-                        <p>Šírka ramena v bytovom dome alebo iných občianskych stavbách = min. 1200mm</p>
-                        <h3 style="margin: 0.5em 0em 0.5em -0.5em">Zadajte šírku ramena</h3>
-                        <input type="number" name="rameno" id="rameno" placeholder="Šírka ramena [mm]">
-                        <button type="submit" id="rameno-button">Potvrdiť</button>
+                    <div class="div-margin">
+                        <div id="rameno1">
+                            <p>Šírka ramena v rodinnom dome = min. 900mm</p>
+                            <p>Šírka ramena v bytovom dome alebo iných občianskych stavbách = min. 1200mm</p>
+                            <h3 style="margin: 0.5em 0em 0.5em -0.5em">Zadajte šírku ramena</h3>
+                            <input type="number" name="rameno" id="rameno" placeholder="Šírka ramena [mm]">
+                            <button type="submit" id="rameno-button" onclick="stage4()">Potvrdiť</button>
+                        </div>
+                        <div id="rameno2">
+                            <table>
+                                <tr>
+                                    <td style="vertical-align: middle;">Šírka ramena = <span class="rameno"></span> mm</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div id="div-podesta">
                     <h2>Šírka podesty</h2>
-                    <div style="padding-left: 1em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
-                                <td style="vertical-align: middle;" rowspan="2">Šírka podesty =&nbsp;</td>
-                                <td style="text-align: center;">min. šírka ramena + 100</td>
+                                <td style="vertical-align: middle;">Šírka podesty = min. šírka ramena + 100</td>
                             </tr>
                         </table>
                         <table>
                             <tr>
-                                <td style="vertical-align: middle;" rowspan="2">Šírka podesty =&nbsp;</td>
-                                <td style="text-align: center;">min. <span class="rameno"></span> + 100</td>
+                                <td style="vertical-align: middle;" rowspan="2">Šírka podesty = min. <span class="rameno"></span> + 100</td>
                             </tr>
                         </table>
                         <table>
                             <tr>
-                                <td style="vertical-align: middle;" rowspan="2">Šírka podesty =&nbsp;</td>
-                                <td style="text-align: center;">min. <span class="podesta"></span></td>
+                                <td style="vertical-align: middle;" rowspan="2">Šírka podesty = min. <span class="podesta"></span> mm</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div id="div-medzipodesta">
                     <h2>Šírka medzipodesty</h2>
-                    <div style="padding-left: 1em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">Šírka medzipodesty =&nbsp;</td>
@@ -232,14 +259,14 @@
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">Šírka medzipodesty =&nbsp;</td>
-                                <td style="text-align: center;">min. <span class="rameno"></span></td>
+                                <td style="text-align: center;">min. <span class="rameno"></span> mm</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div id="div-alfa">
                     <h2>Sklon ramena</h2>
-                    <div style="margin-left: 1em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
@@ -263,14 +290,14 @@
                         <table style="padding-top: 0.5em;">
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">α = &nbsp;</td>
-                                <td style="text-align: center;"><span class="alfacca"></span> ≈ <span class="alfa"></span></td>
+                                <td style="text-align: center;"><span class="alfacca"></span> ≈ <span class="alfa"></span>°</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div id="div-h1">
                     <h2>Podchodná výška</h2>
-                    <div style="padding-left: 0.5em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">h<sub>1</sub> = 1500 + <span style="font-size: 2em;">(</span></td>
@@ -293,14 +320,15 @@
                         </table>
                         <table style="padding-top: 0.75em;">
                             <tr>
-                                <td style="vertical-align: middle;" rowspan="2">h<sub>1</sub> = <span class="h1"></span></td>
+                                <td style="vertical-align: middle;" id="h1-vyhovuje">h<sub>1</sub> = <span class="h1"></span> mm > 2100 mm → Vyhovuje</td>
+                                <td style="vertical-align: middle;" id="h1-nevyhovuje">h<sub>1</sub> = <span class="h1"></span> mm ≤ 2100 mm → Nevyhovuje</td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div id="div-h2">
                     <h2>Priechodná výška</h2>
-                    <div style="padding-left: 0.5em;">
+                    <div class="div-margin">
                         <table>
                             <tr>
                                 <td style="vertical-align: middle;" rowspan="2">h<sub>2</sub> = 750 + 1500 × cos(α)</td>
@@ -313,14 +341,15 @@
                         </table>
                         <table>
                             <tr>
-                                <td style="vertical-align: middle;" rowspan="2">h<sub>2</sub> = <span class="h2"></span></td>
+                                <td style="vertical-align: middle;" id="h2-vyhovuje">h<sub>2</sub> = <span class="h2"></span> mm > 1900 mm → Vyhovuje</td>
+                                <td style="vertical-align: middle;" id="h2-nevyhovuje">h<sub>2</sub> = <span class="h2"></span> mm ≤ 1900 mm → Nevyhovuje</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
-            <button type="reset" style="margin-top: 4em;">Reset</button>
-            <button type="submit">Tlačiť</button>
+            <button type="reset" id="reset-button" style="margin-top: 1em;" onclick="reset()">Reset</button>
+            <button type="submit" id="tlacit-button">Tlačiť</button>
         </main>
         <footer>
             <div>
@@ -335,15 +364,6 @@
     </body>
     <script src="assets/js/topbutton.js"></script>
     <script src="assets/js/navrh-schodiska.js"></script>
-    <script>
-        /* Event listeners - when "enter" is pressed, button will press itself */
-        document.getElementById("kv").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.getElementById("kv-button").click();
-            }
-        });
-    </script>
     <script>
         // Alert when exiting, aka prevent from accidental exit
         window.onbeforeunload = confirmExit;

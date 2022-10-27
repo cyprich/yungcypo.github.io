@@ -22,16 +22,15 @@ label {
 }
 input:hover + label {background-color: rgba(0,0,0, 0.125);}
 input:checked + label {background-color: rgba(0,0,0, 0.2);}
-input:disabled + label {color: rgba(255,255,255, 0.5); border: 2px solid rgba(255,255,255, 0.5); background-color: rgba(0,0,0, 0.1); }
+input:disabled + label {color: rgba(255,255,255, 0.5); border: 2px solid rgba(255,255,255, 0.5); background-color: rgba(0,0,0, 0.1);}
 
 
 
 
 #div-typ-schodiska{padding-bottom: 1em;}
-#div-kv, #div-n, #div-h, #div-b, #div-l, #div-rameno, #div-podesta, #div-medzipodesta, #div-h1, #div-h2{
-    padding-bottom: 2em;
+.div-margin {
+    margin: 0 0 2em 1em;
 }
-
 
 
 
