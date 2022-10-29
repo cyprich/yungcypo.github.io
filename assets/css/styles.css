@@ -82,6 +82,8 @@ header span a::after {
 header span a:hover::after{
     width: 100%;
 }
+#logo:hover::after{width: 0%;} /* Remove underline from logo */
+
 
 #smile {transition: transform 0.5s ease;}
 #smile:hover {transform: scale(1.1) rotate(360deg);}
@@ -131,13 +133,6 @@ header span a:hover::after{
 #vypocet-zatazenia {background-color: rgba(0,0,0, 0.2); padding: 2em;}
 #kvadraticke-rovnice {background-color: rgba(0,0,0, 0.3); padding: 2em;}
 #odpisy {background-color: rgba(0,0,0, 0.4); padding: 2em;}
-
-
-
-
-
-
-
 
 
 footer {
@@ -203,42 +198,6 @@ input[type=number] {-moz-appearance: textfield;} /* Firefox */
 input::-webkit-outer-spin-button {appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
 input::-webkit-inner-spin-button {appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
 input[type=number] {appearance: textfield;} /* Firefox */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #top-button {

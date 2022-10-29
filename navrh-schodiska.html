@@ -35,7 +35,7 @@
                 <a href="index.html#contact">Kontakt</a>
             </span>
             <span style="width: 20%;">
-                <img id="smile" src="assets/images/smile.svg" alt="" height="50%">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
             </span>
         </header>
         <button id="top-button" onclick="scrollToTop()">
@@ -221,7 +221,7 @@
                         <div id="rameno2">
                             <table>
                                 <tr>
-                                    <td >Šírka ramena = <span class="rameno"></span> mm</td>
+                                    <td>Šírka ramena = <span class="rameno"></span> mm</td>
                                 </tr>
                             </table>
                         </div>
@@ -232,7 +232,7 @@
                     <div class="div-margin">
                         <table>
                             <tr>
-                                <td >Šírka podesty = min. šírka ramena + 100</td>
+                                <td>Šírka podesty = min. šírka ramena + 100</td>
                             </tr>
                         </table>
                         <table>
@@ -269,9 +269,9 @@
                     <div class="div-margin">
                         <table>
                             <tr>
-                                <td  rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
+                                <td rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
                                 <td style="border-bottom: solid 1px; text-align: center;">h</td>
-                                <td  rowspan="2"><span style="font-size: 2em;">)</span></td>
+                                <td rowspan="2"><span style="font-size: 2em;">)</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center;">b</td>
@@ -279,9 +279,9 @@
                         </table>
                         <table>
                             <tr>
-                                <td  rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
+                                <td rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
                                 <td style="border-bottom: solid 1px; text-align: center;" class="h"></td>
-                                <td  rowspan="2"><span style="font-size: 2em;">)</span></td>
+                                <td rowspan="2"><span style="font-size: 2em;">)</span></td>
                             </tr>
                             <tr>
                                 <td style="text-align: center;" class="b"></td>
@@ -289,8 +289,8 @@
                         </table>
                         <table style="padding-top: 0.5em;">
                             <tr>
-                                <td  rowspan="2">α = &nbsp;</td>
-                                <td style="text-align: center;"><span class="alfacca"></span> ≈ <span class="alfa"></span>°</td>
+                                <td rowspan="2">α = &nbsp;</td>
+                                <td style="text-align: center;"><span class="alfacca"></span>° ≈ <span class="alfa"></span>°</td>
                             </tr>
                         </table>
                     </div>
@@ -315,7 +315,7 @@
                                 <td  rowspan="2"><span style="font-size: 2em;">)</span></td>
                             </tr>
                             <tr>
-                                <td style="text-align: center;">cos(<span class="alfa"></span>)</td>
+                                <td style="text-align: center;">cos(<span class="alfa"></span>°)</td>
                             </tr>
                         </table>
                         <table style="padding-top: 0.75em;">
@@ -336,7 +336,7 @@
                         </table>
                         <table>
                             <tr>
-                                <td  rowspan="2">h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>)</td>
+                                <td  rowspan="2">h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>°)</td>
                             </tr>
                         </table>
                         <table>
@@ -348,15 +348,23 @@
                     </div>
                 </div>
             </div>
-            <button type="reset" id="reset-button" style="margin-top: 1em;" onclick="reset()">Reset</button>
-            <button type="submit" id="tlacit-button" onclick="printpage(1)">Tlačiť</button>
+            <div>
+                <button type="reset" id="reset-button" style="margin-top: 0em;" onclick="reset()">Reset</button>
+                <button type="submit" id="tlacit-button" onclick="printpage(1)">Tlačiť</button>
+            </div>
+            <div id="div-nadpis">
+                <input type="text" id="nadpis" maxlength="40" placeholder="Zadajte nadpis*" style="margin-top: 1em;">
+                <button type="submit" id="nadpis-button" onclick="printpage(2)">Potvrdiť</button>
+                <p class="lighter" style="margin: 0.5em">*Nechajte prázdne pre vytvorenie dokumentu bez nadpisu</p>
+            </div>
         </main>
         <div id="print">
-            <h2 id="printnadpis" class="print-element"></h2>
-            <div 0 class="print-element">
+            <h2 id="printnadpis"></h2>
+            <p id="print-neuplne-vysledky">VÝSLEDKY SÚ NEÚPLNÉ, PRETOŽE VÝPOČET NEBOL DOKONČENÝ</p>
+            <div 0>
                 <p>KV = <span class="kv"></span> mm</p>
             </div>
-            <div 1 class="print-element">
+            <div 1>
                 <table>
                     <tr>
                         <td  rowspan="2">1. n =&nbsp;</td>
@@ -377,7 +385,7 @@
                 </table>
                 <table>
                     <tr>
-                        <td ><span class="white">1. </span>n = <span class="ncca"></span></td>
+                        <td><span class="white">1. </span>n = <span class="ncca"></span></td>
                         <td>→ <span class="n1"></span> stupňov</td>
                     </tr>
                     <tr>
@@ -387,11 +395,11 @@
                 </table>
                 <table>
                     <tr>
-                        <td ><span class="white">1. </span>n = <span class="n"></span> stupňov</td>
+                        <td><span class="white">1. </span>n = <span class="n"></span> stupňov</td>
                     </tr>
                 </table>
             </div>
-            <div 2 class="print-element">
+            <div 2>
                 <table>
                     <tr>
                         <td  rowspan="2">2. h =&nbsp;</td>
@@ -417,26 +425,187 @@
                     </tr>
                 </table>
             </div>
-            <div 3 class="print-element">
-                <p>3. b = 630 - 2h</p>
-                <p><span class="white">3.&nbsp;</span>b = 630 - 2 × <span class="h"></span></p>
-                <p><span class="white">3.&nbsp;</span>b = <span class="b"></span> mm</p>
+            <div 3>
+                <table>
+                    <tr>
+                        <td>3. b = 630 - 2h</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">3.&nbsp;</span>b = 630 - 2 × <span class="h"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">3.&nbsp;</span>b = <span class="b"></span> mm</td>
+                    </tr>
+                </table>
             </div>
-            <div 4 class="print-element" id="print-jednoramenne" style="margin-top: 0.5em;">
-                <p>
-                    4. <span style="padding: 0.25em; margin-right: 0.25em; border: 1px solid black">
-                        <span class="n"></span> × <span class="h"></span> × <span class="b"></span>
-                    </span> V JEDNOM RAMENE
-                </p>
+            <div 4 style="margin-top: 0.5em;">
+                <table><tr><td>
+                            4.&nbsp;<span style="padding: 0.25em; margin-right: 0.5em; border: 1px solid black">
+                                <span class="n0"></span> × <span class="h"></span> × <span class="b"></span>
+                            </span> V JEDNOM RAMENE
+                </td></tr></table>
             </div>
-            <div 4 class="print-element" id="print-dvojramenne" style="margin-top: 0.5em;">
-                <p>
-                    4. <span style="padding: 0.25em; margin-right: 0.25em; border: 1px solid black">
-                        <span class="n0"></span> × <span class="h"></span> × <span class="b"></span>
-                    </span> V JEDNOM RAMENE
-                </p>
+            <div 5 id="print-l-jednoramenne">
+                <table>
+                    <tr>
+                        <td rowspan="2">5. L = (n - 1) × b</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L = (<span class="n"></span> - 1) × <span class="b"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L = <span class="l"></span> mm</td>
+                    </tr>
+                </table>
             </div>
-            
+            <div 5 id="print-l-dvojramenne">
+                <table>
+                    <tr>
+                        <td rowspan="2">5. L =<span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">n</td>
+                        <td rowspan="2">- 1<span class="big">)</span> × b</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">2</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L =<span class="big">(</span></td>
+                        <td class="n" style="border-bottom: solid 1px; font-size: 0.8em;"></td>
+                        <td rowspan="2">- 1<span class="big">)</span> × <span class="b"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">2</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L = <span class="l"></span> mm</td>
+                    </tr>
+                </table>
+            </div>
+            <div 6>
+                <table>
+                    <tr>
+                        <td>6. ŠÍRKA → RAMENA = <span class="rameno"></span> mm</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA</span> → PODESTY = min. ŠIRKA RAMENA + 100</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA → PODESTY</span> = min. <span class="rameno"></span> + 100</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA → PODESTY</span> = min. <span class="podesta"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA</span> → MEDZIPODESTY = min. ŠÍRKA RAMENA</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA → MEDZIPODESTY </span> = min. <span class="medzipodesta"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div 7>
+                <table>
+                    <tr>
+                        <td rowspan="2">7. α = <span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">h</td>
+                        <td rowspan="2"><span class="big">)</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">b</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">7.</span> α = <span class="big">(</span></td>
+                        <td class="h" style="border-bottom: solid 1px; font-size: 0.8em;"></td>
+                        <td rowspan="2"><span class="big">)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="b" style="font-size: 0.8em;"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">7.</span> α = <span class="alfacca"></span>° ≈ <span class="alfa"></span>°</td>
+                    </tr>
+                </table>
+            </div>
+            <div 8 style="margin-top: 1cm; page-break-before: always">
+                <table>
+                    <tr>
+                        <td rowspan="2">8. h<sub>1</sub> =<span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">750</td>
+                        <td rowspan="2"><span class="big">)</span> × b</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">cos(α)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">8.</span> h<sub>1</sub> = <span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">750</td>
+                        <td rowspan="2"><span class="big">)</span> × <span class="b"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">cos(<span class="alfa"></span>°)</td>
+                    </tr>
+                </table>
+                <table id="print-h1-vyhovuje">
+                    <tr>
+                        <td rowspan="2"><span class="white">8.</span> h<sub>1</sub> = <span class="h1"></span> mm > 2100 mm → VYHOVUJE</td>
+                    </tr>
+                </table>
+                <table id="print-h1-nevyhovuje">
+                    <tr>
+                        <td rowspan="2"><span class="white">8.</span> h<sub>1</sub> = <span class="h1"></span> mm ≤ 2100 mm → NEVYHOVUJE</td>
+                    </tr>
+                </table>
+            </div>
+            <div 9>
+                <table>
+                    <tr>
+                        <td>9. h<sub>2</sub> = 750 + 1500 × cos(α)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">9.</span> h<sub>2</sub>= 750 + 1500 × cos(<span class="alfa"></span>)</td>
+                    </tr>
+                </table>
+                <table id="print-h2-vyhovuje">
+                    <tr>
+                        <td><span class="white">9.</span> h<sub>2</sub>= <span class="h2"></span> mm > 1900 mm → VYHOVUJE</td>
+                    </tr>
+                </table>
+                <table id="print-h2-nevyhovuje">
+                    <tr>
+                        <td><span class="white">9.</span> h<sub>2</sub>= <span class="h2"></span> mm ≤ 1900 mm → NEVYHOVUJE</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <footer>
             <div>
@@ -451,11 +620,6 @@
     </body>
     <script src="assets/js/topbutton.js"></script>
     <script src="assets/js/navrh-schodiska.js"></script>
-    <script>
-        // Alert when exiting, aka prevent from accidental exit
-        window.onbeforeunload = confirmExit;
-        function confirmExit() {
-            return /*""*/;
-        }
-    </script>
+    <script src="assets/js/smile.js"></script>
+
 </html>

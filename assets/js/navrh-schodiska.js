@@ -107,7 +107,6 @@ function stage3(){
         disable("n1");
         n = n2;
     }
-    n0 = n/2
     
     show("div-rameno");
     show("rameno1");
@@ -177,7 +176,7 @@ function stage4(){
         
         show("tlacit-button")
     }
-    print()
+    printpage()
 }
 
 
@@ -194,34 +193,57 @@ E("rameno").addEventListener("keypress", function(event){
         E("rameno-button").click();
     }
 })
+E("nadpis").addEventListener("keypress", function(event){
+    if (event.key === "Enter"){
+        event.preventDefault();
+        E("nadpis-button").click();
+    }
+})
 
 
-function print(){
-    console.log(h)
-    console.log(hcca)
+function printpage(stage){
+    hide("print-neuplne-vysledky")
+
     if(h == hcca){
         hide("hisnothcca")
     } else {
         hide("hishcca")
     }
+
+    if(E("jednoramenne").checked){
+        n0 = n;
+        hide("print-l-dvojramenne")
+    } else {
+        n0 = n/2;
+        hide("print-l-jednoramenne")
+    }
+    fillClasses(n0, ".n0");
+
+    if (h1 > 2100){
+        hide("print-h1-nevyhovuje")
+    } else {
+        hide("print-h1-vyhovuje")
+    }
+    if (h2 > 1900){
+        hide("print-h2-nevyhovuje")
+    } else {
+        hide("print-h2-vyhovuje")
+    }
+   
+    if(stage == 1){
+        show("div-nadpis");
+        E("nadpis").focus();
+    }
+    if(stage == 2){
+        printnadpis = E("nadpis").value
+        E("printnadpis").innerHTML = printnadpis.toUpperCase();
+        document.title = window.parent.document.title = printnadpis;
+        console.log("DO SOMETHING PLS");
+        window.print();
+        console.log("DO SOMETHING PLS 2");
+        document.title = window.parent.document.title = "Cypo | Návrh schodiska";
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function reset(){
     /* Scroll to top */
@@ -269,7 +291,18 @@ function reset(){
     hide("div-h2");
     hide("h2-vyhovuje");
     hide("h2-nevyhovuje");
-    hide("reset-button")
-    hide("tlacit-button")
+
+    hide("reset-button");
+    hide("tlacit-button");
+    hide("div-nadpis")
+
+    show("print-neuplne-vysledky")
 }
 reset();
+
+
+// Alert when exiting, aka prevent from accidental exit
+window.onbeforeunload = confirmExit;
+function confirmExit() {
+    return "";
+}
