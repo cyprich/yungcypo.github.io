@@ -33,11 +33,48 @@ input:disabled + label {color: rgba(255,255,255, 0.5); border: 2px solid rgba(25
 }
 
 
-
-
 button[type="submit"]{
     padding: 0.5em 1em;
     height: 2.5em;
 }
 
 
+#print{display: none;}
+
+@media print{
+    @page {margin: 0px;}
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-size: 16pt;
+        color: black;
+        font-family: Calibri, sans-serif;
+    }
+
+    header, footer, aside, form, main, … {display: none;}
+    body {margin: 1cm; font-size: 100%;}
+    #print {display: inline;}
+    #top-button{width: 0px; height: 0px;}
+
+
+
+    h2 {font-size: 1.5em;}
+    h2 span {font-size: 1em;}
+    h3 {font-size: 1.3em;}
+    h3 span {font-size: 1em;}
+
+    td {text-align: center; vertical-align: middle;}
+
+    .white{
+        color: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    .white span{
+        color: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .print-element {margin-bottom: 0.3em;}
+}
