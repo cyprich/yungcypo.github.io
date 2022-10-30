@@ -1,0 +1,53 @@
+:root {
+    --boder: 1px white solid;
+}
+
+main{background: var(--gradient); padding: 2em;}
+h1 {font-size: 2.4em; padding-bottom: 0.6em;}
+
+table{
+    width: 100%; border: var(--boder); 
+    border-collapse: collapse; 
+    text-align: center;
+}
+td{
+    border: var(--boder); 
+    padding: 1em;
+}
+
+thead, tbody, tfoot {
+    border-top: var(--boder);
+    border-bottom: var(--boder);
+}
+table input{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+tfoot tr td:nth-child(1){
+    text-align: left;
+}
+button{background-color: rgba(0, 0, 0, 0.25);}
+button:hover{background-color: rgba(0, 0, 0, 0.375);}
+button:active{background-color: rgba(0, 0, 0, 0.5);}
+
+#plusrow td {padding: 0; height: 1em;}
+#plusrow td button{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.znacka {
+    padding: 0.2em;
+    width: 1ex;
+}
+
+
+
+
+
+
+
