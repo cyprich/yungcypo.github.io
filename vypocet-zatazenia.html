@@ -85,21 +85,48 @@
                     </tr>
                 </tfoot>
             </table>
-            <hr style="border-color: black;">
-            <div class="aftertable">
-                <div>
-                    <p>Upraviť</p>
-                </div>
-                <div>
-                    <p>Uložiť/Nahrať</p>
-                </div>
-                <div>
-                    <p>Odstrániť</p>
-                </div>
-                <div>
-                    <p>Tlačiť</p>
-                </div>
-            </div>
+            <table id="aftertable">
+                <tr>
+                    <td>
+                        <p>Upraviť</p>
+                        <select name="at-edit-select" id="at-edit-select" onclick="atEdit(0)">
+                            <optgroup>
+                                <option value="0" selected>&hellip;Vyberte&hellip;</option>
+                            </optgroup>
+                            <optgroup>
+                                <option value="1" >Materiál</option>
+                                <option value="2">Hrúbka</option>
+                                <option value="3">Objemová tiaž</option>
+                            </optgroup>
+                            <optgroup>
+                                <option value="4">Súčiniteľ γ<sub>g</sub></option>
+                                <option value="5">Premenné zaťaženie q<sub>k</sub></option>
+                                <option value="6">Súčiniteľ γ<sub>q</sub></option>
+                            </optgroup>
+                            <optgroup>
+                                <option value="7">Typ prevádzky</option>
+                                <option value="0"></option>
+                            </optgroup>
+                        </select>
+                        
+                        <input type="number" id="at-edit-row" placeholder="č. riadku">
+                        <input type="text" id="at-edit-text" placeholder="Nová hodnota">
+                        <input type="number" id="at-edit-num" placeholder="Nová hodnota">
+                        <button id="at-edit-button" onclick="atEdit(1)">Potvrdiť</button>                        
+                    </td>
+                    <td>
+                        <p>Uložiť/Nahrať</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Odstrániť
+                    </td>
+                    <td>
+                        Tlačiť
+                    </td>
+                </tr>
+            </table>
         </main>
         <footer>
             <div>

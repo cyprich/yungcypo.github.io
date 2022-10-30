@@ -1,4 +1,4 @@
-var gk;
+var gk = 0;
 var yg = 1.35;
 var gd;
 var qk = 3;
@@ -7,6 +7,7 @@ var qd;
 var fck;
 var fcd;
 const t = TAG("tbody")[0]
+const tfoot = TAG("tfoot")[0]
 
 
 function ID(element){
@@ -20,15 +21,20 @@ function unfocus(){
     document.body.appendChild(temp);
     temp.focus();
     document.body.removeChild(temp);
-}    
-
+}  
+function show(element){
+    document.getElementById(element).style.display = "inline";
+}  
+function hide(element){
+    document.getElementById(element).style.display = "none";
+}
 
 
 
 function add(){
     if(ID("plus1").value !== "" && ID("plus2").value !== "" && ID("plus3").value !== ""){
-        var rowCount = TAG('tbody')[0].rows.length - 1
-        var row = t.insertRow(rowCount)
+        let rowCount = t.rows.length - 1
+        let row = t.insertRow(rowCount)
         for(i = 0; i < 7; i++){
             var col = row.insertCell()
             if(i == 0){
@@ -52,48 +58,9 @@ function add(){
                 col.colSpan = "2";
             }
         }
-
         gk = 0;
-        for(i = 0; i < rowCount + 1; i++){
-            if(t.children[i].children[2].innerHTML == "-"){
-                t.children[i].children[4].innerHTML = "-"
-            } else {
-                t.children[i].children[4].innerHTML = 
-                    t.children[i].children[1].innerHTML * t.children[i].children[2].innerHTML;
-            }
-
-            /*
-            console.log(t.children[i].children[4])
-            console.log(isNaN(t.children[i].children[4].innerHTML))
-            */
-
-            if(isNaN(t.children[i].children[4].innerHTML) == false){
-                gk += Number(t.children[i].children[4].innerHTML);
-            }
-
-
-
-
-
-        }
-        
-        ID("gk").innerHTML = gk;
-
-        
+        updatebody()       
         updatefooter();
-
-
-
-
-
-
-        
-
-
-
-
-
-
 
         ID("plus1").value = "";
         ID("plus2").value = "";
@@ -104,7 +71,7 @@ function add(){
 }
 
 
-
+/*
 function updateqk(){
     if(ID("qk-input").value !== ""){
         qk = Math.round(ID("qk-input").value * 1000) / 1000;
@@ -114,6 +81,7 @@ function updateqk(){
         unfocus()
     }
 }
+
 function updateyg(){
     if(ID("yg-input").value !== ""){
         yg = Math.round(ID("yg-input").value * 1000) / 1000;
@@ -123,6 +91,7 @@ function updateyg(){
         unfocus()
     }
 }
+
 function updateyq(){
     if(ID("yq-input").value !== ""){
         yq = Math.round(ID("yq-input").value * 1000) / 1000;
@@ -132,20 +101,114 @@ function updateyq(){
         unfocus()
     }
 }
-function updatefooter(){
-    fck = gk + qk;
-    ID("fck").innerHTML = fck;
+*/
 
-    gd = Math.round((gk * yg) * 1000) / 1000;
-    ID("gd").innerHTML = gd;
-    
-    qd = Math.round((qk * yq) * 1000) / 1000;
-    ID("qd").innerHTML = qd;
-    
-    fcd = gd + qd;
-    ID("fcd").innerHTML = fcd;
+function updatebody(){
+    let rowCount = t.rows.length - 1
+    for(i = 0; i < rowCount; i++){
+        if(t.rows[i].children[2].innerHTML == "-"){
+            t.rows[i].children[4].innerHTML = "-";
+        } else {
+            t.rows[i].children[4].innerHTML = t.rows[i].children[1].innerHTML * t.rows[i].children[2].innerHTML;
+            t.rows[i].children[4]
+        }
+        
+        /* Check if value NotANumber = false, then add it to gk */
+        if(isNaN(t.rows[i].children[4].innerHTML) == false){
+            gk += Number(t.rows[i].children[4].innerHTML);
+        }
+    }
+
+    ID("gk").innerHTML = Math.round(gk * 1000) / 1000;
+
+    updatefooter()
 }
 
+function updatefooter(){
+    yg = Number(ID("yg").innerHTML);
+    yq = Number(ID("yq").innerHTML);
+    qk = Number(ID("qk").innerHTML);
+
+    fck = Math.round((gk + qk) * 1000) / 1000;
+    ID("fck").innerHTML = fck.toFixed(3);
+
+    gd = Math.round((gk * yg) * 1000) / 1000;
+    ID("gd").innerHTML = gd.toFixed(3);
+    
+    qd = Math.round((qk * yq) * 1000) / 1000;
+    ID("qd").innerHTML = qd.toFixed(3);
+    
+    fcd = Math.round((gd + qd) * 1000) / 1000;
+    ID("fcd").innerHTML = fcd.toFixed(3);
+}
+
+
+function atEdit(stage){
+    let val = ID("at-edit-select").value
+    
+    hide("at-edit-row")
+    hide("at-edit-text")
+    hide("at-edit-num")
+    hide("at-edit-button")
+    
+    if(val == 1){
+        window.setTimeout(() => ID("at-edit-row").focus(), 0);
+        show("at-edit-row");
+        show("at-edit-text");
+        show("at-edit-button");
+        if(stage == 1 &&
+            ID("at-edit-row").value > 0 && 
+            ID("at-edit-row").value < t.rows.length && 
+            ID("at-edit-text").value != ""){
+                t.rows[ID("at-edit-row").value - 1].children[0].innerHTML = ID("at-edit-text").value
+                ID("at-edit-row").value = "";
+                ID("at-edit-text").value = "";
+        }
+    } else if (val == 2 || val == 3){
+        window.setTimeout(() => ID("at-edit-row").focus(), 0);
+        show("at-edit-row");
+        show("at-edit-num");
+        show("at-edit-button");
+        if(stage == 1 &&
+            ID("at-edit-row").value > 0 &&
+            ID("at-edit-row").value < t.rows.length &&
+            ID("at-edit-num").value != ""){
+                if(val == 2){
+                    t.rows[ID("at-edit-row").value - 1].children[1].innerHTML = ID("at-edit-num").value;
+                } else if(val == 3) {
+                    t.rows[ID("at-edit-row").value - 1].children[2].innerHTML = ID("at-edit-num").value;
+                }
+                ID("at-edit-row").value = "";
+                ID("at-edit-num").value = "";
+        }
+    } else if (val == 4 || val == 5 || val == 6){
+        window.setTimeout(() => ID("at-edit-row").focus(), 0);
+        show("at-edit-num");
+        show("at-edit-button");
+        if(stage == 1){
+            if(val == 4){
+                tfoot.rows[0].children[3].innerHTML = ID("at-edit-num").value;
+                ID("at-edit-num").value = "";
+            } else if (val == 5){
+                tfoot.rows[1].children[2].innerHTML = ID("at-edit-num").value;
+                ID("at-edit-num").value = "";
+            } else if (val == 6){
+                tfoot.rows[1].children[3].innerHTML = ID("at-edit-num").value;
+                ID("at-edit-num").value = "";
+            }
+        }
+    } else if (val == 7){
+        window.setTimeout(() => ID("at-edit-num").focus(), 0);
+        show("at-edit-text");
+        show("at-edit-button");
+        if(stage == 1){
+            tfoot.rows[1].children[0].innerHTML = ("Premenné zaťaženie q -" + ID("at-edit-text").value);
+            ID("at-edit-num").value = "";
+        }
+    }
+    
+    updatebody()
+} 
 
 function minusrow(){
     let row = ID("minusrow-input").value;
@@ -154,19 +217,6 @@ function minusrow(){
         ID("minusrow-input").value = "";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Event listeners */
@@ -187,6 +237,31 @@ ID("plus3").addEventListener("keypress", function(event){
     }
 });
 
+
+ID("at-edit-row").addEventListener("keypress", function(event){
+    if(event.key === "Enter" && ID("at-edit-row").value !== ""){
+        if(ID("at-edit-text").style.display == "inline"){
+            ID("at-edit-text").focus()
+        } else if (ID("at-edit-num").style.display == "inline"){
+            ID("at-edit-num").focus()
+        }
+    }
+})
+
+ID("at-edit-text").addEventListener("keypress", function(event){
+    if(event.key === "Enter" && ID("at-edit-text").value !== ""){
+        ID("at-edit-button").click();
+    }
+});
+ID("at-edit-num").addEventListener("keypress", function(event){
+    if(event.key === "Enter" && ID("at-edit-num").value !== ""){
+        ID("at-edit-button").click();
+    }
+})
+
+
+
+/*
 ID("qk-input").addEventListener("keypress", function(event){
     if (event.key === "Enter" && ID("qk-input").value !== ""){
         ID("qk-button").click();
@@ -208,12 +283,8 @@ ID("minusrow-input").addEventListener("keypress", function(event){
         ID("minusrow-button").click();
     }
 })
+*/
 
 
-
-
-
-
-
-
-
+/* Hide unwanted elements */
+atEdit()

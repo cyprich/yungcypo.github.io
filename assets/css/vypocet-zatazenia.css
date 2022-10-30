@@ -1,7 +1,4 @@
-:root {
-    --boder: 1px white solid;
-    --ATborder-radius: 1em; /* aftertable border radius */
-}
+:root {--boder: 1px white solid;}
 
 main{background: var(--gradient); padding: 2em;}
 h1 {font-size: 2.4em; padding-bottom: 0.6em;}
@@ -15,6 +12,7 @@ table{
     width: 100%; border: var(--boder); 
     border-collapse: collapse; 
     text-align: center;
+    margin-bottom: 3em;
 }
 td{
     border: var(--boder); 
@@ -51,28 +49,16 @@ button:active{background-color: rgba(0, 0, 0, 0.5);}
     width: 1ex;
 }
 
-.aftertable{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    margin: 1em;
-}
-.aftertable > div{
-    padding: 1em;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 1px white solid;
-    text-align: center;
-}
-.aftertable > div > div {
+
+#aftertable tr td {
+    border: 1px solid white;
     width: 50%;
     height: 100%;
+    
 }
-
-
-.aftertable > div:nth-child(1){border-top-left-radius: var(--ATborder-radius);}
-.aftertable > div:nth-child(2){border-top-right-radius: var(--ATborder-radius);}
-.aftertable > div:nth-child(3){border-bottom-left-radius: var(--ATborder-radius);}
-.aftertable > div:nth-child(4){border-bottom-right-radius: var(--ATborder-radius);}
+#aftertable input, #aftertable button{
+    margin-bottom: 0.5em;
+}
 
 
 
@@ -84,6 +70,7 @@ select{
     border: 1px solid white;
     border-radius: 0.25em;
     width: 100%;
+    transform: translateX(-0.5em);
 }
 select *{
     background-color: var(--color1);
