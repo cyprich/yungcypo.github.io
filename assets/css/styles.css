@@ -191,12 +191,12 @@ input:focus {outline:none; box-shadow: none;} /* Remove black 'border' */
 
 
 /* Remove arrows from number input */
-input::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
-input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
-input[type=number] {-moz-appearance: textfield;} /* Firefox */
 input::-webkit-outer-spin-button {appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
 input::-webkit-inner-spin-button {appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
+input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
 input[type=number] {appearance: textfield;} /* Firefox */
+input[type=number] {-moz-appearance: textfield;} /* Firefox */
 
 
 #top-button {

@@ -36,6 +36,18 @@ button[type="submit"]{
     padding: 0.5em 1em;
     height: 2.5em;
 }
+button[type=reset]{
+    margin-right: 0.4em;
+    color: black;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 0.5em;
+    padding: 0.5em 2em;
+    cursor: pointer;
+}
+button[type=reset]:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
 
 #print-button{
     height: 2em;

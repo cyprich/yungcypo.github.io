@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="assets/css/vypocet-zatazenia.css">
         <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
 
-        <title>Cypo's Website</title>
+        <title>Cypo | Výpočet zaťaženia</title>
 
         <!-- Fonts -->
         <!-- 1st 2 lines came with font but idk what its supposed to do -->
@@ -63,28 +63,71 @@
                         <td colspan="4">Stále zaťaženie g</td>
                         <td class="znacka">g<sub>k</sub></td>
                         <td id="gk"></td>
-                        <td>1.35</td>
+                        <td id="yg">1.35</td>
                         <td class="znacka">g<sub>d</sub></td>
                         <td id="gd"></td>
                     </tr>
                     <tr>
                         <td colspan="4">Premenné zaťaženie q - Reštaurácia</td>
                         <td class="znacka">q<sub>k</sub></td>
-                        <td id="qk"></td>
-                        <td>1.50</td>
+                        <td id="qk">3.000</td>
+                        <td id="yq">1.50</td>
                         <td class="znacka">q<sub>d</sub></td>
                         <td id="qd"></td>
                     </tr>
                     <tr>
                         <td colspan="4">Základná kombinácia - Celkové zaťaženie</td>
                         <td class="znacka">f<sub>ck</sub></td>
-                        <td id="fcd"></td>
+                        <td id="fck"></td>
                         <td>-</td>
                         <td class="znacka">f<sub>cd</sub></td>
                         <td id="fcd"></td>
                     </tr>
                 </tfoot>
             </table>
+            <hr>
+            <h2>Upraviť</h2>
+            <div class="aftertable">
+                <div>
+                    <div id="editcol-div">
+                        <select name="editcol-select" id="editcol-select">
+                            <option value="nazov-polozky">Názov položky</option>
+                            <option value="hrubka">Hrúbka</option>
+                            <option value="objemova-tiaz">Objemová tiaž</option>
+                        </select>
+                        <input type="text" id="editcol-input" placeholder="č. riadku">
+                        <input type="text" id="editcol-new" placeholder="Nová hodnota">
+                        <button>Upraviť hodnotu</button>
+                    </div>
+                    <button id="minusrow-button" onclick="minusrow()">
+                        <input type="number" id="minusrow-input" placeholder="č. riadku">
+                        <p>Odstrániť riadok</p>
+                    </button>
+                </div>
+                <div>
+                    <div class="inputdiv">
+                        <input type="number" id="qk-input" placeholder="qk">
+                        <button id="qk-button" onclick="updateqk()">Potvrdiť</button>
+                    </div>
+                    <div class="inputdiv">
+                        <input type="number" id="yg-input" placeholder="γg">
+                        <button id="yg-button" onclick="updateyg()">Potvrdiť</button>
+                    </div>
+                    <div class="inputdiv">
+                        <input type="number" id="yq-input" placeholder="γq">
+                        <button id="yq-button" onclick="updateyq()">Potvrdiť</button>
+                    </div>
+                    <hr style="border-top: 1px solid white; margin:1em -1em">
+                    <div id="last-buttons">
+                        <button id="reset-button">Reset</button>
+                        <button id="tlacit-button">Tlačiť</button>
+                        <button id="ulozit-button">Uložiť do súboru</button>
+                        <button id="nacitat-button">Načítať zo súboru</button>
+                    </div>
+                </div>
+            </div>
+                
+
         </main>
         <footer>
             <div>

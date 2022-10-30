@@ -4,11 +4,17 @@
 
 main{background: var(--gradient); padding: 2em;}
 h1 {font-size: 2.4em; padding-bottom: 0.6em;}
+hr{
+    display: block; height: 1px; border: 0;
+    margin: 3em 0.5em 2em 0.5em; 
+    border-top: 1px solid black;
+}
 
 table{
     width: 100%; border: var(--boder); 
     border-collapse: collapse; 
     text-align: center;
+    margin-bottom: 2em;
 }
 td{
     border: var(--boder); 
@@ -19,7 +25,7 @@ thead, tbody, tfoot {
     border-top: var(--boder);
     border-bottom: var(--boder);
 }
-table input{
+input{
     border: none;
     border-radius: 0;
     width: 100%;
@@ -46,8 +52,82 @@ button:active{background-color: rgba(0, 0, 0, 0.5);}
 }
 
 
+.aftertable{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+}
+.aftertable > div{
+    width: 100%;
+}
+.aftertable > div:nth-child(1){
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.aftertable > div:nth-child(1) button{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em ;
+}
+.aftertable > div:nth-child(1) input{
+    width: 100%;
+    border-radius: 0.25em;
+}
+.aftertable > div:nth-child(2){
+    border: 2px solid white;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em;
+}
 
 
+.inputdiv {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0, 0.05); 
+    padding: 0.5em;
+    margin: 0.5em;
+    gap: 0.5em;
+}
 
+select{
+    background-color: rgba(0,0,0, 0.1);
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 0.25em;
+    width: 100%;
+}
+select *{
+    background-color: var(--color1);
+}
 
+#minusrow-button{width: 100%;}
+#editcol-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 2px solid white;
+    border-radius: 0.5em;
+    background-color: rgba(0,0,0, 0.1);
+}
+#editcol-div button{
+    justify-content: center;
+    width: 100%;
+    border-width: 1px;
+    background-color: rgba(0,0,0, 0.1);
+}
+#editcol-div button:hover{background-color: rgba(0,0,0, 0.2);}
+#editcol-div button:active{background-color: rgba(0,0,0, 0.25);}
+
+#last-buttons{
+    display: flex;
+    gap: 0.5em;
+}
 
