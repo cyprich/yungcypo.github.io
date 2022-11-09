@@ -7,8 +7,8 @@ var x2;
 
 
 function E(element){return document.getElementById(element)}
-function show(element){document.getElementById(element).style.display = "inline"}
-function hide(element){document.getElementById(element).style.display = "none"}
+function show(element){try{document.getElementById(element).style.display = "inline"}catch{}}
+function hide(element){try{document.getElementById(element).style.display = "none"}catch{}}
 function unfocus(){
     var temp = document.createElement("input");
     document.body.appendChild(temp);
@@ -45,16 +45,37 @@ function getD(){
         }
         
         if (d > 0){
-            show("k2-div")
+            show("k2-div") 
+            hide("k1-div")
+            hide("k0-div")
         } else if (d == 0){
+            hide("k2-div")
             show("k1-div")
+            hide("k0-div")
         } else {
+            hide("k2-div")
+            hide("k1-div")
             show("k0-div")
         }
         show("d-div");
         show("k-div");
     }
 }
+
+function random(){
+    /* got values with python */
+    fetch("./assets/data/pekne-kvadraticke-rovnice.json")
+        .then(response => {
+            return response.json()
+        }).then(data => {
+            let rovnica = data[Math.floor(Math.random() * Object.keys(data).length)]
+            E("a").value = rovnica[0];
+            E("b").value = rovnica[1];
+            E("c").value = rovnica[2];
+            E("abc-button").click()
+    })
+}
+
 
 function reset(){
     hide("d-div")
@@ -92,3 +113,5 @@ E("c").addEventListener("keypress", function(event){
         }
     }
 );
+
+reset()
