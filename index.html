@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="description" content="Website full of 'useful' stuff">
         <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
-        <link rel="stylesheet" href="styles.css">
-        <link rel = "icon" href = "assets/favicon.ico" type = "image/x-icon">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
 
         <title>Cypo's Website</title>
 
@@ -22,181 +22,111 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div><a href="index.html">
-                    <img src="assets\logo.svg" alt="logo" class="logo">
-                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                </a></div>
-                <ul>
-                    <li><a href="#home">Domov</a></li>
-                    <li><a href="#about">O mne</a></li>
-                    <li><a href="#projects">Projekty</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                </ul>
-                <div>
-                    <img src="assets\smile.svg" alt="smile" class="smile">
-                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
-                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
-                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
-                </div>
-            </nav>
+            <span style="width: 20%;">
+                <a id="logo" href="index.html" style="height: 100%;">
+                    <img src="assets/images/logo.svg" alt="" height="50%">
+                </a>
+            </span>
+            <span style="width: 60%;">
+                <a href="index.html#home">Domov</a>
+                <a href="index.html#about">O mne</a>
+                <a href="index.html#projects">Projekty</a>
+                <a href="index.html#contact">Kontakt</a>
+            </span>
+            <span style="width: 20%;">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
         </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="assets\images\arrow.svg" alt="Top" width="100%">
+        </button>
         <main>
-            <button id="top-button" title="Go to top" onclick="scrollToTop()">
-                <img src="assets\arrow.svg" alt="Top" width="40">
-            </button>
-            <div id="home" class="center gradient">
-                <div class="center">
-                    <a href="#about">
-                        <h1>O mne</h1>
+            <div id="home">
+                <a href="#about">
+                    <h1>O mne</h1>
+                </a>
+                <a href="#projects" class="projects">
+                    <h1>Projekty</h1>
+                    <p>Schodisko</p>
+                    <p>Zaťaženie</p>
+                    <p>Kvadratické rovnice</p>
+                    <p>Odpisy</p>
+                </a>
+                <a href="#contact">
+                    <h1>Kontakt</h1>
+                </a>
+            </div>
+            <div id="about">
+                <h1>O mne</h1>
+            </div>
+            <div id="projects">
+                <h1 style="padding-top: 0.4em;">Projekty</h1>
+                <p class="lighter"">Tieto projekty slúžia najmä študentom ako pomôcka pri výpočtoch</p>
+                <p class="lighter"">Programy nie sú určené na profesionálne použitie</p>
+                <p class="lighter"">Autor nenesie zodpovednosť za prípadné škody</p>
+                <div id="navrh-schodiska" style="margin-top: 1em;">
+                    <h2>Návrh schodiska</h2>
+                    <p class="light">◦ Ideálny počet stupňov ◦</p>
+                    <p class="light">◦ Ideálna výška a šírka stupňa ◦</p>
+                    <p class="light">◦ Sklon ramena ◦</p>
+                    <p class="light">◦ Podchodná a priechodná výška ◦</p>
+                    <a href="navrh-schodiska.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
                     </a>
-                    <a href="#projects">
-                        <h1>Projekty</h1>
-                        <p style="color: rgba(255, 255, 255, 0.5)">Schodisko</p>
-                        <p style="color: rgba(255, 255, 255, 0.5)">Zaťaženie</p>
-                        <p style="color: rgba(255, 255, 255, 0.5)">Kvadraticné rovnice</p>
-                        <p style="color: rgba(255, 255, 255, 0.5)">Odpisy</p>
+                    <p class="light" style="font-size: 0.8em">Predmet: Konštrukčné cvičenia, staviteľstvo</p>
+                </div>
+                <div id="vypocet-zatazenia">
+                    <h2>Výpočet zaťaženia</h2>
+                    <p class="lighter">na strop alebo strechu</p>
+                    <p class="light">◦ Stále zaťaženie ◦</p>
+                    <p class="light">◦ Premenné zaťaženie ◦</p>
+                    <p class="light">◦ Celkové zaťaženie ◦</p>
+                    <p class="light">◦ Návrhovú hodnotu zaťaženia ◦</p>
+                    <a href="vypocet-zatazenia.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
                     </a>
-                    <a href="#contact">
-                        <h1>Kontakt</h1>
+                    <p class="light" style="font-size: 0.8em">Predmet: Stavebná mechanika, stavebné konštrukcie</p>
+                </div>
+                <div id="kvadraticke-rovnice">
+                    <h2>Kvadratické rovnice</h2>
+                    <p><i></i></p>
+                    <p class="light">◦ Diskriminant <i class="light">D</i> ◦</p>
+                    <p class="light">◦ Samotné riešenie rovnice ◦</p>
+                    <a href="kvadraticke-rovnice.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
                     </a>
+                    <p class="light" style="font-size: 0.8em">Predmet: Matematika</p>
+                </div>
+                <div id="odpisy" style="display: none;">
+                    <h2 style="padding-bottom: 0.3em;">Odpisy</h2>
+                    <p class="lighter">Výpočet odpisov dlhodobého majetku</p>
+                    <p class="light">◦ Ročné odpisy majetku ◦</p>
+                    <p class="light">◦ Oprávky majetku ◦</p>
+                    <p class="light">◦ Zostatkovú cenu majeku ◦</p>
+                    <a href="odpisy.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
+                    </a>
+                    <p class="light" style="font-size: 0.8em">Predmet: Ekonomika, účtovníctvo</p>
                 </div>
             </div>
-            <div id="about" class="gray-background">
-                <div style="width: 100%; height: 90px" class="gradient"></div> <!-- Navbar fix -->
-                <div style="width: 100%; height: 100%;">
-                    <div style="padding: 24px 24px 0px 24px">
-                        <h1>O mne</h1>
-                        <div style="display: flex;">
-                            <div></div>
-                            
-                            <iframe 
-                                style="border-radius:12px; width: 25%;" 
-                                src="https://open.spotify.com/embed/playlist/787dFEifKIBwyuQSOyhbzF?utm_source=generator&theme=0" 
-                                width="100%" 
-                                height="380px" 
-                                frameBorder="0" 
-                                allowfullscreen="" 
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                                target="_blank"
-                                loading="lazy">
-                            </iframe>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="projects" class="gradient">
-                <div style="width: 100%; height: 90px;" class="gray-background"></div> <!-- Navbar fix -->
-                <div style="width: 100%; height: 100%;">
-                    <div id="projects-title" style="padding: 24px;" >
-                        <h1>Projekty</h1>
-                        <h3>Projekty, na ktorých pracujem</h3>
-                        <div style="padding-left: 8px;">
-                            <p>Tieto projekty slúžia najmä študentom ako pomôcka pri výpočtoch</p>
-                            <p>Programy nie sú určené na profesionáne použitie</p>
-                            <p>Autor nenesie zodpovednosť za prípadné škody</p>
-                        </div>
-                    </div>
-                    <div id="navrh-schodiska" class="project">
-                        <h2>Návrh schodiska</h2>
-                        <div>
-                            <p style="padding-bottom: 4px;">Tento program Vám po zadaní údajov vypočíta potrebné údaje ku schodisku:</p>
-                            <ul>
-                                <li>ideálny počet stupňov</li>
-                                <li>ideálna výška a šírka stupňa</li>
-                                <li>sklon ramena</li>
-                                <li>podchodná a priechodná výška</li>
-                            </ul>
-                            <button>  
-                                <a href="navrh-schodiska.html">
-                                    <p style="padding: 20px 36px;">ZAČAŤ</p>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="vypocet-zatazenia" class="project">
-                       <h2>Výpočet zaťaženia <span style="color: rgba(255, 255, 255, 0.66)">na strop alebo strechu</span></h2>
-                       <div>
-                            <p style="padding-bottom: 4px;">Tento program Vám po zadaní údajov vypočíta:</p>
-                            <ul>
-                                <li>Stále zaťaženie</li>
-                                <li>Premenné zaťaženie</li>
-                                <li>Celkové zaťaženie</li>
-                                <li>Návrhovú hodnotu zaťaženia</li>
-                            </ul>
-                            <button>  
-                                <a href="vypocet-zatazenia.html">
-                                    <p style="padding: 20px 36px;">ZAČAŤ</p>
-                                </a>
-                            </button>
-
-                       </div>
-                    </div>
-                    <div id="kvadraticke-rovnice" class="project">
-                        <h2>Kvadratické rovnice</h2>
-                        <div>
-                            <p style="padding-bottom: 8px;"><i>ax<sup>2</sup> + bx + c = 0</i></p>
-                            <p style="padding-bottom: 4px;">Po zadaní potrebných údajov Vám program vypočíta nasledovné:</p>
-                            <ul>
-                                <li>Diskriminant <i>D</i></li>
-                                <li>Samotné riešenie rovnice</li>
-                            </ul>
-                            <button>  
-                                <a href="kvadraticke-rovnice.html">
-                                    <p style="padding: 20px 36px;">ZAČAŤ</p>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="vypocet-odpisov" class="project">
-                        <h2>Výpočet odpisov</h2>
-                        <div>
-                            <p style="padding-bottom: 4px;" >Program Vám po zadaní údajov vypočíta:</p>
-                            <ul>
-                                <li>Ročné odpisy majetku</li>
-                                <li>Oprávky majetku</li>
-                                <li style="padding-bottom: 4px;">Zostatkovú cenu majetku</li>
-                            </ul>
-                            <p>Je možné zvoliť odpisovú skupinu a typ odpisovania</p>
-                            <button>  
-                                <a href="vypocet-odpisov.html">
-                                    <p style="padding: 20px 36px;">ZAČAŤ</p>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="contact" class="gray-background">
-                <div style="width: 100%; height: 90px" class="black-background"></div> <!-- Navbar fix -->
-                <div style="width: 100%; height: 100%;">
-                    <div style="padding: 24px">
-                        <h1>Kontakt</h1>
-                        <p>Nekontaktuje ma pls <span style="font-size: 1em;">😭</span></p>
-                    </div>
+            <div id="contact">
+                <h1>Kontakt</h1>
+                <div style="background-color: rgb(25, 25, 25); padding: 1em;">
+                    <p class="lighter">Nekontaktujte ma pls 😭</p>
                 </div>
             </div>
         </main>
-        <footer class="black-background">
+        <footer>
             <div>
-                <p>Cypo's Website <span style="color: rgb(80, 80, 80);">v2</span></p>
-                <p>Created by Cypo</p>   
-                <p>2020 - 2022</p>
-                <p>Ospravedlňujem sa za zlú viditeľnosť na mobile, pracuje sa na tom :)</p>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
             </div>
-            <div style="margin-right: 80px; text-align: right;">
-                <p>
-                    Zdrojový kód je sprístupnený na
-                    <span><a href="https://github.com/yungcypo/Website" target="_blank">GitHub</a></span>
-                </p>
-                <p>Akékoľvek širenie povolené len s písomným súhlasom</p>
-                <p>Všetky práva vyhradené</p>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
             </div>
         </footer>
     </body>
-    <script src="topbutton.js"></script>
-    <script src="scrollToTop.js"></script>
+    <script src="assets/js/topbutton.js"></script>
+    <script src="assets/js/smile.js"></script>
 </html>

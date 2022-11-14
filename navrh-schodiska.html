@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta name="description" content="Website full of 'useful' stuff">
         <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="navrh-schodiska.css">
-        <link rel = "icon" href = "assets/favicon.ico" type = "image/x-icon">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="assets/css/navrh-schodiska.css">
+        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
 
         <title>Cypo | Návrh schodiska</title>
 
@@ -16,341 +16,610 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 
-        <!-- PyScript
-            <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-            <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <!-- PyScript 
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         -->
     </head>
     <body>
         <header>
-            <nav>
-                <div><a href="index.html">
-                    <img src="assets\logo.svg" alt="logo" class="logo">
-                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                    <img src="assets\logo.svg" alt="logo" class="logo logo-plus">
-                </a></div>
-                <ul>
-                    <li><a href="index.html#home">Domov</a></li>
-                    <li><a href="index.html#about">O mne</a></li>
-                    <li><a href="index.html#projects">Projekty</a></li>
-                    <li><a href="index.html#contact">Kontakt</a></li>
-                </ul>
-                <div>
-                    <img src="assets\smile.svg" alt="smile" class="smile">
-                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
-                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
-                    <img src="assets\smile.svg" alt="smile" class="smile smile-plus">
-                </div>
-            </nav>
+            <span style="width: 20%;">
+                <a id="logo" href="index.html" style="height: 100%;">
+                    <img src="assets/images/logo.svg" alt="" height="50%">
+                </a>
+            </span>
+            <span style="width: 60%;">
+                <a href="index.html#home">Domov</a>
+                <a href="index.html#about">O mne</a>
+                <a href="index.html#projects">Projekty</a>
+                <a href="index.html#contact">Kontakt</a>
+            </span>
+            <span style="width: 20%;">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
         </header>
-        <main>
-            <button id="top-button" title="Go to top" onclick="scrollToTop()"> <!-- Top button -->
-                <img src="assets\arrow.svg" alt="Top" width="40px">
-            </button>
-            <div id="top" style="background-image: var(--gradient); min-height:100vh;">
-                <h1 style="padding-bottom: 12px;">Návrh schodiska</h1>
-                <p style="color:black">Program je stále vo vývoji</p>
-                <p style="color:black">Ďakujem za pochopenie</p>
-                <div id="dotaznik">
-                    <div id="dotaznik-typ">
-                        <h2 style="padding-bottom: 8px;">Typ schodiska </h2>
-                        <div class="dotaznik-padding">
-                            <div style="padding-bottom: -4px;">
-                                <input type="radio" id="jednoramenne" value="Jednoramenné" name="typ-schodiska" onclick="getTyp()">
-                                <label for="jednoramenne">Jednoramenné</label>
-                            </div>
-                            <div style="padding-bottom: -4px;">
-                                <input type="radio" id="dvojramenne" value="Dvojramenné" name="typ-schodiska" onclick="getTyp()">
-                                <label for="dvojramenne">Dvojramenné</label>
-                            </div>
-                        </div>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="assets\images\arrow.svg" alt="Top" width="100%">
+        </button>
+        <main style="min-height: 100vh;">
+            <h1>Návrh schodiska</h1>
+            <div style="margin-left: 1em;">
+                <div id="div-typ-schodiska">
+                    <h2>Typ schodiska</h2>
+                    <ul>
+                        <li>
+                            <input type="radio" name="typ-schodiska" id="jednoramenne" onclick="stage1()">
+                            <label for="jednoramenne">Jednoramenné</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="typ-schodiska" id="dvojramenne" onclick="stage1()">
+                            <label for="dvojramenne">Dvojramenné</label>
+                        </li>
+                    </ul>
+                </div>
+                <div id="div-kv">
+                    <h2>Konštrukčná výška</h2>
+                    <div style="margin-left: 1em; margin-bottom: 1em;">
+                        <input type="number" id="kv" placeholder="Konštrukčná výška [mm]">
+                        <button type="submit" id="kv-button" onclick="stage2()">Potvrdiť</button>
                     </div>
-                    <div id="dotaznik-kv">
-                        <h2>Konštrukčná výška</h2>
-                        <div class="dotaznik-padding">
-                            <input type="number" id="kv" name="kv" placeholder="mm">
-                            <button type="submit" id="kv-button" onclick="getKv()">Potvrdiť</button>
-                        </div>
-                    </div>
-                    <div id="dotaznik-n">
-                        <h2>Počet stupňov</h2>
-                        <div class="dotaznik-padding">
-                            <p>n = KV ÷ 170</p>
-                            <p>n = <span class="kv"></span> ÷ 170</p>
-                            <p>n = <span class="kv/170"></span></p>
-                            <p>&nbsp;</p>
-                            <p><strong>Počet stupňov môže byť: </strong></p>
-                            <div style="padding-left: 16px;">
-                                <div style="padding-bottom: -4px;">
-                                    <input type="radio" id="n1" value="n1" name="n" onclick="getN()">
-                                    <label for="n1" id="n1-label">stupňov</label>
-                                </div>
-                                <div style="padding-bottom: -4px;">
-                                    <input type="radio" id="n2" value="n2" name="n" onclick="getN()">
-                                    <label for="n2" id="n2-label">stupňov</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dotaznik-h">
-                        <h2>Výška stupňa</h2>
-                        <div class="dotaznik-padding">
-                            <p>h = KV ÷ n</p>
-                            <p>
-                                h = <span class="kv"></span>&nbsp;÷&nbsp;<span class="n"></span>
-                            </p>
-                            <p>h ≈ <span class="h"></span><span> mm</span></p>
-                        </div>
-                    </div>
-                    <div id="dotaznik-b">
-                        <h2>Šírka stupňa</h2>
-                        <div class="dotaznik-padding">
-                            <p>b = 630 - 2h</p>
-                            <p>b = 630 - 2×<span class="h"></span></p>
-                            <p>b = <span class="b"></span><span> mm</span></p>
-                        </div>
-                    </div>
-                    <div id="dotaznik-l">
-                        <h2>Dĺžka ramena</h2>
-                        <div class="dotaznik-padding">
-                            <div id="dotaznik-l-jednoramenne">
-                                <p>L = (n - 1) × b</p>
-                                <p>L = (<span class="n"></span> - 1) × <span class="b"></span></p>
-                                <p>L = <span class="l"></span><span> mm</span></p>
-                            </div>
-                            <div id="dotaznik-l-dvojramenne">
-                                <p>L = (n ÷ 2 - 1) × b</p>
-                                <p>L = (<span class="n"></span> ÷ 2 - 1) × <span class="b"></span></p>
-                                <p>L = <span class="l"></span><span> mm</span></p>
-                            </div>
-                        </div> 
-                    </div>
-                    <div id="dotaznik-rameno">
-                        <h2>Šírka ramena</h2>
-                        <div class="dotaznik-padding">
-                            <div id="dotaznik-rameno1">
-                                <p>Šírka ramena v rodinnom dome = min. 900 mm</p>
-                                <p>Šírka ramena v bytovom dome a iných občianskych stavbách = min. 1200 mm</p>
-                                <div>
-                                    <input type="number" id="rameno" name="rameno" placeholder="mm">
-                                    <button type="submit" id="rameno-button" onclick="getRameno()">Potvrdiť</button>
-                                </div>
-                            </div>
-                            <p id="dotaznik-rameno2">Šírka ramena = <span class="rameno"></span> mm</p>
-                        </div>
-                    </div>
-                    <div id="dotaznik-podesta">
-                        <h2>Šírka podesty</h2>
-                        <table class="dotaznik-padding">
+                </div>
+                <div id="div-n">
+                    <h2>Počet stupňov</h2>
+                    <div class="div-margin">
+                        <table>
                             <tr>
-                                <td>Šírka podesty = </td>
-                                <td>&nbsp;min. šírka ramena + 100</td>
+                                <td  rowspan="2">n =&nbsp;</td>
+                                <td style="border-bottom: solid 1px; text-align: center;">KV</td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td>&nbsp;min. <span class="rameno"></span> + 100</td>
+                                <td style="text-align: center;">170</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">n =&nbsp;</td>
+                                <td style="border-bottom: solid 1px; text-align: center;"><span class="kv"></span></td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td>&nbsp;min. <span class="podesta"></span> mm</td>
+                                <td style="text-align: center;">170</td>
+                            </tr>
+                        </table>
+                        <table style="padding-top: 0.5em;">
+                            <tr style="padding-top: 0.5em;">
+                                <td  rowspan="2">n =&nbsp;</td>
+                                <td style="text-align: center;" class="ncca"></td>
+                            </tr>
+                        </table>
+                        <h3 style="margin-top: 1em;">Počet stupňov môže byť</h3>
+                            <ul>
+                                <li>
+                                    <input type="radio" name="n" id="n1" onclick="stage3()">
+                                    <label for="n1" class="n1">1</label>
+                                </li>
+                                <li>
+                                    
+                                    <input type="radio" name="n" id="n2" onclick="stage3()">
+                                    <label for="n2" class="n2">2</label>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+                <div id="div-h">
+                    <h2>Výška stupňa</h2>
+                    <div class="div-margin">
+                        <table>
+                            <tr>
+                                <td  rowspan="2">h =&nbsp;</td>
+                                <td style="border-bottom: solid 1px; text-align: center;">KV</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">n</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">h =&nbsp;</td>
+                                <td style="border-bottom: solid 1px; text-align: center;" class="kv"></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;"><span class="n"></span></td>
+                            </tr>
+                        </table>
+                        <table style="padding-top: 0.5em;">
+                            <tr>
+                                <td  rowspan="2">h =&nbsp;</td>
+                                <td style="text-align: center;"><span class="h"></span> mm</td>
                             </tr>
                         </table>
                     </div>
-                    <div id="dotaznik-medzipodesta">
-                        <h2>Šírka medzipodesty</h2>
-                        <table class="dotaznik-padding">
+                </div>
+                <div id="div-b">
+                    <h2>Šírka stupňa</h2>
+                    <div class="div-margin">
+                        <table>
                             <tr>
-                                <td>Šírka medzipodesty = </td>
-                                <td>&nbsp;min. šírka ramena</td>
+                                <td  rowspan="2">b =&nbsp;</td>
+                                <td style="text-align: center;">630 - 2h</td>
                             </tr>
+                        </table>
+                        <table>
                             <tr>
-                                <td></td>
-                                <td>&nbsp;min. <span class="rameno"></span> mm</td>
+                                <td  rowspan="2">b =&nbsp;</td>
+                                <td style="text-align: center;">630 - 2 × <span class="h"></span></td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">b =&nbsp;</td>
+                                <td style="text-align: center;"><span class="b"></span> mm</td>
                             </tr>
                         </table>
                     </div>
-                    <div id="dotaznik-alfa">
-                        <h2>Sklon</h2>
-                        <div class="dotaznik-padding">
-                            <p style="margin-top: -10px;">α = tg<sup>-1</sup>(h ÷ b)</p>
-                            <p style="margin-top: -4px">
-                                α = tg<sup>-1</sup>
-                                (<span class="h"></span> ÷ <span class="b"></span>)
-                            </p>
-                            <p>α ≈ <span class="alfa"></span><span>°</span></p>
+                </div>
+                <div id="div-l">
+                    <h2>Dĺžka ramena</h2>
+                    <div id="div-l-jednoramenne">
+                        <div class="div-margin">
+                            <table>
+                                <tr>
+                                    <td  rowspan="2">L = (n-1) × b</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td  rowspan="2">L = (<span class="n"></span>-1) × <span class="b"></span></td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td  rowspan="2">L = <span class="l"></span> mm</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    <div id="dotaznik-h1">
-                        <h2>Podchodná výška</h2>
-                        <div class="dotaznik-padding">
-                            <div id="dotaznik-h1-vyhovuje">
-                                <p>h1 = 1500 + (750 ÷ cos(α)</p>
-                                <p>h1 = 1500 + (750 ÷ cos(<span class="alfa"></span>)</p>
-                                <p>h1 = <span class="h1"></span> mm > 2100 mm → Vyhovuje</p>
-                            </div>
-                            <div id="dotaznik-h1-nevyhovuje">
-                                <p>h1 = 1500 + (750 ÷ cos(α)</p>
-                                <p>h1 = 1500 + (750 ÷ cos(<span class="alfa"></span>)</p>
-                                <p style="color: black;">h1 = <span class="h1"></span> mm ≤ 2100 mm → Nevyhovuje</p>
-                            </div>
+                    <div id="div-l-dvojramenne">
+                        <div class="div-margin">
+                            <table>
+                                <tr>
+                                    <td  rowspan="2">L = <span style="font-size: 2em;">(</span></td>
+                                    <td style="border-bottom: solid 1px; text-align: center;">n</td>
+                                    <td style="text-align: center;" rowspan="2">&nbsp;- 1<span style="font-size: 2em;">)</span> × b</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td  rowspan="2">L = <span style="font-size: 2em;">(</span></td>
+                                    <td style="border-bottom: solid 1px; text-align: center;" class="n"></td>
+                                    <td style="text-align: center;" rowspan="2"> - 1<span style="font-size: 2em;">)</span> × <span class="b"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">2</td>
+                                </tr>
+                            </table>
+                            <table style="padding-top: 0.75em;">
+                                <tr>
+                                    <td  rowspan="2">L = <span class="l"></span> mm</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    <div id="dotaznik-h2">
-                        <h2>Priechodná výška</h2>
-                        <div class="dotaznik-padding">
-                            <div id="dotaznik-h2-vyhovuje">
-                                <p>h2 = 750 + 1500 × cos(α)</p>
-                                <p>h2 = 750 + 1500 × cos(<span class="alfa"></span>)</p>
-                                <p>h2 = <span class="h2"></span> mm > 1900 mm → Vyhovuje</p>
-                            </div>
-                            <div id="dotaznik-h2-nevyhovuje">
-                                <p>h2 = 750 + 1500 × cos(α)</p>
-                                <p>h2 = 750 + 1500 × cos(<span class="alfa"></span>)</p>
-                                <p style="color: black;">h2 = <span class="h2"></span> mm ≤ 1900 mm → Nevyhovuje</p>
-                            </div>
+                </div>
+                <div id="div-rameno">
+                    <h2>Šírka ramena</h2>
+                    <div class="div-margin">
+                        <div id="rameno1">
+                            <p>Šírka ramena v rodinnom dome = min. 900mm</p>
+                            <p>Šírka ramena v bytovom dome alebo iných občianskych stavbách = min. 1200mm</p>
+                            <h3 style="margin: 0.5em 0em 0.5em -0.5em">Zadajte šírku ramena</h3>
+                            <input type="number" id="rameno" name="rameno"  placeholder="Šírka ramena [mm]">
+                            <button type="submit" id="rameno-button" onclick="stage4()">Potvrdiť</button>
+                        </div>
+                        <div id="rameno2">
+                            <table>
+                                <tr>
+                                    <td>Šírka ramena = <span class="rameno"></span> mm</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    <div>
-                        <button type="reset" id="resetbutton" onclick="reset()">Reset</button>
-                        <button id="printbutton" onclick="printpage(1)">Tlačiť</button>
+                </div>
+                <div id="div-podesta">
+                    <h2>Šírka podesty</h2>
+                    <div class="div-margin">
+                        <table>
+                            <tr>
+                                <td>Šírka podesty = min. šírka ramena + 100</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">Šírka podesty = min. <span class="rameno"></span> + 100</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">Šírka podesty = min. <span class="podesta"></span> mm</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div>
-                        <input type="text" id="nadpis" name="nadpis" placeholder="Zadajte nadpis" maxlength="44">
-                        <button id="nadpis-button" type="submit" onclick="printpage(2)">Potvrdiť</button>
+                </div>
+                <div id="div-medzipodesta">
+                    <h2>Šírka medzipodesty</h2>
+                    <div class="div-margin">
+                        <table>
+                            <tr>
+                                <td  rowspan="2">Šírka medzipodesty =&nbsp;</td>
+                                <td style="text-align: center;">min. šírka ramena</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">Šírka medzipodesty =&nbsp;</td>
+                                <td style="text-align: center;">min. <span class="rameno"></span> mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="div-alfa">
+                    <h2>Sklon ramena</h2>
+                    <div class="div-margin">
+                        <table>
+                            <tr>
+                                <td rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
+                                <td style="border-bottom: solid 1px; text-align: center;">h</td>
+                                <td rowspan="2"><span style="font-size: 2em;">)</span></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">b</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td rowspan="2">α = tg<sup>-1</sup> <span style="font-size: 2em;">(</span></td>
+                                <td style="border-bottom: solid 1px; text-align: center;" class="h"></td>
+                                <td rowspan="2"><span style="font-size: 2em;">)</span></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;" class="b"></td>
+                            </tr>
+                        </table>
+                        <table style="padding-top: 0.5em;">
+                            <tr>
+                                <td rowspan="2">α = &nbsp;</td>
+                                <td style="text-align: center;"><span class="alfacca"></span>° ≈ <span class="alfa"></span>°</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="div-h1">
+                    <h2>Podchodná výška</h2>
+                    <div class="div-margin">
+                        <table>
+                            <tr>
+                                <td  rowspan="2">h<sub>1</sub> = 1500 + <span style="font-size: 2em;">(</span></td>
+                                <td style="border-bottom: solid 1px; text-align: center;">750</td>
+                                <td  rowspan="2"><span style="font-size: 2em;">)</span></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">cos(α)</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">h<sub>1</sub> = 1500 + <span style="font-size: 2em;">(</span></td>
+                                <td style="border-bottom: solid 1px; text-align: center;">750</td>
+                                <td  rowspan="2"><span style="font-size: 2em;">)</span></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">cos(<span class="alfa"></span>°)</td>
+                            </tr>
+                        </table>
+                        <table style="padding-top: 0.75em;">
+                            <tr>
+                                <td  id="h1-vyhovuje">h<sub>1</sub> = <span class="h1"></span> mm > 2100 mm → Vyhovuje</td>
+                                <td  id="h1-nevyhovuje">h<sub>1</sub> = <span class="h1"></span> mm ≤ 2100 mm → Nevyhovuje</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="div-h2">
+                    <h2>Priechodná výška</h2>
+                    <div class="div-margin">
+                        <table>
+                            <tr>
+                                <td  rowspan="2">h<sub>2</sub> = 750 + 1500 × cos(α)</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  rowspan="2">h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>°)</td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td  id="h2-vyhovuje">h<sub>2</sub> = <span class="h2"></span> mm > 1900 mm → Vyhovuje</td>
+                                <td  id="h2-nevyhovuje">h<sub>2</sub> = <span class="h2"></span> mm ≤ 1900 mm → Nevyhovuje</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div id="print">
-                <h2 id="printnadpis" class="print-element">Návrh schodiska</h2>              
-                <p class="print-element">KV = <span class="kv"></span> mm</p></span>
-                <div class="print-element">
-                    <p>1. n = KV/170</p>
-                    <p><span class="white">1. </span>n = <span class="kv"></span>/170</p>
-                    <p><span class="white">1. </span>n = <span class="kv/170"></span> → <span class="n1"></span> STUPŇOV</p>
-                    <p><span class="white">1. n = <span class="kv/170"></span></span> → <span class="n2"></span> STUPŇOV</p>
-                    <p><span class="white">1. </span>n = <span class="n"></span> STUPŇOV</p>
-                </div>
-                <div class="print-element">
-                    <p>2. h = KV/n</p>
-                    <p><span class="white">2. </span>h = <span class="kv"></span>/<span class="n"></span></p>
-                    <p><span class="white">2. </span>h = <span class="h"></span> mm</p>
-                </div>
-                <div class="print-element">
-                    <p>3. b = 630 - 2h</p>
-                    <p><span class="white">3. </span>b = 630 - 2 × <span class="h"></span></p>
-                    <p><span class="white">3. </span>b = <span class="b"></span> mm</p>
-                </div>
-                <div class="print-jednoramenne print-element" style="margin: 0.5em 0em;">
-                    <p>
-                        4. 
-                        <span style="border: 1pt solid black; padding: 0.25em 0.5em;"><span class="n"></span> × <span class="h"></span> × <span class="b"></span></span>
-                        <span> V JEDNOM RAMENE</span>
-                    </p>
-                </div>
-                <div class="print-dvojramenne print-element" style="margin: 0.5em 0em;">
-                    <p>
-                        4. 
-                        <span style="border: 1pt solid black; padding: 0.25em 0.5em;"><span class="n0"></span> × <span class="h"></span> × <span class="b"></span></span>
-                        <span> V JEDNOM RAMENE</span>
-                    </p>
-                </div>
-                <div class="print-jednoramenne print-element">
-                    <p>5. L = (n - 1) × b</p>
-                    <p><span class="white">5. </span>L = (<span class="n"></span> - 1) × <span class="b"></span></p>
-                    <p><span class="white">5. </span>L = <span class="l"></span> mm</p>
-                </div>
-                <div class="print-dvojramenne print-element">
-                    <p>5. L = (n/2 - 1) × b</p>
-                    <p><span class="white">5. </span>L = (<span class="n"></span>/2 - 1) × <span class="b"></span></p>
-                    <p><span class="white">5. </span>L = <span class="l"></span> mm</p>
-                </div>
-                <div class="print-element">
-                    <p>6. ŠÍRKA RAMENA = <span class="rameno"></span> mm</p>
-                </div>
-                <div class="print-element">
-                    <p>7. ŠÍRKA → PODESTY = min. ŠÍRKA RAMENA + 100</p>
-                    <p><span class="white">7. ŠÍRKA → PODESTY = </span>min. <span class="rameno"></span> + 100</p>
-                    <p><span class="white">7. ŠÍRKA → PODESTY = </span>min. <span class="podesta"></span> mm</p>
-                    <p><span class="white">7. ŠÍRKA </span>→ MEDZIPODESTY = min. ŠÍRKA RAMENA</p>
-                    <p><span class="white">7. ŠÍRKA → MEDZIPODESTY = </span>min. <span class="medzipodesta"></span></p>
-                </div>
-                <div class="print-element">
-                    <p>8. α = tg<sup>-1</sup>(h/b)</p>
-                    <p><span class="white">8. </span> α = tg<sup>-1</sup>(<span class="h"></span>/<span class="b"></span>)</p>
-                    <p style="padding-top: 0.25em;"><span class="white">8. </span> α = <span class="alfatg"></span>°</p>
-                    <p style="padding-top: 0.25em;"><span class="white">8. </span> α = <span class="alfa"></span>°</p>
-                </div>
-                <div id="print-h1-vyhovuje" class="print-element">
-                    <p>9. h<sub>1</sub> = 1500 + (750/cos(α))</p>
-                    <p><span class="white">9. </span>h<sub>1</sub> = 1500 + (750/cos(<span class="alfa"></span>°))</p>
-                    <p><span class="white">9. </span>h<sub>1</sub> = <span class="h1"></span> mm > 2100 mm → VYHOVUJE</p>
-                </div>
-                <div id="print-h1-nevyhovuje" class="print-element">
-                    <p>9. h<sub>1</sub> = 1500 + (750/cos(α))</p>
-                    <p><span class="white">9. </span>h<sub>1</sub> = 1500 + (750/cos(<span class="alfa"></span>°))</p>
-                    <p><span class="white">9. </span>h<sub>1</sub> = <span class="h1"></span> mm ≤ 2100 mm → NEVYHOVUJE</p>
-                </div>
-                <div id="print-h2-vyhovuje" class="print-element">
-                    <p>10. h<sub>2</sub> = 750 + 1500 × cos(α)</p>
-                    <p><span class="white">10. </span>h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>°)</p>
-                    <p><span class="white">10. </span>h<sub>2</sub> = <span class="h2"></span> mm > 1900 mm → VYHOVUJE</p>
-                </div>
-                <div id="print-h2-nevyhovuje" class="print-element">
-                    <p>10. h<sub>2</sub> = 750 + 1500 × cos(α)</p>
-                    <p><span class="white">10. </span>h<sub>2</sub> = 750 + 1500 × cos(<span class="alfa"></span>°)</p>
-                    <p><span class="white">10. </span>h<sub>2</sub> = <span class="h2"></span> mm ≤ 1900 mm → NEVYHOVUJE</p>
-                </div>
+            <div>
+                <button type="reset" id="reset-button" style="margin-top: 0em;" onclick="reset()">Reset</button>
+                <button type="submit" id="tlacit-button" onclick="printpage(1)">Tlačiť</button>
+            </div>
+            <div id="div-nadpis">
+                <input type="text" id="nadpis" maxlength="40" placeholder="Zadajte nadpis*" style="margin-top: 1em;">
+                <button type="submit" id="nadpis-button" onclick="printpage(2)">Potvrdiť</button>
+                <p class="lighter" style="margin: 0.5em">*Nechajte prázdne pre vytvorenie dokumentu bez nadpisu</p>
             </div>
         </main>
-        <footer class="black-background">
-            <div>
-                <p>Cypo's Website <span style="color: rgb(80, 80, 80);">v2</span></p>
-                <p>Created by Cypo</p>   
-                <p>2020 - 2022</p>
+        <div id="print">
+            <h2 id="printnadpis"></h2>
+            <p id="print-neuplne-vysledky">VÝSLEDKY SÚ NEÚPLNÉ, PRETOŽE VÝPOČET NEBOL DOKONČENÝ</p>
+            <div 0>
+                <p>KV = <span class="kv"></span> mm</p>
             </div>
-            <div style="margin-right: 80px; text-align: right;">
-                <p>
-                    Zdrojový kód je sprístupnený na
-                    <span><a href="https://github.com/yungcypo/Website" target="_blank">GitHub</a></span>
-                </p>
-                <p>Akékoľvek širenie povolené len s písomným súhlasom</p>
-                <p>Všetky práva vyhradené</p>
+            <div 1>
+                <table>
+                    <tr>
+                        <td  rowspan="2">1. n =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">KV</td>
+                    </tr>
+                    <tr>
+                        <td>170</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td  rowspan="2"><span class="white">1. </span>n =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;" class="kv"></td>
+                    </tr>
+                    <tr>
+                        <td>170</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">1. </span>n = <span class="ncca"></span></td>
+                        <td>→ <span class="n1"></span> stupňov</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>→ <span class="n2"></span> stupňov</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">1. </span>n = <span class="n"></span> stupňov</td>
+                    </tr>
+                </table>
+            </div>
+            <div 2>
+                <table>
+                    <tr>
+                        <td  rowspan="2">2. h =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">KV</td>
+                    </tr>
+                    <tr>
+                        <td>n</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td  rowspan="2"><span class="white">2.&nbsp;</span>h =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;" class="kv"></td>
+                    </tr>
+                    <tr>
+                        <td class="n"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td id="hishcca" rowspan="2"><span class="white">2.&nbsp;</span>h = <span class="h"></span> mm</td>
+                        <td id="hisnothcca" rowspan="2"><span class="white">2.&nbsp;</span>h = <span class="hcca"></span> ≈ <span class="h"></span> mm</td>
+                    </tr>
+                </table>
+            </div>
+            <div 3>
+                <table>
+                    <tr>
+                        <td>3. b = 630 - 2h</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">3.&nbsp;</span>b = 630 - 2 × <span class="h"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">3.&nbsp;</span>b = <span class="b"></span> mm</td>
+                    </tr>
+                </table>
+            </div>
+            <div 4 style="margin-top: 0.5em;">
+                <table><tr><td>
+                            4.&nbsp;<span style="padding: 0.25em; margin-right: 0.5em; border: 1px solid black">
+                                <span class="n0"></span> × <span class="h"></span> × <span class="b"></span>
+                            </span> V JEDNOM RAMENE
+                </td></tr></table>
+            </div>
+            <div 5 id="print-l-jednoramenne">
+                <table>
+                    <tr>
+                        <td rowspan="2">5. L = (n - 1) × b</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L = (<span class="n"></span> - 1) × <span class="b"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L = <span class="l"></span> mm</td>
+                    </tr>
+                </table>
+            </div>
+            <div 5 id="print-l-dvojramenne">
+                <table>
+                    <tr>
+                        <td rowspan="2">5. L =<span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">n</td>
+                        <td rowspan="2">- 1<span class="big">)</span> × b</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">2</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L =<span class="big">(</span></td>
+                        <td class="n" style="border-bottom: solid 1px; font-size: 0.8em;"></td>
+                        <td rowspan="2">- 1<span class="big">)</span> × <span class="b"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">2</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">5.&nbsp;</span>L = <span class="l"></span> mm</td>
+                    </tr>
+                </table>
+            </div>
+            <div 6>
+                <table>
+                    <tr>
+                        <td>6. ŠÍRKA → RAMENA = <span class="rameno"></span> mm</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA</span> → PODESTY = min. ŠIRKA RAMENA + 100</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA → PODESTY</span> = min. <span class="rameno"></span> + 100</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA → PODESTY</span> = min. <span class="podesta"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA</span> → MEDZIPODESTY = min. ŠÍRKA RAMENA</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">6. ŠÍRKA → MEDZIPODESTY </span> = min. <span class="medzipodesta"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div 7>
+                <table>
+                    <tr>
+                        <td rowspan="2">7. α = <span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">h</td>
+                        <td rowspan="2"><span class="big">)</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">b</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">7.</span> α = <span class="big">(</span></td>
+                        <td class="h" style="border-bottom: solid 1px; font-size: 0.8em;"></td>
+                        <td rowspan="2"><span class="big">)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="b" style="font-size: 0.8em;"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">7.</span> α = <span class="alfacca"></span>° ≈ <span class="alfa"></span>°</td>
+                    </tr>
+                </table>
+            </div>
+            <div 8 style="margin-top: 1cm; page-break-before: always">
+                <table>
+                    <tr>
+                        <td rowspan="2">8. h<sub>1</sub> =<span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">750</td>
+                        <td rowspan="2"><span class="big">)</span> × b</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">cos(α)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td rowspan="2"><span class="white">8.</span> h<sub>1</sub> = <span class="big">(</span></td>
+                        <td style="border-bottom: solid 1px; font-size: 0.8em;">750</td>
+                        <td rowspan="2"><span class="big">)</span> × <span class="b"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 0.8em;">cos(<span class="alfa"></span>°)</td>
+                    </tr>
+                </table>
+                <table id="print-h1-vyhovuje">
+                    <tr>
+                        <td rowspan="2"><span class="white">8.</span> h<sub>1</sub> = <span class="h1"></span> mm > 2100 mm → VYHOVUJE</td>
+                    </tr>
+                </table>
+                <table id="print-h1-nevyhovuje">
+                    <tr>
+                        <td rowspan="2"><span class="white">8.</span> h<sub>1</sub> = <span class="h1"></span> mm ≤ 2100 mm → NEVYHOVUJE</td>
+                    </tr>
+                </table>
+            </div>
+            <div 9>
+                <table>
+                    <tr>
+                        <td>9. h<sub>2</sub> = 750 + 1500 × cos(α)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><span class="white">9.</span> h<sub>2</sub>= 750 + 1500 × cos(<span class="alfa"></span>)</td>
+                    </tr>
+                </table>
+                <table id="print-h2-vyhovuje">
+                    <tr>
+                        <td><span class="white">9.</span> h<sub>2</sub>= <span class="h2"></span> mm > 1900 mm → VYHOVUJE</td>
+                    </tr>
+                </table>
+                <table id="print-h2-nevyhovuje">
+                    <tr>
+                        <td><span class="white">9.</span> h<sub>2</sub>= <span class="h2"></span> mm ≤ 1900 mm → NEVYHOVUJE</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
             </div>
         </footer>
     </body>
-    <script src="scrollToTop.js"></script>
-    <script src="navrh-schodiska.js"></script>
-    <script src="topbutton.js"></script>
-    <script>
-        // Alert when exiting, aka prevent from accidental exit
-        window.onbeforeunload = confirmExit;
-        function confirmExit() {
-            return /*""*/;
-        }
-    </script>
-    <script>
-        // Sumbit kv when enter key is pressed
-        var input = document.getElementById("kv");
-        document.getElementById("kv").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("kv-button").click();
-        }
-        });
-        // Submit rameno when enter key is pressed
-        document.getElementById("rameno").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("rameno-button").click();
-        }
-        });
-        // Submit nadpis when enter key is pressed
-        document.getElementById("nadpis").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("nadpis-button").click();
-        }
-        });
-    </script>
+    <script src="assets/js/topbutton.js"></script>
+    <script src="assets/js/navrh-schodiska.js"></script>
+    <script src="assets/js/smile.js"></script>
+
 </html>
