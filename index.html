@@ -1,11 +1,132 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Cypo's website</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of 'useful' stuff">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
+
+        <title>Cypo's Website</title>
+
+        <!-- Fonts -->
+        <!-- 1st 2 lines came with font but idk what its supposed to do -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+        <!-- PyScript 
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        -->
     </head>
     <body>
-        
+        <header>
+            <span style="width: 20%;">
+                <a id="logo" href="index.html" style="height: 100%;">
+                    <img src="assets/images/logo.svg" alt="" height="50%">
+                </a>
+            </span>
+            <span style="width: 60%;">
+                <a href="index.html#home">Domov</a>
+                <a href="index.html#about">O mne</a>
+                <a href="index.html#projects">Projekty</a>
+                <a href="index.html#contact">Kontakt</a>
+            </span>
+            <span style="width: 20%;">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
+        </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="assets\images\arrow.svg" alt="Top" width="100%">
+        </button>
+        <main>
+            <div id="home">
+                <a href="#about">
+                    <h1>O mne</h1>
+                </a>
+                <a href="#projects" class="projects">
+                    <h1>Projekty</h1>
+                    <p>Schodisko</p>
+                    <p>Zaťaženie</p>
+                    <p>Kvadratické rovnice</p>
+                    <p>Odpisy</p>
+                </a>
+                <a href="#contact">
+                    <h1>Kontakt</h1>
+                </a>
+            </div>
+            <div id="about">
+                <h1>O mne</h1>
+            </div>
+            <div id="projects">
+                <h1 style="padding-top: 0.4em;">Projekty</h1>
+                <p class="lighter"">Tieto projekty slúžia najmä študentom ako pomôcka pri výpočtoch</p>
+                <p class="lighter"">Programy nie sú určené na profesionálne použitie</p>
+                <p class="lighter"">Autor nenesie zodpovednosť za prípadné škody</p>
+                <div id="navrh-schodiska" style="margin-top: 1em;">
+                    <h2>Návrh schodiska</h2>
+                    <p class="light">◦ Ideálny počet stupňov ◦</p>
+                    <p class="light">◦ Ideálna výška a šírka stupňa ◦</p>
+                    <p class="light">◦ Sklon ramena ◦</p>
+                    <p class="light">◦ Podchodná a priechodná výška ◦</p>
+                    <a href="navrh-schodiska.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
+                    </a>
+                    <p class="light" style="font-size: 0.8em">Predmet: Konštrukčné cvičenia, staviteľstvo</p>
+                </div>
+                <div id="vypocet-zatazenia">
+                    <h2>Výpočet zaťaženia</h2>
+                    <p class="lighter">na strop alebo strechu</p>
+                    <p class="light">◦ Stále zaťaženie ◦</p>
+                    <p class="light">◦ Premenné zaťaženie ◦</p>
+                    <p class="light">◦ Celkové zaťaženie ◦</p>
+                    <p class="light">◦ Návrhovú hodnotu zaťaženia ◦</p>
+                    <a href="vypocet-zatazenia.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
+                    </a>
+                    <p class="light" style="font-size: 0.8em">Predmet: Stavebná mechanika, stavebné konštrukcie</p>
+                </div>
+                <div id="kvadraticke-rovnice">
+                    <h2>Kvadratické rovnice</h2>
+                    <p><i></i></p>
+                    <p class="light">◦ Diskriminant <i class="light">D</i> ◦</p>
+                    <p class="light">◦ Samotné riešenie rovnice ◦</p>
+                    <a href="kvadraticke-rovnice.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
+                    </a>
+                    <p class="light" style="font-size: 0.8em">Predmet: Matematika</p>
+                </div>
+                <div id="odpisy" style="display: none;">
+                    <h2 style="padding-bottom: 0.3em;">Odpisy</h2>
+                    <p class="lighter">Výpočet odpisov dlhodobého majetku</p>
+                    <p class="light">◦ Ročné odpisy majetku ◦</p>
+                    <p class="light">◦ Oprávky majetku ◦</p>
+                    <p class="light">◦ Zostatkovú cenu majeku ◦</p>
+                    <a href="odpisy.html" style="padding: 0.5em 0em;">
+                        <button style="margin: 1em 0em;">Začať</button>
+                    </a>
+                    <p class="light" style="font-size: 0.8em">Predmet: Ekonomika, účtovníctvo</p>
+                </div>
+            </div>
+            <div id="contact">
+                <h1>Kontakt</h1>
+                <div style="background-color: rgb(25, 25, 25); padding: 1em;">
+                    <p class="lighter">Nekontaktujte ma pls 😭</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
+            </div>
+        </footer>
     </body>
+    <script src="assets/js/topbutton.js"></script>
+    <script src="assets/js/smile.js"></script>
 </html>

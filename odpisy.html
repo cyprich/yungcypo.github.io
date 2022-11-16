@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of 'useful' stuff">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="assets/css/odpisy.css">
+        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
+
+        <title>Cypo's Website</title>
+
+        <!-- Fonts -->
+        <!-- 1st 2 lines came with font but idk what its supposed to do -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+        <!-- PyScript 
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        -->
+    </head>
+    <body>
+        <header>
+            <span style="width: 20%;">
+                <a id="logo" href="index.html" style="height: 100%;">
+                    <img src="assets/images/logo.svg" alt="" height="50%">
+                </a>
+            </span>
+            <span style="width: 60%;">
+                <a href="index.html#home">Domov</a>
+                <a href="index.html#about">O mne</a>
+                <a href="index.html#projects">Projekty</a>
+                <a href="index.html#contact">Kontakt</a>
+            </span>
+            <span style="width: 20%;">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
+        </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="assets\images\arrow.svg" alt="Top" width="100%">
+        </button>
+        <main>
+            <h1>Odpisy</h1>
+            <table id="inputtable">
+                <tr>
+                    <td>
+                        <p>Mesiac zakúpenia majetku</p>
+                        <input type="month" id="datum" name="datum" autofocus>
+                    </td>
+                    <td>
+                        <p>Vstupná cena</p>
+                        <input type="number" id="oc" min="1700" placeholder="€">
+                    </td>
+                    <td>
+                        <p>Odpisová skupina</p>
+                        <input type="number" id="os" min="0" max="6" placeholder="0 - 6" onchange="getTypOdpisovania()">
+                    </td>
+                    <td id="typ-odpisovania">
+                        <p>Typ odpisovania</p>
+                        <ul>
+                            <li>
+                                <input type="radio" name="typ-odpisovania" id="rovnomerne" checked>
+                                <label for="rovnomerne">Rovnomerné</label>
+                            </li>
+                            <p style="padding-top: 1em; font-size: 0.8em;" class="lighter">Zrýchlené odpisovanie je momentálne nedostupné</p>
+                            <li style="display: none;">
+                                <input type="radio" name="typ-odpisovania" id="zrychlene">
+                                <label for="zrychlene">Zrýchlené</label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <button type="submit" id="submitbutton" onclick="calculate()">Potvrdiť</button>
+            </div>
+            <div id="maintable-div">
+                <table id="maintable">
+                    <thead>
+                        <td>Rok</td>
+                        <td>Ročný odpis</td>
+                        <td>Oprávky</td>
+                        <td>Zostatková cena</td>
+                    </thead>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
+            </div>
+        </footer>
+    </body>
+    <script src="assets/js/topbutton.js"></script>
+    <script src="assets/js/smile.js"></script>
+    <script src="assets/js/odpisy.js"></script>
+</html>

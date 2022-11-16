@@ -1,0 +1,80 @@
+:root {--boder: 1px white solid;}
+
+main{background: var(--gradient); padding: 2em;}
+h1 {font-size: 2.4em; padding-bottom: 0.6em;}
+hr{
+    display: block; height: 1px; border: 0;
+    margin: 2em 0em; 
+    border-top: 1px solid;
+}
+
+table{
+    width: 100%; 
+    border: var(--boder); 
+    border-collapse: collapse; 
+    text-align: center;
+    margin-bottom: 3em;
+}
+td{
+    border: var(--boder); 
+    padding: 1em;
+}
+
+thead, tbody, tfoot {
+    border-top: var(--boder);
+    border-bottom: var(--boder);
+}
+input{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+tfoot tr td:nth-child(1){
+    text-align: left;
+}
+button{background-color: rgba(0, 0, 0, 0.25);}
+button:hover{background-color: rgba(0, 0, 0, 0.375);}
+button:active{background-color: rgba(0, 0, 0, 0.5);}
+
+#plusrow td {padding: 0; height: 1em;}
+#plusrow td button{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.znacka {
+    padding: 0.2em;
+    width: 1ex;
+}
+
+
+#aftertable tr td {
+    border: 1px solid white;
+    width: 50%;
+    height: 100%;
+    
+}
+#aftertable input, #aftertable button{
+    margin-bottom: 0.5em;
+}
+
+
+
+
+select{
+    background-color: rgba(0,0,0, 0.1);
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 0.25em;
+    width: 100%;
+    transform: translateX(-0.5em);
+}
+select *{
+    background-color: var(--color1);
+}
+
+

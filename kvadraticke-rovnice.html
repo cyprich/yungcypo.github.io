@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of 'useful' stuff">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="assets/css/kvadraticke-rovnice.css">
+        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
+
+        <title>Cypo | Kvadratické rovnice</title>
+
+        <!-- Fonts -->
+        <!-- 1st 2 lines came with font but idk what its supposed to do -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+
+        <!-- PyScript 
+            <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+            <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        -->
+            <!-- Import modules (they need to be imported in <py-script> as well)
+            <py-env>
+                - pygame
+            </py-env>
+        -->
+
+    </head>
+    <body>
+        <header>
+            <span style="width: 20%;">
+                <a id="logo" href="index.html" style="height: 100%;">
+                    <img src="assets/images/logo.svg" alt="" height="50%">
+                </a>
+            </span>
+            <span style="width: 60%;">
+                <a href="index.html#home">Domov</a>
+                <a href="index.html#about">O mne</a>
+                <a href="index.html#projects">Projekty</a>
+                <a href="index.html#contact">Kontakt</a>
+            </span>
+            <span style="width: 20%;">
+                <img id="smile" src="assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
+        </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="assets\images\arrow.svg" alt="Top" width="100%">
+        </button>
+        <main>
+            <h1>Kvadratické rovnice</h1>
+            <h2>Zadajte nasledovné údaje</h2>
+            <div id="abc-div">
+                <p style="font-size: 1.2em;">ax<sup>2</sup> + bx + c = 0</p>
+                <input type="number" id="a" placeholder="a" style="margin-left: 0.5em;">
+                <input type="number" id="b" placeholder="b">
+                <input type="number" id="c" placeholder="c">
+                <button id="abc-button" onclick="getD()">Potvrdiť</button>
+            </div>
+            <div id="d-div">
+                <h2 style="padding-top: 0.5em">Diskriminant</h2>
+                <p>D = b<sup>2</sup> - 4ac</p>
+                <p>D = <span class="b"></span><sup>2</sup> - 4 × <span class="a"></span> × <span class="c"></span></p>
+                <p style="padding-top: 0.33em;">D = <span class="d"></span></p>
+            </div>
+            <div id="k2-div">
+                <h2 style="padding-top: 0.5em">Korene rovnice</h2>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>1</sub> =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">-b + √D</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2a</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>1</sub> =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">-<span class="b"></span> + √<span class="d"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2 × <span class="a"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>1</sub> =&nbsp;</td>
+                        <td><span class="x1"></span></td>
+                    </tr>
+                </table>
+
+                <table style="margin-top: 1em;">
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>2</sub> =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">-b - √D</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2a</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>2</sub> =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">-<span class="b"></span> - √<span class="d"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2 × <span class="a"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>2</sub> =&nbsp;</td>
+                        <td><span class="x2"></span></td>
+                    </tr>
+                </table> 
+                <h3>K{<span class="x1"></span>; <span class="x2"></span>}</h3>               
+            </div>
+            <div id="k1-div">
+                <h2 style="padding-top: 0.5em">Korene rovnice</h2>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>1,2</sub> =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">-b ± √D</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2a</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>1,2</sub> =&nbsp;</td>
+                        <td style="border-bottom: solid 1px;">-<span class="b"></span> ± √<span class="d"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">2 × <span class="a"></span></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="vertical-align: middle;" rowspan="2">x<sub>1,2</sub> =&nbsp;</td>
+                        <td><span class="x1"></span></td>
+                    </tr>
+                </table>   
+                <h3>K{<span class="x1"></span>}</h3>          
+            </div>
+            <div id="k0-div">
+                <h2>Koreň rovnice</h2>
+                <p style="transform: skew(0);">Rovnica nemá žiaden koreň, pretože <span>D < 0</span></p>
+            </div>
+            <button type="reset" onclick="reset()">Reset</button>
+            <button onclick="random()">Náhodná rovnica</button>
+        </main>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
+            </div>
+        </footer>
+    </body>
+    <script src="assets/js/topbutton.js"></script>
+    <script src="assets/js/kvadraticke-rovnice.js"></script>
+    <script src="assets/js/smile.js"></script>
+</html>
