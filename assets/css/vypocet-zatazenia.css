@@ -9,7 +9,8 @@ hr{
 }
 
 table{
-    width: 100%; border: var(--boder); 
+    width: 100%; 
+    border: var(--boder); 
     border-collapse: collapse; 
     text-align: center;
     margin-bottom: 3em;

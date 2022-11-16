@@ -15,27 +15,18 @@ var h2;
 const valuesToFill = [];
 const classesToFill = [];
 
-function E(element){
-    return document.getElementById(element);
-}
-function hide(element){
-    document.getElementById(element).style.display = "none";
-}
-function show(element){
-    document.getElementById(element).style.display = "inline";
-}
-function enable(element){
-    document.getElementById(element).disabled = false;
-}
-function disable(element){
-    document.getElementById(element).disabled = true;
-}
+function E(element){return document.getElementById(element);}
+function hide(element){document.getElementById(element).style.display = "none";}
+function show(element){document.getElementById(element).style.display = "inline";}
+function enable(element){document.getElementById(element).disabled = false;}
+function disable(element){document.getElementById(element).disabled = true;}
 function unfocus(){
     let temp = document.createElement("input");
     document.body.appendChild(temp);
     temp.focus();
     document.body.removeChild(temp);
 }
+
 /* val, icl = value, input class */
 function fillClasses(val = NaN, icl = NaN){
     let cl = document.querySelectorAll(icl);

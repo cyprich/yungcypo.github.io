@@ -209,13 +209,13 @@ input[type=number] {-moz-appearance: textfield;} /* Firefox */
     height: 2.5em;
     border: none;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(200, 200, 200, 0.5);
     padding: 0.5em;
     border-radius: 100% 100% 0 0;
 }
 #top-button:hover{
     bottom: 0;
-    background-color: rgba(200,200,200, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
     transform: scale(1.1);
 }
 #top-button img {
