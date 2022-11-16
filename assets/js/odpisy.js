@@ -100,7 +100,7 @@ function calculate(){
             for(i = 0; i < pr; i++){
                 let row = t.insertRow()
                 if(i == 0){
-                    ro = Math.ceil(oc / dlo) / 12 * (12 - (mesiac - 1))
+                    ro = Math.ceil((oc / dlo) / 12 * (12 - (mesiac - 1)))
                     opr = Math.ceil(ro);
                     zc = Math.ceil(oc - ro);
                 } else if (i == pr - 1){
