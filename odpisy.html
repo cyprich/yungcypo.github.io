@@ -6,7 +6,8 @@
         <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/odpisy.css">
-        <link rel = "icon" href = "assets/images/favicon.ico" type = "image/x-icon">
+        <link rel="icon" href="assets/images/favicon-black.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+        <link rel="icon" href="assets/images/favicon-white.ico" type="image/x-icon" media="(prefers-color-scheme: white)">
 
         <title>Cypo's Website</title>
 
@@ -15,11 +16,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-
-        <!-- PyScript 
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        -->
     </head>
     <body>
         <header>
@@ -43,64 +39,117 @@
         </button>
         <main>
             <h1>Odpisy</h1>
-            <table id="inputtable">
-                <tr>
-                    <td>
-                        <p>Mesiac zakúpenia majetku</p>
-                        <input type="month" id="datum" name="datum" autofocus>
-                    </td>
-                    <td>
-                        <p>Vstupná cena</p>
-                        <input type="number" id="oc" min="1700" placeholder="€">
-                    </td>
-                    <td>
-                        <p>Odpisová skupina</p>
-                        <input type="number" id="os" min="0" max="6" placeholder="0 - 6" onchange="getTypOdpisovania()">
-                    </td>
-                    <td id="typ-odpisovania">
-                        <p>Typ odpisovania</p>
+            <div id="inputtable">
+                <div>
+                    <p>Mesiac zakúpenia majetku</p>
+                    <input type="month" id="datum" name="datum" autofocus>
+                </div>
+                <div>
+                    <p>Vstupná cena</p>
+                    <input type="number" id="oc" min="1700" placeholder="€">
+                </div>
+                <div>
+                    <p>Odpisová skupina</p>
+                    <input type="number" id="os" min="0" max="6" placeholder="0 - 6" onchange="getTypOdpisovania()">
+                </div>
+                <div id="typ-odpisovania">
+                    <p>Metóda odpisovania</p>
+                    <div>
                         <ul>
                             <li>
                                 <input type="radio" name="typ-odpisovania" id="rovnomerne" checked>
-                                <label for="rovnomerne">Rovnomerné</label>
+                                <label for="rovnomerne">Rovnomerne</label>
                             </li>
-                            <p style="padding-top: 1em; font-size: 0.8em;" class="lighter">Zrýchlené odpisovanie je momentálne nedostupné</p>
-                            <li style="display: none;">
+                            <li>
                                 <input type="radio" name="typ-odpisovania" id="zrychlene">
-                                <label for="zrychlene">Zrýchlené</label>
+                                <label for="zrychlene">Zrýchlene</label>
                             </li>
                         </ul>
-                    </td>
-                </tr>
-            </table>
-            <div style="display: flex; justify-content: center; align-items: center;">
+                    </div>
+                </div>
+            </div>            
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 1em;">
                 <button type="submit" id="submitbutton" onclick="calculate()">Potvrdiť</button>
+            </div>
+            <div id="helptables-div">
+                <table class="helptable">
+                    <thead>
+                        <td>Odpisová skupina</td>
+                        <td>Doba odpisovania</td>
+                    </thead>
+                    <tr>
+                        <td>0</td>
+                        <td>2 roky</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>4 roky</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>6 rokov</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>8 rokov</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>12 rokov</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>20 rokov</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>40 rokov</td>
+                    </tr>
+                </table>
+                <table class="helptable">
+                    <tr>
+                        <td rowspan="2">Odpisová skupina</td>
+                        <td colspan="2">Koeficient</td>
+                    </tr>
+                    <tr>
+                        <td>V prvom roku odpisovania</td>
+                        <td>V ďalších rokoch odpisovania</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>Ostatné</td>
+                        <td colspan="2" class="lighter">Nedostupné*</td>
+                    </tr>
+                    <tr>
+                        <td class="lighter" colspan="3" style="border: none;">
+                            *Zrýchlené odpisovanie je možné iba pri druhej a tretej skupine
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div id="maintable-div">
                 <table id="maintable">
                     <thead>
                         <td>Rok</td>
+                        <td>Výpočet</td>
                         <td>Ročný odpis</td>
                         <td>Oprávky</td>
                         <td>Zostatková cena</td>
                     </thead>
                 </table>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div style="display: flex; justify-content: center; align-items: center; margin-top: 1em;">
+                <button type="reset" id="resetbutton" onclick="reset()">Reset</button>
+            </div>
         </main>
         <footer>
             <div>

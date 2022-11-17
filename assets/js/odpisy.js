@@ -11,8 +11,9 @@ pr - počet rokov
 ro = ročný odpis
 opr = oprávky
 zc = zostatková cena
+k1, k2 - koeficienty v zrýchenom odpisovaní
+vypocet - výpočet ročného odpisu
 */
-
 
 
 function ID(element){return document.getElementById(element)}  
@@ -33,20 +34,20 @@ function fillDatum(){ID("datum").value = (new Date().getFullYear() + "-" + (Numb
 
 function getTypOdpisovania(){
     if(ID("os").value == "2" || ID("os").value == "3"){
-        show(ID("typ-odpisovania"))
         for(i = 0; i < 4; i++){
-            ID("inputtable").children[0].children[0].children[i].style.width = "25%"
+            ID("inputtable").children[i].style.width = "25%"
         }
+        show(ID("typ-odpisovania"))
     } else {
-        hide(ID("typ-odpisovania"))
         for(i = 0; i < 3; i++){
-            ID("inputtable").children[0].children[0].children[i].style.width = "33%"
+            ID("inputtable").children[i].style.width = "33%"
         }
+        hide(ID("typ-odpisovania"))
     }
 }
 
 function calculate(){
-    if(ID("oc").value > 0 && ID("os").value >= 0 && ID("os").value <= 6 && ID("datum").value != ""){
+    if(ID("oc").value > 0 && ID("os").value >= 0 && ID("os").value <= 6 && ID("os").value !== "" && ID("datum").value != ""){
         const t = ID("maintable").children[0]
         const datum = ID("datum").value;
         const mesiac = Number(datum.split("-")[1])
@@ -58,6 +59,9 @@ function calculate(){
         let ro;
         let opr;
         let zc;
+        let k1; 
+        let k2;
+        let vypocet;
         
 
         switch(Number(os)){
@@ -91,46 +95,64 @@ function calculate(){
 
         
         if(ID("zrychlene").checked){
-            
-            while(zc <= 0){
+            if(os == 2){
+                k1 = 6; k2 = 7
+            } else if (os == 3){
+                k1 = 8; k2 = 9
+            }
+            for (i = 0; i < pr; i++){
+                let row = t.insertRow()
+                if(i == 0){
+                    vypocet = "(" + oc + " ÷ " + dlo + ") ÷ 12 × " + (12 - (mesiac - 1));
+                    ro = Math.ceil((oc/k1) / 12 * (12 - (mesiac - 1)))
+                    opr = Math.ceil(ro)
+                    zc = Math.ceil(oc - (oc/k1))
+                } else if (i == pr - 1){
+                    vypocet = "(" + oc + " ÷ " + dlo + ") ÷ 12 × " + (mesiac - 1);
+                    ro = Math.ceil((oc/k1) / 12 * (mesiac - 1))
+                    opr = Math.ceil(oc)
+                    zc = 0
+                } else {
+                    vypocet = "(2 × " + zc + ") ÷ (" + k2 + " - " + i + ")";
+                    ro = Math.ceil((2 * zc)/(k2 - i))
+                    opr = Math.ceil(Number(opr) + Number(ro))
+                    zc -= Math.ceil(ro)
+                }
 
-            }            
-
+                row.insertCell().innerHTML = rok;
+                row.insertCell().innerHTML = vypocet;
+                row.insertCell().innerHTML = ro;              
+                row.insertCell().innerHTML = opr;
+                row.insertCell().innerHTML = zc;
+                rok++
+            }        
         } else {
             for(i = 0; i < pr; i++){
                 let row = t.insertRow()
                 if(i == 0){
+                    vypocet = "(" + oc + " ÷ " + dlo + ") ÷ 12 × " + (12 - (mesiac - 1));
                     ro = Math.ceil((oc / dlo) / 12 * (12 - (mesiac - 1)))
                     opr = Math.ceil(ro);
                     zc = Math.ceil(oc - ro);
                 } else if (i == pr - 1){
+                    vypocet = "(" + oc + " ÷ " + dlo + ") ÷ 12 × " + (mesiac - 1);
                     ro = Math.ceil(zc)
                     opr = Math.ceil(oc);
                     zc = 0;
                 } else {
+                    vypocet = oc + " ÷ " + dlo;
                     ro = Math.ceil(oc / dlo);
                     opr = Math.ceil(Number(opr) + Number(ro));
                     zc -= Math.ceil(ro);
                 }
 
                 row.insertCell().innerHTML = rok;
+                row.insertCell().innerHTML = vypocet;
                 row.insertCell().innerHTML = ro;              
                 row.insertCell().innerHTML = opr;
                 row.insertCell().innerHTML = zc;
-
                 rok++
             }
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
 
         disable(ID("datum"))
@@ -141,7 +163,9 @@ function calculate(){
         }else{disable(ID("rovnomerne"))}
 
         show(ID("maintable-div"))
+        show(ID("resetbutton"))
         hide(ID("submitbutton"))
+        hide(ID("helptables-div"))
     }
 }
 
@@ -183,18 +207,22 @@ ID("os").addEventListener("keypress", function(event){
 
 function reset(){
     hide(ID("maintable-div"))
+    hide(ID("resetbutton"))
     show(ID("submitbutton"))
+    ID("helptables-div").style.display = "flex";
     
     ID("oc").value = "";
     ID("os").value = "";
-
+    
     enable(ID("rovnomerne"))
     ID("rovnomerne").click()
     enable(ID("zrychlene"))
-
+    
     getTypOdpisovania()
+    
+    // Scroll to top
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
-
 
 fillDatum()
 reset()
