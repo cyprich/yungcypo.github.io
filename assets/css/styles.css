@@ -12,8 +12,14 @@
 
 :root {
     --background: #000;
+    
     --color1: #20BDFF;
     --color2: #5433FF;
+
+    /*
+    --color1: #1488cc;
+    --color2: #2b32b2;
+    */
     --gray: rgb(20, 20, 20);
     --midgray: rgb(50, 50, 50);
     --lightgray: rgb(200, 200, 200);
