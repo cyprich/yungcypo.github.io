@@ -210,7 +210,6 @@ function stage2(inputx, inputy){
 
 
 /* Event listeners */
-
 ID("ld").addEventListener("keypress", function(event){
     if (event.key === "Enter" && ID("ld").value != 0){
         event.preventDefault();
