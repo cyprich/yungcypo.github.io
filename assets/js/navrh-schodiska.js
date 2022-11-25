@@ -290,10 +290,3 @@ function reset(){
     show("print-neuplne-vysledky")
 }
 reset();
-
-
-// Alert when exiting, aka prevent from accidental exit
-window.onbeforeunload = confirmExit;
-function confirmExit() {
-    return "";
-}
