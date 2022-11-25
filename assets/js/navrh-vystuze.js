@@ -2,6 +2,8 @@ var ld;
 var hd;
 var md;
 var msd;
+var md0; /* default input value */
+var msd0;  /* default input value */
 var beton;
 var ocel1; /* nosná oceľ */
 var ocel2; /* rozdeľovacia oceľ */ 
@@ -16,7 +18,7 @@ var cmin = 15/1000;
 var deltah = 5/1000;
 var d;
 var priemer = 8/1000;
-var as_;  /* needed to change from 'as', because it was changing my colors and it vas very annoying */ 
+var as_;  /* needed to change from 'as', because it was changing my colors and it vas very annoying xd */ 
 var b = 1;
 var alfa = 1;
 var asmin;
@@ -82,6 +84,7 @@ function stage1(){
     if(run){
         ld = ID("ld").value;
         hd = ID("hd").value;
+        md0 = msd0 = ID("md").value;
         md = msd = ID("md").value / 1000;
         beton = ID("beton").value;
         ocel1 = ID("ocel1").value;
@@ -180,6 +183,7 @@ function stage1(){
         disable(ID("beton"))
         disable(ID("ocel1"))
         disable(ID("ocel2"))
+        show(ID("plocha-vystuze-popis"))
         show(ID("plocha-vystuze"))
     }
 }
@@ -241,6 +245,7 @@ function reset(){
     enable(ID("ocel1"))
     enable(ID("ocel2"))
 
+    hide(ID("plocha-vystuze-popis"))
     hide(ID("plocha-vystuze"))
     
 }

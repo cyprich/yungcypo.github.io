@@ -64,11 +64,20 @@ input[type="radio"]{
     left: 0;
     background-color: rgba(0,0,0, 0.05);
 }
-input[type="radio"]:hover{background-color: rgba(0,0,0, 0.1);}
-input[type="radio"]:checked{background-color: rgba(0,0,0, 0.2);}
+input[type="radio"]:hover{background-color: rgba(0,0,0, 0.15);}
+input[type="radio"][disabled]:hover{background-color: rgba(0,0,0, 0.05);}
+input[type="radio"]:checked{background-color: rgba(0,0,0, 0.3);}
 td:has(input[type="radio"]) > p{
     position: absolute;
     top: calc(50% - 0.5em);
     width: 100%;
     text-align: center;
+}
+
+sub, sup{
+    font-size: 0.75em;
+}
+#po-vypocte > div {
+    padding-left: 0.5em;
+    padding-top: 0.5em;
 }
