@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
     font-size: 20px;
     text-decoration: none;
     box-sizing: border-box;
@@ -24,9 +24,6 @@
     --gradient: linear-gradient(to right, var(--color1), var(--color2));
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-
 .black-background {background-color: var(--background);}
 .gray-background {background-color: var(--gray);}
 .gradient {background-image: var(--gradient)}
@@ -39,7 +36,7 @@ a {font-size: 1em;}
 
 /* Header fix */
 *{scroll-margin-top: 5rem;}
-main {margin-top: 5em; min-height: calc(100vh - 5em);}
+main {margin-top: 5em; min-height: calc(100vh - 5em); background-image: var(--gradient);}
 
 
 header {
@@ -49,18 +46,17 @@ header {
     width: 100%;
     background-color: black;
     display: flex;
-    justify-content: space-around;  /* x-axis */
+    justify-content: space-between;  /* x-axis */
     align-items: center;  /* y-axis*/
     padding: 4em, 0em;
     z-index: 100;
 }
-header span{
+header span {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
-
 header span a {
     display: flex;
     justify-content: center;
@@ -71,7 +67,6 @@ header span a {
     position: relative;
     font-size: 1.25em;
 }
-
 header span a::after {
     content: "";
     background-image: var(--gradient);
@@ -85,58 +80,116 @@ header span a::after {
 header span a:hover::after{
     width: 100%;
 }
-#logo:hover::after{width: 0%;} /* Remove underline from logo */
-
+header span img{
+    margin-right: 1.5em;
+}
 
 #smile {transition: transform 0.5s ease;}
 #smile:hover {transform: scale(1.1) rotate(360deg);}
 
-#home {
-    background-image: var(--gradient);
-    height: 90vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-#home .projects {
+#home{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    height: 30%;
+    gap: 2em;
+    height: calc(100vh - 5em);
+    background-image: linear-gradient(rgba(255,255,255, 0.01), rgba(255,255,255, 0.1)), url("/assets/images/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
-#home .projects p {
-    font-size: 1.25em;
-    color: rgba(255, 255, 255, 0.8);
-}
-#home h1 {
-    font-size: 4em;
-}
-#home a {
-    width: 30%;
-    text-align: center;
-}
+#home p {font-family: 'Roboto Mono', monospace; font-weight: 300;}
+#home img{width: 25em;}
 
 
 #about {background-color: var(--gray); text-align: center;}
 #about h1 {font-size: 4em; padding: 0.4em 0em;}
 #about h2 {font-size: 2em; padding-bottom: 0.2em; padding-top: 0.15em;}
+#about h3 {font-size: 1.5em; padding: 0.2em 0;}
+
+#about>div{padding: 2em;}
+#about hr {border:none; border-top: 1px var(--midgray) solid; margin: 0 1em;}
+#about-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vh;
+    text-align: left;
+}
+#about-container p {
+    font-family: 'Roboto Mono', monospace;;
+}
+#about .w1 {font-weight: 100}
+#about .w3 {font-weight: 300}
+#about .w5 {font-weight: 500}
+#about .w7 {font-weight: 700}
+
+#skills-container{
+    background-image: linear-gradient(to right, rgba(0,0,0, 0.75), rgba(10,10,10, 0.9)), url("/assets/images/code/code4.jpg");
+    /* 
+    background-image: url("/assets/images/code/code1.jpg");
+    */
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#skills-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#skills-content>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+}
+.progress{
+    background-color: white;
+    width: 50%;
+    height: 1.5em;
+    margin-top: 0.5em;
+    border-radius: 0.25em;
+}
+.progress > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: var(--color1);
+    border-radius: 0.25em 0 0 0.25em;
+}
+.progress > div > p{
+    color: black;
+}
+
 
 #projects {background-image: var(--gradient); text-align: center;}
-#projects h1 {font-size: 4em; padding: 0.4em 0em;}
-#projects h2 {font-size: 2em; padding-bottom: 0.2em; padding-top: 0.15em;}
-#projects .lighter {margin-top: -0.5em; margin-bottom: 0.5em;}
+#projects h1 {font-size: 4.5em; padding-bottom: 0.4em;}
+#projects h2 {font-size: 2.5em; padding-bottom: 0.2em; padding-top: 0.15em;}
+#projects p {padding: 0.25em; color: rgba(255, 255, 255, 0.9);}
+#projects .lighter {margin-top: -0.5em; margin-bottom: 0.5em; color: rgba(255,255,255, 0.5);}
+#projects button {padding: 0.5em 2.5em; margin-top: 1em;}
+
+#projects>div:nth-child(n+1) {min-height: 10vh; padding: 2em;}
+#projects>div:nth-child(2){background-color: rgba(0, 0, 0, 0.1);}
+#projects>div:nth-child(3){background-color: rgba(0, 0, 0, 0.2);}
+#projects>div:nth-child(4){background-color: rgba(0, 0, 0, 0.3);}
+#projects>div:nth-child(5){background-color: rgba(0, 0, 0, 0.4);}
+#projects-nadpis{padding: 1em;}
+.nedostupne, .nedostupne>span{
+    color: rgba(255, 255, 255, 0.4) !important; 
+}
+.nedostupne::after{content: " - zatiaľ nedostupné";}
 
 #contact {background-color: var(--gray); text-align: center;}
 #contact h1 {font-size: 4em; padding: 0.4em 0em;}
 #contact h2 {font-size: 2em; padding-bottom: 0.2em; padding-top: 0.15em;}
 
-
-#navrh-schodiska {background-color: rgba(0,0,0, 0.1); padding: 2em;}
-#vypocet-zatazenia {background-color: rgba(0,0,0, 0.2); padding: 2em;}
-#kvadraticke-rovnice {background-color: rgba(0,0,0, 0.3); padding: 2em;}
-#odpisy {background-color: rgba(0,0,0, 0.4); padding: 2em;}
-#piskvorky {background-color: rgba(0, 0, 0, 0.5);}
 
 
 footer {
