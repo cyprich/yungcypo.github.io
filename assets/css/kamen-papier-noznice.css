@@ -1,3 +1,17 @@
 main {
     background-image: var(--gradient);
 }
+
+#kamen, #papier, #noznice{
+    height: 10em;
+    width: 10em;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10em;
+    border-color: black;
+}
+
+#kamen>img, #papier>img, #noznice>img{
+    height: 80%;
+    width: auto;
+}
