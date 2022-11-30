@@ -174,6 +174,8 @@ window.addEventListener("keypress", function(event){
                 action(i)
             }
         }
+        
+        
     } else {
         reset()
     }

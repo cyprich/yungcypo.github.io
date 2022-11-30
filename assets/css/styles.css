@@ -136,6 +136,7 @@ header span a:hover::after{
 #vypocet-zatazenia {background-color: rgba(0,0,0, 0.2); padding: 2em;}
 #kvadraticke-rovnice {background-color: rgba(0,0,0, 0.3); padding: 2em;}
 #odpisy {background-color: rgba(0,0,0, 0.4); padding: 2em;}
+#piskvorky {background-color: rgba(0, 0, 0, 0.5);}
 
 
 footer {
