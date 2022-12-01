@@ -247,6 +247,7 @@ function reset(){
 
     hide(ID("plocha-vystuze-popis"))
     hide(ID("plocha-vystuze"))
+    hide(ID("vysledky"))
     
 }
 

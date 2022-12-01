@@ -13,23 +13,14 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;500;700&display=swap" rel="stylesheet">
-
-        <!-- PyScript 
-            <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
-            <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        -->
-            <!-- Import modules (they need to be imported in <py-script> as well)
-            <py-env>
-                - pygame
-            </py-env>
-        -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             <span>
                 <a href="/#home">Domov</a>
                 <a href="/#about">O mne</a>
+                <a href="/#contact">Kontakt</a>
                 <a href="/#projects">Projekty</a>
             </span>
             <span>
@@ -43,23 +34,51 @@
             <div id="home">
                 <p>Ahoj, ja som</p>
                 <img src="/assets/images/logo.svg" alt="cypo">
-                <p>Vitajte na mojej stránke</p>
+                <p>Vitaj na mojej stránke</p>
             </div>
             <div id="about">
                 <h1>O mne</h1>
                 <hr>
                 <div id="about-container">
                     <div>
-                        <p class="w7">Peter "Cypo" Cyprich</p>
-                        <p class="w5">Peter "Cypo" Cyprich</p>
-                        <p class="w3">Peter "Cypo" Cyprich</p>
-                        <p class="w1">Peter "Cypo" Cyprich</p>
-                        <p class="w3">SOŠ T. Vansovej</p>
+                        <div class="about-content">
+                            <img src="/assets/images/icons/man.svg" alt="">
+                            <p class="w7">Peter <span class="w5" style="color: var(--color1)">"Cypo"</span> Cyprich</p>
+                        </div>
+                        <div class="about-content">
+                            <img src="/assets/images/icons/home.svg" alt="">
+                            <p class="w5">Prievidza, Slovensko</p>
+                        </div>
+                        <div class="about-content">
+                            <img src="/assets/images/icons/cake.svg" alt="">
+                            <p class="w5">4. 6. 2003</p>
+                        </div>
+                        <div class="about-content">
+                            <img src="/assets/images/icons/school.svg" alt="">
+                            <p class="w5">SOŠ T. Vansovej, Prievidza<br><span class="w2">Technické a informatické služby v stavebníctve</span></p>
+                        </div>
+                        <div class="about-content">
+                            <img src="/assets/images/icons/computer.svg" alt="">
+                            <p class="w5">Programovanie, CAD</p>
+                        </div>
                     </div>
                     <div>
-                        <!--
-                            3D PANACIK WITH THREE JS
-                        -->
+                        <p class="w7" style="font-size: 1.5em; padding-bottom: 0.2em;">Hudba</p>
+                        <p class="w3" style="padding-bottom: 0.25em;">Vypočujte si moje obľúbené piesne</p>
+                        <div class="about-content-2">
+                            <img src="/assets/images/icons/warning.svg" alt="">
+                            <p class="w1" style="font-size: 0.8em; color: var(--color1);">Na vlastnú zodpovednosť<span style="font-size: 1.2em;">:)</span></p>
+                        </div>
+                        <iframe 
+                            style="border-radius:12px" 
+                            src="https://open.spotify.com/embed/playlist/787dFEifKIBwyuQSOyhbzF?utm_source=generator&theme=0" 
+                            width="100%" 
+                            height="325" 
+                            frameBorder="0" 
+                            allowfullscreen="" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy">
+                        </iframe>
                     </div>
                 </div>
                 <div id="skills-container">
@@ -120,9 +139,49 @@
                             </div>
                         </div>
                     </div>
+                
                 </div>
-                <div id="contact-container">
-                    <h2>Kontakt</h2>
+                <div id="contact">
+                    <h1>Kontakt</h1>
+                    <hr>
+                    <div id="contact-container">
+                        <div id="email">
+                            <h3>Napíš mi email</h3>
+                            <p class="w7" style="color: var(--color1);">cypo<span class="w4" style="color: var(--color1);">original@gmail.com</span></p>
+                                <select id="email-subject">
+                                    <option value="0">Vyberte predmet...</option>
+                                    <optgroup>
+                                        <option value="Spätná väzba">Spätná väzba</option>
+                                        <option value="Nahlásiť chybu">Nahlásiť chybu</option>
+                                        <option value="0" disabled></option>
+                                    </optgroup>
+                                </select>
+                            <textarea id="email-body" placeholder="Zadajte text..."></textarea>
+                            <button onclick="mail()">Odoslať</button>
+                        </div>
+                        <div>
+                            <a href="mailto:cypooriginal@gmail.com" class="contact-content" target="_blank">
+                                <img src="/assets/images/icons/mail.svg" alt="">
+                                <p>cypooriginal@gmail.com</p>
+                            </a>
+                            <a href="https://www.instagram.com/pterodaktyl123/" class="contact-content" target="_blank">
+                                <img src="/assets/images/icons/instagram.svg" alt="">
+                                <p>@pterodaktyl123</p>
+                            </a>
+                            <a href="https://github.com/yungcypo" class="contact-content" target="_blank">
+                                <img src="/assets/images/icons/github.svg" alt="">
+                                <p>yungcypo</p>
+                            </a>
+                            <a href="https://open.spotify.com/user/xn9rkbs3e9rk83nbnyrtjcpab" class="contact-content" target="_blank">
+                                <img src="/assets/images/icons/spotify.svg" alt="">
+                                <p>Peťo</p>
+                            </a>
+                            <a href="https://www.discord.com/users/587622652831596545" class="contact-content" target="_blank">
+                                <img src="/assets/images/icons/discord.svg" alt="">
+                                <p>Cypo<span class="w1">#9202</span></p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="projects">
@@ -184,5 +243,6 @@
     </body>
     <script src="/assets/js/topbutton.js"></script>
     <script src="/assets/js/smile.js"></script>
+    <script src="/assets/js/index.js"></script>
 
 </html>

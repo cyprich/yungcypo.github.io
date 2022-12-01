@@ -71,7 +71,7 @@ header span a::after {
     content: "";
     background-image: var(--gradient);
     width: 0;
-    height: 0.1em;
+    height: 1px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -94,42 +94,59 @@ header span img{
     align-items: center;
     gap: 2em;
     height: calc(100vh - 5em);
-    background-image: linear-gradient(rgba(255,255,255, 0.01), rgba(255,255,255, 0.1)), url("/assets/images/background.jpg");
+    background-image: linear-gradient(rgba(0,0,0, 0.25), rgba(0,0,0, 0.75)), url("/assets/images/background.jpg");
     background-attachment: fixed;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 #home p {font-family: 'Roboto Mono', monospace; font-weight: 300;}
 #home img{width: 25em;}
 
-
 #about {background-color: var(--gray); text-align: center;}
 #about h1 {font-size: 4em; padding: 0.4em 0em;}
 #about h2 {font-size: 2em; padding-bottom: 0.2em; padding-top: 0.15em;}
 #about h3 {font-size: 1.5em; padding: 0.2em 0;}
+#about p, #about span{font-family: 'Roboto Mono', monospace;}
 
 #about>div{padding: 2em;}
 #about hr {border:none; border-top: 1px var(--midgray) solid; margin: 0 1em;}
 #about-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 50vh;
     text-align: left;
 }
-#about-container p {
-    font-family: 'Roboto Mono', monospace;;
+/*#about-container p, #about-container span{font-family: 'Roboto Mono', monospace;}*/
+#about-container iframe{margin-top: 1em;}
+#about-container>div:nth-child(2){text-align: center;}
+.about-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 2em;
 }
+.about-content:last-child{margin-bottom: 0;}
+.about-content img{height: 2.5em;}
+.about-content-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.75em;
+}
+.about-content-2 img{height: 1em; width: auto;}
+
 #about .w1 {font-weight: 100}
+#about .w2 {font-weight: 200}
 #about .w3 {font-weight: 300}
+#about .w4 {font-weight: 400}
 #about .w5 {font-weight: 500}
+#about .w6 {font-weight: 600}
 #about .w7 {font-weight: 700}
 
 #skills-container{
     background-image: linear-gradient(to right, rgba(0,0,0, 0.75), rgba(10,10,10, 0.9)), url("/assets/images/code/code3.jpg");
-    /* 
-    background-image: url("/assets/images/code/code1.jpg");
-    */
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -166,7 +183,44 @@ header span img{
 .progress > div > p{
     color: black;
 }
-
+#contact{min-height: calc(100vh - 5em);}
+#contact-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 1em;
+}
+#email{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+}
+#email h3{padding: 0;}
+#email textarea{
+    resize: vertical;
+    width: 100%;
+    min-height: 5em;
+    background-color: var(--gray);
+    padding: 0.5em;
+    border-radius: 0.5em;
+} 
+#email select{
+    width: 100%;
+    background-color: var(--gray);
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 0.5em;
+} 
+#email select *{background-color: var(--midgray);}
+#email button{
+    width: 50%; 
+    padding: 1em; 
+    border: 1px white solid;
+    border-radius: 1em;
+}
+#email button:hover{border-color: var(--color1);}
 
 #projects {background-image: var(--gradient); text-align: center;}
 #projects h1 {font-size: 4.5em; padding-bottom: 0.4em;}
@@ -182,14 +236,37 @@ header span img{
 #projects>div:nth-child(5){background-color: rgba(0, 0, 0, 0.4);}
 #projects-nadpis{padding: 1em;}
 .nedostupne, .nedostupne>span{
-    color: rgba(255, 255, 255, 0.4) !important; 
+    color: rgba(255, 255, 255, 0.5) !important; 
 }
 .nedostupne::after{content: " - zatiaľ nedostupné";}
 
 #contact {background-color: var(--gray); text-align: center;}
-#contact h1 {font-size: 4em; padding: 0.4em 0em;}
+#contact h1 {font-size: 4em; padding: 0; padding-bottom: 0.5em;}
 #contact h2 {font-size: 2em; padding-bottom: 0.2em; padding-top: 0.15em;}
 
+#contact-container>div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 1em;
+}
+.contact-content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5em;
+    gap: 1em;
+    border: 1px var(--midgray) solid;
+    border-radius: 0.5em;
+}
+.contact-content:hover{border-color: var(--color1);}
+
+
+.contact-content img{height: 2em;}
+.contact-content p, 
+.contact-content a, 
+.contact-content span{font-family: 'Roboto Mono', monospace;}
 
 
 footer {
