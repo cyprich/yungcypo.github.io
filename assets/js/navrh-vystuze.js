@@ -2,8 +2,6 @@ var ld;
 var hd;
 var md;
 var msd;
-var md0; /* default input value */
-var msd0;  /* default input value */
 var beton;
 var ocel1; /* nosná oceľ */
 var ocel2; /* rozdeľovacia oceľ */ 
@@ -28,6 +26,26 @@ var ksi;
 var ksimax;
 var mrd;
 var z;
+const betony = [
+    "C 12/15",
+    "C 16/20",
+    "C 20/25",
+    "C 25/30",
+    "C 30/37",
+    "C 35/45",
+    "C 40/50",
+    "C 45/55",
+    "C 50/60"
+]
+const ocele = [
+    "10 216 (E)",
+    "10 245 (K)",
+    "11 373 (EZ)",
+    "10 335 (J)",
+    "10 338 (T)",
+    "10 425 (V)",
+    "10 505 (R)",
+]
 
 function ID(element){return document.getElementById(element)}
 function show(element){element.style.display = "inline"}
@@ -41,9 +59,15 @@ function unfocus(){
     document.body.removeChild(temp);
 }
 
-function getAs(){
-    return Math.round((b * d * ((alfa * fcd)/fyd) * (1 - Math.sqrt((1/1) - ((2 * msd)/(b * Math.pow(d, 2) * alfa * fcd))))) * 1e6) / 1e6
+/* Get name of variable */
+// const varName = varObj => Object.keys(varObj)[0]
+function fillClasses(val = NaN, icl = NaN){
+    let cl = document.querySelectorAll(icl);
+    cl.forEach(element=>{
+        element.innerHTML = val;
+    });
 }
+
 
 const plochaVystuze = [
     [0.000028, 0.000057, 0.000085, 0.000113, 0.000141, 0.000170, 0.000198, 0.000226, 0.000254],
@@ -61,6 +85,9 @@ const plochaVystuze = [
 plochaVystuzePriemer = [6, 8, 10, 12, 14, 15, 18, 20, 22, 25, 28]
 
 
+function getAs(){
+    return Math.round((b * d * ((alfa * fcd)/fyd) * (1 - Math.sqrt((1/1) - ((2 * msd)/(b * Math.pow(d, 2) * alfa * fcd))))) * 1e6) / 1e6
+}
 function stage1(){
     let run = false;
     let toCheck = [
@@ -71,10 +98,9 @@ function stage1(){
         ID("ocel1"),
         ID("ocel2")
     ]
-
     for(i = 0; i < toCheck.length; i++){
         if(toCheck[i].value != 0){
-          run = true;  
+            run = true;  
         } else {
             run = false;
             break;
@@ -84,7 +110,6 @@ function stage1(){
     if(run){
         ld = ID("ld").value;
         hd = ID("hd").value;
-        md0 = msd0 = ID("md").value;
         md = msd = ID("md").value / 1000;
         beton = ID("beton").value;
         ocel1 = ID("ocel1").value;
@@ -187,7 +212,6 @@ function stage1(){
         show(ID("plocha-vystuze"))
     }
 }
-
 function stage2(inputx, inputy){
         as_ = plochaVystuze[inputx][inputy]
 
@@ -197,8 +221,10 @@ function stage2(inputx, inputy){
 
         if(fyk > 400){
             asmin = 0.0015 * b * d;
-            asmax = 0.04 * b * hd;
+        } else if(fyk <= 400){
+            asmin = 0.6 * b * (d/fyk)
         }
+        asmax = 0.04 * b * hd;
         
         x = 1.25 * (as_ * fyd)/(b * alfa * fcd)
         x = Math.round(x * 1e4) / 1e4
@@ -210,7 +236,63 @@ function stage2(inputx, inputy){
         z = d - 0.4 * x
         mrd = as_ * fyd * z
         mrd = Math.round(mrd * 1e4) / 1e4
+
+        poVypocte()
 }
+
+
+function newP(id, text){
+    p = document.createElement("p")
+    p.innerHTML = text;
+    vysledky.children[id].appendChild(p)
+}
+function poVypocte(){
+    let vysledky = ID("vysledky")
+    vysledky.innerHTML = "";
+    const h2s = [
+        "1. Vstupné údaje",
+        "2. Návrhové pevnosti betónu a ocele",
+        "3. Krytie výstuže c",
+        "4. Účinná váška prierezu d",
+        "5. Plocha výstuže",
+        "6. Posúdenie"
+    ]
+    for(i = 0; i < 6; i++){
+        let h2 = document.createElement("h2")
+        h2.innerHTML = h2s[i]
+        vysledky.appendChild(h2)
+
+        let div = document.createElement("div")
+        vysledky.appendChild(div)
+    }
+
+    
+    newP(1, "Betón " + betony[beton - 1])          
+    newP(1, "Oceľ " + ocele[Number(ocel1) - 1] + " nosná")          
+    newP(1, "Oceľ " + ocele[Number(ocel2) - 1] + " rozdeľovacia")       
+    newP(1, String("$ l_D = " + ld + "m $"))
+    newP(1, "$ h_D = " + hd + "m $")
+    newP(1, "$ M_D = " + Number(md)*1000 + "kNm = " + md + "MNm $")
+    newP(1, "Volím $ \\phi\\;8\\;mm = 0,008\\;m $")
+
+    newP(3, "Betón " + betony[beton - 1])
+    newP(3, "$ f_{cd} = \\frac{f_{ck}}{\\gamma_c} $")
+    newP(3, "$ f_{cd} = \\frac{" + fck + "}{" + gammac + "} $")
+    newP(3, "$ f_{cd} = " + fcd + "$")
+    newP(3, "$ f_{yd} = \\frac{f_{yk}}{\\gamma_s} $")
+    newP(3, "$ f_{yd} = \\frac{" + fyk +"}{" + gammas + "} $")
+    newP(3, "$ f_{yd} = " + fyd + "$")
+    
+    newP(5, "$ c = c_{min} + \\delta_h $")
+    newP(5, "$ c = " + Number(cmin)*1000 + " + " + Number(deltah)*1000 + " $")
+    newP(5, "$ c = " + Number(c)*1000 + "\\;mm = " + c + "\\;m $")
+
+    
+
+}
+
+
+
 
 
 /* Event listeners */
@@ -247,8 +329,33 @@ function reset(){
 
     hide(ID("plocha-vystuze-popis"))
     hide(ID("plocha-vystuze"))
-    hide(ID("vysledky"))
+    //hide(ID("vysledky"))
     
 }
 
 reset()
+
+poVypocte()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

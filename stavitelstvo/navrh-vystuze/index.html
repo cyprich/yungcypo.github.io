@@ -10,6 +10,25 @@
         <link rel="stylesheet" href="/assets/css/navrh-vystuze.css">
         <link rel="icon" href="/assets/images/favicon-black.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
         <link rel="icon" href="/assets/images/favicon-white.ico" type="image/x-icon" media="(prefers-color-scheme: white)">
+
+        <!-- MathJax -->
+        <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script> -->
+        <!--
+        -->
+
+        <script>
+                MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              },
+              svg: {
+                fontCache: 'global'
+            }
+            };
+        </script>
+    
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        
     </head>
     <body>
         <header>
@@ -26,7 +45,7 @@
         <button id="top-button" onclick="scrollToTop()">
             <img src="/assets\images\arrow.svg" alt="Top" width="100%">
         </button>
-        <main>
+        <main>            
             <h1>Návrh výštuže <span class="lighter">v jednoduchej doske</span></h1>
             <div style="padding: 1em;">
                 <div id="main-input-div">
@@ -98,19 +117,8 @@
                         <td>9</td>
                     </tr>
                 </table>
-
-                <div id="po-vypocte">
-                    <h2>Vstupné údaje</h2>
-                    <div>
-                        <p>l<sub>D</sub> = <span class="ld"></span></p>
-                        <p>h<sub>D</sub> = <span class="hd"></span></p>
-                        <p>M<sub>d</sub> = <span class="md0"></span>KNm = M<sub>Sd</sub> = <span class="msd0"></span>KNm = <span class="msd"></span>MNm</p>
-                    </div>
-                </div>
-                <div id="vysledky">
-
-                </div>
-
+                <p>$ A_s = b ⋅ d ⋅ \frac{\alpha ⋅ f_{cd}}{f_{yd}} ⋅ \left(1 - \sqrt{\frac{1}{1} - \frac{2 ⋅ M_{sd}}{b ⋅ d^2 ⋅ \alpha ⋅ f_{cd}}}\right) $</p>
+                <div id="vysledky"></div>
             </div>
         </main>
         <footer>

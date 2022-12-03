@@ -28,7 +28,6 @@ function getD(){
         x1 = (-b + Math.sqrt(d)) / (2 * a)
         x2 = (-b - Math.sqrt(d)) / (2 * a)
 
-        
         const valuesToFill = [a, b, c, d, x1, x2];
         const classesToFill = [".a", ".b", ".c", ".d", ".x1", ".x2"];
         
@@ -64,7 +63,7 @@ function getD(){
 
 function random(){
     /* got values with python */
-    fetch("./assets/data/pekne-kvadraticke-rovnice.json")
+    fetch(".assets/data/pekne-kvadraticke-rovnice.json")
         .then(response => {
             return response.json()
         }).then(data => {
