@@ -26,6 +26,7 @@ var ksi;
 var ksimax;
 var mrd;
 var z;
+var pocetVystuzi;
 const betony = [
     "C 12/15",
     "C 16/20",
@@ -143,7 +144,7 @@ function stage1(){
             case "9":
                 fck = 50;
         }
-        fcd = fck/gammac;
+        fcd = Math.round((fck/gammac) * 100) / 100;
 
         switch(ocel1){
             case "1":
@@ -213,31 +214,33 @@ function stage1(){
     }
 }
 function stage2(inputx, inputy){
-        as_ = plochaVystuze[inputx][inputy]
+    pocetVystuzi = inputy
 
-        priemer = plochaVystuzePriemer[inputx] / 1000;
+    as_ = plochaVystuze[inputx][inputy]
 
-        d = hd - c - priemer/2;
+    priemer = plochaVystuzePriemer[inputx] / 1000;
 
-        if(fyk > 400){
-            asmin = 0.0015 * b * d;
-        } else if(fyk <= 400){
-            asmin = 0.6 * b * (d/fyk)
-        }
-        asmax = 0.04 * b * hd;
-        
-        x = 1.25 * (as_ * fyd)/(b * alfa * fcd)
-        x = Math.round(x * 1e4) / 1e4
-        
-        ksi = x/d
-        if(beton <= 6){ksimax = 0.45}
-        else if (beton > 6){ksimax = 0.35}
+    d = hd - c - priemer/2;
 
-        z = d - 0.4 * x
-        mrd = as_ * fyd * z
-        mrd = Math.round(mrd * 1e4) / 1e4
+    if(fyk > 400){
+        asmin = 0.0015 * b * d;
+    } else if(fyk <= 400){
+        asmin = 0.6 * b * (d/fyk)
+    }
+    asmax = 0.04 * b * hd;
+    
+    x = 1.25 * (as_ * fyd)/(b * alfa * fcd)
+    x = Math.round(x * 1e4) / 1e4
+    
+    ksi = x/d
+    if(beton <= 6){ksimax = 0.45}
+    else if (beton > 6){ksimax = 0.35}
 
-        poVypocte()
+    z = d - 0.4 * x
+    mrd = as_ * fyd * z
+    mrd = Math.round(mrd * 1e4) / 1e4
+
+    poVypocte()
 }
 
 
@@ -245,6 +248,11 @@ function newP(id, text){
     p = document.createElement("p")
     p.innerHTML = text;
     vysledky.children[id].appendChild(p)
+}
+function newH3(text){
+    h3 = document.createElement("h3")
+    h3.innerHTML = text;
+    vysledky.children[11].appendChild(h3)
 }
 function poVypocte(){
     let vysledky = ID("vysledky")
@@ -287,7 +295,61 @@ function poVypocte(){
     newP(5, "$ c = " + Number(cmin)*1000 + " + " + Number(deltah)*1000 + " $")
     newP(5, "$ c = " + Number(c)*1000 + "\\;mm = " + c + "\\;m $")
 
-    
+    newP(7, "$ d = h - c - \\frac{\\phi}{2} $")
+    newP(7, "$ d = " + hd + " - " + c + " - \\frac{" + priemer + "}{2} $")
+    newP(7, "$ d = " + d + " $")
+
+    newP(9, "$ A_s = b ⋅ d ⋅ \\frac{\\alpha ⋅ f_{cd}}{f_{yd}} ⋅ \\left(1 - \\sqrt{\\frac{1}{1} - \\frac{2 ⋅ M_{sd}}{b ⋅ d^2 ⋅ \\alpha ⋅ f_{cd}}}\\right) $")
+    newP(9, "$ A_s = " + b + " ⋅ " + d + " ⋅ \\frac{" + alfa + " ⋅ " + fcd + "}{" + fyd + "} ⋅ \\left(1 - \\sqrt{\\frac{1}{1} - \\frac{2 ⋅ " + msd + "}{" + b + " ⋅ " + d + "^2 ⋅ " + alfa + " ⋅ " + fcd + "}}\\right) $")
+    newP(9, "$ A_s = " + as_ + "\\;mm^2 = " + Number(as_)*10000 + "\\;cm^2 $")
+    newP(9, "Pre $ \\phi\\;" + priemer + "\\ \\rightarrow " + (Number(pocetVystuzi) + 1) + " \\phi V " + priemer + "/ m' \\Rightarrow A_s = " + as_ + " $")
+
+    if(priemer != 8/100){
+        newH3("Oprava účinnej výšky")
+        newP(11, "$ d = h - c - \\frac{\\phi}{2} $")
+        newP(11, "$ d = " + hd + " - " + c + " - \\frac{" + priemer + "}{2} $")
+        newP(11, "$ d = " + d + " $")
+    }
+
+    newH3("Kontrola stupňa vystuženia")
+    newP(11, "$ A_{s,min} \\le A_s \\le A_{s,max} $")
+    newP(11, "Oceľ " + ocele[Number(ocel1) - 1] + " $ \\Rightarrow f_{yk} = " + fyk + " MPa $")    
+    if(fyk > 400){
+        newP(11, "$ A_{s,min} = 0.0015 ⋅ b ⋅ d\\qquad$ ak $ fyk \\gt 400MPa $")
+        newP(11, "$ A_{s,min} = 0.0015 ⋅ " + b + " ⋅ " + d + " $")
+        newP(11, "$ A_{s,min} = " + asmin + " $")
+    } else if (fyk <= 400){
+        newP(11, "$ A_{s,min} = 0.6 ⋅ b ⋅ \\frac{d}{f_{yk}}\\qquad$ ak $ fyk \\le 400MPa $")
+        newP(11, "$ A_{s,min} = 0.6 ⋅ " + b + " ⋅ \\frac{" + d + "}{" + fyk + "} $")
+        newP(11, "$ A_{s,min} = " + asmin + " $")
+    }
+    newP(11, "$ A_{s,max} = 0.04 ⋅ b ⋅ h $")
+    newP(11, "$ A_{s,max} = 0.04 ⋅ " + b + " ⋅ " + hd + " $")
+    newP(11, "$ A_{s,max} = " + asmax + " $")
+    newP(11, "$ " + asmin + " \\le " + as_ + " \\le " + asmax + " $")
+
+    newH3("Poloha neutrálnej osi")
+    newP(11, "$ x = 1.25 ⋅ \\frac{A_s ⋅ f_{yd}}{b ⋅ \\alpha ⋅ f_{cd}} $")
+    newP(11, "$ x = 1.25 ⋅ \\frac{" + as_ + " ⋅ " + fyd + "}{" + b + " ⋅ " + alfa + " ⋅ " + fcd + "} $")
+    newP(11, "$ x = " + x + "\\;m $")
+
+    newH3("Kontrola napätia v oceli")
+    newP(11, "$ \\xi = \\frac{x}{d} = 1.25 ⋅ \\frac{A_s}{b ⋅ d} ⋅ \\frac{f_{yd}}{\\alpha ⋅ f_{ck}} \\le \\xi_{max} $")
+    newP(11, "$ \\xi = \\frac{" + x + "}{" + d + "} = 1.25 ⋅ \\frac{" + as_ + "}{" + b + " ⋅ " + d + "} ⋅ \\frac{" + fyd + "}{" + alfa + " ⋅ " + fck + "} \\le " + ksimax + " $")
+    newP(11, "$ \\xi = " + ksi + " \\le " + ksimax + "\\qquad $ Platí")
+
+    newH3("Moment únosnosti")
+    newP(11, "$ z = d - 0.4 ⋅ x $")
+    newP(11, "$ z = " + d + " - 0.4 ⋅ " + x + " $")
+    newP(11, "$ z = " + z + "\\;m $")
+    newP(11, "$ M_{rd} = A_s ⋅ f_{yd} ⋅ z $")
+    newP(11, "$ M_{rd} = " + as_ + " ⋅ "+  fyd + " ⋅ " + z + " $")
+    newP(11, "$ M_{rd} = " + mrd + "\\;MNm $")
+    newP(11, "$ M_{rd} \\ge M_{sd} $")
+    newP(11, "$ " + mrd + " \\ge " + msd + " $")
+    newP(11, "Návrh $ " + (Number(pocetVystuzi) + 1) + " \\phi V " + Number(priemer)*1000 + "/ m' $ VYHOVUJE")
+
+    /* Re-run MathJax !! */
 
 }
 
