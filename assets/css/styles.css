@@ -227,24 +227,6 @@ header span img{
 }
 #email button:hover{border-color: var(--color1);}
 
-#projects {background-image: var(--gradient); text-align: center;}
-#projects h1 {font-size: 4.5em; padding-bottom: 0.4em;}
-#projects h2 {font-size: 2.5em; padding-bottom: 0.2em; padding-top: 0.15em;}
-#projects p {padding: 0.25em; color: rgba(255, 255, 255, 0.9);}
-#projects .lighter {margin-top: -0.5em; margin-bottom: 0.5em; color: rgba(255,255,255, 0.5);}
-#projects button {padding: 0.5em 2.5em; margin-top: 1em;}
-
-#projects>div:nth-child(n+1) {min-height: 10vh; padding: 2em;}
-#projects>div:nth-child(2){background-color: rgba(0, 0, 0, 0.1);}
-#projects>div:nth-child(3){background-color: rgba(0, 0, 0, 0.2);}
-#projects>div:nth-child(4){background-color: rgba(0, 0, 0, 0.3);}
-#projects>div:nth-child(5){background-color: rgba(0, 0, 0, 0.4);}
-#projects-nadpis{padding: 1em;}
-.nedostupne, .nedostupne>span{
-    color: rgba(255, 255, 255, 0.5) !important; 
-}
-.nedostupne::after{content: " - zatiaľ nedostupné";}
-
 #contact {background-color: var(--gray); text-align: center;}
 #contact h1 {font-size: 4em; padding: 0; padding-bottom: 0.5em;}
 #contact h2 {font-size: 2em; padding-bottom: 0.2em; padding-top: 0.15em;}
@@ -267,11 +249,31 @@ header span img{
 }
 .contact-content:hover{border-color: var(--color1);}
 
-
 .contact-content img{height: 2em;}
 .contact-content p, 
 .contact-content a, 
 .contact-content span{font-family: 'Roboto Mono', monospace;}
+
+
+#projects {background-image: var(--gradient); text-align: center;}
+#projects h1 {font-size: 4.5em; padding-bottom: 0.4em;}
+#projects h2 {font-size: 2.5em; padding-bottom: 0.2em; padding-top: 0.15em;}
+#projects p {padding: 0.25em; color: rgba(255, 255, 255, 0.9);}
+#projects .lighter {margin-top: -0.5em; margin-bottom: 0.5em; color: rgba(255,255,255, 0.5);}
+#projects button {padding: 0.5em 2.5em; margin-top: 1em;}
+
+#projects>div:nth-child(n+1) {min-height: 10vh; padding: 2em;}
+#projects>div:nth-child(2){background-color: rgba(0, 0, 0, 0.1);}
+#projects>div:nth-child(3){background-color: rgba(0, 0, 0, 0.2);}
+#projects>div:nth-child(4){background-color: rgba(0, 0, 0, 0.3);}
+#projects>div:nth-child(5){background-color: rgba(0, 0, 0, 0.4);}
+#projects-nadpis{padding: 1em;}
+.nedostupne, .nedostupne>span{
+    color: rgba(255, 255, 255, 0.5) !important; 
+}
+.nedostupne::after{content: " - zatiaľ nedostupné";}
+
+
 
 
 footer {
@@ -362,4 +364,20 @@ input[type=number] {-moz-appearance: textfield;} /* Firefox */
     width: 100%;
     height: auto;
     padding: 0;
+}
+
+
+
+@media (orientation: portrait){
+    #home{
+        background-image: linear-gradient(rgba(0,0,0, 0.25), rgba(0,0,0, 0.75)), url("/assets/images/background-mobile.jpg");
+    }
+    #about-container{grid-template-columns: 1fr;}
+    #about-container>div:nth-child(1){gap: 1em;}
+
+    #skills-content{grid-template-columns: 1fr 1fr;}
+
+    #contact{min-height: auto;}
+    #contact-container{grid-template-columns: 1fr;}
+    #contact-container>div:nth-child(2){gap: 1em;}
 }
