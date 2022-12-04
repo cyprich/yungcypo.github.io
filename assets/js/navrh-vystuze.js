@@ -168,12 +168,13 @@ function stage1(){
             case "7":
                 fyk = 490;
         }
-        fyd = fyk/gammas;
+        fyd = Math.round((fyk/gammas) * 100) / 100;
         
         c = cmin + deltah;
         
         d = hd - c - priemer/2;
         
+        as0 = Math.round(getAs() * 1000000) / 1000000
         as_ = getAs()
         
        
@@ -220,23 +221,24 @@ function stage2(inputx, inputy){
 
     priemer = plochaVystuzePriemer[inputx] / 1000;
 
-    d = hd - c - priemer/2;
+    d = Math.round((hd - c - priemer/2) * 1000) / 1000;
 
     if(fyk > 400){
         asmin = 0.0015 * b * d;
     } else if(fyk <= 400){
         asmin = 0.6 * b * (d/fyk)
     }
-    asmax = 0.04 * b * hd;
+    asmin = Math.round(asmin * 100000) / 100000
+    asmax = Math.round((0.04 * b * hd) * 100000) / 100000;
     
     x = 1.25 * (as_ * fyd)/(b * alfa * fcd)
     x = Math.round(x * 1e4) / 1e4
     
-    ksi = x/d
+    ksi = Math.round((x/d) * 10000) / 10000
     if(beton <= 6){ksimax = 0.45}
     else if (beton > 6){ksimax = 0.35}
 
-    z = d - 0.4 * x
+    z = Math.round((d - 0.4 * x) * 1000000) / 1000000
     mrd = as_ * fyd * z
     mrd = Math.round(mrd * 1e4) / 1e4
 
@@ -278,18 +280,18 @@ function poVypocte(){
     newP(1, "Betón " + betony[beton - 1])          
     newP(1, "Oceľ " + ocele[Number(ocel1) - 1] + " nosná")          
     newP(1, "Oceľ " + ocele[Number(ocel2) - 1] + " rozdeľovacia")       
-    newP(1, String("$ l_D = " + ld + "m $"))
-    newP(1, "$ h_D = " + hd + "m $")
-    newP(1, "$ M_D = " + Number(md)*1000 + "kNm = " + md + "MNm $")
+    newP(1, String("$ l_D = " + ld + "\\;m $"))
+    newP(1, "$ h_D = " + hd + "\\;m $")
+    newP(1, "$ M_D = " + Number(md)*1000 + "\\;kNm = " + md + "\\;MNm $")
     newP(1, "Volím $ \\phi\\;8\\;mm = 0,008\\;m $")
 
     newP(3, "Betón " + betony[beton - 1])
     newP(3, "$ f_{cd} = \\frac{f_{ck}}{\\gamma_c} $")
     newP(3, "$ f_{cd} = \\frac{" + fck + "}{" + gammac + "} $")
-    newP(3, "$ f_{cd} = " + fcd + "$")
+    newP(3, "$ f_{cd} = " + fcd + "\\;MPa$")
     newP(3, "$ f_{yd} = \\frac{f_{yk}}{\\gamma_s} $")
     newP(3, "$ f_{yd} = \\frac{" + fyk +"}{" + gammas + "} $")
-    newP(3, "$ f_{yd} = " + fyd + "$")
+    newP(3, "$ f_{yd} = " + fyd + "\\;MPa$")
     
     newP(5, "$ c = c_{min} + \\delta_h $")
     newP(5, "$ c = " + Number(cmin)*1000 + " + " + Number(deltah)*1000 + " $")
@@ -297,18 +299,18 @@ function poVypocte(){
 
     newP(7, "$ d = h - c - \\frac{\\phi}{2} $")
     newP(7, "$ d = " + hd + " - " + c + " - \\frac{" + priemer + "}{2} $")
-    newP(7, "$ d = " + d + " $")
+    newP(7, "$ d = " + d + "\\;m $")
 
-    newP(9, "$ A_s = b ⋅ d ⋅ \\frac{\\alpha ⋅ f_{cd}}{f_{yd}} ⋅ \\left(1 - \\sqrt{\\frac{1}{1} - \\frac{2 ⋅ M_{sd}}{b ⋅ d^2 ⋅ \\alpha ⋅ f_{cd}}}\\right) $")
-    newP(9, "$ A_s = " + b + " ⋅ " + d + " ⋅ \\frac{" + alfa + " ⋅ " + fcd + "}{" + fyd + "} ⋅ \\left(1 - \\sqrt{\\frac{1}{1} - \\frac{2 ⋅ " + msd + "}{" + b + " ⋅ " + d + "^2 ⋅ " + alfa + " ⋅ " + fcd + "}}\\right) $")
-    newP(9, "$ A_s = " + as_ + "\\;mm^2 = " + Number(as_)*10000 + "\\;cm^2 $")
+    newP(9, "$ A_s = b ⋅ d ⋅ \\frac{\\alpha\\;⋅\\;f_{cd}}{f_{yd}} ⋅ \\left(1 - \\sqrt{\\frac{1}{1} - \\frac{2\\;⋅\\;M_{sd}}{b\\;⋅\\;d^2\\;⋅\\;\\alpha\\;⋅\\;f_{cd}}}\\right) $")
+    newP(9, "$ A_s = " + b + " ⋅ " + d + " ⋅ \\frac{" + alfa + "\\;⋅\\;" + fcd + "}{" + fyd + "} ⋅ \\left(1 - \\sqrt{\\frac{1}{1} - \\frac{2\\;⋅\\;" + msd + "}{" + b + "\\;⋅\\;" + d + "^2\\;⋅\\;" + alfa + " ⋅ " + fcd + "}}\\right) $")
+    newP(9, "$ A_s = " + as0 + "\\;mm^2 = " + Number(as0)*10000 + "\\;cm^2 $")
     newP(9, "Pre $ \\phi\\;" + priemer + "\\ \\rightarrow " + (Number(pocetVystuzi) + 1) + " \\phi V " + priemer + "/ m' \\Rightarrow A_s = " + as_ + " $")
 
-    if(priemer != 8/100){
+    if(priemer != 8/1000){
         newH3("Oprava účinnej výšky")
         newP(11, "$ d = h - c - \\frac{\\phi}{2} $")
         newP(11, "$ d = " + hd + " - " + c + " - \\frac{" + priemer + "}{2} $")
-        newP(11, "$ d = " + d + " $")
+        newP(11, "$ d = " + d + "\\;m $")
     }
 
     newH3("Kontrola stupňa vystuženia")
@@ -317,15 +319,15 @@ function poVypocte(){
     if(fyk > 400){
         newP(11, "$ A_{s,min} = 0.0015 ⋅ b ⋅ d\\qquad$ ak $ fyk \\gt 400MPa $")
         newP(11, "$ A_{s,min} = 0.0015 ⋅ " + b + " ⋅ " + d + " $")
-        newP(11, "$ A_{s,min} = " + asmin + " $")
+        newP(11, "$ A_{s,min} = " + asmin + "\\;m^2 $")
     } else if (fyk <= 400){
         newP(11, "$ A_{s,min} = 0.6 ⋅ b ⋅ \\frac{d}{f_{yk}}\\qquad$ ak $ fyk \\le 400MPa $")
         newP(11, "$ A_{s,min} = 0.6 ⋅ " + b + " ⋅ \\frac{" + d + "}{" + fyk + "} $")
-        newP(11, "$ A_{s,min} = " + asmin + " $")
+        newP(11, "$ A_{s,min} = " + asmin + "\\;m^2 $")
     }
     newP(11, "$ A_{s,max} = 0.04 ⋅ b ⋅ h $")
     newP(11, "$ A_{s,max} = 0.04 ⋅ " + b + " ⋅ " + hd + " $")
-    newP(11, "$ A_{s,max} = " + asmax + " $")
+    newP(11, "$ A_{s,max} = " + asmax + "\\;m^2 $")
     newP(11, "$ " + asmin + " \\le " + as_ + " \\le " + asmax + " $")
 
     newH3("Poloha neutrálnej osi")
@@ -350,7 +352,43 @@ function poVypocte(){
     newP(11, "Návrh $ " + (Number(pocetVystuzi) + 1) + " \\phi V " + Number(priemer)*1000 + "/ m' $ VYHOVUJE")
 
     /* Re-run MathJax !! */
+    let add = document.createElement("script")
+    add.appendChild(document.createTextNode(
+        `
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global',
+            }, 
+        };
+        `
+    ))
+    document.getElementsByTagName("head")[0].appendChild(add)
+    
+    add = document.createElement("script")
+    add.setAttribute("type", "text/javascript")
+    add.setAttribute("id", "MathJax-script")
+    add.setAttribute("defer", true)
+    add.setAttribute("src", "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js")
+    document.getElementsByTagName("head")[0].appendChild(add)
+    
+    add = document.createElement("script")
+    add.setAttribute("type", "text/javascript")
+    add.setAttribute("src", "https://code.jquery.com/jquery-1.7.1.min.js")
+    document.getElementsByTagName("head")[0].appendChild(add)
 
+    hide(ID("main-input-div"))
+    hide(ID("beton"))
+    hide(ID("ocel1"))
+    hide(ID("ocel2"))
+    hide(ID("submitbutton"))
+    hide(ID("plocha-vystuze-popis"))
+    hide(ID("plocha-vystuze"))    
+    
+    /* scroll to top */
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 
@@ -390,34 +428,7 @@ function reset(){
     enable(ID("ocel2"))
 
     hide(ID("plocha-vystuze-popis"))
-    hide(ID("plocha-vystuze"))
-    //hide(ID("vysledky"))
-    
+    hide(ID("plocha-vystuze"))    
 }
 
 reset()
-
-poVypocte()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -74,7 +74,9 @@ td:has(input[type="radio"]) > p{
     text-align: center;
 }
 
-sub, sup{
-    font-size: 0.75em;
-}
 #vysledky > div, #vysledky > p, #vysledky > h3 {margin: 1em;}
+#vysledky > h3 {margin-bottom: 0;}
+#vysledky > div:last-child > p{
+    margin: 0.5em;
+}
+h3{font-size: 1.25em;}
