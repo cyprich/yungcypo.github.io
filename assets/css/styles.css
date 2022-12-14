@@ -28,14 +28,17 @@
 .gray-background {background-color: var(--gray);}
 .gradient {background-image: var(--gradient)}
 
-/*div {width: 100%;height: 100%;}*/
 h1 {font-size: 2em;}
 h2 {font-size: 1.5em;}
 h3 {font-size: 1.3em;}
 a {font-size: 1em;}
 
+/* disable scrolling
+body {overflow: hidden;}
+*/
+
 /* Header fix */
-*{scroll-margin-top: 5rem;}
+* {scroll-margin-top: 5rem;}
 main {margin-top: 5em; min-height: calc(100vh - 5em); background-image: var(--gradient);}
 
 
@@ -376,7 +379,8 @@ input[type=number] {-moz-appearance: textfield;} /* Firefox */
         background-position: center;
     }
     #about-container{grid-template-columns: 1fr;}
-    #about-container>div:nth-child(1){gap: 1em;}
+    #about-container>div:nth-child(1){gap: 1em; margin-bottom: 2em;}
+    .progress{width: 75%; height: 1.5em;}
 
     #skills-content{grid-template-columns: 1fr 1fr;}
 
