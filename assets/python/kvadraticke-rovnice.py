@@ -12,9 +12,11 @@ for a in range(1, r):
     for b in range(r):
         for c in range(r):
             d = b ** 2 - 4 * a * c
-            '''if d >= 0 and math.sqrt(d) == round(math.sqrt(d)):
+            '''
+            if d >= 0 and math.sqrt(d) == round(math.sqrt(d)):
                 mydict[n] = [a, b, c]
-                n += 1'''
+                n += 1
+            '''
             if d > 0:
                 x1 = (-(b) + math.sqrt(d))/(2*a) 
                 x2 = (-(b) - math.sqrt(d))/(2*a) 

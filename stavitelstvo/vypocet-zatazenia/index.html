@@ -27,95 +27,114 @@
             <img src="/assets/images/arrow.svg" alt="Top" width="100%">
         </button>
         <main>
-            <h1>Výpočet zaťaženia</h1>
-            <table>
+            <div class="nedostupne">
+                <div>
+                    <h2>Táto stránka je dočasne nedostupná</h2>
+                    <p>Ďakujem za pochopenie</p>
+                </div>
+            </div>
+            <h1 id="nadpis">Výpočet zaťaženia</h1>
+            <select name="typselect" id="typselect" onchange="getTyp()">
+                <option value="0" selected>Vyberte...</option>
+                <optgroup>
+                    <option value="1">Zaťaženie na strop</option>
+                    <option value="2">Zaťaženie na strechu</option>
+                </optgroup>
+                <option value="0" disabled></option>
+            </select>
+            <select name="typprevadzkyselect" id="typprevadzkyselect" onchange="getTyp()">
+                <option value="0">Vyberte typ prevádzky...</option>
+                <optgroup>
+                    <option value="3">Administratívna budova</option>
+                    <option value="4">Divadelná sála</option>
+                    <option value="7.5">Knižnica</option>
+                    <option value="3">Materská škola</option>
+                    <option value="3">Nemocnica</option>
+                    <option value="3">Predajňa</option>
+                    <option value="3">Reštaurácia</option>
+                    <option value="3">Škola</option>
+                </optgroup>
+                <option value="0" disabled></option>
+            </select>
+            <select name="snehovaoblastselect" id="snehovaoblastselect" onchange="getTyp()">
+                <option value="0">Vyberte snehovú oblasť...</option>
+                <optgroup>
+                    <option value="1">Snehová oblasť I</option>
+                    <option value="2">Snehová oblasť II</option>
+                    <option value="3">Snehová oblasť III</option>
+                    <option value="4">Snehová oblasť IV</option>
+                </optgroup>
+                <option value="0" disabled></option>
+            </select>
+            <table id="tabulka">
                 <thead>
-                    <tr class="topborder">
-                        <td>Skladba stropu</td>
-                        <td>Hrúbka<br>[m]</td>
-                        <td>Objemová tiaž<br>[KN × m<sup>3</sup>]</td>
-                        <td>Zaťažovacia plocha<br>[m<sup>3</sup>]</td>
-                        <td colspan="2">Charakteristická hodnota zaťaženia<br>f<sub>k</sub><br>[KN × m<sup>2</sup>]</td>
-                        <td>Súčiniteľ zaťaženia<br>γ<sub>f</sub></td>
-                        <td colspan="2">Návrhová hodnota zaťaženia<br>f<sub>d</sub><br>[KN × m<sup>2</sup>]</td>
+                    <tr>
+                        <td>
+                            Materiál
+                        </td>
+                        <td>
+                            Hrúbka
+                            <br><span class="light">[m]</span>
+                        </td>
+                        <td>
+                            Objemová tiaž
+                            <br><span class="light">[KN / m<sup>3</sup>]</span>
+                        </td>
+                        <td colspan="2">
+                            Zaťažovacia plocha
+                            <br><span class="light">[m<sup>2</sup>]</span>
+                        </td>
+                        <td colspan="2">
+                            Charakteristická hodnota zaťaženia
+                            <br>f<sub>k</sub>
+                            <br><span class="light">[KN / m<sup>2</sup>]</span>
+                        </td>
+                        <td>
+                            Súčiniteľ zaťaženia
+                            <br>γ<sub>f</sub>
+                        </td>
+                        <td colspan="2">
+                            Návrhová hodnota zaťaženia
+                            <br>f<sub>d</sub>
+                            <br><span class="light">[KN / m<sup>2</sup>]</span>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="plusrow">
-                        <td><input type="text" id="plus1" autofocus></td>
-                        <td><input type="number" id="plus2"></td>
-                        <td><input type="number" id="plus3"></td>
-                        <td colspan="6"><button id="plus-button" onclick="add()">+</button></td>
+                    <tr id="newrow">
+                        <td><input type="text" id="materialinput" placeholder="Materiál"></td>
+                        <td><input type="number" id="hrubkainput" placeholder="Hrúbka"></td>
+                        <td><input type="number" id="objemovatiazinput" placeholder="Objemová tiaž"></td>
+                        <td colspan="7"><button id="addbutton" onclick="add()">+</button></td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="4">Stále zaťaženie g</td>
-                        <td class="znacka">g<sub>k</sub></td>
+                        <td colspan="5">Stále zaťaženie g</td>
+                        <td class="narrow">g<sub>k</sub></td>
                         <td id="gk"></td>
-                        <td id="yg">1.35</td>
-                        <td class="znacka">g<sub>d</sub></td>
+                        <td id="gammag"></td>
+                        <td class="narrow">g<sub>d</sub></td>
                         <td id="gd"></td>
                     </tr>
                     <tr>
-                        <td colspan="4">Premenné zaťaženie q - Reštaurácia</td>
-                        <td class="znacka">q<sub>k</sub></td>
-                        <td id="qk">3.000</td>
-                        <td id="yq">1.50</td>
-                        <td class="znacka">q<sub>d</sub></td>
+                        <td id="premennezatazenie" colspan="4">Premenné zaťaženie q</td>
+                        <td id="premennezatazeniepopisok"></td>
+                        <td id="qkpopisok" class="narrow">q<sub>k</sub></td>
+                        <td id="qk"></td>
+                        <td id="gammaq"></td>
+                        <td id="qdpopisok" class="narrow">q<sub>d</sub></td>
                         <td id="qd"></td>
                     </tr>
-                    <tr>
-                        <td colspan="4">Základná kombinácia - Celkové zaťaženie</td>
-                        <td class="znacka">f<sub>ck</sub></td>
+                    <tr id>
+                        <td colspan="5">Základná kombinácia - celkové zaťaženie</td>
+                        <td class="narrow">f<sub>ck</sub></td>
                         <td id="fck"></td>
                         <td>-</td>
-                        <td class="znacka">f<sub>cd</sub></td>
+                        <td class="narrow">f<sub>cd</sub></td>
                         <td id="fcd"></td>
                     </tr>
                 </tfoot>
-            </table>
-            <table id="aftertable">
-                <tr>
-                    <td>
-                        <p>Upraviť</p>
-                        <select name="at-edit-select" id="at-edit-select" onclick="atEdit(0)">
-                            <optgroup>
-                                <option value="0" selected>&hellip;Vyberte&hellip;</option>
-                            </optgroup>
-                            <optgroup>
-                                <option value="1" >Materiál</option>
-                                <option value="2">Hrúbka</option>
-                                <option value="3">Objemová tiaž</option>
-                            </optgroup>
-                            <optgroup>
-                                <option value="4">Súčiniteľ γ<sub>g</sub></option>
-                                <option value="5">Premenné zaťaženie q<sub>k</sub></option>
-                                <option value="6">Súčiniteľ γ<sub>q</sub></option>
-                            </optgroup>
-                            <optgroup>
-                                <option value="7">Typ prevádzky</option>
-                                <option value="0"></option>
-                            </optgroup>
-                        </select>
-                        
-                        <input type="number" id="at-edit-row" placeholder="č. riadku">
-                        <input type="text" id="at-edit-text" placeholder="Nová hodnota">
-                        <input type="number" id="at-edit-num" placeholder="Nová hodnota">
-                        <button id="at-edit-button" onclick="atEdit(1)">Potvrdiť</button>                        
-                    </td>
-                    <td>
-                        <p>Uložiť/Nahrať</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Odstrániť
-                    </td>
-                    <td>
-                        Tlačiť
-                    </td>
-                </tr>
             </table>
         </main>
         <footer>

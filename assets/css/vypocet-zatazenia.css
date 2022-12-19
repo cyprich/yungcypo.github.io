@@ -1,80 +1,53 @@
-:root {--boder: 1px white solid;}
-
-main{background: var(--gradient); padding: 2em;}
-h1 {font-size: 2.4em; padding-bottom: 0.6em;}
-hr{
-    display: block; height: 1px; border: 0;
-    margin: 2em 0em; 
-    border-top: 1px solid;
+.nedostupne{
+    display: block;
+    width: 100%;
+    height: calc(100vh - 5em);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 11;
+}
+body{overflow: hidden;}
+.nedostupne > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+    width: 100%;
+    height: 100%;
 }
 
+main{padding: 1em;}
 table{
-    width: 100%; 
-    border: var(--boder); 
-    border-collapse: collapse; 
-    text-align: center;
-    margin-bottom: 3em;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
 }
+
 td{
-    border: var(--boder); 
     padding: 1em;
+    border: 1px white solid;
+    text-align: center;
 }
 
-thead, tbody, tfoot {
-    border-top: var(--boder);
-    border-bottom: var(--boder);
-}
-input{
-    border: none;
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-}
-tfoot tr td:nth-child(1){
-    text-align: left;
-}
-button{background-color: rgba(0, 0, 0, 0.25);}
-button:hover{background-color: rgba(0, 0, 0, 0.375);}
-button:active{background-color: rgba(0, 0, 0, 0.5);}
+tfoot td:nth-child(1){text-align: left;}
 
-#plusrow td {padding: 0; height: 1em;}
-#plusrow td button{
-    border: none;
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-}
 
-.znacka {
-    padding: 0.2em;
+.narrow{
+    padding: 1em 0.5em;
     width: 1ex;
 }
 
-
-#aftertable tr td {
-    border: 1px solid white;
-    width: 50%;
-    height: 100%;
-    
-}
-#aftertable input, #aftertable button{
-    margin-bottom: 0.5em;
-}
-
-
-
-
-select{
-    background-color: rgba(0,0,0, 0.1);
-    margin: 0.5em;
-    padding: 0.5em;
-    border: 1px solid white;
-    border-radius: 0.25em;
+#newrow button, #newrow input{
     width: 100%;
-    transform: translateX(-0.5em);
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 1.5em;
 }
-select *{
-    background-color: var(--color1);
+#newrow td:has(button, input){
+    padding: 0;
 }
-
 
