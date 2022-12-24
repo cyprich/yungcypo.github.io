@@ -1,9 +1,9 @@
 const hodnoty = []
 var gk
-var gammag
+var gammag = 1.35
 var gd
 var qk
-var gammaq
+var gammaq = 1.5
 var qd
 var fck
 var fcd
@@ -52,7 +52,7 @@ function getTyp(){
         ID("qkpopisok").innerHTML = "S<sub>k</sub>";
         ID("qdpopisok").innerHTML = "S<sub>d</sub>";
     }
-    update()
+    updatefooter()
 }
 function add(){
     let mi = ID("materialinput")
@@ -80,41 +80,46 @@ function add(){
                 "-"
                 ])
         }
+        mi.value = "";
+        hi.value = "";
+        oti.value = "";
+        updatebody()
+        updatefooter()
     }
-    update()
 }
-function update(){
-    let t = ID("tabulka").children[1]  // tabulka
-    let f = ID("tabulka").children[2]  // footer
-    let l = t.children.length - 1 // lenght of t
-    
-    if(l > 0){
-        for(i in l){
-            t.deleteRow(i)
+function updatebody(){
+    b = ID("tabulka").children[1]  // body of table
+    row = b.insertRow(hodnoty.length - 1)
+    for(i in hodnoty[0]){
+        col = row.insertCell()
+        if(i == 3 || i == 4 || i == 6){
+            col.colSpan = 2
         }
-    } 
-
+        col.innerHTML = hodnoty[hodnoty.length - 1][i]
+    }
+}
+function updatefooter(){
+    gk = 0
     for(i in hodnoty){
-        let row = t.insertRow(i)
-        for(j in hodnoty[i]){
-            let col = row.insertCell(j)
-            col.innerHTML = hodnoty[i][j]
+        if(hodnoty[i][4] != "-"){
+            gk += hodnoty[i][4]
         }
     }
+    ID("gk").innerHTML = gk
 
+    gd = gk * gammag
+    ID("gd").innerHTML = gd
 
+    qk = ID("typprevadzkyselect").value
+    ID("qk").innerHTML = qk
 
+    qd = qk * gammaq
+    ID("qd").innerHTML = qd
 
-
-
-
-
-
-
-
+    fck = gk + qk
+    ID("fck").innerHTML = fck
 
 }
-
 
 
 
