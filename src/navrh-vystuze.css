@@ -1,0 +1,112 @@
+:root {--boder: 1px white solid;}
+
+main{background-image: var(--gradient); padding: 2em;}
+
+select{
+    background-color: rgba(0,0,0, 0.1);
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 0.25em;
+    width: 100%;
+    transform: translateX(-0.5em);
+}
+select *{
+    background-color: var(--color1);
+}
+
+
+#main-input-div{
+    display: flex;
+    justify-content: space-between;
+}
+#main-input-div > input{
+    margin: 0.5em 0.125em;
+    width: 100%;
+}
+#main-input-div > input:nth-child(4){margin-right: 0em;}
+
+button[type="submit"]{
+    margin-top: 0;
+    padding: 0.75em 3em;
+}
+
+input, select{
+    padding: 0.75em;
+    height: auto;
+}
+
+table{
+    width: 100%; 
+    height: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+td{
+    padding: 1em;
+    border: var(--boder);
+}
+
+
+td:has(input[type="radio"]){
+    padding: 0;
+    position: relative;
+
+}
+input[type="radio"]{
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.05);
+}
+input[type="radio"]:hover{background-color: rgba(0,0,0, 0.15);}
+input[type="radio"][disabled]:hover{background-color: rgba(0,0,0, 0.05);}
+input[type="radio"]:checked{background-color: rgba(0,0,0, 0.3);}
+td:has(input[type="radio"]) > p{
+    position: absolute;
+    top: calc(50% - 0.5em);
+    width: 100%;
+    text-align: center;
+}
+
+#vysledky > div, #vysledky > p, #vysledky > h3 {margin: 1em;}
+#vysledky > h3 {margin-bottom: 0;}
+#vysledky > div:last-child > p{
+    margin: 0.5em;
+}
+h3{font-size: 1.25em;}
+
+#rotate{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+}
+#rotate > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+    height: 100%;
+}
+#rotate > div > img{
+    height: 8em;
+}
+#rotate > div > button {
+    padding: 0.75em 4em;
+}
+
+@media (orientation: portrait){
+    #rotate{display: block;}
+}

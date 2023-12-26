@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of useful stuff">
+        <meta name="keywords" content="Cypo, Výpočet zaťaženia, Staviteľstvo, Strecha, Strop">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <title>Cypo | Výpočet zaťaženia</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/vypocet-zatazenia.css">
+        <link rel="icon" href="/assets/images/favicon-black.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+        <link rel="icon" href="/assets/images/favicon-white.ico" type="image/x-icon" media="(prefers-color-scheme: white)">
+    </head>
+    <body>
+        <header>
+            <span>
+                <a href="/">Domov</a>
+                <a href="/#about">O mne</a>
+                <a href="/#contact">Kontakt</a>
+                <a href="/#projects">Projekty</a>
+            </span>
+            <span>
+                <img id="smile" src="/assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
+        </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="/assets/images/arrow.svg" alt="Top" width="100%">
+        </button>
+        <main>
+            <div class="nedostupne">
+                <div>
+                    <h2>Táto stránka je dočasne nedostupná</h2>
+                    <p>Ďakujem za pochopenie</p>
+                </div>
+            </div>
+            <h1 id="nadpis">Výpočet zaťaženia</h1>
+            <select name="typselect" id="typselect" onchange="getTyp()">
+                <option value="0" selected>Vyberte...</option>
+                <optgroup>
+                    <option value="1">Zaťaženie na strop</option>
+                    <option value="2">Zaťaženie na strechu</option>
+                </optgroup>
+                <option value="0" disabled></option>
+            </select>
+            <select name="typprevadzkyselect" id="typprevadzkyselect" onchange="getTyp()">
+                <option value="0">Vyberte typ prevádzky...</option>
+                <optgroup>
+                    <option value="3">Administratívna budova</option>
+                    <option value="4">Divadelná sála</option>
+                    <option value="7.5">Knižnica</option>
+                    <option value="3">Materská škola</option>
+                    <option value="3">Nemocnica</option>
+                    <option value="3">Predajňa</option>
+                    <option value="3">Reštaurácia</option>
+                    <option value="3">Škola</option>
+                </optgroup>
+                <option value="0" disabled></option>
+            </select>
+            <select name="snehovaoblastselect" id="snehovaoblastselect" onchange="getTyp()">
+                <option value="0">Vyberte snehovú oblasť...</option>
+                <optgroup>
+                    <option value="1">Snehová oblasť I</option>
+                    <option value="2">Snehová oblasť II</option>
+                    <option value="3">Snehová oblasť III</option>
+                    <option value="4">Snehová oblasť IV</option>
+                </optgroup>
+                <option value="0" disabled></option>
+            </select>
+            <table id="tabulka">
+                <thead>
+                    <tr>
+                        <td>
+                            Materiál
+                        </td>
+                        <td>
+                            Hrúbka
+                            <br><span class="light">[m]</span>
+                        </td>
+                        <td>
+                            Objemová tiaž
+                            <br><span class="light">[KN / m<sup>3</sup>]</span>
+                        </td>
+                        <td colspan="2">
+                            Zaťažovacia plocha
+                            <br><span class="light">[m<sup>2</sup>]</span>
+                        </td>
+                        <td colspan="2">
+                            Charakteristická hodnota zaťaženia
+                            <br>f<sub>k</sub>
+                            <br><span class="light">[KN / m<sup>2</sup>]</span>
+                        </td>
+                        <td>
+                            Súčiniteľ zaťaženia
+                            <br>γ<sub>f</sub>
+                        </td>
+                        <td colspan="2">
+                            Návrhová hodnota zaťaženia
+                            <br>f<sub>d</sub>
+                            <br><span class="light">[KN / m<sup>2</sup>]</span>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="newrow">
+                        <td><input type="text" id="materialinput" placeholder="Materiál"></td>
+                        <td><input type="number" id="hrubkainput" placeholder="Hrúbka"></td>
+                        <td><input type="number" id="objemovatiazinput" placeholder="Objemová tiaž"></td>
+                        <td colspan="7"><button id="addbutton" onclick="add()">+</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Stále zaťaženie g</td>
+                        <td class="narrow">g<sub>k</sub></td>
+                        <td id="gk"></td>
+                        <td id="gammag">1.35</td>
+                        <td class="narrow">g<sub>d</sub></td>
+                        <td id="gd"></td>
+                    </tr>
+                    <tr>
+                        <td id="premennezatazenie" colspan="4">Premenné zaťaženie q</td>
+                        <td id="premennezatazeniepopisok"></td>
+                        <td id="qkpopisok" class="narrow">q<sub>k</sub></td>
+                        <td id="qk"></td>
+                        <td id="gammaq">1.50</td>
+                        <td id="qdpopisok" class="narrow">q<sub>d</sub></td>
+                        <td id="qd"></td>
+                    </tr>
+                    <tr id>
+                        <td colspan="5">Základná kombinácia - celkové zaťaženie</td>
+                        <td class="narrow">f<sub>ck</sub></td>
+                        <td id="fck"></td>
+                        <td>-</td>
+                        <td class="narrow">f<sub>cd</sub></td>
+                        <td id="fcd"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
+            </div>
+        </footer>
+    </body>
+    <script src="/assets/js/topbutton.js"></script>
+    <script src="/assets/js/smile.js"></script>
+    <script src="/assets/js/vypocet-zatazenia.js"></script>
+</html>
