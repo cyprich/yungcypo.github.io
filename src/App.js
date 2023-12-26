@@ -11,8 +11,8 @@ import Piskvorky from "./pages/Piskvorky";
 const App = () => {
     return (
         <>
-            <Header/>
             <Router>
+                <Header/>
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/schodisko"} element={<Schodisko/>}/>
@@ -20,8 +20,8 @@ const App = () => {
                     <Route path={"/3D"} element={<ThreeD/>}/>
                     <Route path={"/piskvorky"} element={<Piskvorky/>}/>
                 </Routes>
+                <Footer/>
             </Router>
-            <Footer/>
         </>
     );
 };
