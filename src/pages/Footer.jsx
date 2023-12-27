@@ -6,14 +6,14 @@ const Footer = () => {
     return (
         <footer>
             <div>
-                <p className={"light"}>Cypo's Website <span className={"lighter"}>v3</span></p>
-                <p className={"light"}>Created by Cypo</p>
+                <p>Cypo's Website <span style={{color: 'var(--color7)'}}>v3</span></p>
+                <p>Created by Cypo</p>
             </div>
             <div>
-                <p className={"light"}>Zdrojový kód je sprístupnený na
+                <p>Zdrojový kód je sprístupnený na
                     <a href="https://github.com/yungcypo/Website" target={"_blank"}> Github</a>
                 </p>
-                <p className={"light"}>2020 - 2024</p>
+                <p>2020 - 2024</p>
             </div>
         </footer>
     );

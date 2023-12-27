@@ -1,9 +1,9 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    color: white;
-    font-family: sans-serif;
-    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    color: var(--color6);
+    font-family: "mona-sans", sans-serif;
+    font-size: 16px;
     text-decoration: none;
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -11,94 +11,48 @@
 }
 
 :root {
-    --background: #000;
-    --color1: #20BDFF;
-    --color2: #5433FF;
-    /*
-    --color1: #1488cc;
-    --color2: #2b32b2;
-    */
-    --gray: rgb(20, 20, 20);
-    --midgray: rgb(50, 50, 50);
-    --lightgray: rgb(200, 200, 200);
-    --gradient: linear-gradient(to right, var(--color1), var(--color2));
+    --color1: #020408;
+    --color2: #15273C;
+    --color3: #365475;
+    --color4: #5981B1;
+    --color5: #98BAE3;
+    --color6: #F2F4F8;
+    --color7: #F0C011;
+    --color8: #F0A511;
+    --color9: #AAAAAA
 }
 
-.black-background {background-color: var(--background);}
-.gray-background {background-color: var(--gray);}
-.gradient {background-image: var(--gradient)}
+/*doesnt work somehow*/
+@font-face {
+    font-family: "mona-sans";
+    src: local("mona-sans"),
+        url("../fonts/mona-sans.ttf") format("ttf");
+}
 
-h1 {font-size: 2em;}
-h2 {font-size: 1.5em;}
-h3 {font-size: 1.3em;}
+p {
+    font-family: sans-serif;
+}
+
+h1 {font-size: 5em;}
+h2 {font-size: 3em;}
+h3 {font-size: 1.75em; font-weight: 500}
+h4 {font-size: 1.3em; font-weight: 400}
 a {font-size: 1em;}
 
-/* disable scrolling
-body {overflow: hidden;}
-*/
-
-/* Header fix */
-* {scroll-margin-top: 5rem;}
-main {margin-top: 5em; min-height: calc(100vh - 5em); background-image: var(--gradient);}
-
-button {
-    color: white;
-    border: 2px solid white;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 0.5em;
-    padding: 0.5em 2em;
-    cursor: pointer;
-    transition: all 0.1s ease;
-}
-button:hover {background-color: rgba(0, 0, 0, 0.15);}
-button:active {background-color: rgba(0, 0, 0, 0.25);}
-button a {
-    width: 100%;
-    height: 100%;
+body {
+    overflow-x: hidden;
 }
 
-.light {font-size: 0.9em; color: rgba(255,255,255, 0.8);}
-.lighter {font-size: 0.9em; color: rgba(255,255,255, 0.65);}
-
-input {
-    height: 2.5em;
-    padding: 0.5em;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: white 2px solid;
-    border-radius: 0.5em;
+/*header fix */
+* {
+    scroll-margin-top: 4rem;
 }
-input:focus {background-color: rgba(0, 0, 0, 0.2);}
-input:focus {outline:none; box-shadow: none;} /* Remove black 'border' */
-::placeholder {color: rgba(255, 255, 255, 0.66); opacity: 0.66;} /* Chrome, Firefox, Opera, Safari 10.1+ */
-:-ms-input-placeholder {color: rgba(255, 255, 255, 0.66);} /* Internet Explorer 10-11 */
-::-ms-input-placeholder {color: rgba(255, 255, 255, 0.66);} /* Microsoft Edge */
-
-
-/* Remove arrows from number input */
-input::-webkit-outer-spin-button {appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
-input::-webkit-inner-spin-button {appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
-input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;} /* Chrome, Safari, Edge, Opera */
-input[type=number] {appearance: textfield;} /* Firefox */
-input[type=number] {-moz-appearance: textfield;} /* Firefox */
-
-
-select{
-    background-color: rgba(0,0,0, 0.1);
-    margin: 0.5em;
-    padding: 0.5em;
-    border: 1px solid white;
-    border-radius: 0.25em;
-    width: 100%;
-    transform: translateX(-0.5em);
-}
-select *{
-    background-color: var(--color1);
+main {
+    margin-top: 4em;
+    min-height: calc(100vh - 4em);
 }
 
-sub, sup{
-    font-family: inherit;
+span {
     font-size: inherit;
-    color: inherit;
 }
+

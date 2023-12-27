@@ -1,20 +1,22 @@
 footer {
-    padding: 1.255em;
-    background-color: black;
+    width: 100vw;
+    padding: 1em 4em;
+    background-color: var(--color1);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
 }
-footer div:nth-child(even){
+footer div:nth-child(2){
     text-align: right;
 }
 footer p {
-    padding: 0.25em 0em;
+    padding: 0.5em 0;
 }
+
 footer a {
-    color: var(--color1);
+    color: var(--color7);
 }
 footer a:hover{
-    color: var(--color2);
+    color: var(--color8);
 }
 
