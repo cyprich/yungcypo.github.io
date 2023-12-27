@@ -14,7 +14,7 @@ const Header = () => {
                 <Link to={"/#kontakt"}>Kontakt</Link>
             </span>
             <span>
-                <img id={"smile"} src="/src/images/smile.svg" alt=""/>
+                <img id={"smile"} src={"/src/images/smile.svg"} height={"50%"} width={"auto"}  alt={""}/>
             </span>
         </header>
     );
