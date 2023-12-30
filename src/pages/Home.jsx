@@ -1,10 +1,14 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import "../css/styles.css"
 import "../css/home.css"
 
 import background from "../images/background.webp"
-import omneComponent from "../components/omneComponent";
 import CasovaOs from "../components/casovaOs";
+
+import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
+import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
+import {ReactComponent as CakeIcon} from "../images/icons/cake.svg";
+import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
 
 const Home = () => {
     return (
@@ -25,47 +29,35 @@ const Home = () => {
                 <hr/>
                 <div className={"omneContainer"}>
                     <div className="omneNapisy">
-                        {
-                            omneComponent("../images/icons/human.svg",
-                                <h3>
-                                    Peter
-                                    <span>Cypo</span>
-                                    Cyprich
-                                </h3>
-                            )
-                        }
-                        {
-                            omneComponent("../images/icons/home.svg",
-                                <h3>
-                                    <span style={{paddingLeft: '0'}}>Prievidza,</span>
-                                    Slovensko
-                                </h3>
-                            )
-                        }
-                        {
-                            omneComponent("../images/icons/cake.svg",
-                                <h3>4. 6.
-                                    <span>2003</span>
-                                </h3>
-                            )
-                        }
-                        {
-                            omneComponent("../images/icons/school.svg",
-                                <div style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "flex-start",
-                                    justifyContent: "center",
-                                    padding: '0'
-                                }}>
-                                    <h3>
-                                        <span style={{paddingLeft: '0'}}>Fakulta riadenia a informatiky,</span>
-                                        UNIZA
-                                    </h3>
-                                    <p>Informačné a sieťové technológie</p>
-                                </div>
-                            )
-                        }
+                        <div className={"omneContent"}>
+                            <HumanIcon class={"omneIcon"}/>
+                            <h3>
+                                Peter
+                                <span>Cypo</span>
+                                Cyprich
+                            </h3>
+                        </div>
+                        <div className={"omneContent"}>
+                            <HomeIcon class={"omneIcon"}/>
+                            <h3>
+                                <span style={{paddingLeft: '0'}}>Prievidza,</span>
+                                Slovensko
+                            </h3>
+                        </div>
+                        <div className={"omneContent"}>
+                            <CakeIcon class={"omneIcon"}/>
+                            <h3>4. 6.
+                                <span>2003</span>
+                            </h3>
+                        </div>
+                        <div className={"omneContent"}>
+                            <SchoolIcon class={"omneIcon"}/>
+                            <h3>
+                                <span style={{paddingLeft: '0'}}>Fakulta riadenia a informatiky,</span>
+                                UNIZA
+                                <p>Informačné a sieťové technológie</p>
+                            </h3>
+                        </div>
                     </div>
                     <div className="animacia">
                         {/*TODO: nieco s Three.JS*/}

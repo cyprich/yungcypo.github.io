@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     padding: 2em 0;
+    gap: 1em;
 }
 .omneContent span {
     font-size: inherit;
@@ -61,8 +62,6 @@
     padding: 0 0.5ex;
 }
 
-.omneContent img {
-    margin-right: 1em;
+.omneIcon {
+    height: 4em;
 }
-
-

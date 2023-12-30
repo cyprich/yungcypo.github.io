@@ -19,10 +19,8 @@ header {
     color: var(--color7);
 }
 
-.obrazok {
-    width: 2em;
-    height: 2em;
-    padding: 0 1em;
-    z-index: 11;
+#smile {
+    height: 2.5em;
+    margin-right: 1em;
 }
 

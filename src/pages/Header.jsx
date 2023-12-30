@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import "../css/styles.css";
 import "../css/header.css";
-import smile from "../images/smile.png"
+import { ReactComponent as Smile } from "../images/icons/smile.svg";
 
 
 const Header = () => {
@@ -15,8 +15,8 @@ const Header = () => {
                 <Link to={"/#projekty"}>Projekty</Link>
                 <Link to={"/#kontakt"}>Kontakt</Link>
             </span>
-            <span >
-                <img src={smile} alt="" className={"obrazok"}/>
+            <span>
+                <Smile id={"smile"}/>
             </span>
         </header>
     );
