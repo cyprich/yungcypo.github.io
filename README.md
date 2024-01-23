@@ -1,3 +1,3 @@
 # Website
-[Link na moju stránku](https://website.cypo.repl.co)  
+[Link na moju stránku](https://yungcypo.github.io)  
 Stránka je stále vo vývoji
