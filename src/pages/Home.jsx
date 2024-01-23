@@ -4,6 +4,7 @@ import "../css/home.css"
 
 import background from "../images/background.webp"
 import CasovaOs from "../components/casovaOs";
+import Carousel from "../components/carousel";
 
 import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
@@ -59,8 +60,10 @@ const Home = () => {
                             </h3>
                         </div>
                     </div>
-                    <div className="animacia">
+                    <div className="animacia" style={{visibility: "hidden"}}>
                         {/*TODO: nieco s Three.JS*/}
+                        <h3><i>✨toto✨</i></h3>
+                        <img src={require("../images/toto.jpg")} alt=""/>
                     </div>
 
                 </div>
@@ -68,7 +71,7 @@ const Home = () => {
                 <CasovaOs/>
             </div>
             <div id="projekty" className={"homeComponent"}>
-                <h2>Projekty</h2>
+                <Carousel/>
             </div>
             <div id="kontakt" className={"homeComponent"}>
                 <h2>Kontakt</h2>

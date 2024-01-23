@@ -52,7 +52,10 @@ main {
     min-height: calc(100vh - 4em);
 }
 
-span {
+span, i, b {
     font-size: inherit;
 }
 
+button {
+    color: var(--color1);
+}
