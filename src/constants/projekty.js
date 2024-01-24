@@ -4,7 +4,7 @@ const items = [
         title: "3D Tlač",
         description: "Vytlačenie 3D modelu podľa vlastného výberu",
         background: require("../images/preview/3dtlac.webp"),
-        icon: require("../images/icons/3dprinter.png"),
+        icon: require("../images/preview/3dtlac.webp"),
         link: "/3D"
     },
     {

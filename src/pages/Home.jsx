@@ -61,7 +61,7 @@ const Home = () => {
                             </h3>
                         </div>
                     </div>
-                    <div className="animacia" style={{visibility: "hidden"}}>
+                    <div className="animacia" style={{visibility: "inherit"}}>
                         {/*TODO: nieco s Three.JS*/}
                         <h3><i>✨toto✨</i></h3>
                         <img src={require("../images/toto.jpg")} alt=""/>
