@@ -7,6 +7,7 @@ import Schodisko from "./pages/Schodisko";
 import Odpisy from "./pages/Odpisy";
 import ThreeD from "./pages/ThreeD";
 import Piskvorky from "./pages/Piskvorky";
+import KvadratickeRovnice from "./pages/KvadratickeRovnice";
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
                     <Route path={"/odpisy"} element={<Odpisy/>}/>
                     <Route path={"/3D"} element={<ThreeD/>}/>
                     <Route path={"/piskvorky"} element={<Piskvorky/>}/>
+                    <Route path={"/kvadratickerovnice"} element={<KvadratickeRovnice/>}/>
                 </Routes>
                 <Footer/>
             </Router>

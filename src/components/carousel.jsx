@@ -1,43 +1,44 @@
-import React from 'react';
-import {useState} from "react";
-import CarouselItem from "./carouselItem";
-import items from "../constants/projekty";
+import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 
 import "../css/styles.css"
 import "../css/projekty.css"
 
+import projekty from "../constants/projekty";
 import {ReactComponent as RadioChecked} from "../images/icons/radiochecked.svg";
 import {ReactComponent as RadioUnchecked} from "../images/icons/radiounchecked.svg";
-import {ReactComponent as ArrowForward} from "../images/icons/arrowforward.svg";
-import {ReactComponent as ArrowBack} from "../images/icons/arrowback.svg";
-
 
 const Carousel = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    
+
     return (
-        <div className={"carousel"}>
-            <div className="inner" style={{transform: `translate:(-${activeIndex * 100})`}}>
-                {items.map((item) => {
-                    return <CarouselItem item={item}/>
+        <>
+            <div className={"carousel"}>
+                {projekty.map((projekt) => {
+                    return (
+                        <div className={"carousel-item"}>
+                            <div className={"carousel-text"}>
+                                <div>
+                                    <h2 style={{color: "var(--color1)"}}>{projekt.title}</h2>
+                                    <p>{projekt.description}</p>
+                                </div>
+                                <Link to={projekt.link}>
+                                    <button>Zistiť viac</button>
+                                </Link>
+                            </div>
+                            <div className="carousel-obrazok">
+                                <img src={(projekt.background)} alt=""/>
+                            </div>
+                        </div>
+                    )
                 })}
             </div>
-            <div className="carouselButtons">
-                <button className={"buttonArrow"}>
-                    <ArrowBack/>
-                </button>
-                <div className="indicators">
-                    {items.map((item) => {
-                        return (<button>
-                            {item.id === activeIndex ? <RadioChecked/> : <RadioUnchecked/>}
-                        </button>)
-                    })}
-                </div>
-                <button className={"buttonArrow"}>
-                    <ArrowForward/>
-                </button>
+            <div className="bodky">
+
             </div>
-        </div>
+        </>
     );
 };
+
 
 export default Carousel;

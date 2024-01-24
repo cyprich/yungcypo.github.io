@@ -8,8 +8,8 @@ import Carousel from "../components/carousel";
 
 import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
-import {ReactComponent as CakeIcon} from "../images/icons/cake.svg";
 import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
+import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
 
 const Home = () => {
     return (
@@ -23,7 +23,7 @@ const Home = () => {
             }}>
                 <h1>Peter</h1>
                 <h1>Cyprich</h1>
-                <p>Lorem ipsum</p>
+                <p>Kto druhému zaseje, tak za z hory ozýva</p>
             </div>
             <div id="omne" className={"homeComponent"}>
                 <h2>O mne</h2>
@@ -46,17 +46,18 @@ const Home = () => {
                             </h3>
                         </div>
                         <div className={"omneContent"}>
-                            <CakeIcon class={"omneIcon"}/>
-                            <h3>4. 6.
-                                <span>2003</span>
-                            </h3>
-                        </div>
-                        <div className={"omneContent"}>
                             <SchoolIcon class={"omneIcon"}/>
                             <h3>
                                 <span style={{paddingLeft: '0'}}>Fakulta riadenia a informatiky,</span>
                                 UNIZA
                                 <p>Informačné a sieťové technológie</p>
+                            </h3>
+                        </div>
+                        <div className={"omneContent"}>
+                            <SchoolDoneIcon class={"omneIcon"}/>
+                            <h3>
+                                <span>SOŠ T. Vansovej</span>, Prievidza
+                                <p>Technické a Informatické služby v stavebníctve</p>
                             </h3>
                         </div>
                     </div>

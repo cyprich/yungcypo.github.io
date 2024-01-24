@@ -3,31 +3,41 @@ const items = [
         id: 0,
         title: "3D Tlač",
         description: "Vytlačenie 3D modelu podľa vlastného výberu",
-        icon: require("../images/icons/man.svg")
+        background: require("../images/preview/3dtlac.webp"),
+        icon: require("../images/icons/3dprinter.png"),
+        link: "/3D"
     },
     {
         id: 1,
         title: "Schodisko",
         description: "Výpočet potrebných údajov k navrhnutiu schodiska",
-        icon: require("../images/icons/man.svg")
+        background: require("../images/preview/code3.jpg"),
+        icon: require("../images/icons/stairs.png"),
+        link: "/schodisko"
     },
     {
         id: 2,
         title: "Odpisy",
         description: "Výpočet daňových odpisov",
-        icon: require("../images/icons/man.svg")
+        background: require("../images/preview/code3.jpg"),
+        icon: require("../images/icons/money.png"),
+        link: "/odpisy"
     },
     {
         id: 3,
         title: "Piškvorky",
-        description: "Všeobecne známa hra piškvorky",
-        icon: require("../images/icons/man.svg")
+        description: "Hra piškvorky",
+        background: require("../images/preview/code3.jpg"),
+        icon: require("../images/icons/tictactoe.png"),
+        link: "/piskvorky"
     },
     {
         id: 4,
         title: "Kvadratické rovnice",
         description: "Výpočet koreňov kvadratickej rovnice",
-        icon: require("../images/icons/man.svg")
+        background: require("../images/preview/code3.jpg"),
+        icon: require("../images/icons/math.png"),
+        link: "/kvadratickerovnice"
     }
 ]
 
