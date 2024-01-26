@@ -9,9 +9,10 @@ const filamenty = [
             code: "#000000"
         },
         hmotnost: {
+            soSpoolom: 675,
             spool: 250,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 675
         }
     },
     {
@@ -24,9 +25,10 @@ const filamenty = [
             code: "#C12E1F"
         },
         hmotnost: {
+            soSpoolom: 826,
             spool: 250,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 675
         }
     },
     {
@@ -39,9 +41,10 @@ const filamenty = [
             code: "#ecece7"
         },
         hmotnost: {
+            soSpoolom: 560,
             spool: 216,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 675
         }
     },
     {
@@ -54,9 +57,10 @@ const filamenty = [
             code: "#7ebab5"
         },
         hmotnost: {
+            soSpoolom: 942,
             spool: 216,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 942
         }
     },
     {
@@ -69,9 +73,10 @@ const filamenty = [
             code: "#fbe625"
         },
         hmotnost: {
+            soSpoolom: 1053,
             spool: 224,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 1053
         }
     },
     {
@@ -84,9 +89,10 @@ const filamenty = [
             code: "linear-gradient(#61ccee, #123cea)"
         },
         hmotnost: {
+            soSpoolom: 830,
             spool: 224,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 830
         }
     },
     {
@@ -99,9 +105,10 @@ const filamenty = [
             code: "linear-gradient(#e41e95, #123cea)"
         },
         hmotnost: {
+            soSpoolom: 1060,
             spool: 220,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 1060
         }
     },
     {
@@ -114,9 +121,10 @@ const filamenty = [
             code: "#E4BDD0"
         },
         hmotnost: {
+            soSpoolom: 783,
             spool: 140,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 783
         }
     },
     {
@@ -129,9 +137,10 @@ const filamenty = [
             code: "#80bf1a"
         },
         hmotnost: {
+            soSpoolom: 952,
             spool: 216,
+            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
-            soSpoolom: 952
         }
     },
 ]
