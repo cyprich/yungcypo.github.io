@@ -8,7 +8,7 @@ const Schodisko = () => {
     const [n, setN] = useState(null);  // pocet stupnov
 
     return (
-    {/*
+    
     <div className={"schodisko projekt"}>
         <div>
             <h2>Schodisko</h2>
@@ -45,7 +45,7 @@ const Schodisko = () => {
             </div>
         </div>
     </div>
-    */}
+
     );
 };
 
