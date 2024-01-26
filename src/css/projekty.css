@@ -39,19 +39,6 @@
     align-items: flex-start;
 }
 
-.carousel-description button {
-    background: none;
-    padding: 1em 2em;
-    border: 2px solid var(--color1);
-    border-radius: 0.5em;
-}
-.carousel-description button:hover {
-    background-color: rgba(0,0,0, 0.125);
-}
-.carousel-description button:active {
-    background-color: rgba(0,0,0, 0.25);
-}
-
 .carousel-image {
     justify-self: right;
     height: calc(100vh - 4em - 4em - 2em - 2em);
