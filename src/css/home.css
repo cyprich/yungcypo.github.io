@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+.home * {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/public/images/background-landscape-b&w.webp");
+    background-position: bottom; /* Position of background */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.home div {
+    width: 352px;
+    height: 572px;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.125),
+        rgba(20, 100, 255, 1)
+    );
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.home h1 {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+
+.home h1:nth-child(3){
+    justify-self: center;
+    align-self: start;
+}
+
+
+.home .thin {
+    font-weight: 200;
+}
+.home .thick {
+    font-weight: 600;
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="baaf4597-fdd4-46e7-9a20-6c268b50e995" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/edabit.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/kamen-papier-noznice.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/kvadraticke-rovnice.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/navrh-schodiska.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/navrh-vystuze.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/odpisy.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/piskvorky.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/projekty.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/vypocet-zatazenia.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/pekne-kvadraticke-rovnice.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/pekne-kvadraticke-rovnice.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/data/website-coding-stats.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/download/Zaťaženie-vzor.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/background-mobile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/code/code1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/code/code2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/code/code3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon-black.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon-black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon-white.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon-white.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/hand.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/cake.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/computer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/discord.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/home.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/human.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/instagram.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/mail.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/man.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/rotate.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/school.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/snapchat.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/spotify.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icons/warning.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/paper.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/question-mark.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/rock.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/scissors.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/screen_rotation_alt.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/smile.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/edabit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/kamen-papier-noznice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/kvadraticke-rovnice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/navrh-schodiska.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/navrh-vystuze.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/odpisy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/piskvorky.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/smile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/topbutton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/vypocet-zatazenia.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/python/kvadraticke-rovnice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edabit/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ekonomika/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ekonomika/odpisy/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hry/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hry/kamen-papier-noznice/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hry/piskvorky/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matematika/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/matematika/kvadraticke-rovnice/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stavitelstvo/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stavitelstvo/navrh-schodiska/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stavitelstvo/navrh-vystuze/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stavitelstvo/vypocet-zatazenia/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="react" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2a6HODSRyXYdRild9hxEjjdutTi" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v2.5&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/cypoo/website/src/oldfiles&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Users\\cypoo\\website\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\cypoo\website\src\oldfiles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\cypoo\website\src\images\icons" />
+      <recent name="D:\Users\cypoo\website\src\images\unused icons" />
+      <recent name="D:\Users\cypoo\website\src\images\icons\socials" />
+      <recent name="D:\Users\cypoo\website\src" />
+      <recent name="D:\Users\cypoo\website\src\pages" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="baaf4597-fdd4-46e7-9a20-6c268b50e995" name="Changes" comment="" />
+      <created>1703632079278</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703632079278</updated>
+      <workItem from="1703632082219" duration="3954000" />
+      <workItem from="1703636414375" duration="91000" />
+      <workItem from="1703668494633" duration="161000" />
+      <workItem from="1703721546032" duration="115000" />
+      <workItem from="1703957956626" duration="4181000" />
+      <workItem from="1704556017434" duration="428000" />
+      <workItem from="1706029416824" duration="803000" />
+      <workItem from="1706041510195" duration="14000" />
+      <workItem from="1706041544485" duration="73000" />
+      <workItem from="1706108116443" duration="22894000" />
+      <workItem from="1706134338516" duration="2298000" />
+      <workItem from="1706136718369" duration="1187000" />
+      <workItem from="1706186786284" duration="1209000" />
+      <workItem from="1706195063719" duration="3730000" />
+      <workItem from="1706261438817" duration="586000" />
+      <workItem from="1706262368226" duration="9233000" />
+      <workItem from="1706273489185" duration="300000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

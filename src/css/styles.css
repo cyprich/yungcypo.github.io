@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    transition: all 0.3s ease 0s;
+}
+
+:root {
+    --c1: #0466c8;
+    --c2: #0353a4;
+    --c3: #023e7d;
+    --c4: #002855;
+    --c5: #001845;
+    --c6: #001233;
+    --c7: #33415c;
+    --c8: #5c677d;
+    --c9: #7d8597;
+    --c10: #979dac;
+}
