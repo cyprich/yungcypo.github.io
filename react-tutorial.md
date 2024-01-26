@@ -855,6 +855,7 @@ function App() {
                     <Route path="*" element={<><h1>404 error</h1><p>Page not found</p></>} />
                 </Routes>
                 <footer>Footer</footer>
+                </Navbar>
             </Router>
         </>
     )

@@ -2,19 +2,19 @@ import React, {useState} from 'react';
 import "../css/styles.css"
 import "../css/home.css"
 
-import background from "../images/background.webp"
 import CasovaOs from "../components/casovaOs";
 import Carousel from "../components/carousel";
 
 import mudrosti from "../constants/mudrosti"
 
+import background from "../images/background.webp"
 import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
 import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
 import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
 
 const Home = () => {
-    const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti.length));
+    const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
 
     return (
         <main>

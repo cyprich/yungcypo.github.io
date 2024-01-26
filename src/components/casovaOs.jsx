@@ -11,9 +11,9 @@ const CasovaOs = () => {
         <>
             <h3 className={"casovaOsNadpis"}>Moje vzdelanie</h3>
             <div className={"casovaOs"}>
-                {vzdelanie.map(e => {
+                {vzdelanie.map((e, key) => {
                     return (
-                        <div className={"casovaOsElement"}>
+                        <div className={"casovaOsElement"} key={key}>
                             <div>
                                 <h4><span>{e.skola}</span>, {e.mesto}</h4>
                                 <p>{e.fakulta}</p>

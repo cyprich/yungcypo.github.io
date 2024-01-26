@@ -25,9 +25,9 @@ const Carousel = () => {
         <>
             <div className={"carousel"}>
                 <div className="carousel-items">
-                    {projekty.map((projekt, index) => {
+                    {projekty.map((projekt, key) => {
                         return (
-                            <div className={"carousel-item"} style={{transform: `translate(-${activeIndex * 100}vw)`}}>
+                            <div className={"carousel-item"} style={{transform: `translate(-${activeIndex * 100}vw)`}} key={key}>
                                 <div className={"carousel-description"}>
                                     <div>
                                         <h2 style={{color: "var(--color1)"}}>{projekt.title}</h2>

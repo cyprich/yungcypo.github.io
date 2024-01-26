@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import "../css/styles.css";
 import "../css/header.css";
+
 import { ReactComponent as Smile } from "../images/icons/smile.svg";
 
 

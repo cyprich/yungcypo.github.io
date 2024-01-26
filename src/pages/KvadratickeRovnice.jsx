@@ -11,12 +11,15 @@ const KvadratickeRovnice = () => {
     const [x2, setX2] = useState(null);
 
     const vypocet = () => {
+        /*
         if (typeof(a) != null && typeof(b) != null && typeof(c) != null) {
             setD(b*b - 4*a*c)
         }
+        */
     }
 
     return (
+        {/*
         <div className={"kvadratickerovnice projekt"}>
             <div>
                 <h2>Kvadratické rovnice</h2>
@@ -57,6 +60,7 @@ const KvadratickeRovnice = () => {
                 </p>
             </div>
         </div>
+        */}
     );
 };
 
