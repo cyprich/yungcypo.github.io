@@ -3,3 +3,10 @@
     color: red;
     text-decoration: underline;
 }
+.warning:after {
+    content: "!";
+}
+
+.underline {
+    text-decoration: underline;
+}
