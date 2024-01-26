@@ -1,8 +1,10 @@
 import React from 'react';
+import "../css/styles.css"
+import "../css/threed.css"
 
 const ThreeD = () => {
     return (
-        <div>
+        <div className={"threed projekt"}>
 
         </div>
     );

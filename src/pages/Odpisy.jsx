@@ -1,8 +1,10 @@
 import React from 'react';
+import "../css/styles.css"
+import "../css/odpisy.css"
 
 const Odpisy = () => {
     return (
-        <div>
+        <div className={"odpisy projekt"}>
 
         </div>
     );
