@@ -34,7 +34,7 @@ const Carousel = () => {
                                         <p>{projekt.description}</p>
                                     </div>
                                     <Link to={projekt.link}>
-                                        <button>
+                                        <button style={{color: "var(--color1)", borderColor: "var(--color1)"}}>
                                             <p>Zistiť viac</p>
                                         </button>
                                     </Link>

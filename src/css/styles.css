@@ -87,7 +87,8 @@ sub, sup {
 button {
     background: none;
     padding: 1em 2.5em;
-    border: 2px solid var(--color1);
+    color: var(--color6);
+    border: 2px solid var(--color6);
     border-radius: 0.5em;
 }
 button:hover {
