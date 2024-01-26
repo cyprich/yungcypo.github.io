@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--color6);
+    font-family: "mona-sans", sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: all 0.3s ease 0s;
+}
+
+:root {
+    --color1: #020408;
+    --color2: #15273C;
+    --color3: #365475;
+    --color4: #5981B1;
+    --color5: #98BAE3;
+    --color6: #F2F4F8;
+    --color7: #F0C011;
+    --color8: #F0A511;
+    --color9: #AAAAAA
+}
+
+/*doesnt work somehow*/
+@font-face {
+    font-family: "mona-sans";
+    src: local("mona-sans"),
+        url("../fonts/mona-sans.ttf") format("ttf");
+}
+
+p {
+    font-family: sans-serif;
+}
+
+h1 {font-size: 5em;}
+h2 {font-size: 3em;}
+h3 {font-size: 1.75em; font-weight: 500}
+h4 {font-size: 1.3em; font-weight: 400}
+a {font-size: 1em;}
+
+body {
+    overflow-x: hidden;
+}
+
+/*header fix */
+* {
+    scroll-margin-top: 4rem;
+}
+main {
+    margin-top: 4em;
+    min-height: calc(100vh - 4em);
+}
+
+span, i, b {
+    font-size: inherit;
+}
+
+button, input, select, option {
+    color: var(--color1);
+}
+
+.projekt {
+    min-height: 100vh;
+    background-color: var(--color2);
+    margin-top: 4em;
+    padding: 2em;
+}
+
+/* disable input arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

@@ -1,0 +1,26 @@
+header {
+    height: 4em;
+    width: 100vw;
+    background: var(--color1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.napisy > * {
+    padding: 0 1em;
+}
+
+.napisy > *:hover {
+    color: var(--color7);
+}
+
+#smile {
+    height: 2em;
+    margin-right: 2em;
+}
+
