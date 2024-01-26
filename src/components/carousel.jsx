@@ -40,11 +40,10 @@ const Carousel = () => {
                                     </Link>
                                 </div>
                                 <div className="carousel-image">
-                                    <img src={(projekt.icon)} alt=""/>
+                                    <img src={(projekt.background)} alt=""/>
                                 </div>
                             </div>
                         )
-
                     })}
                 </div>
                 <div className="carousel-navigation">

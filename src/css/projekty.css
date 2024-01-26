@@ -87,3 +87,8 @@
     gap: 1em;
 }
 
+/* posunutie penazi doprava*/
+.carousel-item:nth-child(3) img {
+    position: relative;
+    left: 4em;
+}

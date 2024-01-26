@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../css/styles.css"
 import "../css/home.css"
 
@@ -6,12 +6,16 @@ import background from "../images/background.webp"
 import CasovaOs from "../components/casovaOs";
 import Carousel from "../components/carousel";
 
+import mudrosti from "../constants/mudrosti"
+
 import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
 import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
 import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
 
 const Home = () => {
+    const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti.length));
+
     return (
         <main>
             <div className={"landing"} style={{
@@ -23,7 +27,7 @@ const Home = () => {
             }}>
                 <h1>Peter</h1>
                 <h1>Cyprich</h1>
-                <p>Kto druhému zaseje, tak za z hory ozýva</p>
+                <p>{mudrosti[nahodnaMudrost]}</p>
             </div>
             <div id="omne" className={"homeComponent"}>
                 <h2>O mne</h2>
