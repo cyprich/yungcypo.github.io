@@ -35,7 +35,7 @@ const items = [
         id: 4,
         title: "Kvadratické rovnice",
         description: "Výpočet koreňov kvadratickej rovnice",
-        background: require("../images/preview/code3.jpg"),
+        background: require("../images/preview/kvadratickerovnice-screenshot.png"),
         icon: require("../images/icons/math.png"),
         link: "/kvadratickerovnice"
     }
