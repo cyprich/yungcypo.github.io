@@ -1,0 +1,38 @@
+.kvadratickerovnice-item {
+    margin: 2em 1em;
+}
+
+.kvadratickerovnice-item > div {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 1em 0;
+    height: 1.5em;
+}
+
+.kvadratickerovnice-item p {
+    font-size: 0.75em;
+}
+
+.kvadratickerovnice-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.kvadratickerovnice-input > div {
+    display: flex;
+    gap: 0.25em;
+}
+
+.kvadratickerovnice-vysledky {
+    margin: 2em 1em;
+}
+.kvadratickerovnice-vysledky > div {
+    font-size: 1.25em;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    margin: 1em 0;
+    height: 1.5em;
+}
