@@ -45,7 +45,7 @@ const Schodisko = () => {
     }, [typSchodiska, kv, n, h, b, alpha, h1, h2, l]);
 
     function reset() {
-        // TODO
+        // TODO reset select
         setTypSchodiska(null);
         setKv(0);
         setN(0);
@@ -71,7 +71,7 @@ const Schodisko = () => {
                         id="typSchodiska"
                         onChange={(e) => {
                             setTypSchodiska(Number(e.target.value));
-                            // TODO
+                            // TODO aktualizovat ostatne hodnoty ked sa meni hodnota
                         }}
                     >
                         <option value={null}>Vyberte typ schodiska...</option>
@@ -150,8 +150,7 @@ const Schodisko = () => {
                             </div>
                             <div>
                                 {
-                                    // TODO
-                                    // Navrh pocet stupnov × vyska × sirka v jednom ramene
+                                    // TODO - Navrh pocet stupnov × vyska × sirka v jednom ramene
                                 }
                             </div>
                             <div className={"schodisko-item"}>
