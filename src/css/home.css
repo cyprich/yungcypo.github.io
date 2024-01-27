@@ -23,7 +23,6 @@
     width: 100vw;
     background: var(--color2);
     padding: 2em;
-    border: 0px red solid;
 }
 
 .homeComponent h2 {
