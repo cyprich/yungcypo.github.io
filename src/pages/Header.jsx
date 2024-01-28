@@ -9,7 +9,7 @@ import { ReactComponent as Smile } from "../images/icons/smile.svg";
 const Header = () => {
 
     return (
-        <header>
+        <header id={"header"}>
             <span className={"napisy"}>
                 <Link to={"/"}>Domov</Link>
                 <Link to={"/#omne"}>O mne</Link>

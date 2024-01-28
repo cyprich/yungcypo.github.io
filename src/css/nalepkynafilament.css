@@ -1,0 +1,95 @@
+.nalepkynafilament {
+    padding: 2em;
+
+}
+
+.nalepkynafilamentcontent {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1cm;
+    margin-bottom: 2em;
+}
+
+.filament p {
+    color: black;
+    white-space: nowrap;
+}
+
+.filament {
+    background: white;
+    padding: 0.375cm 0.5cm;
+    border-radius: 0.5cm;
+    border: 1px solid black;
+    height: min-content;
+    width: min-content;
+}
+.filamentnadpisy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5cm;
+}
+.filamentporadovecislo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 1cm;
+    height: 1cm;
+}
+
+.filamentfarba {
+    border-radius: 50%;
+    width: 1cm;
+    height: 1cm;
+}
+
+.filamentinfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 0.25cm;
+    gap: 0.25cm;
+}
+
+.filamenthmotnostacena,
+.filamentteplota {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25cm;
+}
+
+.filamentteplota {
+    align-items: end;
+}
+
+@media print {
+    @page {
+        margin: 0;
+    }
+
+    * {
+        font-size: 16pt;
+    }
+
+    header, footer {
+        display: none;
+    }
+
+    body {
+        margin: 0;
+        font-size: 100%;
+    }
+
+    .noprint {
+        display: none;
+    }
+    .nalepkynafilament {
+        padding: 1cm;
+        margin: 0;
+    }
+    .filamentfarba {
+        background-color: red;
+    }
+}

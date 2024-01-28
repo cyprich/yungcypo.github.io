@@ -8,6 +8,7 @@ import Odpisy from "./pages/Odpisy";
 import ThreeD from "./pages/ThreeD";
 import Piskvorky from "./pages/Piskvorky";
 import KvadratickeRovnice from "./pages/KvadratickeRovnice";
+import NalepkyNaFilament from "./pages/nalepkyNaFilament";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path={"/3D"} element={<ThreeD/>}/>
                     <Route path={"/piskvorky"} element={<Piskvorky/>}/>
                     <Route path={"/kvadratickerovnice"} element={<KvadratickeRovnice/>}/>
+                    <Route path={"/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
                 </Routes>
                 <Footer/>
             </Router>

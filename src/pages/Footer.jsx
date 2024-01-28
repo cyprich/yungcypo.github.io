@@ -4,7 +4,7 @@ import "../css/footer.css"
 
 const Footer = () => {
     return (
-        <footer>
+        <footer id={"footer"}>
             <div>
                 <p>Cypo's Website <span style={{color: 'var(--color7)'}}>v3</span></p>
                 <p>Created by Cypo</p>

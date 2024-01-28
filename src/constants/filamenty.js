@@ -11,8 +11,17 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 675,
             spool: 250,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -27,8 +36,17 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 826,
             spool: 250,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -43,8 +61,17 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 560,
             spool: 216,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -59,8 +86,17 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 942,
             spool: 216,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -75,8 +111,17 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 1053,
             spool: 224,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -86,13 +131,22 @@ const filamenty = [
         cena: 17.29,
         farba: {
             nazov: "Modrá",
-            code: "linear-gradient(#61ccee, #123cea)"
+            code: "#61ccee"
         },
         hmotnost: {
             soSpoolom: 830,
             spool: 224,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -102,13 +156,22 @@ const filamenty = [
         cena: 25.58,
         farba: {
             nazov: "Ružovo-Modrá",
-            code: "linear-gradient(#e41e95, #123cea)"
+            code: "#e41e95",
         },
         hmotnost: {
             soSpoolom: 1060,
             spool: 220,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -123,8 +186,17 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 783,
             spool: 140,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
     {
@@ -139,10 +211,27 @@ const filamenty = [
         hmotnost: {
             soSpoolom: 952,
             spool: 216,
-            celkovo: (this.soSpoolom - this.spool),
             povodna: 1000,
+        },
+        teplota: {
+            print: {
+                min: 0,
+                max: 0
+            },
+            bed: {
+                min: 0,
+                max: 0
+            }
         }
     },
 ]
+
+const aktualizovane = {
+    minuta: 28,
+    hodina: 19,
+    den: 24,
+    mesiac: 1,
+    rok: 2024,
+}
 
 export default filamenty
