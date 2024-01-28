@@ -1,6 +1,7 @@
 .nalepkynafilament {
     padding: 2em;
-
+    margin-top: 4em;
+    background-color: var(--color2);
 }
 
 .nalepkynafilamentcontent {
@@ -14,6 +15,9 @@
 .filament p {
     color: black;
     white-space: nowrap;
+}
+.filament.invert p {
+    color: white
 }
 
 .filament {
@@ -30,26 +34,33 @@
     align-items: center;
     gap: 0.5cm;
 }
+
+.filamentnadpis {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.filamentfarba {
+    border-radius: 50%;
+    width: 1.5cm;
+    height: 1.5cm;
+}
+
 .filamentporadovecislo {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
     border-radius: 50%;
-    width: 1cm;
-    height: 1cm;
-}
-
-.filamentfarba {
-    border-radius: 50%;
-    width: 1cm;
-    height: 1cm;
+    width: 100%;
+    height: 100%;
 }
 
 .filamentinfo {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-top: 0.25cm;
+    padding-top: 0.5cm;
     gap: 0.25cm;
 }
 
@@ -64,6 +75,51 @@
     align-items: end;
 }
 
+.filamenttlacitka {
+    display: flex;
+    gap: 1em;
+    padding-bottom: 1em;
+}
+
+.tlacitbutton {
+    background-color: var(--color3);
+}
+.tlacitbutton:hover {
+    background-color: var(--color4);
+}
+
+.filamentpridat > div{
+    display: flex;
+    padding: 0 1.5em;
+}
+
+.filamentinputy {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+.filamentinputy p {
+    padding: 0.25em 0.5em;
+}
+
+.filamentinputy > .optional,
+.filamentinputy > .optional p {
+    color: #888;
+}
+.filamentinputy > .optional p:after {
+    content: "*";
+}
+
+.filamentvysledok {
+    width: 50%;
+    height: 100%;
+    padding: 1em;
+    border: 2px solid white;
+    border-radius: 0.5em;
+}
+
+
 @media print {
     @page {
         margin: 0;
@@ -71,15 +127,12 @@
 
     * {
         font-size: 16pt;
+        print-color-adjust: exact;
+        scroll-margin-top: 0;
     }
 
     header, footer {
         display: none;
-    }
-
-    body {
-        margin: 0;
-        font-size: 100%;
     }
 
     .noprint {
@@ -88,8 +141,12 @@
     .nalepkynafilament {
         padding: 1cm;
         margin: 0;
+        background-color: white;
     }
     .filamentfarba {
         background-color: red;
+    }
+    .filament {
+        page-break-inside: avoid;
     }
 }
