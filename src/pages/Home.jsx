@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import "../css/styles.css"
 import "../css/home.css"
 
-import CasovaOs from "./casovaOs";
-import Carousel from "./carousel";
+import CasovaOs from "./CasovaOs";
+import Carousel from "./Carousel";
 
 import mudrosti from "../constants/mudrosti"
 
