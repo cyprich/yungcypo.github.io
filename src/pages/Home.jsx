@@ -18,6 +18,14 @@ import {Link} from "react-router-dom";
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
 
+    const [hoveredKontakt, setHoveredKontakt] = useState(null);
+    const handleKontaktMouseEnter = (nazov) => {
+        setHoveredKontakt(nazov)
+    }
+    const handleKontaktMouseLeave = () => {
+        setHoveredKontakt(null)
+    }
+
     return (
         <main>
             <div className={"landing"} style={{
@@ -93,6 +101,20 @@ const Home = () => {
                                     className="link"
                                     key={key}
                                     title={k.nazov}
+                                    onMouseEnter={() => {
+                                        handleKontaktMouseEnter(k.nazov)
+                                    }}
+                                    onMouseLeave={() => {
+                                        handleKontaktMouseLeave()
+                                    }}
+                                    style={
+                                        hoveredKontakt === k.nazov
+                                            ? {
+                                                borderColor: k.farba,
+                                                boxShadow : k.farba + " 1px 1px 16px"
+                                    }
+                                        : null
+                                    }
                                 >
                                     <img src={k.ikonka.bezfarebna} alt="" title={k.nazov}/>
                                     <div className={"pismenka"}>

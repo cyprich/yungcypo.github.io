@@ -11,6 +11,15 @@ import kontakt from "../constants/kontakt";
 const Header = () => {
     const [projektyHovered, setProjektyHovered] = useState(false);
     const [kontaktyHovered, setKontaktyHovered] = useState(false);
+
+    const [hoveredKontaktLink, setHoveredKontaktLink] = useState(null);
+    const handleKontaktMouseEnter = (nazov) => {
+        setHoveredKontaktLink(nazov)
+    }
+    const handleKontaktMouseLeave = () => {
+        setHoveredKontaktLink(null)
+    }
+
     return (
         <header id={"header"}>
             <div className="headerprvyriadok">
@@ -105,8 +114,26 @@ const Header = () => {
                         return (
                             k.linknamiestokontaktu
                                 ? null
-                                : <Link to={k.link} className="headerkontakt" target={"_blank"} key={key}>
-                                    <img src={k.ikonka.bezfarebna} alt="" title={k.nazov}/>
+                                : <Link
+                                    to={k.link}
+                                    className="headerkontakt"
+                                    target={"_blank"}
+                                    key={key}
+                                    onMouseEnter={() => {
+                                        handleKontaktMouseEnter(k.nazov)
+                                    }}
+                                    onMouseLeave={() => {
+                                        handleKontaktMouseLeave()
+                                    }}
+                                >
+                                    <img
+                                        src={
+                                            hoveredKontaktLink === k.nazov
+                                                ? k.ikonka.farebna
+                                                : k.ikonka.bezfarebna
+                                        }
+                                        alt=""
+                                        title={k.nazov + ": " + k.username}/>
                                 </Link>
                         )
                     })}
@@ -116,8 +143,24 @@ const Header = () => {
                     {kontakt.map((k, key) => {
                         return (
                             k.linknamiestokontaktu
-                                ? <Link to={k.link} className="headernekontakt" target={"_blank"} key={key}>
-                                    <img src={k.ikonka.bezfarebna} alt="" title={k.nazov}/>
+                                ? <Link
+                                    to={k.link}
+                                    className="headernekontakt"
+                                    target={"_blank"}
+                                    key={key}
+                                    onMouseEnter={() => {
+                                        handleKontaktMouseEnter(k.nazov)
+                                    }}
+                                    onMouseLeave={() => {
+                                        handleKontaktMouseLeave()
+                                    }}>
+                                    <img src={
+                                        hoveredKontaktLink === k.nazov
+                                            ? k.ikonka.farebna
+                                            : k.ikonka.bezfarebna
+                                    }
+                                         alt=""
+                                         title={k.nazov + ": " + k.username}/>
                                 </Link>
 
                                 : null

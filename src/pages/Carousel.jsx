@@ -55,7 +55,7 @@ const Carousel = () => {
                 <div className="carousel-bodky">
                     {projekty.map((projekt, index) => {
                         return (
-                            
+
                             <button onClick={() => {
                                 updateIndex(index)
                             }} key={index}>
