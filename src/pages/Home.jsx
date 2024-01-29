@@ -6,12 +6,14 @@ import CasovaOs from "./CasovaOs";
 import Carousel from "./Carousel";
 
 import mudrosti from "../constants/mudrosti"
+import kontakt from "../constants/kontakt";
 
 import background from "../images/background.webp"
 import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
 import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
 import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
+import {Link} from "react-router-dom";
 
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
@@ -78,8 +80,34 @@ const Home = () => {
             <div id="projekty" className={"homeComponent"}>
                 <Carousel/>
             </div>
-            <div id="kontakt" className={"homeComponent"}>
+            <div id="kontakt" className={"homeComponent kontakt"}>
                 <h2>Kontakt</h2>
+                <h4 style={{textAlign: "center"}}>A linky na ostatné sociálne siete</h4>
+                <div className="linky">
+                    {
+                        kontakt.map((k, key) => {
+                            return (
+                                <Link
+                                    to={k.link}
+                                    target={"_blank"}
+                                    className="link"
+                                    key={key}
+                                    title={k.nazov}
+                                >
+                                    <img src={k.ikonka.bezfarebna} alt="" title={k.nazov}/>
+                                    <div className={"pismenka"}>
+                                        <p>{k.username}</p>
+                                        {
+                                            k.poznamka
+                                                ? <p style={{color: "var(--color9)"}}>{k.poznamka}</p>
+                                                : null
+                                        }
+                                    </div>
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </main>
     );

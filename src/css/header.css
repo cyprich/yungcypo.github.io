@@ -12,7 +12,6 @@ header {
 }
 
 .headerprvyriadok {
-    z-index: 15;
     height: 4em;
     display: flex;
     justify-content: space-between;
@@ -55,17 +54,15 @@ header .napisy div:hover p{
 }
 
 .headerdruhyriadok {
-    z-index: 11;
     background-color: var(--color1);
-    margin: 0 2em;
-    width: 50%;
+    margin: 0 6em;
+    width: max-content;
     display: flex;
     flex-direction: column;
     border-radius: 0 0 1em 1em;
     position: relative;
 }
 .headerdruhyriadok::before {
-    z-index: -5;
     content: "";
     position: absolute;
     background-color: transparent;
@@ -77,7 +74,6 @@ header .napisy div:hover p{
     box-shadow: 0 -1em 0 0 var(--color1);
 }
 .headerdruhyriadok::after {
-    z-index: -5;
     content: "";
     position: absolute;
     background-color: transparent;
@@ -107,8 +103,6 @@ header .napisy div:hover p{
     transition-duration: 0.1s;
 }
 
-
-
 .headerprojekt:hover {
     background-color: var(--color3);
 }
@@ -127,4 +121,62 @@ header .napisy div:hover p{
 .headerprojektpismenka p:last-child {
     font-size: 0.75em;
     color: #999;
+}
+
+
+.headertretiriadok {
+    background-color: var(--color1);
+    top: calc(-5 * (2em + 2em) - 1.25em);
+    right: -12em;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 0 0 1em 1em;
+    position: relative;
+    padding: 1em;
+}
+.headertretiriadok h4 {
+    padding: 1em 0.25em;
+}
+
+.headertretiriadok img {
+    width: 2em;
+    height: 2em;
+}
+.headertretiriadok img:hover {
+    transform: scale(110%);
+    transition: 0.1s;
+}
+
+.headerkontakt,
+.headernekontakt {
+    padding: 1em;
+}
+.headertretiriadok::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    height: 2em;
+    width: 1em;
+    top: 0;
+    left: -1em;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -1em 0 0 var(--color1);
+}
+.headertretiriadok::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    height: 2em;
+    width: 1em;
+    top: 0;
+    right: -1em;
+    border-top-left-radius: 25px;
+    box-shadow: 0 -1em 0 0 var(--color1);
+}
+
+.headertretiriadok::before .hidden,
+.headertretiriadok::after .hidden {
+    box-shadow: transparent;
 }
