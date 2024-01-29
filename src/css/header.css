@@ -1,26 +1,125 @@
+.hidden {
+    display: none;
+}
+
 header {
     height: 4em;
-    width: 100vw;
+    width: 100%;
     background: var(--color1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1em;
     position: fixed;
     top: 0;
     z-index: 10;
 }
 
-.napisy > * {
-    padding: 0 1em;
+.headerprvyriadok {
+    z-index: 15;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em;
 }
 
-.napisy > *:hover {
-    color: var(--color7);
+header .napisy {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+    padding: 0 1em;
+    height: 100%;
+}
+
+header .napisy a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .napisy p:hover {
+    color: var(--color7 );
 }
 
 #smile {
     height: 2em;
-    margin-right: 2em;
+}
+.smile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.headerdruhyriadok {
+    z-index: 11;
+    background-color: var(--color1);
+    margin: 0 2em;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 1em 1em;
+    position: relative;
+}
+.headerdruhyriadok::before {
+    z-index: -5;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    height: 2em;
+    width: 1em;
+    top: 0;
+    left: -1em;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -1em 0 0 var(--color1);
+}
+.headerdruhyriadok::after {
+    z-index: -5;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    height: 2em;
+    width: 1em;
+    top: 0;
+    right: -1em;
+    border-top-left-radius: 25px;
+    box-shadow: 0 -1em 0 0 var(--color1);
+}
+
+.headerdruhyriadok::before .hidden,
+.headerdruhyriadok::after .hidden {
+    box-shadow: transparent;
+}
+
+.headerdruhyriadoklink:last-child .headerprojekt:last-child {
+    border-radius: 0 0 1em 1em;
+}
+
+.headerprojekt {
+    padding: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    transition-duration: 0.1s;
+}
+
+
+
+.headerprojekt:hover {
+    background-color: var(--color3);
+}
+.headerprojekt:active {
+    background-color: var(--color2);
+}
+
+.headerprojektpismenka {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.headerprojektpismenka p:first-child {
+}
+.headerprojektpismenka p:last-child {
+    font-size: 0.75em;
+    color: #999;
+}
