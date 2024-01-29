@@ -36,8 +36,8 @@ header .napisy a {
     align-items: center;
 }
 
-header .napisy p:hover {
-    color: var(--color7 );
+header .napisy a:hover p {
+    color: var(--color7);
 }
 
 #smile {

@@ -21,7 +21,9 @@ const Header = () => {
                           onMouseLeave={() => {
                               setProjektyHovered(false)
                           }}
-                    ><p>Projekty</p></Link>
+                    >
+                        <p style={projektyHovered ? {color: "var(--color7)"} : null}>Projekty</p>
+                    </Link>
                     <Link to={"/kontakt"}><p>Kontakt</p></Link>
                 </div>
                 <div className={"smile"}>
