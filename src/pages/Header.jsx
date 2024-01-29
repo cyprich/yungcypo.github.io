@@ -14,7 +14,7 @@ const Header = () => {
             <div className="headerprvyriadok">
                 <div className={"napisy"}>
                     <Link to={"/"}><p>Domov</p></Link>
-                    <Link to={"/projekty"}
+                    <div
                           onMouseEnter={() => {
                               setProjektyHovered(true)
                           }}
@@ -23,8 +23,10 @@ const Header = () => {
                           }}
                     >
                         <p style={projektyHovered ? {color: "var(--color7)"} : null}>Projekty</p>
-                    </Link>
-                    <Link to={"/kontakt"}><p>Kontakt</p></Link>
+                    </div>
+                    <div>
+                        <p>Kontakt</p>
+                    </div>
                 </div>
                 <div className={"smile"}>
                     <Smile id={"smile"}/>
