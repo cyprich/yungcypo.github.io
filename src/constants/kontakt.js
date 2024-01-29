@@ -1,6 +1,6 @@
 const kontakt = [
     {
-        nazov: "Gmail",
+        nazov: "Email",
         username: "cypooriginal@gmail.com",
         link: "mailto:cypooriginal@gmail.com",
         ikonka: {
@@ -17,7 +17,7 @@ const kontakt = [
             bezfarebna: require("../images/icons/socials/instagram_white.png"),
             farebna: require("../images/icons/socials/instagram_color.png"),
         },
-        farba: "",
+        farba: "#dd2a7b",
         specialfarbaa: "linear-gradient(45deg, #515bd4, #8134af, #dd2a7b, #f58529, #feda77)",
     },
     {
