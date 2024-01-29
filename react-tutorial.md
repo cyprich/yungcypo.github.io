@@ -28,7 +28,7 @@ Some files are not necessary right now. In folder *src*, keep only these files:
 - App.css
     - *Keep it as it is*
 - App.js
-``` JSX
+``` javascript
 import "./App.css";
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
 export default App;
 ```
 - index.js
-``` JSX
+``` javascript
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -61,7 +61,7 @@ Basically it renders everything inside this function in element with id *root* (
 Inside this render function, we can see `<App/ >`, which is App function inside *App.js*  
 
 You can create Hello World app by modifying *App.js* like this:
-``` JSX
+``` javascript
 function App() {
     return (
         <div className="App">
@@ -72,7 +72,7 @@ function App() {
 ```
 
 # Variables
-``` JSX
+``` javascript
 function App() {
     const name = "Peter";
     return (
@@ -82,7 +82,7 @@ function App() {
     );
 }
 ```
-```JSX
+```javascript
 function App() {
     const name = <h1>Peter</h1>;
     return (
@@ -94,7 +94,7 @@ function App() {
     );
 }
 ```
-``` JSX
+``` javascript
 function App() {
     const name = <h1>Peter</h1>;
     const age = <h2>20</h2>
@@ -119,7 +119,7 @@ function App() {
 Better way to do this is by using components
 
 # Components
-``` JSX 
+``` javascript 
 const GetName = () => {
     return "Peter"
 }
@@ -131,7 +131,7 @@ const GetNameComponent = () => {
 Difference between component and ____ is that the component returns a HTML element *(h1, p, div)*  
 **Component name has to start with capital letter**
 
-``` JSX
+``` javascript
 function App() {
     return (
         <div>
@@ -155,7 +155,7 @@ const User = () => {
 
 ## Props
 Function (component) properties  
-``` JSX
+``` javascript
 function App() {
     return (
         <div>
@@ -177,7 +177,7 @@ const User = (props) => {
 }
 ```  
 Another example  
-``` JSX
+``` javascript
 function App() {
     return (
         <div>
@@ -205,21 +205,21 @@ Each component should be in separate file, as shown [later](#components-1)
 `import "./App.css"`  
 
 Works just like normal css, but with little difference in giving class names:
-``` JSX
+``` javascript
 <div className="App">
     <h1 className="fruit">Apple</h1>
 </div>
 ```
 ## Inline styling
 We have to treat css like an object:  
-``` JSX
+``` javascript
 <div style={{color:"red", backgroundColor:"black"}}></div>
 ```
 Notice that we put value of *color* in parenthesis and used camel case instead of hyphen in *backgroundColor*
 
 ## CSS modules
 You can change name of css file to *App.module.css* an treat it like an object  
-``` JSX
+``` javascript
 import styles from "./App.module.css";
 
 function App() {
@@ -241,7 +241,7 @@ Using ternary operator which is basically if else statement
 `age >= 18 ? console.log("Good") : console.log("Not good")`  
 This line basically goes like this: if the age is greater than or equals 18, print "Good", else print "Not good"  
 
-```JSX
+```javascript
 function App() {
     const age = 18
     return (
@@ -254,7 +254,7 @@ function App() {
 
 ## &&
 This symbol works like if statement *(not if-else like in previous example)*  
-``` JSX
+``` javascript
 const showButton = true
 return (
     <>
@@ -266,7 +266,7 @@ Button will be shown only if variable showButton is true. If it was set to false
 
 # Lists
 Using map method on array
-``` JSX
+``` javascript
 function App() {
     const names = ["Peter", "Jake", "Jessica", "Mike", "Dustin"]
     return (
@@ -280,7 +280,7 @@ function App() {
 ```
 
 More complex example - objects inside of list
-```JSX
+```javascript
 function App() {
     const users = [
         {name: "Peter", age: 21},
@@ -308,7 +308,7 @@ We can do this using component
 Each component should be in separate file, to make our code look cleaner  
 
 *User.js*
-```JSX
+```javascript
 export const User = (props) => {
     return (
         <div>
@@ -321,7 +321,7 @@ export const User = (props) => {
 
 
 *App.js*
-```JSX
+```javascript
 import { User } from "./User.js"
 
 function App() {
@@ -344,7 +344,7 @@ function App() {
 ```
 Another example  
 *Planets.js*
-```JSX
+```javascript
 export const Planets = (props) => {
     return (
         <div>
@@ -354,7 +354,7 @@ export const Planets = (props) => {
 }
 ```
 *App.js*
-```JSX
+```javascript
 import { Planets } from "./Planets.js"
 
 function App() {
@@ -384,7 +384,7 @@ UseState is one of hooks in React
 Think of state as a variable  
 
 Right now, if we click the button, nothing happens
-``` JSX
+``` javascript
 function App() {
     let age = 0
     const increaseAge = () => {
@@ -400,7 +400,7 @@ function App() {
 }
 ```
 We have to use **useState**
-```JSX
+```javascript
 import { useState } from "react";
 
 function App() {
@@ -422,7 +422,7 @@ function App() {
 ```
 
 When we type something into input box, it shows bellow
-```JSX
+```javascript
 import { useState } from "react";
 
 function App() {
@@ -442,7 +442,7 @@ function App() {
 ```
 
 Show/Hide text on button click
-```JSX
+```javascript
 function App() {
     const [showText, setShowText] = useState(true)
 
@@ -456,7 +456,7 @@ function App() {
 ```
 
 Change text color on click
-```JSX
+```javascript
 function App() {
     const [textColor, setTextColor] = useState(true)
 
@@ -471,7 +471,7 @@ function App() {
 ```
 
 Counter app: three buttons, one increases the value, one decreases the value, one sets the value to zero
-```JSX
+```javascript
 function App() {
     const [count, setCount] = useState(0)
 
@@ -489,7 +489,7 @@ function App() {
 # TODO list
 *Task.js*
 
-```JSX
+```javascript
 export const Task = (props) => {
     return (
         <div>
@@ -503,7 +503,7 @@ export const Task = (props) => {
 
 *App.js*
 
-```JSX
+```javascript
 function App() {
     const [todoList, setTodoList] = useState([])
     const [newTask, setNewTask] = useState("")
@@ -567,7 +567,7 @@ function App() {
 ```
 
 ## My version
-```JSX
+```javascript
 import { useState } from "react";
 
 function App() {
@@ -622,7 +622,7 @@ What happens to component from "birth" to "death"
 
 Simple app - we click on button, text box appears, you can type inside of it, typed text appears on screen as you type  
 *App.js*
-```JSX
+```javascript
 function App() {
     const [showText, setShowText] = useState(false)
 
@@ -635,7 +635,7 @@ function App() {
 }
 ```
 *Text.js*
-```JSX
+```javascript
 export const Text = () => {
     const [text, setText] = useState("")
 
@@ -654,7 +654,7 @@ Understanding this is important in UseEffect hook
 
 # UseEffect
 *Text.js*
-```JSX
+```javascript
 useEffect(() => {
     console.log("Component mounted")
 })
@@ -668,7 +668,7 @@ In the array we can specify what props or state changes we want to trigger the u
 
 ### Mounting component
 Empty array 
-```JSX
+```javascript
 useEffect(() => {
     console.log("Component mounted")
 }, [])
@@ -677,7 +677,7 @@ useEffect(() => {
 
 ### Mounting and updating component
 Array with what we want to update
-```JSX
+```javascript
 useEffect(() => {
     console.log("Component mounted")
 }, [text])
@@ -685,7 +685,7 @@ useEffect(() => {
 
 ### Unmounting component
 Return function inside useEffect
-```JSX
+```javascript
 useEffect(() => {
     console.log("Component mounted")
     return () => {
@@ -703,7 +703,7 @@ When a component is mounted, it unmounts it and mounts back to check for any mem
 *"Fetching data means that we want to make a request to website to get whatever information this url returns"*  
 
 ## Using fetch function
-```JSX
+```javascript
 fetch("https://catfact.ninja/fact")
     .then((response) => response.json())
     .then((data) => {
@@ -716,13 +716,13 @@ Then it logs to console
 
 ## Using Axios 
 `npm install axios`  
-```jsx
+```javascript
 Axios.get("https://catfact.ninja/fact")
 .then((response) => {console.log(response.data)})
 ```
 If we wanted to show it like this, it keeps on refreshing forever...  
 To stop it, we can use useEffect hook, as we learnt before
-```jsx
+```javascript
 const [catFact, setCatFact] = useState()
 
     useEffect(() => {
@@ -738,7 +738,7 @@ const [catFact, setCatFact] = useState()
     )
 ```
 We also want to generate a new fact on button click, we can do it like this
-```jsx
+```javascript
 import { useEffect, useState } from "react";
 import Axios from "axios";
 
@@ -765,7 +765,7 @@ function App() {
 
 ## Predicting age
 
-```jsx
+```javascript
 function App() {
     const [name, setName] = useState("")
     const [predicted, setPredicted] = useState(null)
@@ -791,12 +791,12 @@ function App() {
 ```
 
 There are two way to input url with variable:
-```jsx
+```javascript
 "https://api.agify.io/?name=" + inputName
 `https://api.agify.io/?name=${inputName}`
 ```
 ## Generate an excuse
-```jsx
+```javascript
 function App() {
     const categories = [
         "family", "office", "children", 
@@ -834,7 +834,7 @@ A way for our app to have "multiple pages"
 `npm install react-router-dom`
 
 *App.js*
-```jsx
+```javascript
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./Navbar";
@@ -865,7 +865,7 @@ export default App;
 
 ```
 *Navbar.js*
-```jsx
+```javascript
 import { Link } from "react-router-dom"
 
 export const Navbar = () => {
@@ -878,19 +878,19 @@ export const Navbar = () => {
 ```
 
 *pages/Home.js*
-```jsx
+```javascript
 export const Home = () => {
     return <h1>Home page</h1>
 }
 ```
 *pages/Menu.js*
-```jsx
+```javascript
 export const Menu = () => {
     return <h1>Menu</h1>
 }
 ```
 *pages/Home.js*
-```jsx
+```javascript
 export const Contact = () => {
     return <h1>Contact</h1>
 }
@@ -912,7 +912,7 @@ You can do something like this...
 ## UseContext
 Using Context hook we can determine which components will be able to use specific variable/function/state  
 *App.js*
-```jsx
+```javascript
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Home } from "./pages/Home";
@@ -945,7 +945,7 @@ function App() {
 ```
 
 *pages/Home.js*
-```jsx
+```javascript
 import { useContext } from "react"
 import { AppContext } from "../App"
 
@@ -963,7 +963,7 @@ export const Home = () => {
 ```
 
 *pages/Profile.js*
-```jsx
+```javascript
 import { useContext } from "react"
 import { AppContext } from "../App"
 import { ChangeProfile } from "../components/ChangeProfile"
@@ -982,7 +982,7 @@ export const Profile = () => {
 ```
 
 *components/ChangeProfile.js*
-```jsx
+```javascript
 import { useState } from "react"
 import { useContext } from "react"
 import { AppContext } from "../App"
@@ -1005,7 +1005,7 @@ Different (better) way to handle fetched data
 `npm install @tanstack/react-query`  
 
 *App.js*
-```jsx
+```javascript
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./Navbar";
@@ -1036,7 +1036,7 @@ function App() {
 export default App;
 ```
 To stop refetching data on every window focus, we can configure it like this:
-```jsx
+```javascript
 const client = new QueryClient({
         defaultOptions: {
             /* queries - something with making data - request
@@ -1049,7 +1049,7 @@ const client = new QueryClient({
 ```
 
 *Home.js*
-```jsx
+```javascript
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
@@ -1095,7 +1095,7 @@ Validation of given information
 `npm install @hookform/resolvers`  
 Integration between previous libraries  
 
-```jsx
+```javascript
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -1166,7 +1166,7 @@ There are 3 rules:
 3. It has to be at the highest level of component
 
 *App.js*
-```jsx
+```javascript
 import "./App.css";
 import { useToggle } from "./useToggle";
 
@@ -1188,7 +1188,7 @@ export default App;
 ```
 
 *useToggle.js*
-```jsx
+```javascript
 import { useState } from "react"
 
 export const useToggle = (initialValue = false) => {
@@ -1208,7 +1208,7 @@ export const useToggle = (initialValue = false) => {
 ## Fetching data using custom hooks
 
 *Cat.js*
-```jsx
+```javascript
 import { useGetCat } from "./useGetCat"
 
 export const Cat = () => {
@@ -1226,7 +1226,7 @@ export const Cat = () => {
 ```
 
 *useGetCat.js*
-```jsx
+```javascript
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
@@ -1246,7 +1246,7 @@ export const useGetCat = () => {
 
 ## Counter using custom hooks
 *Counter.js*
-```jsx
+```javascript
 import { useCounter } from "./useCounter"
 
 export const Counter = () => {
@@ -1264,7 +1264,7 @@ export const Counter = () => {
 ```
 
 *useCounter.js*
-```jsx
+```javascript
 import { useState } from "react"
 
 export const useCounter = (initValue = 0) => {
@@ -1280,7 +1280,7 @@ export const useCounter = (initValue = 0) => {
 
 # Types in React with PropTypes
 `npm install prop-types`
-```jsx
+```javascript
 import propTypes from "prop-types"
 
 export const Person = (props) => {
