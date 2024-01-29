@@ -25,20 +25,22 @@ const items = [
     },
     {
         id: 3,
+        title: "Kvadratické rovnice",
+        description: "Výpočet koreňov kvadratickej rovnice",
+        background: require("../images/preview/kvadratickerovnice-screenshot.png"),
+        icon: require("../images/icons/math.png"),
+        link: "/kvadratickerovnice"
+    },
+    /*
+    {
+        id: 4,
         title: "Piškvorky",
         description: "Hra piškvorky",
         background: require("../images/preview/code3.jpg"),
         icon: require("../images/icons/tictactoe.png"),
         link: "/piskvorky"
     },
-    {
-        id: 4,
-        title: "Kvadratické rovnice",
-        description: "Výpočet koreňov kvadratickej rovnice",
-        background: require("../images/preview/kvadratickerovnice-screenshot.png"),
-        icon: require("../images/icons/math.png"),
-        link: "/kvadratickerovnice"
-    }
+    */
 ]
 
 export default items
