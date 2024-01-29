@@ -22,62 +22,59 @@ const Carousel = () => {
     }
 
     return (
-        <>
-            <div className={"carousel"}>
-                <div className="carousel-items">
-                    {projekty.map((projekt, key) => {
-                        return (
-                            <div className={"carousel-item"} style={{transform: `translate(-${activeIndex * 100}vw)`}} key={key}>
-                                <div className={"carousel-description"}>
-                                    <div>
-                                        <h2 style={{color: "var(--color1)"}}>{projekt.title}</h2>
-                                        <p>{projekt.description}</p>
-                                    </div>
-                                    <Link to={projekt.link}>
-                                        <button style={{color: "var(--color1)", borderColor: "var(--color1)"}}>
-                                            <p>Zistiť viac</p>
-                                        </button>
-                                    </Link>
+        <div className={"carousel"}>
+            <div className="carousel-items">
+                {projekty.map((projekt, key) => {
+                    return (
+                        <div className={"carousel-item"} style={{transform: `translate(-${activeIndex * 100}vw)`}}
+                             key={key}>
+                            <div className={"carousel-description"}>
+                                <div>
+                                    <h2 style={{color: "var(--color1)"}}>{projekt.title}</h2>
+                                    <p>{projekt.description}</p>
                                 </div>
-                                <div className="carousel-image">
-                                    <img src={(projekt.background)} alt=""/>
-                                </div>
+                                <Link to={projekt.link}>
+                                    <button style={{color: "var(--color1)", borderColor: "var(--color1)"}}>
+                                        <p>Zistiť viac</p>
+                                    </button>
+                                </Link>
                             </div>
+                            <div className="carousel-image">
+                                <img src={(projekt.background)} alt=""/>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+            <div className="carousel-navigation">
+                <button onClick={() => {
+                    updateIndex(activeIndex - 1)
+                }}>
+                    <ArrowBack/>
+                </button>
+                <div className="carousel-bodky">
+                    {projekty.map((projekt, index) => {
+                        return (
+                            
+                            <button onClick={() => {
+                                updateIndex(index)
+                            }} key={index}>
+                                {
+                                    index === activeIndex
+                                        ? <RadioChecked/>
+                                        : <RadioUnchecked/>
+                                }
+                            </button>
                         )
                     })}
                 </div>
-                <div className="carousel-navigation">
-                    <button onClick={() => {
-                        updateIndex(activeIndex - 1)
-                    }}>
-                        <ArrowBack/>
-                    </button>
-                    <div className="carousel-bodky">
-                        {projekty.map((projekt, index) => {
-                            return (
-                                <>
-                                    <button onClick={() => {
-                                        updateIndex(index)
-                                    }}
-                                    key={index}>
-                                        {index === activeIndex ? (
-                                            <RadioChecked/>
-                                        ) : (
-                                            <RadioUnchecked/>
-                                        )}
-                                    </button>
-                                </>
-                            )
-                        })}
-                    </div>
-                    <button onClick={() => {
-                        updateIndex(activeIndex + 1)
-                    }}>
-                        <ArrowForward/>
-                    </button>
-                </div>
+                <button onClick={() => {
+                    updateIndex(activeIndex + 1)
+                }}>
+                    <ArrowForward/>
+                </button>
             </div>
-        </>
+        </div>
     );
 };
 

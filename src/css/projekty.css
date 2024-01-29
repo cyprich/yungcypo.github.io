@@ -51,9 +51,8 @@
 
 .carousel-navigation {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 16em;
     height: 4em;
 }
 
@@ -71,7 +70,8 @@
 
 .carousel-bodky {
     display: flex;
-    gap: 1em;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* posunutie penazi doprava*/
