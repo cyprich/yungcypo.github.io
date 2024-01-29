@@ -58,7 +58,8 @@ const Carousel = () => {
                                 <>
                                     <button onClick={() => {
                                         updateIndex(index)
-                                    }}>
+                                    }}
+                                    key={index}>
                                         {index === activeIndex ? (
                                             <RadioChecked/>
                                         ) : (
