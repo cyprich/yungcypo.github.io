@@ -24,9 +24,10 @@ const Odpisy = () => {
     const dnesnyMesiac = dnes.getMonth() + 1;
     const dnesnyRok = dnes.getFullYear();
 
-    const [cena, setCena] = useState(null);
+    // TODO nastavit na null (skupinu na -1)
+    const [cena, setCena] = useState(1700);
     const [datum, setDatum] = useState(null);
-    const [skupina, setSkupina] = useState(null);
+    const [skupina, setSkupina] = useState(-1);
     const [zrychlenaMetoda, setZrychlenaMetoda] = useState(false);
 
     const [pomockaSkupiny, setPomockaSkupiny] = useState(false);
@@ -41,13 +42,51 @@ const Odpisy = () => {
         }
     }
 
+    const [vysledok, setVysledok] = useState([]);
+    const [rokObstarania, setRokObstarania] = useState(null);
+    const [mesiacObstarania, setMesiacObstarania] = useState(null);
+    const [dlzkaOdpisovania, setDlzkaOdpisovania] = useState(null);
+    const [pocetRokov, setPocetRokov] = useState(null);
+
+    useEffect(() => {
+        if (datum && cena >= 1700 && skupina >= 0 && skupina <= 6) {
+            const [receivedYear, receivedMonth] = datum?.split('-');
+            setMesiacObstarania(receivedMonth + 1);
+            setRokObstarania(receivedYear)
+            console.log(mesiacObstarania)
+            console.log(rokObstarania)
+
+            setDlzkaOdpisovania(
+                skupina
+                    ? odpisoveskupiny[skupina].dobaodpisovania
+                    : null
+            )
+
+            setPocetRokov(dlzkaOdpisovania)
+            if (mesiacObstarania > 1) {
+                setPocetRokov(pocetRokov + 1)
+            }
+
+            for (let i = 0; i < pocetRokov; i++) {
+
+                console.log("nic take")
+                setVysledok([...vysledok, "ahoj"])
+            }
+
+            console.log(vysledok)
+
+        }
+
+    }, [cena, datum, skupina]);
+
+
     return (
         <div className={"odpisy projekt"}>
             <h2>Odpisy</h2>
             <h4>Daňové odpisy dlhodobého majetku pre potreby účtovníctva</h4>
-            <div className="odpisyinputy">
+            <div className={(skupina == 2 || skupina == 3) ? "odpisyinputy styristlpce" : "odpisyinputy"}>
                 <div className={"odpisyinput"}>
-                    <p>Zadaj mesiac obstarania</p>
+                    <p>Mesiac obstarania</p>
                     <input
                         type="month"
                         onChange={(e) => {
@@ -55,30 +94,28 @@ const Odpisy = () => {
                         }}/>
                 </div>
                 <div className={"odpisyinput"}>
-                    <p>Zadaj vstupnú cenu</p>
-                    <input type="number" onChange={(e) => {
+                    <p>Vstupná cena</p>
+                    <input type="number" placeholder={"Min. 1700€"} onChange={(e) => {
                         setCena(e.target.value)
                     }}/>
-                    {
-                        (cena !== null && cena < 1700)
-                            ? <p><i>Vstupná cena odpisovaného majetku musí byť minimálne 1700€ (2400€ pri nehmotnom
-                                majetku)</i></p>
-                            : null
-                    }
                 </div>
                 <div className={"odpisyinput"}>
-                    <p>Zadaj odpisovú skupinu</p>
+                    <p style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                        Odpisová skupina
+                        <span className={"pomockaskupinybutton"} onClick={() => {
+                            setPomockaSkupiny(!pomockaSkupiny);
+                            setPomockaKoeficienty(null)
+                        }}>?</span>
+                    </p>
                     <input type="number" min={0} max={6} placeholder={"0 - 6"} onChange={(e) => {
                         setSkupina(e.target.value)
                     }}/>
-                    <p className={"pomockaskupinybutton"} onClick={() => {
-                        setPomockaSkupiny(!pomockaSkupiny);
-                        setPomockaKoeficienty(null)
-                    }}>?</p>
+
                 </div>
                 {
                     (skupina == 2 || skupina == 3)
                         ? <div className="odpisyinput">
+                            <p>Metóda odpisovania</p>
                             <button
                                 onClick={() => {
                                     setZrychlenaMetoda(!zrychlenaMetoda)
@@ -91,19 +128,31 @@ const Odpisy = () => {
                 }
             </div>
             {
-                (datum && cena >= 1700 && skupina >= 0 && skupina <= 6)
+                //(datum && cena >= 1700 && skupina >= 0 && skupina <= 6)
+                (datum)
                     ? <div className={"odpisyvypocet"}>
                         {/*TODO*/}
+                        <table>
+                            <thead>
+                            <tr>
+                                <td>Rok</td>
+                                <td>Výpočet</td>
+                                <td>Ročný odpis</td>
+                                <td>Oprávky</td>
+                                <td>Zostatková cena</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                        <p className={"pomockakoeficientybutton"} onClick={() => {
+                            setPomockaKoeficienty(!pomockaKoeficienty);
+                            setPomockaSkupiny(null)
+                        }}>?</p>
                     </div>
                     : <p>Zadajte potrebné údaje</p>
             }
-            <div>
-
-                <p className={"pomockakoeficientybutton"} onClick={() => {
-                    setPomockaKoeficienty(!pomockaKoeficienty);
-                    setPomockaSkupiny(null)
-                }}>?</p>
-            </div>
             <div className={"odpisypomocka"}>
                 {
                     pomockaSkupiny
