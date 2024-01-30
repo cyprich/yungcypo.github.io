@@ -17,20 +17,22 @@ const items = [
     },
     {
         id: 2,
-        title: "Odpisy",
-        description: "Výpočet daňových odpisov",
-        background: require("../images/preview/peniaze.png"),
-        icon: require("../images/icons/money.png"),
-        link: "/odpisy"
-    },
-    {
-        id: 3,
         title: "Kvadratické rovnice",
         description: "Výpočet koreňov kvadratickej rovnice",
         background: require("../images/preview/kvadratickerovnice.png"),
         icon: require("../images/icons/math.png"),
         link: "/kvadratickerovnice"
     },
+    /*
+    {
+        id: 3,
+        title: "Odpisy",
+        description: "Výpočet daňových odpisov",
+        background: require("../images/preview/peniaze.png"),
+        icon: require("../images/icons/money.png"),
+        link: "/odpisy"
+    },
+    */
     /*
     {
         id: 4,
