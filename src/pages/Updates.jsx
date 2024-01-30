@@ -60,7 +60,7 @@ const Updates = () => {
                                     }
                                 </div>
                                 <div className="updateimage">
-                                    <h4>Preview</h4>
+                                    <h4>Ukážka</h4>
                                     <img src={
                                         e.preview
                                             ? e.preview
