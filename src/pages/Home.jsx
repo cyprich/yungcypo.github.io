@@ -46,11 +46,14 @@ const Home = () => {
                     <div className="omneNapisy">
                         <div className={"omneContent"}>
                             <HumanIcon class={"omneIcon"}/>
-                            <h3>
-                                Peter
-                                <span>Cypo</span>
-                                Cyprich
-                            </h3>
+                            <div>
+                                <h3>
+                                    Peter
+                                    <span>Cypo</span>
+                                    Cyprich
+                                </h3>
+                                <h5 style={{fontWeight: 300}}>Since 2003</h5>
+                            </div>
                         </div>
                         <div className={"omneContent"}>
                             <HomeIcon class={"omneIcon"}/>
@@ -111,9 +114,9 @@ const Home = () => {
                                         hoveredKontakt === k.nazov
                                             ? {
                                                 borderColor: k.farba,
-                                                boxShadow : k.farba + " 1px 1px 16px"
-                                    }
-                                        : null
+                                                boxShadow: k.farba + " 1px 1px 16px"
+                                            }
+                                            : null
                                     }
                                 >
                                     <img src={k.ikonka.bezfarebna} alt="" title={k.nazov}/>
