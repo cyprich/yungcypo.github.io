@@ -64,7 +64,7 @@ const Updates = () => {
                                     <img src={
                                         e.preview
                                             ? e.preview
-                                            : require("../images/preview/oldwebsites/idk.jpg")
+                                            : null
                                     } alt=""/>
                                 </div>
                             </div>

@@ -106,9 +106,11 @@ const updates = [
         link: null,
         poznamky: [
             "Najstaršia verzia stránky",
-            "Zdrojový kód, ani bližšie informácie o nej sa bohužiaľ nepodarilo zachovať",
+            "Zdrojový kód, ukážka, ani akékoľvek bližšie informácie o nej sa bohužiaľ nepodarilo zachovať",
+            "Táto verzia sa doslova vyparila z povrchu zemského",
             "Spomienka na ňu ostala jedine v našich srdciach",
-        ]
+        ],
+        preview: require("../images/preview/oldwebsites/idk.png"),
     },
 ]
 
