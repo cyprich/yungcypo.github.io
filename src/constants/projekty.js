@@ -2,7 +2,7 @@ const items = [
     {
         id: 0,
         title: "3D Tlač",
-        description: "Vytlačenie 3D modelu podľa vlastného výberu",
+        description: "Zistite viac o mojom hobby",
         background: require("../images/preview/3dtlac.webp"),
         icon: require("../images/icons/3dprinter.png"),
         link: "/3D"
