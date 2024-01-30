@@ -19,14 +19,16 @@
     cursor: pointer;
     user-select: none;
     width: max-content;
+    text-decoration: underline;
 }
 .footerupdates:hover {
     color: var(--color5);
-    text-decoration: underline;
+    text-decoration: none;
+
 }
 .footerupdates:active {
     color: var(--color6);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .footerdruhacast {
