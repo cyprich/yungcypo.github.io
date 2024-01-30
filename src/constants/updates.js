@@ -106,6 +106,7 @@ const updates = [
         link: null,
         poznamky: [
             "Najstaršia verzia stránky",
+            "Jej história siaha hlboko, až niekde ku roku 2020",
             "Zdrojový kód, ukážka, ani akékoľvek bližšie informácie o nej sa bohužiaľ nepodarilo zachovať",
             "Táto verzia sa doslova vyparila z povrchu zemského",
             "Spomienka na ňu ostala jedine v našich srdciach",
