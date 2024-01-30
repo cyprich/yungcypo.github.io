@@ -49,7 +49,7 @@ const kontakt = [
             farebna: require("../images/icons/socials/github_color.png"),
         },
         linknamiestokontaktu: true,
-        farba: "#e6edf3",
+        farba: "#7040c9",
     },
     {
         nazov: "Spotify",
