@@ -1,0 +1,53 @@
+.updates {
+    padding: 2em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+.update {
+    display: grid;
+    grid-template-columns: 40% 40%;
+}
+
+.updatetext {
+    padding-left: 0.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.updatetext h3 {
+    transform: translateX(-0.25em);
+    color: var(--color7);
+}
+
+.updatefunkcie p {
+    font-size: 1.25em;
+    padding: 0.25em 0;
+}
+.updatefunkcia {
+    margin-left: 1.25em;
+    padding: 0.125em 0;
+}
+
+.updateimage {
+    padding-top: 2em;
+}
+.updateimage img {
+    height: 16em;
+    padding-top: 0.25em;
+    filter: brightness(80%);
+}
+
+.updatelinky {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125em;
+}
+.updatelinky a {
+    color: #bbb;
+    width: max-content;
+}
+.updatelinky a:hover {
+    color: var(--color7);
+}
