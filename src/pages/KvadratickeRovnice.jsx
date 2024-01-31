@@ -25,6 +25,11 @@ const KvadratickeRovnice = () => {
         }
     }, [a, b, c, d, x1, x2]);
 
+    /* scroll to top */
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
     return (
         <div className={"projekt"}>
             <h2>Kvadratické rovnice</h2>

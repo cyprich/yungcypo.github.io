@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "../css/styles.css"
 import "../css/threed.css"
 
@@ -7,6 +7,11 @@ import CasovaOs from "./CasovaOs";
 import threed from "../constants/threed";
 
 const ThreeD = () => {
+    /* scroll to top */
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
     return (
         <div className={"threed projekt"}>
             <h2>3D tlač</h2>

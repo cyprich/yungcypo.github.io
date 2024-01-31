@@ -57,6 +57,11 @@ const Schodisko = () => {
         setL(0);
     }
 
+    /* scroll to top */
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
     return (
         <div className={"schodisko projekt"}>
             <div style={{marginBottom: "1em"}}>

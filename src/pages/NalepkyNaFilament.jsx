@@ -51,6 +51,10 @@ const NalepkyNaFilament = () => {
         ])
     }, [id, vyrobca, material, cena, farbaNazov, farbaCode, farbaInvert, farba2Code, hmotnostSoSpoolom, hmotnostSpool, hmotnostPovodna, teplotaMin, teplotaMax]);
 
+    /* scroll to top */
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     return (
         <div className={"nalepkynafilament"}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 
 import "../css/styles.css"
@@ -7,6 +7,11 @@ import "../css/updates.css"
 import updates from "../constants/updates"
 
 const Updates = () => {
+    /* scroll to top */
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
     return (
         <div className={"updatesmain projekt"}>
             <h2>Updates</h2>
