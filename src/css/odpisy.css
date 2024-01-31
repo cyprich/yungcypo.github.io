@@ -1,4 +1,6 @@
-
+button:disabled {
+    background-color: transparent;
+}
 
 /* zmeny farby ikonky kalendara */
 .odpisy input[type="month"]::-webkit-calendar-picker-indicator {
