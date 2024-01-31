@@ -32,6 +32,17 @@ const Odpisy = () => {
     const [k1, setK1] = useState(null);
     const [k2, setK2] = useState(null);
 
+    const [pomockaSkupiny, setPomockaSkupiny] = useState(false);
+    const [rozbalenaPomockaSkupiny, setRozbalenaPomockaSkupiny] = useState(null);
+    const handleClickSkupiny = (e) => {
+        if (rozbalenaPomockaSkupiny === e) {
+            setRozbalenaPomockaSkupiny(null)
+
+        } else {
+            setRozbalenaPomockaSkupiny(e)
+        }
+    }
+
     // zmena datumu obstarania
     useEffect(() => {
         setRokObstarania(Number(datumObstarania?.split("-")[0]))
@@ -131,7 +142,19 @@ const Odpisy = () => {
                 <h4>Daňové odpisy dlhodobého majetku pre potreby účtovníctva</h4>
             </div>
             <div className="odpisyinputy">
-                <h3>Vstupné údaje</h3>
+                <div style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "flex-start",
+                    gap: "0.75em"
+                }}
+                >
+                    <h3>Vstupné údaje</h3>
+                    <div className={"pomoc"} onClick={() => {
+                        setPomockaSkupiny(!pomockaSkupiny);
+                    }}>?
+                    </div>
+                </div>
                 <div>
                     <div>
                         <p>Dátum obstarania</p>
@@ -146,15 +169,7 @@ const Odpisy = () => {
                         }}/>
                     </div>
                     <div>
-                        <div style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "flex-end",
-                            gap: "0.5em"
-                        }}>
-                            <p>Odpisová skupina</p>
-                            <div className={"pomoc"}>?</div>
-                        </div>
+                        <p>Odpisová skupina</p>
                         <input type="number" placeholder={"0 - 6"} min={0} max={6} onChange={(e) => {
                             setOdpisovaSkupina(Number(e.target.value))
                         }}/>
@@ -202,6 +217,83 @@ const Odpisy = () => {
                         }
                         </tbody>
                     </table>
+                    : null
+            }
+
+            {
+                pomockaSkupiny
+                    ? <div className="odpisypomockaskupiny">
+                        <table>
+                            <thead>
+                            <tr>
+                                <td colSpan={4}>Odpisové skupiny</td>
+                            </tr>
+                            <tr>
+                                <td>Číslo skupiny</td>
+                                <td>Doba odpisovania</td>
+                                <td>Možnosť zrýchleného odpisovania</td>
+                                <td>Čo sem zaraďujeme</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {odpisoveskupiny.map((e, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{e.cislo}</td>
+                                        <td>{e.dobaodpisovania} {e.dobaodpisovaniapripona}</td>
+                                        {
+                                            e.zrychlene
+                                                ? <td>Áno</td>
+                                                : <td>-</td>
+                                        }
+                                        <td onClick={() => {
+                                            handleClickSkupiny(e.cislo)
+                                        }}>
+                                            <ul>
+                                                {e.coodpisujeme.map((f, key) => {
+                                                    if (rozbalenaPomockaSkupiny === e.cislo) {
+                                                        console.log(key)
+                                                        return (
+                                                            <li key={key}>{f}</li>
+                                                        )
+                                                    } else {
+                                                        if (key < 2) {
+                                                            return (
+                                                                <li key={key}>{f}</li>
+                                                            )
+                                                        }
+                                                    }
+                                                })}
+                                                {
+                                                    (rozbalenaPomockaSkupiny !== e.cislo && e.coodpisujeme.length > 2)
+                                                        ? <ul><li style={{color: "var(--color9)"}}>Ďalšie ({e.coodpisujeme.length - 2})</li></ul>
+                                                        : null
+                                                }
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colSpan={4}>
+                                    Zdroj:
+                                    <Link
+                                        to={"https://www.podnikajte.sk/odpisy/zaradovanie-majetku-do-odpisovych-skupin-2022-2023"}
+                                        target={"_blank"}
+                                        colSpan={4}
+                                    > www.podnikanie.sk</Link>
+                                </td>
+                            </tr>
+                            <tr onClick={() => {
+                                setPomockaSkupiny(null)
+                            }}>
+                                <td colSpan={4}><a>Zbaliť</a></td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                     : null
             }
         </div>

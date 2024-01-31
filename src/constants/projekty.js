@@ -23,7 +23,6 @@ const items = [
         icon: require("../images/icons/math.png"),
         link: "/kvadratickerovnice"
     },
-    /*
     {
         id: 3,
         title: "Odpisy",
@@ -32,7 +31,6 @@ const items = [
         icon: require("../images/icons/money.png"),
         link: "/odpisy"
     },
-    */
     /*
     {
         id: 4,

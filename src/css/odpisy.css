@@ -47,6 +47,31 @@
     padding: 1em;
 }
 
+.odpisypomockaskupiny td {
+    padding: 1em;
+    background: var(--color3);
+}
+
+.odpisypomockaskupiny tbody td:last-child {
+    cursor: pointer;
+}
+.odpisypomockaskupiny tbody td:last-child:hover {
+    background-color: var(--color4)
+}
+.odpisypomockaskupiny li {
+    margin-left: 1em;
+}
+
+.odpisypomockaskupiny a {
+    cursor: pointer;
+    user-select: none;
+}
+.odpisypomockaskupiny a:hover {
+    color: var(--color7);
+}
+
+
+
 /* zmeny farby ikonky kalendara */
 .odpisy input[type="month"]::-webkit-calendar-picker-indicator {
     filter: invert(100%);
