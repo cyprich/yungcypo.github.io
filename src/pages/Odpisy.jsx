@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
+import Latex from "react-latex";
 
 import "../css/styles.css"
 import "../css/odpisy.css"
@@ -19,6 +20,8 @@ const koeficienty = {
 }
 
 const Odpisy = () => {
+    var Latex = require("react-latex");
+
     const [datumObstarania, setDatumObstarania] = useState(null);
     const [mesiacObstarania, setMesiacObstarania] = useState(null);
     const [rokObstarania, setRokObstarania] = useState(null);
@@ -76,6 +79,7 @@ const Odpisy = () => {
             if (i == 0) {
                 // prvy rok
                 vypocet = "(" + obstaravaciaCena + " : " + k1 + ") : 12 × " + (12 - mesiacObstarania + 1)
+                vypocet = `$(\\frac{`+ obstaravaciaCena +`}{` + k1 +`}) \\div 12 \\times ` + (12 - mesiacObstarania + 1) + `$`
                 rocnyOdpis = Math.ceil((obstaravaciaCena / k1) / 12 * (12 - mesiacObstarania + 1))
                 rok = rokObstarania;
                 opravky = rocnyOdpis
@@ -96,6 +100,7 @@ const Odpisy = () => {
             } else if (i == dlzkaOdpisovania - 1) {
                 // posledny rok
                 vypocet = "(" + obstaravaciaCena + " : " + k1 + ") : 12 × " + (mesiacObstarania - 1)
+                vypocet = `$(\\frac{`+ obstaravaciaCena +`}{` + k1 +`}) \\div 12 \\times ` + (mesiacObstarania - 1) + `$`
                 rocnyOdpis = Math.ceil((obstaravaciaCena / k1) / 12 * (mesiacObstarania - 1))
                 rok = rokObstarania + i;
                 opravky = obstaravaciaCena
@@ -106,10 +111,12 @@ const Odpisy = () => {
                 if (!zrychleneOdpisovanie) {
                     // rovnomerne odpisy
                     vypocet = obstaravaciaCena + " : " + k1
+                    vypocet = `$\\frac{`+ obstaravaciaCena +`}{`+ k1 +`}$`
                     rocnyOdpis = Math.ceil(obstaravaciaCena / k1)
                 } else {
                     // zrychlene odpisy
                     vypocet = "(2 × " + zostatkovaCena + ") / (" + k2 + " - " + i + ")"
+                    vypocet = `$\\frac{2 \\times ` + zostatkovaCena + `}{`+ k1 +` - ` + i + `}$`
                     rocnyOdpis = Math.ceil((2 * zostatkovaCena) / (k2 - i))
                 }
                 opravky += rocnyOdpis
@@ -206,7 +213,7 @@ const Odpisy = () => {
                                 return (
                                     <tr>
                                         <td>{e.rok}</td>
-                                        <td>{e.vypocet}</td>
+                                        <td style={{fontSize: "1.125em"}}><Latex>{e.vypocet}</Latex></td>
                                         <td>{e.rocnyOdpis}</td>
                                         <td>{e.opravky}</td>
                                         <td>{e.zostatkovaCena}</td>
@@ -226,7 +233,7 @@ const Odpisy = () => {
                         <table>
                             <thead>
                             <tr>
-                                <td colSpan={4}>Odpisové skupiny</td>
+                                <td colSpan={4}>Odpisové skupiny - pomôcka</td>
                             </tr>
                             <tr>
                                 <td>Číslo skupiny</td>
