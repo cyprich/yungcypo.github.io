@@ -52,12 +52,12 @@ const Odpisy = () => {
             } else {
                 setDlzkaOdpisovania(odpisoveskupiny[odpisovaSkupina].dobaodpisovania)
             }
+
         }
     }, [rokObstarania, mesiacObstarania, obstaravaciaCena, odpisovaSkupina, zrychleneOdpisovanie]);
 
     // výpočet výsledkov
     useEffect(() => {
-        console.log("\n\ncheckpoint1;  " + dlzkaOdpisovania)
         let rok, vypocet, rocnyOdpis, opravky, zostatkovaCena;
         let priebezneVysledky = []
 
@@ -68,7 +68,20 @@ const Odpisy = () => {
                 rocnyOdpis = Math.ceil((obstaravaciaCena / k1) / 12 * (12 - mesiacObstarania + 1))
                 rok = rokObstarania;
                 opravky = rocnyOdpis
-                zostatkovaCena = obstaravaciaCena - rocnyOdpis
+                if (!zrychleneOdpisovanie) {
+                    // rovnomerne odpisy
+                    zostatkovaCena = obstaravaciaCena - rocnyOdpis
+                } else {
+                    // zrychlene odpisy
+                    zostatkovaCena = Math.ceil(obstaravaciaCena - (obstaravaciaCena / k1))
+                    if (zrychleneOdpisovanie) {
+                        if (odpisovaSkupina == 2) {
+                            setK2((koeficienty.skupina2.dalsieroky))
+                        } else if (odpisovaSkupina === 3) {
+                            setK2((koeficienty.skupina3.dalsieroky))
+                        }
+                    }
+                }
             } else if (i == dlzkaOdpisovania - 1) {
                 // posledny rok
                 vypocet = "(" + obstaravaciaCena + " : " + k1 + ") : 12 × " + (mesiacObstarania - 1)
@@ -77,12 +90,20 @@ const Odpisy = () => {
                 opravky = obstaravaciaCena
                 zostatkovaCena = 0
             } else {
-                // ostatne roky
-                vypocet = obstaravaciaCena + " : " + k1
-                rocnyOdpis = Math.ceil(obstaravaciaCena / k1)
+                // vsetky ostatne roky
                 rok = rokObstarania + i;
+                if (!zrychleneOdpisovanie) {
+                    // rovnomerne odpisy
+                    vypocet = obstaravaciaCena + " : " + k1
+                    rocnyOdpis = Math.ceil(obstaravaciaCena / k1)
+                } else {
+                    // zrychlene odpisy
+                    vypocet = "(2 × " + zostatkovaCena + ") / (" + k2 + " - " + i + ")"
+                    rocnyOdpis = Math.ceil((2 * zostatkovaCena) / (k2 - i))
+                }
                 opravky += rocnyOdpis
                 zostatkovaCena -= rocnyOdpis
+
             }
 
             let novyVysledok = {
@@ -105,36 +126,51 @@ const Odpisy = () => {
 
     return (
         <div className={"odpisy projekt"}>
+            <div className={"odpisynadpisy"}>
+                <h2>Odpisy</h2>
+                <h4>Daňové odpisy dlhodobého majetku pre potreby účtovníctva</h4>
+            </div>
             <div className="odpisyinputy">
+                <h3>Vstupné údaje</h3>
                 <div>
-                    <h3>Dátum obstarania</h3>
-                    <input type="month" onChange={(e) => {
-                        setDatumObstarania(e.target.value)
-                    }}/>
-                </div>
-                <div>
-                    <h3>Obstarávacia cena</h3>
-                    <input type="number" placeholder={"min. 1700€"} onChange={(e) => {
-                        setObstaravaciaCena(Number(e.target.value))
-                    }}/>
-                </div>
-                <div>
-                    <h3>Odpisová skupina</h3>
-                    <input type="number" placeholder={"0 - 6"} onChange={(e) => {
-                        setOdpisovaSkupina(Number(e.target.value))
-                    }}/>
-                </div>
-                <div>
-                    <h3>Metóda odpisovania</h3>
-                    <button disabled={!(odpisovaSkupina >= 2 && odpisovaSkupina <= 3)} onClick={() => {
-                        setZrychleneOdpisovanie(!zrychleneOdpisovanie)
-                    }}>
-                        {
-                            zrychleneOdpisovanie
-                                ? "Zrýchlená"
-                                : "Rovnomerná"
-                        }
-                    </button>
+                    <div>
+                        <p>Dátum obstarania</p>
+                        <input type="month" onChange={(e) => {
+                            setDatumObstarania(e.target.value)
+                        }}/>
+                    </div>
+                    <div>
+                        <p>Obstarávacia cena</p>
+                        <input type="number" placeholder={"min. 1700€"} min={1700} onChange={(e) => {
+                            setObstaravaciaCena(Number(e.target.value))
+                        }}/>
+                    </div>
+                    <div>
+                        <div style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "flex-end",
+                            gap: "0.5em"
+                        }}>
+                            <p>Odpisová skupina</p>
+                            <div className={"pomoc"}>?</div>
+                        </div>
+                        <input type="number" placeholder={"0 - 6"} min={0} max={6} onChange={(e) => {
+                            setOdpisovaSkupina(Number(e.target.value))
+                        }}/>
+                    </div>
+                    <div>
+                        <p>Metóda odpisovania</p>
+                        <button disabled={!(odpisovaSkupina >= 2 && odpisovaSkupina <= 3)} onClick={() => {
+                            setZrychleneOdpisovanie(!zrychleneOdpisovanie)
+                        }}>
+                            {
+                                zrychleneOdpisovanie
+                                    ? "Zrýchlená"
+                                    : "Rovnomerná"
+                            }
+                        </button>
+                    </div>
                 </div>
             </div>
             {
