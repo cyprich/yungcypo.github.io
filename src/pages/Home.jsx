@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 import "../css/styles.css"
 import "../css/home.css"
 
 import CasovaOs from "./CasovaOs";
 import Carousel from "./Carousel";
 
+import vzdelanie from "../constants/vzdelanie";
 import mudrosti from "../constants/mudrosti"
 import kontakt from "../constants/kontakt";
 
@@ -13,7 +15,6 @@ import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
 import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
 import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
-import {Link} from "react-router-dom";
 
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
@@ -86,7 +87,8 @@ const Home = () => {
 
                 </div>
                 <hr style={{margin: '0 1em'}}/>
-                <CasovaOs/>
+                <h3 className={"casovaOsNadpis"}>Moje vzdelanie</h3>
+                <CasovaOs file={vzdelanie}/>
             </div>
             <div id="projekty" className={"homeComponent"}>
                 <Carousel/>

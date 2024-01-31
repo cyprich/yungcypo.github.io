@@ -51,11 +51,7 @@
     padding: 1.5em;
     border-radius: 1em;
 }
-/*
-.casovaOsElement > div:hover {
-    background: var(--color3);
-}
-*/
+
 .casovaOsElement:nth-child(odd) > div::before,
 .casovaOsElement:nth-child(even) > div::before {
     content: '';
@@ -76,20 +72,44 @@
 
 
 
-.casovaOsElement > div > * {
-    text-align: center;
+.casovaOsElement > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
 }
 
-.casovaOsElement > div > *:first-child {
-    padding-bottom: 0.33em;
-}
-.casovaOsElement > div > *:last-child {
-    padding-top: 0.5em;
-    color: var(--color9);
-}
 .casovaOsElement span {
     color: var(--color7);
 }
+
+.casovaOsDatum {
+    color: var(--color9);
+    display: flex;
+
+}
+
+.casovaOsObrazky {
+    display: grid;
+    align-items: center;
+}
+
+.casovaOsObrazok {
+    padding-top: 1em;
+    text-align: center;
+}
+.casovaOsObrazok img {
+    width: 90%;
+}
+.casovaOsObrazok img:hover {
+    width: 100%;
+}
+
+.casovaOsObrazok p {
+    font-size: 0.9em;
+    color: var(--color9);
+}
+
 
 @media screen and (max-width: 1150px) {
     .casovaOs {
