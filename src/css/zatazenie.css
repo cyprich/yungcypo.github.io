@@ -30,35 +30,50 @@
     gap: 1em;
 }
 
-
-.zatazenieheader {
-    display: grid;
-    grid-template-columns: repeat(3, 3fr) repeat(4, 2fr);
-    gap: 1em;
+.zatazenievysledky table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+.zatazenievysledky td {
+    border: 1px solid white;
+}
+.zatazenievysledky thead td {
+    text-align: center;
+    padding: 0.5em 2em;
+}
+.zatazenievysledky thead td > div {
+    margin: 0.5em;
 }
 
-.zatazenieheader .nazov {
+.zatazenievysledky tbody input {
+    border: none;
+    border-radius: 0;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.zatazenievysledky tbody tr:not(.zatazenienovyriadok) td {
+    padding: 1em;
+}
+.zatazenienovyriadok td:last-child:hover {
+    background-color: rgba(0,0,0, 0.125);
+}
+
+.zatazenievysledky tfoot td {
+    padding: 1em;
+}
+
+
+
+.zatazenievysledky .nazov {
     font-size: 1.125em;
 }
-.zatazenieheader .znacka * {
+.zatazenievysledky .vyrazne,
+.zatazenievysledky .vyrazne * {
     color: var(--color7);
 }
-.zatazenieheader .jednotka * {
+.zatazenievysledky .nevyrazne,
+.zatazenievysledky .nevyrazne * {
     color: var(--color9);
 }
-
-.zatazenieheaderhodnota {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 0.5em;
-}
-
-.zatazenieheaderhodnota > div {
-    display: flex;
-    gap: 1em;
-}
-
 
