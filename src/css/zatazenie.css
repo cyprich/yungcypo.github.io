@@ -16,13 +16,49 @@
     background-color: rgba(0,0,0, 0.25);
 }
 .zatazenieinputy img {
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
     padding: 0;
+}
 
+.zatazenieinputy select {
+    width: 16em;
 }
 
 .zatazenieinputy > div:first-child {
     display: flex;
     gap: 1em;
 }
+
+
+.zatazenieheader {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr) repeat(4, 2fr);
+    gap: 1em;
+}
+
+.zatazenieheader .nazov {
+    font-size: 1.125em;
+}
+.zatazenieheader .znacka * {
+    color: var(--color7);
+}
+.zatazenieheader .jednotka * {
+    color: var(--color9);
+}
+
+.zatazenieheaderhodnota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.5em;
+}
+
+.zatazenieheaderhodnota > div {
+    display: flex;
+    gap: 1em;
+}
+
+
