@@ -1,0 +1,14 @@
+.vystuzvysledky section {
+    padding: 1em 0.5em;
+}
+.vystuzvysledky section > div {
+    padding: 0.5em 1em;
+}
+.vystuzvysledky section > div div {
+    padding: 0.25em 0.5em;
+}
+
+.vystuzvysledky p:has(span) {
+    font-size: 1.25em;
+    padding: 0.25em 0;
+}
