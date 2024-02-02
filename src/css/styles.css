@@ -108,6 +108,20 @@ button:disabled:active{
     background-color: transparent;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+.vyrazne,
+.vyrazne * {
+    color: var(--color7);
+}
+
+.nevyrazne,
+.nevyrazne * {
+    color: var(--color9);
+}
+
 .pomoc {
     width: 1.5em;
     height: 1.5em;

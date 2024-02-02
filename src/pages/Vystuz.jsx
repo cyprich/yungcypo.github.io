@@ -20,6 +20,8 @@ const Vystuz = () => {
     const [b, setB] = useState(1);
     const [alpha, setAlpha] = useState(1);
 
+    const [tabulecka, setTabulecka] = useState(null);
+
     const [fck, setFck] = useState(null);
     const [fcd, setFcd] = useState(null);
     const [gammac, setGammac] = useState(1.5);
@@ -40,6 +42,7 @@ const Vystuz = () => {
     const [mrd, setMrd] = useState(null);
     const [msd, setMsd] = useState(null);
 
+    const [zobrazitTabulecku, setZobrazitTabulecku] = useState(false);
     const [zobrazitVysledok, setZobrazitVysledok] = useState(false);
 
     useEffect(() => {
@@ -166,8 +169,62 @@ const Vystuz = () => {
                     </select>
                 </div>
             </div>
+            <table className={"tabulecka"}>
+                <thead>
+                <tr>
+                    <td rowSpan={2}>Priemer výstuže <span className={"nevyrazne"}>[mm]</span></td>
+                    <td colSpan={5}>Počet prútov vo výstuži</td>
+                </tr>
+                <tr>
+                    {
+                        vystuz.pocetprutovvystuze.map((e, key) => {
+                            return (
+                                <td key={key}>{e}</td>
+                            )
+                        })
+                    }
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    as > 0
+                        ? vystuz.plochyvystuze.map((x, keyx) => {
+                            return (
+                                <tr key={keyx}>
+                                    {x.map((y, keyy) => {
+                                        if (keyy == 0) {
+                                            return (
+                                                <td>{y}</td>
+                                            )
+                                        } else {
+                                            if (as <= y) {
+                                                return (
+                                                    <td
+                                                        className={"selectable"}
+                                                        onClick={() => {
+                                                            setAs(vystuz.plochyvystuze[keyx][keyy])
+                                                        }}
+                                                    >
+                                                        {y}
+                                                    </td>
+                                                )
+                                            } else {
+                                                return (
+                                                    <td className={"nevyrazne"}>{y}</td>
+                                                )
+                                            }
+                                        }
+                                    })}
+                                </tr>
+                            )
+                        })
+                        : null
+                }
+                </tbody>
+            </table>
+            <h1>{tabulecka}</h1>
             {
-                zobrazitVysledok || !zobrazitVysledok
+                zobrazitVysledok
                     ? <div className="vystuzvysledky">
                         <section>
                             <h3>1. Návrhové pevnosti betónu a ocele</h3>
@@ -242,7 +299,7 @@ const Vystuz = () => {
                                                     <Latex>{`$A_{s_{min}} = 0.0015 \\times b \\times d \\space\\space \\small{(ak\\space f_{yk} > 400\\text{MPa})}$`}</Latex>
                                                 </p>
                                                 <p><Latex>{`$A_{s_{min}} = 0.0015 \\times b \\times d$`}</Latex></p>
-                                                <p><Latex>{`$A_{s_{min}} = `+ asmin +` m^2$`}</Latex></p>
+                                                <p><Latex>{`$A_{s_{min}} = ` + asmin + ` m^2$`}</Latex></p>
                                             </>
                                             : <>
                                                 <p>
@@ -263,7 +320,8 @@ const Vystuz = () => {
                                     <p><Latex>{`$A_{s_{max}} = ` + asmax + ` m^2$`}</Latex></p>
                                     <div></div>
                                     <p><Latex>{`$A_{s_{min}} \\le A_s \\le A_{s_{max}}$`}</Latex></p>
-                                    <p><Latex>{`$ `+ asmin +` \\le `+ as +` \\le `+ asmax +`\\space[m^2]$`}</Latex></p>
+                                    <p><Latex>{`$ ` + asmin + ` \\le ` + as + ` \\le ` + asmax + `\\space[m^2]$`}</Latex>
+                                    </p>
                                 </div>
                             </div>
                             <div>

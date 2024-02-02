@@ -12,3 +12,20 @@
     font-size: 1.25em;
     padding: 0.25em 0;
 }
+
+.tabulecka td {
+    padding: 1em;
+    border: 1px solid white;
+}
+.tabulecka td.selectable {
+    user-select: none;
+    cursor: pointer;
+}
+.tabulecka td.selectable:hover {
+    background-color: rgba(0,0,0, 0.125);
+}
+
+.tabulecka td.nevyrazne {
+    cursor: not-allowed;
+    background-color: rgba(0,0,0, 0.125);
+}
