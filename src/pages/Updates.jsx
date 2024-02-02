@@ -14,9 +14,12 @@ const Updates = () => {
 
     return (
         <div className={"updatesmain projekt"}>
-            <h2>Updates</h2>
-            <h4><i style={{fontWeight: "lighter", fontSize: "0.9em"}}>a.k.a.</i> Aktualizácie, verzie, história, ...
-            </h4>
+            <div className={"updatesnadpisy"}>
+                <h2>Updates</h2>
+                <h4>
+                    <i style={{fontWeight: "lighter", fontSize: "0.9em"}}>a.k.a.</i> Aktualizácie, verzie, história, ...
+                </h4>
+            </div>
             <div className="updates">
                 {
                     updates.map((e, key) => {
@@ -40,7 +43,8 @@ const Updates = () => {
                                     {
                                         e.datum
                                             ?
-                                            <p className="updatedatum">Dátum poslednej úpravy: {e.datum.den}. {e.datum.mesiac}. {e.datum.rok}</p>
+                                            <p className="updatedatum">Dátum poslednej
+                                                úpravy: {e.datum.den}. {e.datum.mesiac}. {e.datum.rok}</p>
                                             : null
                                     }
                                     {
