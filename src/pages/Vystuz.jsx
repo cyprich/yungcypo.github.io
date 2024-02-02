@@ -40,7 +40,6 @@ const Vystuz = () => {
     const [mrd, setMrd] = useState(null);
     const [msd, setMsd] = useState(null);
 
-    //TODO priemer vystuze z tej velkej tabulky
     const [priemerVystuze, setPriemerVystuze] = useState(0.008);
     const [pocetVystuzi, setPocetVystuzi] = useState(null);
     const [zobrazitTabulecku, setZobrazitTabulecku] = useState(false);
