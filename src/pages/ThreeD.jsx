@@ -1,10 +1,7 @@
 import React, {useEffect} from 'react';
 import "../css/styles.css"
 import "../css/threed.css"
-
-import CasovaOs from "./CasovaOs";
-
-import threed from "../constants/threed";
+import {Link} from "react-router-dom";
 
 const ThreeD = () => {
     /* scroll to top */
@@ -13,14 +10,16 @@ const ThreeD = () => {
     }, []);
 
     return (
-        <div className={"threed projekt"}>
-            <h2>3D tlač</h2>
-            <h5 style={{display: "flex", gap: "0.5em"}}>
-
-            </h5>
-            <div className={"threedcasovaos"}>
-                <h3 className={"casovaOsNadpis"}>Ako som sa dostal ku 3D tlači</h3>
-                <CasovaOs file={threed}/>
+        <div className={"threed"}>
+            <div className={"threednadpisy"}>
+                <h2>3D tlač</h2>
+                <h4>Zisti viac o mojom hobby</h4>
+            </div>
+            <div className={"threedprojekty"}>
+                <Link to={"/3D/historia"} className={"stavitelstvoprojekt"}>
+                    <h3>Ako som sa dostal ku 3D tlači</h3>
+                    <h5>Všetko to začalo už v roku 2017...</h5>
+                </Link>
             </div>
         </div>
     );
