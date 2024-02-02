@@ -3,6 +3,8 @@ import "../css/styles.css"
 import "../css/schodisko.css"
 import Latex from "react-latex";
 
+import SpatNa from "./SpatNa";
+
 const Schodisko = () => {
     var Latex = require("react-latex");
 
@@ -284,6 +286,7 @@ const Schodisko = () => {
                     }
                 </div>
             </div>
+            <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
         </div>
 
     );

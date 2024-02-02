@@ -1,0 +1,23 @@
+.spatna {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5em;
+    width: max-content;
+    user-select: none;
+    position: absolute;
+    bottom: 0;
+    margin: 1em 0;
+    color: var(--color6);
+    transition: 0.1s;
+}
+
+.spatna svg {
+    fill: var(--color6);
+}
+
+.spatna:hover,
+.spatna:hover svg{
+    color: var(--color7);
+    fill: var(--color7);
+}

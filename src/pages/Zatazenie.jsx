@@ -4,6 +4,7 @@ import "../css/styles.css"
 import "../css/zatazenie.css"
 
 import zatazenie from "../constants/zatazenie";
+import SpatNa from "./SpatNa";
 
 const Zatazenie = () => {
     var Latex = require("react-latex");
@@ -312,6 +313,7 @@ const Zatazenie = () => {
                         : null
                 }
             </div>
+            <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
         </div>
     );
 };

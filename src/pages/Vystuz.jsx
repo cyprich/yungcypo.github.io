@@ -4,6 +4,7 @@ import "../css/styles.css"
 import "../css/vystuz.css"
 
 import vystuz from "../constants/vystuz";
+import SpatNa from "./SpatNa";
 
 const Vystuz = () => {
     let Latex = require("react-latex");
@@ -403,6 +404,7 @@ const Vystuz = () => {
                     </div>
                     : null
             }
+            <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
         </div>
     );
 };
