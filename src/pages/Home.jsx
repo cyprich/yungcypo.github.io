@@ -5,10 +5,10 @@ import "../css/home.css"
 
 import CasovaOs from "./CasovaOs";
 import Carousel from "./Carousel";
+import Kontakt from "./Kontakt";
 
 import vzdelanie from "../constants/vzdelanie";
 import mudrosti from "../constants/mudrosti"
-import kontakt from "../constants/kontakt";
 
 import background from "../images/background.webp"
 import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
@@ -19,20 +19,12 @@ import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
 
-    const [hoveredKontakt, setHoveredKontakt] = useState(null);
-    const handleKontaktMouseEnter = (nazov) => {
-        setHoveredKontakt(nazov)
-    }
-    const handleKontaktMouseLeave = () => {
-        setHoveredKontakt(null)
-    }
-
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
 
-    
+
     return (
         <main>
             <div className={"landing"} style={{
@@ -99,48 +91,8 @@ const Home = () => {
             <div id="projekty" className={"homeComponent"}>
                 <Carousel/>
             </div>
-            <div id="kontakt" className={"homeComponent kontakt"}>
-                <h2>Kontakt</h2>
-                <h4 style={{textAlign: "center"}}>A linky na ostatné sociálne siete</h4>
-                <div className="linky">
-                    {
-                        kontakt.map((k, key) => {
-                            return (
-                                <Link
-                                    to={k.link}
-                                    target={"_blank"}
-                                    className="link"
-                                    key={key}
-                                    title={k.nazov}
-                                    onMouseEnter={() => {
-                                        handleKontaktMouseEnter(k.nazov)
-                                    }}
-                                    onMouseLeave={() => {
-                                        handleKontaktMouseLeave()
-                                    }}
-                                    style={
-                                        hoveredKontakt === k.nazov
-                                            ? {
-                                                borderColor: k.farba,
-                                                boxShadow: k.farba + " 1px 1px 16px"
-                                            }
-                                            : null
-                                    }
-                                >
-                                    <img src={k.ikonka.bezfarebna} alt="" title={k.nazov}/>
-                                    <div className={"pismenka"}>
-                                        <p>{k.username}</p>
-                                        {
-                                            k.poznamka
-                                                ? <p style={{color: "var(--color9)"}}>{k.poznamka}</p>
-                                                : null
-                                        }
-                                    </div>
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
+            <div id="kontakt" className={"kontaktHome"}>
+                <Kontakt style={{textAlign: "center", marginTop: "0"}}/>
             </div>
         </main>
     );

@@ -5,6 +5,7 @@ import Header from "./pages/Header";
 import Footer from "./pages/Footer"
 import PageNotFound from "./pages/PageNotFound";
 import Updates from "./pages/Updates"
+import Kontakt from "./pages/Kontakt";
 
 import Stavitelstvo from "./pages/Stavitelstvo";
 import Schodisko from "./pages/Schodisko";
@@ -24,6 +25,7 @@ const App = () => {
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/updates"} element={<Updates/>}></Route>
+                    <Route path={"/kontakt"} element={<Kontakt className={"projekt"}/>}></Route>
 
                     <Route path={"/stavitelstvo"} element={<Stavitelstvo/>}></Route>
                     <Route path={"/schodisko"} element={<Schodisko/>}/>

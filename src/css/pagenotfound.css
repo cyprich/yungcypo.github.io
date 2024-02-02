@@ -1,13 +1,17 @@
-.pagenotfound h1 {
-    padding-bottom: 0.125em;
+
+
+.pagenotfound h3 {
+    padding-bottom: 1em;
 }
-.pagenotfound h4 {
-    padding: 0.25em 0;
+.pagenotfound p {
+    font-size: 1.125em;
+    padding: 0.125em 0;
 }
+
 .pagenotfoundlink {
-    color: var(--color7);
     text-decoration: underline;
 }
-.pagenotfoundlink:hover {
-    color: var(--color8);
+.pagenotfoundlink:hover,
+.pagenotfoundlink:hover *{
+    color: var(--color5);
 }
