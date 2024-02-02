@@ -43,7 +43,10 @@ const vystuz = {
 
     pocetprutovvystuze: [
         5, 6, 7, 8, 9
-    ]
+    ],
+    priemervystuze: [
+        6, 8, 10, 12, 14, 15, 18, 20, 22, 25, 28
+    ],
     
     
 }

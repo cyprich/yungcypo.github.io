@@ -15,12 +15,9 @@ const Vystuz = () => {
     const [nosnaOcel, setNosnaOcel] = useState(null);
     const [rozdelovaciaOcel, setRozdelovaciaOcel] = useState(null);
 
-    //TODO priemer vystuze z tej velkej tabulky
-    const [priemerVystuze, setPriemerVystuze] = useState(0.008);
+
     const [b, setB] = useState(1);
     const [alpha, setAlpha] = useState(1);
-
-    const [tabulecka, setTabulecka] = useState(null);
 
     const [fck, setFck] = useState(null);
     const [fcd, setFcd] = useState(null);
@@ -33,6 +30,7 @@ const Vystuz = () => {
     const [c, setC] = useState((cmin + deltah) / 1000);
     const [d, setD] = useState(null);
     const [as, setAs] = useState(null);
+    const [asVypocet, setAsVypocet] = useState(null);
     const [asmin, setAsmin] = useState(null);
     const [asmax, setAsmax] = useState(null);
     const [x, setX] = useState(null);
@@ -42,6 +40,9 @@ const Vystuz = () => {
     const [mrd, setMrd] = useState(null);
     const [msd, setMsd] = useState(null);
 
+    //TODO priemer vystuze z tej velkej tabulky
+    const [priemerVystuze, setPriemerVystuze] = useState(0.008);
+    const [pocetVystuzi, setPocetVystuzi] = useState(null);
     const [zobrazitTabulecku, setZobrazitTabulecku] = useState(false);
     const [zobrazitVysledok, setZobrazitVysledok] = useState(false);
 
@@ -55,9 +56,7 @@ const Vystuz = () => {
 
         setMsd(moment / 1000)
 
-        setAs(b * d * ((alpha * fcd) / (fyk)) * (1 - Math.sqrt(
-            1 - ((2 * msd) / (b * d * d * alpha * fcd))
-        )))
+        setAsVypocet(b * d * ((alpha * fcd) / fyd) * (1 - Math.sqrt((1) - ((2 * msd) / (b * (d * d) * alpha * fcd)))))
 
         if (fyk > 400) {
             setAsmin(0.0015 * b * d)
@@ -66,7 +65,7 @@ const Vystuz = () => {
         }
         setAsmax(0.04 * b * hrubkaDosky)
 
-        setX(1.25 * ((as * fyd) / (b * alpha * fcd)))
+        setX(1.25 * ((as * fyd)/(b * alpha * fcd)))
 
         setKsi(x / d)
 
@@ -79,27 +78,40 @@ const Vystuz = () => {
         setZ(d - 0.4 * x)
         setMrd(as * fyd * z)
 
+        // zaokruhlovanie
         if (fcd) {
             setFcd(Math.round((fcd) * 1000) / 1000)
         }
         if (fyd) {
             setFyd(Math.round((fyd) * 1000) / 1000)
         }
-
+        if (asVypocet) {
+            setAsVypocet(Math.round((asVypocet) * 1000000) / 1000000)
+        }
+        if (x) {
+            setX(Math.round((x) * 1000000) / 1000000)
+        }
+        if (ksi) {
+            setKsi(Math.round((ksi) * 1000) / 1000)
+        }
+        if (z) {
+            setZ(Math.round((z) * 1000000) / 1000000)
+        }
+        if (mrd) {
+            setMrd(Math.round((mrd) * 1000000) / 1000000)
+        }
 
         if (
             dlzkaDosky != null && hrubkaDosky != null && moment != null &&
             beton != null && nosnaOcel != null && rozdelovaciaOcel != null) {
-            setZobrazitVysledok(true)
+            setZobrazitTabulecku(true)
         } else {
-            setZobrazitVysledok(false)
+            setZobrazitTabulecku(false)
         }
 
-    }, [dlzkaDosky, hrubkaDosky, moment,
-        beton, nosnaOcel, rozdelovaciaOcel,
-        fck, fyk, d, msd,
-        asmin, asmax, x, ksi, ksimax,
-        z, mrd, fcd, fyd, as
+    }, [dlzkaDosky, hrubkaDosky, moment, beton, nosnaOcel, rozdelovaciaOcel,
+        fck, fyk, d, msd, asmin, asmax, ksimax,
+        fcd, fyd, asVypocet, x, ksi, z, mrd, as
     ]);
 
 
@@ -169,60 +181,72 @@ const Vystuz = () => {
                     </select>
                 </div>
             </div>
-            <table className={"tabulecka"}>
-                <thead>
-                <tr>
-                    <td rowSpan={2}>Priemer výstuže <span className={"nevyrazne"}>[mm]</span></td>
-                    <td colSpan={5}>Počet prútov vo výstuži</td>
-                </tr>
-                <tr>
-                    {
-                        vystuz.pocetprutovvystuze.map((e, key) => {
-                            return (
-                                <td key={key}>{e}</td>
-                            )
-                        })
-                    }
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    as > 0
-                        ? vystuz.plochyvystuze.map((x, keyx) => {
-                            return (
-                                <tr key={keyx}>
-                                    {x.map((y, keyy) => {
-                                        if (keyy == 0) {
-                                            return (
-                                                <td>{y}</td>
-                                            )
-                                        } else {
-                                            if (as <= y) {
-                                                return (
-                                                    <td
-                                                        className={"selectable"}
-                                                        onClick={() => {
-                                                            setAs(vystuz.plochyvystuze[keyx][keyy])
-                                                        }}
-                                                    >
-                                                        {y}
-                                                    </td>
-                                                )
-                                            } else {
-                                                return (
-                                                    <td className={"nevyrazne"}>{y}</td>
-                                                )
-                                            }
-                                        }
-                                    })}
-                                </tr>
-                            )
-                        })
-                        : null
-                }
-                </tbody>
-            </table>
-            <h1>{tabulecka}</h1>
+            {
+                zobrazitTabulecku
+                    ? <>
+                        {
+                            zobrazitVysledok
+                                ? null
+                                : <p>Vyber plochu výstuže na základe požadovaného priemeru výstuže a počtu prútov</p>
+                        }
+                        <table className={"vystuztabulecka"}>
+                            <thead>
+                            <tr>
+                                <td rowSpan={2}>Priemer výstuže <span className={"nevyrazne"}>[mm]</span></td>
+                                <td colSpan={5}>Počet prútov vo výstuži</td>
+                            </tr>
+                            <tr>
+                                {
+                                    vystuz.pocetprutovvystuze.map((e, key) => {
+                                        return (
+                                            <td key={key}>{e}</td>
+                                        )
+                                    })
+                                }
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                vystuz.plochyvystuze.map((x, keyx) => {
+                                    return (
+                                        <tr key={keyx}>
+                                            {x.map((y, keyy) => {
+                                                if (keyy == 0) {
+                                                    return (
+                                                        <td key={keyy}>{y}</td>
+                                                    )
+                                                } else {
+                                                    if (asVypocet <= y) {
+                                                        return (
+                                                            <td
+                                                                className={"selectable"}
+                                                                key={keyy}
+                                                                onClick={() => {
+                                                                    setAs(vystuz.plochyvystuze[keyx][keyy])
+                                                                    setPocetVystuzi(vystuz.pocetprutovvystuze[keyx])
+                                                                    setPriemerVystuze(vystuz.priemervystuze[keyy] / 1000)
+                                                                    setZobrazitVysledok(true)
+                                                                }}
+                                                            >
+                                                                {y}
+                                                            </td>
+                                                        )
+                                                    } else {
+                                                        return (
+                                                            <td className={"nevyrazne"} key={keyy}>{y}</td>
+                                                        )
+                                                    }
+                                                }
+                                            })}
+                                        </tr>
+                                    )
+                                })
+                            }
+                            </tbody>
+                        </table>
+                    </>
+                    : null
+            }
             {
                 zobrazitVysledok
                     ? <div className="vystuzvysledky">
@@ -276,13 +300,11 @@ const Vystuz = () => {
                             1 - \\sqrt{\\frac{1}{1} - \\frac{2 \\space\\times\\space ` + msd + `}{` + b + ` \\space\\times\\space ` + d + `^2 \\space\\times\\space ` + alpha + ` \\space\\times\\space ` + fcd + `}}
                             \\bigg)
                         $`}</Latex></p>
-                                <p style={{fontSize: "1.375em"}}><Latex>{`$As =  ` + as + `m^2$`}</Latex></p>
+                                <p style={{fontSize: "1.375em"}}><Latex>{`$As =  ` + asVypocet + `m^2$`}</Latex></p>
                             </div>
                             <div>
-                                {
-                                    // TODO toto neviem ci tam bude
-                                }
-                                <p>Volím <Latex>{`$6 \\phi v10/m' \\Rarr A_s = $`}</Latex></p>
+                                <p>Volím <Latex>{`$` + priemerVystuze * 1000 + ` \\phi v` + pocetVystuzi + `/m' \\Rarr A_s = ` + as + ` $`}</Latex>
+                                </p>
                             </div>
                         </section>
                         <section>
@@ -298,7 +320,8 @@ const Vystuz = () => {
                                                 <p>
                                                     <Latex>{`$A_{s_{min}} = 0.0015 \\times b \\times d \\space\\space \\small{(ak\\space f_{yk} > 400\\text{MPa})}$`}</Latex>
                                                 </p>
-                                                <p><Latex>{`$A_{s_{min}} = 0.0015 \\times b \\times d$`}</Latex></p>
+                                                <p><Latex>{`$A_{s_{min}} = 0.0015 \\times ` + b + ` \\times ` + d + `$`}</Latex>
+                                                </p>
                                                 <p><Latex>{`$A_{s_{min}} = ` + asmin + ` m^2$`}</Latex></p>
                                             </>
                                             : <>
@@ -320,7 +343,7 @@ const Vystuz = () => {
                                     <p><Latex>{`$A_{s_{max}} = ` + asmax + ` m^2$`}</Latex></p>
                                     <div></div>
                                     <p><Latex>{`$A_{s_{min}} \\le A_s \\le A_{s_{max}}$`}</Latex></p>
-                                    <p><Latex>{`$ ` + asmin + ` \\le ` + as + ` \\le ` + asmax + `\\space[m^2]$`}</Latex>
+                                    <p><Latex>{`$ ` + asmin + ` \\le ` + as + ` \\le ` + asmax + `\\space\\small{[m^2]}$`}</Latex>
                                     </p>
                                 </div>
                             </div>
