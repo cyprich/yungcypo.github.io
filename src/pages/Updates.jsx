@@ -19,18 +19,18 @@ const Updates = () => {
             </h4>
             <div className="updates">
                 {
-                    updates.map((e) => {
+                    updates.map((e, key) => {
                         return (
-                            <div className="update">
+                            <div className="update" key={key}>
                                 <div className={"updatetext"}>
                                     <h3>{e.verzia}</h3>
                                     {
                                         e.poznamky
                                             ? <div className={"updatepoznamky"}>
                                                 {
-                                                    e.poznamky.map((f) => {
+                                                    e.poznamky.map((f, key) => {
                                                         return (
-                                                            <p>{f}</p>
+                                                            <p key={key}>{f}</p>
                                                         )
                                                     })
                                                 }
@@ -47,9 +47,9 @@ const Updates = () => {
                                         e.zmeny
                                             ? <ul className={"updatefunkcie"}>
                                                 <p>Zmeny: </p>
-                                                {e.zmeny.map((f) => {
+                                                {e.zmeny.map((f, key) => {
                                                     return (
-                                                        <li className={"updatefunkcia"}>{f}</li>
+                                                        <li className={"updatefunkcia"} key={key}>{f}</li>
                                                     )
                                                 })}
                                             </ul>

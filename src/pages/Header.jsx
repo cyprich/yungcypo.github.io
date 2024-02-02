@@ -58,7 +58,7 @@ const Header = () => {
                 }>
                 {projekty.map((projekt, key) => {
                     return (
-                        <Link to={projekt.link} className={"headerdruhyriadoklink"}>
+                        <Link to={projekt.link} className={"headerdruhyriadoklink"} key={key}>
                             <div
                                 className={"headerprojekt"}
                                 onMouseEnter={
