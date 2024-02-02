@@ -11,6 +11,19 @@ header {
     z-index: 10;
 }
 
+.headerprvyriadok,
+.headerprvyriadok *{
+    z-index: 9;
+}
+.headerdruhyriadok,
+.headerdruhyriadok *{
+    z-index: 8;
+}
+.headertretiriadok,
+.headertretiriadok *{
+    z-index: 7;
+}
+
 .headerprvyriadok {
     height: 4em;
     display: flex;
