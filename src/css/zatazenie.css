@@ -1,5 +1,9 @@
+.zatazenienadpisy {
+    padding: 2em;
+}
+
 .zatazenieinputy {
-    padding: 1em;
+    padding: 1em 2em;
 }
 
 .zatazenieinputy button {
@@ -28,6 +32,10 @@
 .zatazenieinputy > div:first-child {
     display: flex;
     gap: 1em;
+}
+
+.zatazenievysledky {
+    padding: 1em 2em;
 }
 
 .zatazenievysledky table {

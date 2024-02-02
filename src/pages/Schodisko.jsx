@@ -66,11 +66,11 @@ const Schodisko = () => {
 
     return (
         <div className={"schodisko projekt"}>
-            <div style={{marginBottom: "1em"}}>
+            <div style={{marginBottom: "1em", padding: "2em"}}>
                 <h2>Schodisko</h2>
                 <h4>Návrh a výpočet rozmerov schodiska pre potreby stavebných výkresov</h4>
             </div>
-            <div>
+            <div style={{padding: "0 2em"}}>
                 <div>
                     <h3>Typ schodiska</h3>
                     <select

@@ -11,8 +11,11 @@ import Stavitelstvo from "./pages/Stavitelstvo";
 import Schodisko from "./pages/Schodisko";
 import Zatazenie from "./pages/Zatazenie";
 import Vystuz from "./pages/Vystuz";
-import Odpisy from "./pages/Odpisy";
+
 import ThreeD from "./pages/ThreeD";
+import ThreeDHistoria from "./pages/ThreeDHistoria";
+
+import Odpisy from "./pages/Odpisy";
 import Piskvorky from "./pages/Piskvorky";
 import KvadratickeRovnice from "./pages/KvadratickeRovnice";
 import NalepkyNaFilament from "./pages/NalepkyNaFilament";
@@ -32,9 +35,11 @@ const App = () => {
                     <Route path={"/zatazenie"} element={<Zatazenie/>}/>
                     <Route path={"/vystuz"} element={<Vystuz/>}/>
 
+                    <Route path={"/3D"} element={<ThreeD/>}/>
+                    <Route path={"/3D/historia"} element={<ThreeDHistoria/>}/>
+
 
                     <Route path={"/odpisy"} element={<Odpisy/>}/>
-                    <Route path={"/3D"} element={<ThreeD/>}/>
                     <Route path={"/3D/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
                     <Route path={"/piskvorky"} element={<Piskvorky/>}/>
                     <Route path={"/kvadratickerovnice"} element={<KvadratickeRovnice/>}/>

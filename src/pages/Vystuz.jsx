@@ -65,7 +65,7 @@ const Vystuz = () => {
         }
         setAsmax(0.04 * b * hrubkaDosky)
 
-        setX(1.25 * ((as * fyd)/(b * alpha * fcd)))
+        setX(1.25 * ((as * fyd) / (b * alpha * fcd)))
 
         setKsi(x / d)
 
@@ -122,8 +122,10 @@ const Vystuz = () => {
 
     return (
         <div className={"projekt vystuz"}>
-            <h2>Výstuž</h2>
-            <h4>Návrh výstuže jednoduchej dosky</h4>
+            <div className="vystuznadpisy">
+                <h2>Výstuž</h2>
+                <h4>Návrh výstuže jednoduchej dosky</h4>
+            </div>
             <div className="vystuzinputy">
                 <div>
                     <input type="number" placeholder={"Dĺžka dosky [m]"} onChange={(e) => {
@@ -343,7 +345,8 @@ const Vystuz = () => {
                                     <p><Latex>{`$A_{s_{max}} = ` + asmax + ` m^2$`}</Latex></p>
                                     <div></div>
                                     <p><Latex>{`$A_{s_{min}} \\le A_s \\le A_{s_{max}}$`}</Latex></p>
-                                    <p><Latex>{`$ ` + asmin + ` \\le ` + as + ` \\le ` + asmax + `\\space\\small{[m^2]}$`}</Latex>
+                                    <p>
+                                        <Latex>{`$ ` + asmin + ` \\le ` + as + ` \\le ` + asmax + `\\space\\small{[m^2]}$`}</Latex>
                                     </p>
                                 </div>
                             </div>
