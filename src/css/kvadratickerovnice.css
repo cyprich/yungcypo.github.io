@@ -1,3 +1,7 @@
+.kvadratickerovnice {
+    padding: 2em;
+}
+
 .kvadratickerovnice-item {
     margin: 2em 1em;
 }
@@ -22,7 +26,7 @@
 }
 .kvadratickerovnice-input > div {
     display: flex;
-    gap: 0.25em;
+    gap: 0.5em;
 }
 
 .kvadratickerovnice-vysledky {
