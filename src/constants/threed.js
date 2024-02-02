@@ -9,7 +9,7 @@ const threed = [
         ],
         obrazky : [
             {
-                zdroj: require("../images/3dpero.png"),
+                zdroj: require("../images/3dpero.jpg"),
                 popis: "3D pero"
             }
         ],
