@@ -4,7 +4,7 @@
     background-color: var(--color1);
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-end;
     transition-duration: 0.1s;
 }
 
@@ -40,5 +40,16 @@
 }
 
 .footerobrazky img {
+    height: 1.25em;
+}
+
+.footertechnologie {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
+.footertechnologie svg {
     height: 1.25em;
 }
