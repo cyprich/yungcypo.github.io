@@ -23,6 +23,7 @@ const Footer = () => {
             <div className={"footerprvacast"}>
                 <p style={{fontSize: "1.125em"}}>Cypo's Website <span style={{color: "var(--color7)"}}>v3.0.0</span></p>
                 <div className={"footertechnologie"}>
+                    <p>Made with</p>
                     <Link to={"https://react.dev/"} target={"_blank"}>
                         <ReactLogo title={"React"}/>
                     </Link>

@@ -47,7 +47,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1em;
+    gap: 0.75em;
 }
 
 .footertechnologie svg {
