@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import "../css/styles.css"
 import "../css/schodisko.css"
 import Latex from "react-latex";
@@ -45,6 +45,15 @@ const Schodisko = () => {
             }
         }
     }, [typSchodiska, kv, n, h, b, alpha, h1, h2, l]);
+
+    // focus KV input on typSchodiska change
+    const kvref = useRef(null);
+    useEffect(() => {
+        if (kvref.current) {
+            kvref.current.focus()
+        }
+    }, [typSchodiska]);
+
 
     function reset() {
         // TODO reset select
@@ -98,6 +107,7 @@ const Schodisko = () => {
                                     <input
                                         type="number"
                                         placeholder={"Konštrukčná výška [mm]"}
+                                        ref={kvref}
                                         onChange={(e) => {
                                             setKv(Number(e.target.value))
                                         }}

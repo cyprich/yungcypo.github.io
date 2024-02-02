@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Latex from "react-latex";
 import "../css/styles.css"
 import "../css/vystuz.css"
@@ -114,9 +114,22 @@ const Vystuz = () => {
         fcd, fyd, asVypocet, x, ksi, z, mrd, as
     ]);
 
+    // input focus
+    const dlzkadoskyref = useRef(null);
+    const hrubkadoskyref = useRef(null);
+    const momentref = useRef(null);
+    const handleKeyPress = (event, nextInputRef) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault()
+            nextInputRef.current.focus()
+        }
+    }
 
     /* scroll to top */
     useEffect(() => {
+        if (dlzkadoskyref.current) {
+            dlzkadoskyref.current.focus()
+        }
         window.scrollTo(0, 0)
     }, []);
 
@@ -128,15 +141,41 @@ const Vystuz = () => {
             </div>
             <div className="vystuzinputy">
                 <div>
-                    <input type="number" placeholder={"Dĺžka dosky [m]"} onChange={(e) => {
-                        setDlzkaDosky(e.target.value)
-                    }}/>
-                    <input type="number" placeholder={"Hrúbka dosky [m]"} onChange={(e) => {
-                        setHrubkaDosky(e.target.value)
-                    }}/>
-                    <input type="number" placeholder={"Moment pôsobiaci na dosku [KNm]"} onChange={(e) => {
-                        setMoment(e.target.value)
-                    }}/>
+                    <input
+                        type="number"
+                        placeholder={"Dĺžka dosky [m]"}
+                        onChange={(e) => {
+                            setDlzkaDosky(e.target.value)
+                        }}
+                        ref={dlzkadoskyref}
+                        onKeyDown={(e) => {
+                            handleKeyPress(e, hrubkadoskyref)
+                        }}
+                    />
+                    <input
+                        type="number"
+                        placeholder={"Hrúbka dosky [m]"}
+                        onChange={(e) => {
+                            setHrubkaDosky(e.target.value)
+                        }}
+                        ref={hrubkadoskyref}
+                        onKeyDown={(e) => {
+                            handleKeyPress(e, momentref)
+                        }}
+                    />
+                    <input
+                        type="number"
+                        placeholder={"Moment pôsobiaci na dosku [KNm]"}
+                        onChange={(e) => {
+                            setMoment(e.target.value)
+                        }}
+                        ref={momentref}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                momentref.current.blur()
+                            }
+                        }}
+                    />
                 </div>
                 <div>
                     <select name="beton" onChange={(e) => {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Latex from "react-latex";
 import "../css/styles.css"
 import "../css/zatazenie.css"
@@ -74,6 +74,7 @@ const Zatazenie = () => {
         setObjemovaTiazInputHodnota("")
     }
 
+    // vsetky vypocty
     useEffect(() => {
         let novegk = 0
         vysledky.map((e) => {
@@ -144,6 +145,28 @@ const Zatazenie = () => {
             setFcd(Math.round((gd + qd) * 1000) / 1000)
         }
     }, [vysledky, selectValue, gk, so, qk, sk, fck, gd, qd, fcd]);
+
+    // focus input
+    const materialref = useRef(null);
+    const hrubkaref = useRef(null);
+    const objemovatiazref = useRef(null);
+    const pridajref = useRef(null);
+    useEffect(() => {
+        if (materialref.current) {
+            materialref.current.focus()
+        }
+    }, [selectValue]);
+    const handleKeyPress = (event, nextInputRef) => {
+        if (event.key === "Enter" && nextInputRef.current && !event.shiftKey) {
+            event.preventDefault()
+
+            // pri poslednom inpute nech sa klikne tlacitko a da naspak na material
+            if (nextInputRef == materialref && newMaterial && newHrubka && pridajref.current) {
+                pridajref.current.click()
+            }
+            nextInputRef.current.focus()
+        }
+    }
 
 
     /* scroll to top */
@@ -221,34 +244,68 @@ const Zatazenie = () => {
                         )
                     })}
                     <tr className={"zatazenienovyriadok"}>
-                        <td><input type="text" name={"inputMaterial"} placeholder={"Materiál"}
-                                   value={materialInputHodnota} onChange={(e) => {
-                            setNewMaterial(e.target.value)
-                            setMaterialInputHodnota(e.target.value)
-                        }}/></td>
-                        <td><input type="number" name={"inputHrubka"} placeholder={"Hrúbka"} value={hrubkaInputHodnota}
-                                   onChange={(e) => {
-                                       setNewHrubka(Number(e.target.value))
-                                       setHrubkaInputHodnota(e.target.value)
-                                   }}/></td>
-                        <td><input type="number" name={"inputObjemovaTiaz"} placeholder={"Objemová tiaž"}
-                                   value={objemovaTiazInputHodnota} onChange={(e) => {
-                            setNewObjemovaTiaz(Number(e.target.value))
-                            setObjemovaTiazInputHodnota(e.target.value)
-                        }}/></td>
+                        <td><input
+                            type="text"
+                            name={"inputMaterial"}
+                            placeholder={"Materiál"}
+                            value={materialInputHodnota}
+                            onChange={(e) => {
+                                setNewMaterial(e.target.value)
+                                setMaterialInputHodnota(e.target.value)
+                            }}
+                            ref={materialref}
+                            onKeyDown={(e) => {
+                                handleKeyPress(e, hrubkaref)
+                            }}
+                        /></td>
+                        <td><input
+                            type="number"
+                            name={"inputHrubka"}
+                            placeholder={"Hrúbka"}
+                            value={hrubkaInputHodnota}
+                            onChange={(e) => {
+                                setNewHrubka(Number(e.target.value))
+                                setHrubkaInputHodnota(e.target.value)
+                            }}
+                            ref={hrubkaref}
+                            onKeyDown={(e) => {
+                                handleKeyPress(e, objemovatiazref)
+                            }}
+                        /></td>
+                        <td><input
+                            type="number"
+                            name={"inputObjemovaTiaz"}
+                            placeholder={"Objemová tiaž"}
+                            value={objemovaTiazInputHodnota}
+                            onChange={(e) => {
+                                setNewObjemovaTiaz(Number(e.target.value))
+                                setObjemovaTiazInputHodnota(e.target.value)
+                            }}
+                            ref={objemovatiazref}
+                            onKeyDown={(e) => {
+                                handleKeyPress(e, materialref)
+                            }}
+                        /></td>
                         {
                             newMaterial && newHrubka
-                                ? <td style={{
-                                    cursor: "pointer",
-                                    textAlign: "center"
-                                }} colSpan={7} className={"vyrazne"} onClick={() => {
-                                    pridajRiadok()
-                                }}>Pridať nový riadok</td>
-                                : <td style={{
-                                    userSelect: "none",
-                                    backgroundColor: "transparent",
-                                    textAlign: "center"
-                                }} colSpan={7} className={"nevyrazne"}>Doplňte údaje vpravo</td>
+                                ? <td
+                                    style={{
+                                        cursor: "pointer",
+                                        textAlign: "center"
+                                    }}
+                                    colSpan={7}
+                                    className={"vyrazne"}
+                                    onClick={() => {
+                                        pridajRiadok()
+                                    }}
+                                    ref={pridajref}
+                                >Pridať nový riadok</td>
+                                : <td
+                                    style={{
+                                        userSelect: "none",
+                                        backgroundColor: "transparent",
+                                        textAlign: "center"
+                                    }} colSpan={7} className={"nevyrazne"}>Doplňte údaje vpravo</td>
                         }
                     </tr>
                     </tbody>

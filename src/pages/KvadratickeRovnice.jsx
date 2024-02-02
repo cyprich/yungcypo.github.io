@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import Latex from "react-latex";
 import "../css/styles.css"
 import "../css/kvadratickerovnice.css"
-import Latex from "react-latex";
 
 const KvadratickeRovnice = () => {
     var Latex = require("react-latex");
@@ -25,13 +25,27 @@ const KvadratickeRovnice = () => {
         }
     }, [a, b, c, d, x1, x2]);
 
+    // focus next input on enter press
+    const aref = useRef(null);
+    const bref = useRef(null);
+    const cref = useRef(null);
+
+    const handleKeyPress = (event, nextInputRef) => {
+        if (event.key === "Enter") {
+            event.preventDefault()
+            nextInputRef.current.focus()
+        }
+    }
+
+
     /* scroll to top */
     useEffect(() => {
+        aref.current.focus()
         window.scrollTo(0, 0)
     }, []);
 
     return (
-        <div className={"projekt"}>
+        <div className={"kvadratickerovnice projekt"}>
             <h2>Kvadratické rovnice</h2>
             <h4>Výpočet diskriminantu a koreňov kvadratických rovníc</h4>
             <div className={"kvadratickerovnice-item"}>
@@ -55,15 +69,31 @@ const KvadratickeRovnice = () => {
                         : <h4>Zadajte nasledovné hodnoty: </h4>
                 }
                 <div>
-                    <input type="number" placeholder={"a"} onChange={(e) => {
-                        setA(e.target.value)
-                    }}/>
-                    <input type="number" placeholder={"b"} onChange={(e) => {
-                        setB(e.target.value)
-                    }}/>
-                    <input type="number" placeholder={"c"} onChange={(e) => {
-                        setC(e.target.value)
-                    }}/>
+                    <input
+                        type="number"
+                        placeholder={"a"}
+                        onChange={(e) => {setA(e.target.value)}}
+                        ref={aref}
+                        onKeyDown={(e) => {handleKeyPress(e, bref)}}
+                    />
+                    <input
+                        type="number"
+                        placeholder={"b"}
+                        onChange={(e) => {setB(e.target.value)}}
+                        ref={bref}
+                        onKeyDown={(e) => {handleKeyPress(e, cref)}}
+                    />
+                    <input
+                        type="number"
+                        placeholder={"c"}
+                        onChange={(e) => {setC(e.target.value)}}
+                        ref={cref}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                cref.current.blur()
+                            }
+                        }}
+                    />
                 </div>
             </div>
             <div>

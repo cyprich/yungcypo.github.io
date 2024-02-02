@@ -9,7 +9,7 @@ const zatazenie = {
         },
         {
             nazov: "Objemová tiaž",
-            jednotka: `$[\\frac{KN}{m^3}]$`
+            jednotka: `$\\big[\\frac{KN}{m^3}\\big]$`
         },
         {
             nazov: "Zaťažovacia plocha",
@@ -18,7 +18,7 @@ const zatazenie = {
         {
             nazov: "Charakteristická hodnota zaťaženia",
             znacka: "$f_k$",
-            jednotka: "$[\\frac{KN}{m^2}]$"
+            jednotka: "$\\big[\\frac{KN}{m^2}\\big]$"
         },
         {
             nazov: "Súčiniteľ zaťaženia",
@@ -27,7 +27,7 @@ const zatazenie = {
         {
             nazov: "Návrhová hodnota zaťaženia",
             znacka: "$f_d$",
-            jednotka: "$[\\frac{KN}{m^2}]$"
+            jednotka: "$\\big[\\frac{KN}{m^2}\\big]$"
         }
     ],
     konstanty: []

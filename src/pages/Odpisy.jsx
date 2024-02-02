@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Link} from "react-router-dom";
 import Latex from "react-latex";
 
@@ -79,7 +79,7 @@ const Odpisy = () => {
             if (i == 0) {
                 // prvy rok
                 vypocet = "(" + obstaravaciaCena + " : " + k1 + ") : 12 × " + (12 - mesiacObstarania + 1)
-                vypocet = `$(\\frac{`+ obstaravaciaCena +`}{` + k1 +`}) \\div 12 \\times ` + (12 - mesiacObstarania + 1) + `$`
+                vypocet = `$\\big(\\frac{` + obstaravaciaCena + `}{` + k1 + `}\\big) \\div 12 \\times ` + (12 - mesiacObstarania + 1) + `$`
                 rocnyOdpis = Math.ceil((obstaravaciaCena / k1) / 12 * (12 - mesiacObstarania + 1))
                 rok = rokObstarania;
                 opravky = rocnyOdpis
@@ -100,7 +100,7 @@ const Odpisy = () => {
             } else if (i == dlzkaOdpisovania - 1) {
                 // posledny rok
                 vypocet = "(" + obstaravaciaCena + " : " + k1 + ") : 12 × " + (mesiacObstarania - 1)
-                vypocet = `$(\\frac{`+ obstaravaciaCena +`}{` + k1 +`}) \\div 12 \\times ` + (mesiacObstarania - 1) + `$`
+                vypocet = `$\\big(\\frac{` + obstaravaciaCena + `}{` + k1 + `}\\big) \\div 12 \\times ` + (mesiacObstarania - 1) + `$`
                 rocnyOdpis = Math.ceil((obstaravaciaCena / k1) / 12 * (mesiacObstarania - 1))
                 rok = rokObstarania + i;
                 opravky = obstaravaciaCena
@@ -111,12 +111,12 @@ const Odpisy = () => {
                 if (!zrychleneOdpisovanie) {
                     // rovnomerne odpisy
                     vypocet = obstaravaciaCena + " : " + k1
-                    vypocet = `$\\frac{`+ obstaravaciaCena +`}{`+ k1 +`}$`
+                    vypocet = `$\\frac{` + obstaravaciaCena + `}{` + k1 + `}$`
                     rocnyOdpis = Math.ceil(obstaravaciaCena / k1)
                 } else {
                     // zrychlene odpisy
                     vypocet = "(2 × " + zostatkovaCena + ") / (" + k2 + " - " + i + ")"
-                    vypocet = `$\\frac{2 \\times ` + zostatkovaCena + `}{`+ k1 +` - ` + i + `}$`
+                    vypocet = `$\\frac{2 \\times ` + zostatkovaCena + `}{` + k1 + ` - ` + i + `}$`
                     rocnyOdpis = Math.ceil((2 * zostatkovaCena) / (k2 - i))
                 }
                 opravky += rocnyOdpis
@@ -136,6 +136,16 @@ const Odpisy = () => {
             setVysledky(priebezneVysledky)
         }
     }, [dlzkaOdpisovania, zrychleneOdpisovanie]);
+
+    // focus inputs
+    const ocref = useRef(null);
+    const osref = useRef(null);
+    const handleKeyPress = (event, nextInputRef) => {
+        if (event.key === "Enter" && nextInputRef.current && !event.shiftKey) {
+            event.preventDefault()
+            nextInputRef.current.focus()
+        }
+    }
 
     /* scroll to top */
     useEffect(() => {
@@ -167,19 +177,41 @@ const Odpisy = () => {
                         <p>Dátum obstarania</p>
                         <input type="month" onChange={(e) => {
                             setDatumObstarania(e.target.value)
+                            ocref.current.focus()
                         }}/>
                     </div>
                     <div>
                         <p>Obstarávacia cena</p>
-                        <input type="number" placeholder={"min. 1700€"} min={1700} onChange={(e) => {
-                            setObstaravaciaCena(Number(e.target.value))
-                        }}/>
+                        <input
+                            type="number"
+                            placeholder={"min. 1700€"}
+                            min={1700}
+                            onChange={(e) => {
+                                setObstaravaciaCena(Number(e.target.value))
+                            }}
+                            ref={ocref}
+                            onKeyDown={(e) => {
+                                handleKeyPress(e, osref)
+                            }}
+                        />
                     </div>
                     <div>
                         <p>Odpisová skupina</p>
-                        <input type="number" placeholder={"0 - 6"} min={0} max={6} onChange={(e) => {
-                            setOdpisovaSkupina(Number(e.target.value))
-                        }}/>
+                        <input
+                            type="number"
+                            placeholder={"0 - 6"}
+                            min={0}
+                            max={6}
+                            onChange={(e) => {
+                                setOdpisovaSkupina(Number(e.target.value))
+                            }}
+                            ref={osref}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    osref.current.blur()
+                                }
+                            }}
+                        />
                     </div>
                     <div>
                         <p>Metóda odpisovania</p>
@@ -273,7 +305,11 @@ const Odpisy = () => {
                                                 })}
                                                 {
                                                     (rozbalenaPomockaSkupiny !== e.cislo && e.coodpisujeme.length > 2)
-                                                        ? <ul><li style={{color: "var(--color9)"}}>Ďalšie ({e.coodpisujeme.length - 2})</li></ul>
+                                                        ? <ul>
+                                                            <li style={{color: "var(--color9)"}}>Ďalšie
+                                                                ({e.coodpisujeme.length - 2})
+                                                            </li>
+                                                        </ul>
                                                         : null
                                                 }
                                             </ul>
