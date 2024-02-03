@@ -339,6 +339,13 @@ const Odpisy = () => {
                     </div>
                     : null
             }
+            {
+                datumObstarania || obstaravaciaCena || odpisovaSkupina >= 0
+                    ? <button id={"resetbutton"} onClick={() => {
+                        window.location.reload()
+                    }}>Reset</button>
+                    : null
+            }
         </div>
     );
 };

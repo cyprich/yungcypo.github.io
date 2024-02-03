@@ -41,7 +41,7 @@ const Vystuz = () => {
     const [mrd, setMrd] = useState(null);
     const [msd, setMsd] = useState(null);
 
-    const [priemerVystuze, setPriemerVystuze] = useState(0.008);
+    const [priemerVystuze, setPriemerVystuze] = useState(null);
     const [pocetVystuzi, setPocetVystuzi] = useState(null);
     const [zobrazitTabulecku, setZobrazitTabulecku] = useState(false);
     const [zobrazitVysledok, setZobrazitVysledok] = useState(false);
@@ -52,7 +52,9 @@ const Vystuz = () => {
         setFyk(vystuz.fyk[nosnaOcel])
         setFyd(fyk / gammas)
 
-        setD(hrubkaDosky - c - priemerVystuze / 2)
+        if (priemerVystuze) {
+            setD(hrubkaDosky - c - priemerVystuze / 2)
+        }
 
         setMsd(moment / 1000)
 
@@ -228,7 +230,8 @@ const Vystuz = () => {
                         {
                             zobrazitVysledok
                                 ? null
-                                : <p>Vyber plochu výstuže na základe požadovaného priemeru výstuže a počtu prútov</p>
+                                : <p style={{paddingBottom: "0.5em"}}>Vyber plochu výstuže na základe požadovaného priemeru
+                                    výstuže a počtu prútov</p>
                         }
                         <table className={"vystuztabulecka"}>
                             <thead>
@@ -432,20 +435,26 @@ const Vystuz = () => {
                                         mrd >= msd
                                             ? <>
                                                 <p><Latex>{`$` + mrd + ` \\ge ` + msd + `$`}</Latex></p>
-                                                <p>Návrh {} <span style={{color: "var(--color7)"}}>Vyhovuje!</span></p>
+                                                <h3>Návrh {} <span style={{color: "var(--color7)"}}>Vyhovuje!</span></h3>
                                             </>
                                             : <>
                                                 <p><Latex>{`$` + mrd + ` \\ngeqslant ` + msd + `$`}</Latex></p>
-                                                <p style={{color: "var(--colorWarning)"}}>Veľký problém, návrh {} nevyhovuje</p>
+                                                <h3 style={{color: "var(--colorWarning)"}}>Veľký problém,
+                                                    návrh {} nevyhovuje</h3>
                                             </>
                                     }
-
                                 </div>
                             </div>
                         </section>
                     </div>
                     : null
             }
+            {
+                dlzkaDosky || hrubkaDosky || moment || beton || nosnaOcel || rozdelovaciaOcel
+                    ? <button onClick={() => {window.location.reload()}}>Reset</button>
+                    : null
+            }
+
             <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
         </div>
     );

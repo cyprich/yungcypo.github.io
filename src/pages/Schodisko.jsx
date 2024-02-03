@@ -55,19 +55,6 @@ const Schodisko = () => {
     }, [typSchodiska]);
 
 
-    function reset() {
-        // TODO reset select
-        setTypSchodiska(null);
-        setKv(0);
-        setN(0);
-        setH(0);
-        setB(0);
-        setAlpha(0);
-        setH1(0);
-        setH2(0);
-        setL(0);
-    }
-
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -291,7 +278,7 @@ const Schodisko = () => {
                 <div>
                     {
                         typSchodiska
-                            ? <button onClick={reset}>Reset</button>
+                            ? <button onClick={() => {window.location.reload()}}>Reset</button>
                             : null
                     }
                 </div>

@@ -169,209 +169,222 @@ const Zatazenie = () => {
     }
 
 
+    console.log(selectValue)
+    console.log(materialInputHodnota != "")
+    console.log(hrubkaInputHodnota != "")
+    console.log(objemovaTiazInputHodnota != "")
+    console.log(vysledky.length != 0)
+
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
 
     return (
-        <div className={"zatazenie projekt"}>
-            <div className={"zatazenienadpisy"}>
-                <h2>Zaťaženie</h2>
-                <h4>Výpočet zaťaženia na {strecha ? "plochú strechu" : "strop"}</h4>
-            </div>
-            <div className="zatazenieinputy">
-                <div>
-                    <button title={"Zmeniť strop / strecha"} onClick={() => {
-                        setStrecha(!strecha)
-                    }}>
-                        <img
-                            src={
-                                strecha
-                                    ? require("../images/icons/strecha.png")
-                                    : require("../images/icons/strop.png")
-                            } alt=""/>
-                    </button>
-                    <select name="select" onChange={(e) => {
-                        setSelectValue(e.target.value)
-                    }}>
-                        <option value={null}>Vyberte {strecha ? "snehovú oblasť" : "typ prevádzky"}</option>
-                        <optgroup>
-                            {
-                                strecha
-                                    ? hodnotyStrecha.map((e, key) => {
-                                        return (
-                                            <option value={key} key={key}>{e}</option>
-                                        )
-                                    })
-                                    : hodnotyStrop.map((e, key) => {
-                                        return (
-                                            <option value={key} key={key}>{e}</option>
-                                        )
-                                    })
-                            }
-                        </optgroup>
-                    </select>
+        <>
+            <div className={"zatazenie projekt"}>
+                <div className={"zatazenienadpisy"}>
+                    <h2>Zaťaženie</h2>
+                    <h4>Výpočet zaťaženia na {strecha ? "plochú strechu" : "strop"}</h4>
                 </div>
-            </div>
-            <div className="zatazenievysledky">
-                <table>
-                    <thead>
-                    <tr>
-                        {zatazenie.hodnotyHeader.map((e, key) => {
+                <div className="zatazenieinputy">
+                    <div>
+                        <button title={"Zmeniť strop / strecha"} onClick={() => {
+                            setStrecha(!strecha)
+                        }}>
+                            <img
+                                src={
+                                    strecha
+                                        ? require("../images/icons/strecha.png")
+                                        : require("../images/icons/strop.png")
+                                } alt=""/>
+                        </button>
+                        <select name="select" onChange={(e) => {
+                            setSelectValue(e.target.value)
+                        }}>
+                            <option value={null}>Vyberte {strecha ? "snehovú oblasť" : "typ prevádzky"}</option>
+                            <optgroup>
+                                {
+                                    strecha
+                                        ? hodnotyStrecha.map((e, key) => {
+                                            return (
+                                                <option value={key} key={key}>{e}</option>
+                                            )
+                                        })
+                                        : hodnotyStrop.map((e, key) => {
+                                            return (
+                                                <option value={key} key={key}>{e}</option>
+                                            )
+                                        })
+                                }
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div className="zatazenievysledky">
+                    <table>
+                        <thead>
+                        <tr>
+                            {zatazenie.hodnotyHeader.map((e, key) => {
+                                return (
+                                    <td colSpan={key >= 4 ? 2 : 1} key={key}>
+                                        <div className={"nazov"}>{e.nazov}</div>
+                                        <div className={"vyrazne"}><Latex>{e?.znacka}</Latex></div>
+                                        <div className={"nevyrazne"}><Latex>{e?.jednotka}</Latex></div>
+                                    </td>
+                                )
+                            })}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {vysledky.map((e, key) => {
                             return (
-                                <td colSpan={key >= 4 ? 2 : 1} key={key}>
-                                    <div className={"nazov"}>{e.nazov}</div>
-                                    <div className={"vyrazne"}><Latex>{e?.znacka}</Latex></div>
-                                    <div className={"nevyrazne"}><Latex>{e?.jednotka}</Latex></div>
-                                </td>
+                                <tr key={key}>
+                                    <td>{e.material}</td>
+                                    <td>{e.hrubka}</td>
+                                    <td>{e.objemovaTiaz}</td>
+                                    <td>{e.zatazovaciaPlocha}</td>
+                                    <td colSpan={2}>{e.charakteristickaHodnotaZatazenia}</td>
+                                    <td>{e.sucinitelZatazenia}</td>
+                                    <td colSpan={3}>{e.navrhovaHodnotaZatazenia}</td>
+                                </tr>
                             )
                         })}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {vysledky.map((e, key) => {
-                        return (
-                            <tr key={key}>
-                                <td>{e.material}</td>
-                                <td>{e.hrubka}</td>
-                                <td>{e.objemovaTiaz}</td>
-                                <td>{e.zatazovaciaPlocha}</td>
-                                <td colSpan={2}>{e.charakteristickaHodnotaZatazenia}</td>
-                                <td>{e.sucinitelZatazenia}</td>
-                                <td colSpan={3}>{e.navrhovaHodnotaZatazenia}</td>
-                            </tr>
-                        )
-                    })}
-                    <tr className={"zatazenienovyriadok"}>
-                        <td><input
-                            type="text"
-                            name={"inputMaterial"}
-                            placeholder={"Materiál"}
-                            value={materialInputHodnota}
-                            onChange={(e) => {
-                                setNewMaterial(e.target.value)
-                                setMaterialInputHodnota(e.target.value)
-                            }}
-                            ref={materialref}
-                            onKeyDown={(e) => {
-                                handleKeyPress(e, hrubkaref)
-                            }}
-                        /></td>
-                        <td><input
-                            type="number"
-                            name={"inputHrubka"}
-                            placeholder={"Hrúbka"}
-                            value={hrubkaInputHodnota}
-                            onChange={(e) => {
-                                setNewHrubka(Number(e.target.value))
-                                setHrubkaInputHodnota(e.target.value)
-                            }}
-                            ref={hrubkaref}
-                            onKeyDown={(e) => {
-                                handleKeyPress(e, objemovatiazref)
-                            }}
-                        /></td>
-                        <td><input
-                            type="number"
-                            name={"inputObjemovaTiaz"}
-                            placeholder={"Objemová tiaž"}
-                            value={objemovaTiazInputHodnota}
-                            onChange={(e) => {
-                                setNewObjemovaTiaz(Number(e.target.value))
-                                setObjemovaTiazInputHodnota(e.target.value)
-                            }}
-                            ref={objemovatiazref}
-                            onKeyDown={(e) => {
-                                handleKeyPress(e, materialref)
-                            }}
-                        /></td>
-                        {
-                            newMaterial && newHrubka
-                                ? <td
-                                    style={{
-                                        cursor: "pointer",
-                                        textAlign: "center"
-                                    }}
-                                    colSpan={7}
-                                    className={"vyrazne"}
-                                    onClick={() => {
-                                        pridajRiadok()
-                                    }}
-                                    ref={pridajref}
-                                >Pridať nový riadok</td>
-                                : <td
-                                    style={{
-                                        userSelect: "none",
-                                        backgroundColor: "transparent",
-                                        textAlign: "center"
-                                    }} colSpan={7} className={"nevyrazne"}>Doplňte údaje vpravo</td>
-                        }
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colSpan={4}>Stále zaťaženie <span className={"vyrazne"}>g</span></td>
-                        <td className={"vyrazne malicke"}>g<sub>k</sub></td>
-                        <td>{gk ? gk : null}</td>
-                        <td colSpan={2}>{gammaf1}</td>
-                        <td className={"vyrazne malicke"}>g<sub>d</sub></td>
-                        <td>{gd ? gd : null}</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={3}>
+                        <tr className={"zatazenienovyriadok"}>
+                            <td><input
+                                type="text"
+                                name={"inputMaterial"}
+                                placeholder={"Materiál"}
+                                value={materialInputHodnota}
+                                onChange={(e) => {
+                                    setNewMaterial(e.target.value)
+                                    setMaterialInputHodnota(e.target.value)
+                                }}
+                                ref={materialref}
+                                onKeyDown={(e) => {
+                                    handleKeyPress(e, hrubkaref)
+                                }}
+                            /></td>
+                            <td><input
+                                type="number"
+                                name={"inputHrubka"}
+                                placeholder={"Hrúbka"}
+                                value={hrubkaInputHodnota}
+                                onChange={(e) => {
+                                    setNewHrubka(Number(e.target.value))
+                                    setHrubkaInputHodnota(e.target.value)
+                                }}
+                                ref={hrubkaref}
+                                onKeyDown={(e) => {
+                                    handleKeyPress(e, objemovatiazref)
+                                }}
+                            /></td>
+                            <td><input
+                                type="number"
+                                name={"inputObjemovaTiaz"}
+                                placeholder={"Objemová tiaž"}
+                                value={objemovaTiazInputHodnota}
+                                onChange={(e) => {
+                                    setNewObjemovaTiaz(Number(e.target.value))
+                                    setObjemovaTiazInputHodnota(e.target.value)
+                                }}
+                                ref={objemovatiazref}
+                                onKeyDown={(e) => {
+                                    handleKeyPress(e, materialref)
+                                }}
+                            /></td>
+                            {
+                                newMaterial && newHrubka
+                                    ? <td
+                                        style={{
+                                            cursor: "pointer",
+                                            textAlign: "center"
+                                        }}
+                                        colSpan={7}
+                                        className={"vyrazne"}
+                                        onClick={() => {
+                                            pridajRiadok()
+                                        }}
+                                        ref={pridajref}
+                                    >Pridať nový riadok</td>
+                                    : <td
+                                        style={{
+                                            userSelect: "none",
+                                            backgroundColor: "transparent",
+                                            textAlign: "center"
+                                        }} colSpan={7} className={"nevyrazne"}>Doplňte údaje vpravo</td>
+                            }
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colSpan={4}>Stále zaťaženie <span className={"vyrazne"}>g</span></td>
+                            <td className={"vyrazne malicke"}>g<sub>k</sub></td>
+                            <td>{gk ? gk : null}</td>
+                            <td colSpan={2}>{gammaf1}</td>
+                            <td className={"vyrazne malicke"}>g<sub>d</sub></td>
+                            <td>{gd ? gd : null}</td>
+                        </tr>
+                        <tr>
+                            <td colSpan={3}>
+                                {
+                                    strecha
+                                        ? "Premenné klimatické zaťaženie snehom "
+                                        : "Premenné zaťaženie "
+                                }
+                                <span className={"vyrazne"}>{strecha ? "S" : "q"}</span>
+                            </td>
+                            <td>
+                                {
+                                    strecha
+                                        ? hodnotyStrecha[selectValue]
+                                        : hodnotyStrop[selectValue]
+                                }
+                            </td>
+                            <td className={"vyrazne malicke"}>{strecha ? "S" : "q"}<sub>k</sub></td>
                             {
                                 strecha
-                                    ? "Premenné klimatické zaťaženie snehom "
-                                    : "Premenné zaťaženie "
+                                    ? <td>{sk ? sk : null}</td>
+                                    : <td>{qk ? qk : null}</td>
                             }
-                            <span className={"vyrazne"}>{strecha ? "S" : "q"}</span>
-                        </td>
-                        <td>
-                            {
-                                strecha
-                                    ? hodnotyStrecha[selectValue]
-                                    : hodnotyStrop[selectValue]
-                            }
-                        </td>
-                        <td className={"vyrazne malicke"}>{strecha ? "S" : "q"}<sub>k</sub></td>
-                        {
-                            strecha
-                                ? <td>{sk ? sk : null}</td>
-                                : <td>{qk ? qk : null}</td>
-                        }
-                        <td colSpan={2}>{gammaf2}</td>
-                        <td className={"vyrazne malicke"}>{strecha ? "S" : "q"}<sub>d</sub></td>
-                        <td>{qd ? qd : null}</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={4}>Základná kombinácia - celkové zaťaženie</td>
-                        <td className={"vyrazne malicke"}>f<sub>ck</sub></td>
-                        <td>{fck ? fck : null}</td>
-                        <td colSpan={2}>-</td>
-                        <td className={"vyrazne malicke"}>f<sub>cd</sub></td>
-                        <td style={{
-                            color: "var(--color7)",
-                            fontSize: "1.25em",
-                            textDecoration: "underline"
-                        }}>{fcd ? fcd : null}</td>
-                    </tr>
-                    </tfoot>
-                </table>
-                {
-                    (strecha && sk)
-                        ? <div className="afterfooter">
-                            <div><Latex>{`$S_K = \\mu_i \\times c_e \\times c_t \\times S_O $`}</Latex></div>
-                            <div>
-                                <Latex>{`$S_K = ` + mii + ` \\times ` + ce + ` \\times ` + ct + ` \\times ` + so + `$`}</Latex>
+                            <td colSpan={2}>{gammaf2}</td>
+                            <td className={"vyrazne malicke"}>{strecha ? "S" : "q"}<sub>d</sub></td>
+                            <td>{qd ? qd : null}</td>
+                        </tr>
+                        <tr>
+                            <td colSpan={4}>Základná kombinácia - celkové zaťaženie</td>
+                            <td className={"vyrazne malicke"}>f<sub>ck</sub></td>
+                            <td>{fck ? fck : null}</td>
+                            <td colSpan={2}>-</td>
+                            <td className={"vyrazne malicke"}>f<sub>cd</sub></td>
+                            <td style={{
+                                color: "var(--color7)",
+                                fontSize: "1.25em",
+                                textDecoration: "underline"
+                            }}>{fcd ? fcd : null}</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                    {
+                        (strecha && sk)
+                            ? <div className="afterfooter">
+                                <div><Latex>{`$S_K = \\mu_i \\times c_e \\times c_t \\times S_O $`}</Latex></div>
+                                <div>
+                                    <Latex>{`$S_K = ` + mii + ` \\times ` + ce + ` \\times ` + ct + ` \\times ` + so + `$`}</Latex>
+                                </div>
+                                <div><Latex>{`$S_K = ` + sk + ` $`}</Latex></div>
                             </div>
-                            <div><Latex>{`$S_K = ` + sk + ` $`}</Latex></div>
-                        </div>
+                            : null
+                    }
+                </div>
+                {
+                    selectValue || materialInputHodnota != "" || hrubkaInputHodnota != "" || objemovaTiazInputHodnota != "" || vysledky.length != 0
+                        ? <button onClick={() => {window.location.reload()}}>Reset</button>
                         : null
                 }
             </div>
             <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
-        </div>
+        </>
     );
 };
 

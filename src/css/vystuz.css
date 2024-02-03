@@ -1,9 +1,9 @@
-.vystuznadpisy {
+.vystuz {
     padding: 2em;
 }
 
 .vystuzinputy {
-    padding: 0 2em;
+    padding: 2em 1em;
     display: flex;
     flex-direction: column;
     gap: 1em;

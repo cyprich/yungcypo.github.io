@@ -1,9 +1,9 @@
-.zatazenienadpisy {
-    padding: 2em;
+.zatazenie {
+    padding: 2em 2em 0 2em;
 }
 
 .zatazenieinputy {
-    padding: 1em 2em;
+    padding: 1em 0;
 }
 
 .zatazenieinputy button {
@@ -35,7 +35,7 @@
 }
 
 .zatazenievysledky {
-    padding: 1em 2em;
+    padding: 1em 0;
 }
 
 .zatazenievysledky table {
