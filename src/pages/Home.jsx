@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import "../css/styles.css"
 import "../css/home.css"
@@ -19,6 +18,7 @@ import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
 
+    const [zobrazitToto, setZobrazitToto] = useState(true);
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -77,12 +77,15 @@ const Home = () => {
                             </h3>
                         </div>
                     </div>
-                    <div className="animacia" style={{visibility: "inherit"}}>
-                        {/*TODO: nieco s Three.JS*/}
-                        <h3><i>✨toto✨</i></h3>
-                        <img src={require("../images/toto.jpg")} alt=""/>
-                    </div>
-
+                    {
+                        zobrazitToto
+                            ? <div className={"animacia"}>
+                                {/*TODO: nieco s Three.JS*/}
+                                <h3><i>✨toto✨</i></h3>
+                                <img src={require("../images/toto.jpg")} alt=""/>
+                            </div>
+                            : null
+                    }
                 </div>
                 <hr style={{margin: '0 1em'}}/>
                 <h3 className={"casovaOsNadpis"}>Moje vzdelanie</h3>
