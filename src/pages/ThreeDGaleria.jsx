@@ -10,7 +10,7 @@ const ThreeDGaleria = () => {
         return r.keys().map(r);
     }
 
-    const obrazky = importAll(require.context('../images/3Dgaleria', false, /\.(png|jpe?g|svg)$/));
+    const obrazky = importAll(require.context('../images/3Dgaleria', false, /\.(png|jpg|svg)$/));
 
     console.log(obrazky)
 
@@ -26,7 +26,7 @@ const ThreeDGaleria = () => {
                         obrazky.map((e) => {
                             return (
                                 <>
-                                    <img src={e} alt="" height={"64px"}/>
+                                    <img src={e} alt="" width={1/6 * 100 + "%"}/>
                                 </>
                             )
                         })
