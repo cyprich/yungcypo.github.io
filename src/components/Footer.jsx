@@ -19,7 +19,7 @@ const Footer = () => {
     }
 
     return (
-        <footer id={"footer"} className={"footer"}>
+        <footer id={"footer"} className={"footer noprint"}>
             <div className={"footerprvacast"}>
                 <p style={{fontSize: "1.125em"}}>Cypo's Website <span style={{color: "var(--color7)"}}>v3.0.0</span></p>
                 <div className={"footertechnologie"}>
