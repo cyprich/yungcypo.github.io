@@ -20,6 +20,10 @@ const ThreeD = () => {
                     <h3>Ako som sa dostal ku 3D tlači</h3>
                     <h5>Všetko to začalo už v roku 2017...</h5>
                 </Link>
+                <Link to={"/3D/kalkulacka"} className={"stavitelstvoprojekt"}>
+                    <h3>Kalkulačka</h3>
+                    <h5>Koľko ma stojí vytlačenie modelu?</h5>
+                </Link>
             </div>
         </div>
     );
