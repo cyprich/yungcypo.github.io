@@ -7,14 +7,6 @@ import SpatNa from "../components/SpatNa";
 import Progressbar from "../components/Progressbar";
 
 const ThreeDFilamenty = () => {
-    const [threeDFilamentyHovered, setThreeDFilamentyHovered] = useState(null);
-    const handleThreeDFilamentyMouseEnter = (e) => {
-        setThreeDFilamentyHovered(e)
-    }
-    const handleThreeDFilamentyMouseLeave = (e) => {
-        setThreeDFilamentyHovered(null)
-    }
-
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -32,20 +24,12 @@ const ThreeDFilamenty = () => {
                         threed.filamenty.map((e, key) => {
                             return (
                                 <div className="threedfilament" key={key}>
-                                    <img
-                                        src={
-                                        threeDFilamentyHovered == key
-                                            ? e.obrazky.benchy
-                                            : e.obrazky.preview
-                                    }
-                                        alt=""
-                                        onMouseEnter={() => handleThreeDFilamentyMouseEnter(key)}
-                                        onMouseLeave={() => handleThreeDFilamentyMouseLeave()}
-                                    />
+                                    <img src={e.obrazky.preview} alt=""/>
                                     <div>
                                         <p>{e.vyrobca}</p>
                                         <p>{e.material}</p>
                                         <p>{e.farba.nazov}</p>
+                                        <p>{e.cena}€ / kg</p>
                                         <Progressbar
                                             farba={e.farba.code}
                                             invert={e.farba.invert}
