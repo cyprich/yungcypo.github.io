@@ -95,7 +95,7 @@ const ThreeDKalkulacka = () => {
                                 </select>
                                 <button onClick={() => {
                                     navigate("/3D/filamenty")
-                                }} disabled={true}>Filamenty
+                                }}>Filamenty
                                 </button>
                             </div>
                         </div>
