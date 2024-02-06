@@ -92,6 +92,7 @@
 .casovaOsObrazky {
     display: grid;
     align-items: center;
+    gap: 0.5em;
 }
 
 .casovaOsObrazok {
@@ -99,7 +100,7 @@
     text-align: center;
 }
 .casovaOsObrazok img {
-    width: 90%;
+    width: 98%;
 }
 .casovaOsObrazok img:hover {
     width: 100%;
@@ -141,4 +142,8 @@
         transform: translateX(calc(-50% + 1px)) translateY(calc(-50% + 1px));
 
     }
+}
+
+*:has(.casovaOs.nooverflow) {
+    overflow: hidden;
 }
