@@ -271,7 +271,73 @@ const threed = {
             }
         },
     ],
-
+    modely: [
+        {
+            nazov: "Bring Me The Horizon kľúčenka",
+            obrazok: require("../images/render/bmth-keychain.png"),
+            linky: {
+                printables: "https://www.printables.com/model/712060",
+                makerworld: "https://makerworld.com/en/models/142980",
+            }
+        },
+        {
+            nazov: "Sleep Token kľúčenka",
+            obrazok: require("../images/render/sleeptoken-side.png"),
+            linky: {
+                printables: "https://www.printables.com/model/717559",
+            }
+        },
+        {
+            nazov: "Trapstar kľúčenka",
+            obrazok: require("../images/render/trapstar-keychain-horizontal-hollow.png"),
+            linky: {
+                printables: "https://www.printables.com/model/717923",
+            }
+        },
+        {
+            nazov: "That's The Spirit kľúčenka",
+            obrazok: require("../images/render/thatsthespirit-keychain-horizontal.png"),
+            linky: {
+                printables: "https://www.printables.com/model/720131",
+            }
+        },
+        {
+            nazov: "Cradle of Filth kľúčenka",
+            obrazok: require("../images/render/cradleoffilth-v2-2.png"),
+            linky: {
+                printables: "https://www.printables.com/model/723584",
+                makerworld: "https://makerworld.com/en/models/143038"
+            }
+        },
+        {
+            nazov: "Cradle of Filth kľúčenka - strong version",
+            obrazok: require("../images/render/cradleoffilth-v2-1.png"),
+            linky: {
+                printables: "https://www.printables.com/model/748967",
+            }
+        },
+        {
+            nazov: "Bambu Lab A1 mini Poop Bucket",
+            obrazok: require("../images/render/poopbucket.png"),
+            linky: {
+                printables: "https://www.printables.com/model/702462",
+            }
+        },
+        {
+            nazov: "Nožička na Yenkee podložku",
+            obrazok: require("../images/render/nozicka.png"),
+            linky: {
+                printables: "https://www.printables.com/model/737593",
+            }
+        },
+        {
+            nazov: "Tlačidlo do termostatu",
+            obrazok: require("../images/render/tlacidlo.png"),
+            linky: {
+                printables: "https://www.printables.com/model/651508",
+            }
+        },
+    ]
 }
 
 export default threed;

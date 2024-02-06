@@ -15,6 +15,7 @@ import Vystuz from "./pages/Vystuz";
 import ThreeD from "./pages/ThreeD";
 import ThreeDHistoria from "./pages/ThreeDHistoria";
 import ThreeDKalkulacka from "./pages/ThreeDKalkulacka";
+import ThreeDModely from "./pages/ThreeDModely";
 
 import Odpisy from "./pages/Odpisy";
 import Piskvorky from "./pages/Piskvorky";
@@ -39,6 +40,7 @@ const App = () => {
                     <Route path={"/3D"} element={<ThreeD/>}/>
                     <Route path={"/3D/historia"} element={<ThreeDHistoria/>}/>
                     <Route path={"/3D/kalkulacka"} element={<ThreeDKalkulacka/>}/>
+                    <Route path={"/3D/modely"} element={<ThreeDModely/>}/>
 
                     <Route path={"/odpisy"} element={<Odpisy/>}/>
                     <Route path={"/3D/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
