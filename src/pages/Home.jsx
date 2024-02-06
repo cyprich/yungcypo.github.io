@@ -3,9 +3,9 @@ import {Link} from "react-router-dom";
 import "../css/styles.css"
 import "../css/home.css"
 
-import CasovaOs from "./CasovaOs";
-import Carousel from "./Carousel";
-import Kontakt from "./Kontakt";
+import CasovaOs from "../components/CasovaOs";
+import Carousel from "../components/Carousel";
+import Kontakt from "../components/Kontakt";
 
 import vzdelanie from "../constants/vzdelanie";
 import mudrosti from "../constants/mudrosti"

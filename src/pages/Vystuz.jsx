@@ -4,7 +4,7 @@ import "../css/styles.css"
 import "../css/vystuz.css"
 
 import vystuz from "../constants/vystuz";
-import SpatNa from "./SpatNa";
+import SpatNa from "../components/SpatNa";
 
 const Vystuz = () => {
     let Latex = require("react-latex");

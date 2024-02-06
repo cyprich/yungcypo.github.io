@@ -1,7 +1,7 @@
 import React from 'react';
-import CasovaOs from "./CasovaOs";
+import CasovaOs from "../components/CasovaOs";
 import threed from "../constants/threed";
-import SpatNa from "./SpatNa";
+import SpatNa from "../components/SpatNa";
 
 const ThreeDHistoria = () => {
     return (

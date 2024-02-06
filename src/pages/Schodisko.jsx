@@ -3,7 +3,7 @@ import "../css/styles.css"
 import "../css/schodisko.css"
 import Latex from "react-latex";
 
-import SpatNa from "./SpatNa";
+import SpatNa from "../components/SpatNa";
 
 const Schodisko = () => {
     var Latex = require("react-latex");

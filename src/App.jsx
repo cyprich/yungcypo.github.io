@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer"
+import Header from "./components/Header";
+import Footer from "./components/Footer"
 import PageNotFound from "./pages/PageNotFound";
 import Updates from "./pages/Updates"
-import Kontakt from "./pages/Kontakt";
+import Kontakt from "./components/Kontakt";
 
 import Stavitelstvo from "./pages/Stavitelstvo";
 import Schodisko from "./pages/Schodisko";
