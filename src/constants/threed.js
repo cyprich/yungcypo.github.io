@@ -107,6 +107,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 230
+            },
+            obrazky: {
+                preview: require("../images/filamenty/black.webp"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -127,6 +131,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 230
+            },
+            obrazky: {
+                preview: require("../images/filamenty/red.webp"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -146,6 +154,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 210
+            },
+            obrazky: {
+                preview: require("../images/filamenty/white.png"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -165,6 +177,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 210
+            },
+            obrazky: {
+                preview: require("../images/filamenty/sweetmint.png"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -184,6 +200,10 @@ const threed = {
             teplota: {
                 min: 205,
                 max: 225
+            },
+            obrazky: {
+                preview: require("../images/filamenty/yellow.webp"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -193,11 +213,11 @@ const threed = {
             cena: 17.29,
             farba: {
                 nazov: "Modrá",
-                code: "#61ccee",
+                code: "#123cea",
                 invert: true
             },
             farba2: {
-                code: "#123cea"
+                code: "#61ccee",
             },
             hmotnost: {
                 soSpoolom: 830,
@@ -207,6 +227,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 220
+            },
+            obrazky: {
+                preview: require("../images/filamenty/blue.webp"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -230,6 +254,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 230
+            },
+            obrazky: {
+                preview: require("../images/filamenty/ruzovo-modra.webp"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -249,6 +277,10 @@ const threed = {
             teplota: {
                 min: 190,
                 max: 230
+            },
+            obrazky: {
+                preview: require("../images/filamenty/pink.png"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
         {
@@ -268,6 +300,10 @@ const threed = {
             teplota: {
                 min: 200,
                 max: 220
+            },
+            obrazky: {
+                preview: require("../images/filamenty/green.png"),
+                benchy: require("../images/filamenty/benchyblack.jpg"),
             }
         },
     ],

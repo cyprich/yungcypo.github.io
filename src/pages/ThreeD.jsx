@@ -28,6 +28,10 @@ const ThreeD = () => {
                     <h3>Moje modely</h3>
                     <h5>Modely, ktoré som sám vytvoril</h5>
                 </Link>
+                <Link to={"/3D/filamenty"} className={"stavitelstvoprojekt"}>
+                    <h3>Filamenty</h3>
+                    <h5>Filamenty, ktoré mám a z ktorých môžem tlačiť</h5>
+                </Link>
             </div>
         </div>
     );

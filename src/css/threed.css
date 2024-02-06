@@ -16,10 +16,12 @@
     background: linear-gradient(var(--color1), var(--color2));
     filter: brightness(90%);
 }
+
 .threedprojekt:hover {
     filter: brightness(125%);
     transform: scale(101%);
 }
+
 .threedprojekt:hover h3 {
     color: var(--color7);
 }
@@ -27,6 +29,7 @@
 .threedprojekt:nth-child(odd) {
     background-image: linear-gradient(to right, var(--color1), var(--color2));
 }
+
 .threedprojekt:nth-child(even) {
     background-image: linear-gradient(to left, var(--color1), var(--color2));
     text-align: right;
@@ -63,6 +66,7 @@
     flex-direction: column;
     gap: 1.5em;
 }
+
 .threedkalkinputy > div {
     padding: 2em;
     border: 2px solid white;
@@ -108,6 +112,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .threedmodel:hover h5 {
     color: var(--color7);
 }
@@ -118,15 +123,18 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .threedmodelpismenka > div {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 1em;
 }
+
 .threedmodelpismenka img {
     height: 1.5em;
 }
+
 .threedmodelpismenka img:hover {
     transform: scale(110%);
 }
@@ -135,6 +143,7 @@
     margin-top: 2em;
     width: max-content;
 }
+
 .threedmodelyafterbutton button {
     padding: 1em 1.5em;
     display: flex;
@@ -145,4 +154,41 @@
 
 .threedmodelyafterbutton img {
     height: 2em;
+}
+
+
+.threedfilamenty {
+    background-color: var(--color2);
+    min-height: 100vh;
+    margin-top: 4em;
+    padding: 2em 2em 0 2em;
+}
+
+.threedfilamentynadpisy {
+    padding-bottom: 2em;
+}
+
+.threedfilamentyfilamenty {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2em;
+}
+
+.threedfilament {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+.threedfilament img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.threedfilament > div {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
