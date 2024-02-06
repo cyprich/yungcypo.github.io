@@ -9,7 +9,7 @@ const ThreeDHistoria = () => {
             <div className={"threedhistoria"}>
                 <h2 className={"casovaOsNadpis"}>Ako som sa dostal ku 3D tlači</h2>
                 <div>
-                    <CasovaOs file={threed}/>
+                    <CasovaOs file={threed.historia}/>
                     <div style={{height: "4em"}}></div>
                 </div>
             </div>

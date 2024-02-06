@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "../css/styles.css"
 import "../css/nalepkynafilament.css"
-import filamenty from "../constants/filamenty";
+import threed from "../constants/threed";
 
 const NalepkyNaFilament = () => {
     const [styl, setStyl] = useState(true);
@@ -61,7 +61,7 @@ const NalepkyNaFilament = () => {
             <h2 className={"noprint"}>Nálepky na filament</h2>
             <h4 className={"noprint"}>Vytvorenie štítkov na filamenty</h4>
             <div className={"nalepkynafilamentcontent"}>
-                {filamenty.map((f, key) => {
+                {threed.filamenty.map((f, key) => {
                     return (
                         <div className={(f.farba.invert && styl) ? "filament invert" : "filament"} key={key} style={
                             styl
