@@ -6,7 +6,8 @@ const threed = {
             popis: [
                 "Na vianoce roku 2017 som dostal 3D pero",
                 "3D pero fungovalo na podobnom princípe ako 3D tlačiareň",
-                "Veľkou nevýhodou však bola obtiažnosť tlače"
+                "Veľkou nevýhodou však bola obtiažnosť tlače",
+                "Pero nebolo zlé, ale nebolo to ono... Chcelo to tlačiareň"
             ],
             obrazky: [
                 {
@@ -14,6 +15,11 @@ const threed = {
                     popis: "3D pero"
                 }
             ],
+            align: "left",
+        },
+        {
+            podnadpis: "Dlho nič",
+            datum: "December 2017 - Október 2023",
             align: "left",
         },
         {
