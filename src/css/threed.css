@@ -192,3 +192,10 @@
     flex-direction: column;
     gap: 0.5em;
 }
+
+.threedgaleria {
+    background-color: var(--color2);
+    min-height: 100vh;
+    margin-top: 4em;
+    padding: 2em 2em 0 2em;
+}
