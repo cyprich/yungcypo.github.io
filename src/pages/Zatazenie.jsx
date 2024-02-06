@@ -168,13 +168,6 @@ const Zatazenie = () => {
         }
     }
 
-
-    console.log(selectValue)
-    console.log(materialInputHodnota != "")
-    console.log(hrubkaInputHodnota != "")
-    console.log(objemovaTiazInputHodnota != "")
-    console.log(vysledky.length != 0)
-
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
