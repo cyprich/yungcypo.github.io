@@ -32,10 +32,14 @@ const ThreeD = () => {
                     <h3>Filamenty</h3>
                     <h5>Filamenty, ktoré mám a z ktorých môžem tlačiť</h5>
                 </Link>
-                <Link to={"/3D/galeria"} className={"stavitelstvoprojekt"}>
-                    <h3>Galéria</h3>
-                    <h5>Fotky výtlačkov</h5>
-                </Link>
+                {
+                    /*
+                    <Link to={"/3D/galeria"} className={"stavitelstvoprojekt"}>
+                        <h3>Galéria</h3>
+                        <h5>Fotky výtlačkov</h5>
+                    </Link>
+                    */
+                }
             </div>
         </div>
     );
