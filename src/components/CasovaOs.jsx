@@ -35,7 +35,8 @@ const CasovaOs = ({file}) => {
                         src={popupImage}
                         alt=""
                         style={{
-                            height: "100%",
+                            maxHeight: "100%",
+                            maxWidth: "100%",
                         }}
                     />
                     <div
