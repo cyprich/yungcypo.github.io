@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "../css/styles.css"
 import "../css/threed.css"
 
@@ -14,6 +14,11 @@ const ThreeDFilamenty = () => {
     const handleThreeDFilamentyMouseLeave = (e) => {
         setThreeDFilamentyHovered(null)
     }
+
+    /* scroll to top */
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     return (
         <>
