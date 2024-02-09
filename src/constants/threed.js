@@ -100,7 +100,7 @@ const threed = {
                 invert: true
             },
             hmotnost: {
-                soSpoolom: 675,
+                soSpoolom: 640,
                 spool: 250,
                 povodna: 1000,
             },
@@ -124,7 +124,7 @@ const threed = {
                 invert: true
             },
             hmotnost: {
-                soSpoolom: 826,
+                soSpoolom: 790,
                 spool: 250,
                 povodna: 1000,
             },
@@ -147,7 +147,7 @@ const threed = {
                 code: "#ecece7"
             },
             hmotnost: {
-                soSpoolom: 560,
+                soSpoolom: 750,
                 spool: 216,
                 povodna: 1000,
             },
@@ -170,7 +170,7 @@ const threed = {
                 code: "#7ebab5"
             },
             hmotnost: {
-                soSpoolom: 942,
+                soSpoolom: 990,
                 spool: 216,
                 povodna: 1000,
             },
@@ -193,7 +193,7 @@ const threed = {
                 code: "#fbe625"
             },
             hmotnost: {
-                soSpoolom: 1053,
+                soSpoolom: 1040,
                 spool: 224,
                 povodna: 1000,
             },
@@ -220,7 +220,7 @@ const threed = {
                 code: "#61ccee",
             },
             hmotnost: {
-                soSpoolom: 830,
+                soSpoolom: 1140,
                 spool: 224,
                 povodna: 1000,
             },
@@ -239,7 +239,7 @@ const threed = {
             material: "ePLA-Silk Magic",
             cena: 25.58,
             farba: {
-                nazov: "Ružovo-Modrá",
+                nazov: "Ružovo - Modrá",
                 code: "#e41e95",
                 invert: true
             },
@@ -247,7 +247,7 @@ const threed = {
                 code: "#123cea"
             },
             hmotnost: {
-                soSpoolom: 1060,
+                soSpoolom: 980,
                 spool: 220,
                 povodna: 1000,
             },
@@ -270,7 +270,7 @@ const threed = {
                 code: "#E4BDD0"
             },
             hmotnost: {
-                soSpoolom: 783,
+                soSpoolom: 705,
                 spool: 140,
                 povodna: 1000,
             },
@@ -293,7 +293,7 @@ const threed = {
                 code: "#80bf1a"
             },
             hmotnost: {
-                soSpoolom: 952,
+                soSpoolom: 1055,
                 spool: 216,
                 povodna: 1000,
             },
@@ -307,6 +307,11 @@ const threed = {
             }
         },
     ],
+    hmotnostiAktualizovane: {
+        den: 9,
+        mesiac: 2,
+        rok: 2024
+    },
     modely: [
         {
             nazov: "Bring Me The Horizon kľúčenka",
