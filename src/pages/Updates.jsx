@@ -17,7 +17,7 @@ const Updates = () => {
             <div className={"updatesnadpisy"}>
                 <h2>Updates</h2>
                 <h4>
-                    <i style={{fontWeight: "lighter", fontSize: "0.9em"}}>a.k.a.</i> Aktualizácie, verzie, história, ...
+                    <i style={{fontWeight: "lighter", fontSize: "0.9em", paddingRight: "0.125em"}}>a.k.a. </i>Aktualizácie, verzie, história, ...
                 </h4>
             </div>
             <div className="updates">

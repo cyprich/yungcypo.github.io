@@ -36,11 +36,11 @@
 
 .updateimage {
     padding-top: 2em;
+    margin-left: 2em;
 }
 .updateimage img {
     height: 16em;
     padding-top: 0.25em;
-    filter: brightness(80%);
 }
 
 .updatelinky {

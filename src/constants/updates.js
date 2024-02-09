@@ -2,14 +2,16 @@ const updates = [
     {
         verzia: "3.0.0",
         datum: {
-            den: "30",
-            mesiac: "1",
+            den: "9",
+            mesiac: "2",
             rok: "2024"
         },
         zmeny: [
             "Design",
             "Prerobenie od základov s použitím technológie React",
-            "Dočasné odstránenie stránok: Výpočet zaťaženia na strop a strechu, Návrh výstuže, Odpisy, Piškvorky",
+            "Nový projekt: 3D Tlač (História, Kalkulačka, Modely, Filamenty)",
+            "Sekcia \"Ostatné linky\" pri kontaktoch",
+            "Dočasné odstránenie projektu Hry (Piškvorky + Kameň, papier, nožnice)",
         ],
         link: {
             branch: "",
@@ -69,10 +71,10 @@ const updates = [
             "Sekcia \"O mne\"",
             "Sekcia \"Počítačové skúsenosti\"",
             "Sekcia \"Kontakt\"",
-            "Výpočet zaťaženia na strop a strechu",
-            "Návrh vystuže",
-            "Odpisy",
-            "Piškvorky",
+            "Projekt Výpočet zaťaženia na strop a strechu",
+            "Projekt Návrh vystuže",
+            "Projekt Odpisy",
+            "Projekt Hry - Piškvorky",
         ],
         link: {
             branch: "https://github.com/yungcypo/yungcypo.github.io/tree/v2.1",
