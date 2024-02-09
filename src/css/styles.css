@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     color: var(--color6);
-    font-family: "mona-sans", sans-serif;
+    font-family: sans-serif;
     font-size: 16px;
     text-decoration: none;
     box-sizing: border-box;
@@ -23,23 +23,24 @@
     --colorWarning: #ff2f1a;
 }
 
-/*doesnt work somehow*/
 @font-face {
     font-family: "mona-sans";
     src: local("mona-sans"),
         url("../fonts/mona-sans.ttf") format("ttf");
 }
-
-p {
-    font-family: sans-serif;
+@font-face {
+    font-family: "helvetica-neue";
+    src: local("helvetica-neue"),
+        url("../fonts/HelveticaNeueMedium.ttf") format("ttf");
 }
 
-h1 {font-size: 5em;}
-h2 {font-size: 3em;}
-h3 {font-size: 1.75em; font-weight: 500}
-h4 {font-size: 1.3em; font-weight: 400}
+
+h1 {font-size: 5em; font-family: "mona-sans", sans-serif}
+h2 {font-size: 3em; font-family: "helvetica-neue", sans-serif}
+h3 {font-size: 1.75em; font-weight: 500; font-family: "helvetica-neue", sans-serif}
+h4 {font-size: 1.3em; font-weight: 400; font-family: "helvetica-neue", sans-serif}
 h5 {font-weight: 200}
-a {font-size: 1em;}
+p {font-family: sans-serif;}
 
 body {
     overflow-x: hidden;
@@ -54,7 +55,7 @@ main {
     min-height: calc(100vh - 4em);
 }
 
-span, i, b {
+span, i, b, a {
     font-size: inherit;
 }
 
