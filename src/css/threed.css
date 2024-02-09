@@ -165,12 +165,12 @@
 }
 
 .threedfilamentynadpisy {
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 }
 
 .threedfilamentyfilamenty {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2em;
 }
 
@@ -181,17 +181,61 @@
     border-radius: 12px;
 }
 
-.threedfilament img {
-    width: 100%;
-    border-radius: 12px 12px 0 0;
-}
-
 .threedfilament > div {
     padding: 1em;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
 }
+
+.threedfilament > div > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.threedfilament > div > div:first-child > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.threedfilament > div > div:first-child > div:last-child p:first-child {
+    font-size: 1.125em;
+}
+
+
+.threedfilament img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.threedfilamentyinput {
+    display: flex;
+    gap: 1em;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1em;
+    margin-left: 0.5em;
+}
+
+.threedfilamentyinput select {
+    margin: 0;
+    padding: 1em;
+}
+.threedfilamentyinput button {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.threedfilamentyinput button svg {
+    width: 2em;
+    height: 2em;
+    margin: 0.5em;
+    fill: white;
+}
+
+
 
 .threedgaleria {
     background-color: var(--color2);
