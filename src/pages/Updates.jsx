@@ -10,6 +10,7 @@ const Updates = () => {
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
+        document.title = "Cypo | Updates"
     }, []);
 
     return (

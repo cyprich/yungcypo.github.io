@@ -141,6 +141,7 @@ const Vystuz = () => {
             dlzkadoskyref.current.focus()
         }
         window.scrollTo(0, 0)
+        document.title = "Cypo | Výstuž"
     }, []);
 
     return (

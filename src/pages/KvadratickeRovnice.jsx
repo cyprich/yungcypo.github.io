@@ -42,6 +42,7 @@ const KvadratickeRovnice = () => {
     useEffect(() => {
         aref.current.focus()
         window.scrollTo(0, 0)
+        document.title = "Cypo | Kvadratické rovnice"
     }, []);
 
     return (

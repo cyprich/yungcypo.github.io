@@ -8,6 +8,7 @@ const Stavitelstvo = () => {
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
+        document.title = "Cypo | Staviteľstvo"
     }, []);
 
     return (

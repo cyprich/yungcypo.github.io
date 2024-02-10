@@ -14,6 +14,8 @@ const ThreeDGaleria = () => {
 
     console.log(obrazky)
 
+    //TODO scroll to top
+
     return (
         <>
             <div className={"threedgaleria"}>
