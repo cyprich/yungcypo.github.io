@@ -26,19 +26,19 @@
 @font-face {
     font-family: "mona-sans";
     src: local("mona-sans"),
-        url("../fonts/mona-sans.ttf") format("ttf");
+        url("../fonts/mona-sans.woff2") format("woff2");
 }
+
 @font-face {
     font-family: "helvetica-neue";
     src: local("helvetica-neue"),
-        url("../fonts/HelveticaNeueMedium.ttf") format("ttf");
+        url("../fonts/helvetica-neue.woff2") format("woff2");
 }
 
-
-h1 {font-size: 5em; font-family: "mona-sans", sans-serif}
-h2 {font-size: 3em; font-family: "helvetica-neue", sans-serif}
-h3 {font-size: 1.75em; font-weight: 500; font-family: "helvetica-neue", sans-serif}
-h4 {font-size: 1.3em; font-weight: 400; font-family: "helvetica-neue", sans-serif}
+h1 {font-size: 5em; font-weight: 700; font-family: "mona-sans", sans-serif}
+h2 {font-size: 3em; font-family: "helvetica-neue-medium", sans-serif}
+h3 {font-size: 1.75em; font-weight: 600; font-family: "helvetica-neue-roman", sans-serif}
+h4 {font-size: 1.3em;font-family: "helvetica-neue-roman", sans-serif}
 h5 {font-weight: 200}
 p {font-family: sans-serif;}
 

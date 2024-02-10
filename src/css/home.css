@@ -16,7 +16,7 @@
 .landing p {
     font-size: 1.3em;
     color: var(--color7);
-    padding: 1em 0;
+    padding: 1em 0.25em;
 }
 
 .homeComponent {
