@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {useEffect, useRef, useState} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
 import "../css/styles.css"
 import "../css/home.css"
 
@@ -19,13 +19,34 @@ import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
 
+    // zobrazit ✨toto✨ v O Mne sekcii
     const [zobrazitToto, setZobrazitToto] = useState(true);
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const params = new URLSearchParams(location.search)
+
+    const omneref = useRef(null);
+    const vzdelanieref = useRef(null);
+    const projektyref = useRef(null);
+    const kontaktref = useRef(null);
+
     /* scroll to top */
     useEffect(() => {
-        window.scrollTo(0, 0)
-        document.title = "Cypo | Domov"
-    }, []);
+        if (params.get("scroll") === "omne" && projektyref.current) {
+            omneref.current.scrollIntoView()
+        } else if (params.get("scroll") === "projekty" && projektyref.current) {
+            projektyref.current.scrollIntoView()
+        } else if (params.get("scroll") === "vzdelanie" && projektyref.current) {
+            vzdelanieref.current.scrollIntoView()
+        } else if (params.get("scroll") === "kontakt" && kontaktref.current) {
+            kontaktref.current.scrollIntoView()
+        } else {
+            window.scrollTo(0, 0)
+        }
 
+        document.title = "Cypo | Domov"
+    }, [location]);
 
     return (
         <main>
@@ -39,8 +60,11 @@ const Home = () => {
                 <h1>Peter</h1>
                 <h1>Cyprich</h1>
                 <p>{mudrosti[nahodnaMudrost]}</p>
+                <div className="sipka" onClick={() => {
+                    navigate("/?scroll=omne")
+                }}></div>
             </div>
-            <div id="omne" className={"homeComponent"}>
+            <div id="omne" className={"homeComponent"} ref={omneref}>
                 <h2>O mne</h2>
                 <hr/>
                 <div className={"omneContainer"}>
@@ -64,16 +88,16 @@ const Home = () => {
                             </h3>
                         </div>
                         <div className={"omneContent"}>
-                            <SchoolIcon class={"omneIcon"}/>
-                            <h3>
+                            <SchoolIcon class={"omneIcon"} onClick={() => {navigate("/?scroll=vzdelanie")}}/>
+                            <h3 onClick={() => {navigate("/?scroll=vzdelanie")}}>
                                 <span style={{paddingLeft: '0'}}>Fakulta riadenia a informatiky,</span>
                                 UNIZA
                                 <p>Informačné a sieťové technológie</p>
                             </h3>
                         </div>
                         <div className={"omneContent"}>
-                            <SchoolDoneIcon class={"omneIcon"}/>
-                            <h3>
+                            <SchoolDoneIcon class={"omneIcon"} onClick={() => {navigate("/?scroll=vzdelanie")}}/>
+                            <h3 onClick={() => {navigate("/?scroll=vzdelanie")}}>
                                 <span>SOŠ T. Vansovej</span>, Prievidza
                                 <p>Technické a Informatické služby v stavebníctve</p>
                             </h3>
@@ -90,13 +114,15 @@ const Home = () => {
                     }
                 </div>
                 <hr style={{margin: '0 1em'}}/>
-                <h3 className={"casovaOsNadpis"}>Moje vzdelanie</h3>
-                <CasovaOs file={vzdelanie}/>
+                <div ref={vzdelanieref}>
+                    <h3 className={"casovaOsNadpis"}>Moje vzdelanie</h3>
+                    <CasovaOs file={vzdelanie}/>
+                </div>
             </div>
-            <div id="projekty" className={"homeComponent"}>
+            <div id="projekty" className={"homeComponent"} ref={projektyref}>
                 <Carousel/>
             </div>
-            <div id="kontakt" className={"kontaktHome"}>
+            <div id="kontakt" className={"kontaktHome"} ref={kontaktref}>
                 <Kontakt style={{textAlign: "center", marginTop: "0"}}/>
             </div>
         </main>

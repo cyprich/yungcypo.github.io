@@ -46,11 +46,11 @@ const ThreeDFilamenty = () => {
 
     /* scroll to top */
     useEffect(() => {
+        window.scrollTo(0, 0)
+        document.title = "Cypo | 3D | Filamenty"
         if (params.get("sort") === "cena") {
             setZoraditPodla("cena")
         }
-        window.scrollTo(0, 0)
-        document.title = "Cypo | 3D | Filamenty"
     }, []);
 
     return (

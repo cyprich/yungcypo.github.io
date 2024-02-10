@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "../css/styles.css";
 import "../css/header.css";
 
@@ -20,6 +20,8 @@ const Header = () => {
         setHoveredKontaktLink(null)
     }
 
+    const navigate = useNavigate()
+
     return (
         <header id={"header"}>
             <div className="headerprvyriadok">
@@ -32,6 +34,9 @@ const Header = () => {
                         onMouseLeave={() => {
                             setProjektyHovered(false)
                         }}
+                        onClick={() => {
+                            navigate("/?scroll=projekty")
+                        }}
                     >
                         <p style={projektyHovered ? {color: "var(--color7)"} : null}>Projekty</p>
                     </div>
@@ -41,7 +46,11 @@ const Header = () => {
                         }}
                         onMouseLeave={() => {
                             setKontaktyHovered(false)
-                        }}>
+                        }}
+                        onClick={() => {
+                            navigate("/?scroll=kontakt")
+                        }}
+                    >
                         <p style={kontaktyHovered ? {color: "var(--color7)"} : null}>Kontakt</p>
                     </div>
                 </div>

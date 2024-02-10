@@ -49,10 +49,6 @@ const ThreeDKalkulacka = () => {
         }
     }, [cenaPriamehoMaterialu, cenaElektrika, cenaLabor, prirazka, typPrirazky]);
 
-
-    const location = useLocation()
-
-
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
