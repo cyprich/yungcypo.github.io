@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import "../css/styles.css"
 import "../css/threed.css"
 
@@ -50,6 +50,9 @@ const ThreeDKalkulacka = () => {
     }, [cenaPriamehoMaterialu, cenaElektrika, cenaLabor, prirazka, typPrirazky]);
 
 
+    const location = useLocation()
+
+
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -94,7 +97,7 @@ const ThreeDKalkulacka = () => {
                                     </optgroup>
                                 </select>
                                 <button onClick={() => {
-                                    navigate("/3D/filamenty")
+                                    navigate("/3D/filamenty?sort=cena&from=kalkulacka")
                                 }}>Filamenty
                                 </button>
                             </div>

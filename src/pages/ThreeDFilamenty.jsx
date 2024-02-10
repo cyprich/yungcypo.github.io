@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {useLocation} from "react-router-dom";
 import "../css/styles.css"
 import "../css/threed.css"
 
@@ -10,6 +11,9 @@ import {ReactComponent as ArrowUp} from "../images/icons/arrowup.svg";
 import {ReactComponent as ArrowDown} from "../images/icons/arrowdown.svg";
 
 const ThreeDFilamenty = () => {
+    const location = useLocation()
+    const params = new URLSearchParams(location.search);
+
     const [otocitPoradie, setOtocitPoradie] = useState(false);
     const [zoraditPodla, setZoraditPodla] = useState("default");
 
@@ -32,8 +36,6 @@ const ThreeDFilamenty = () => {
                 vysledok = (b.hmotnost.soSpoolom - b.hmotnost.spool) - (a.hmotnost.soSpoolom - a.hmotnost.spool)
             }
 
-            console.log("\n\n\n" + vysledok)
-
             if (otocitPoradie) {
                 return -vysledok
             } else {
@@ -45,6 +47,9 @@ const ThreeDFilamenty = () => {
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
+        if (params.get("sort") === "cena") {
+            setZoraditPodla("cena")
+        }
     }, []);
 
     return (
@@ -63,7 +68,7 @@ const ThreeDFilamenty = () => {
                         <optgroup>
                             <option value="abecednevyrobca">Abecedne - výrobca</option>
                             <option value="abecednefarba">Abecedne - farba</option>
-                            <option value="cena">Cena</option>
+                            <option value="cena" selected={params.get("sort") === "cena"}>Cena</option>
                             <option value="hmotnost">Hmotnosť</option>
                         </optgroup>
                     </select>
@@ -113,7 +118,11 @@ const ThreeDFilamenty = () => {
                     aktualizované: {threed.hmotnostiAktualizovane.den}. {threed.hmotnostiAktualizovane.mesiac}. {threed.hmotnostiAktualizovane.rok}
                 </p>
             </div>
-            <SpatNa text={"3D tlač"} link={"/3D"}/>
+            {
+                params.get("from") === "kalkulacka"
+                    ? <SpatNa text={"Kalkulačku"} link={"/3D/kalkulacka"}/>
+                    : <SpatNa text={"3D tlač"} link={"/3D"}/>
+            }
         </>
     );
 };
