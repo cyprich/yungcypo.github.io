@@ -17,6 +17,11 @@
     background-color: black;
     border: 1px solid var(--color7);
     border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
 .popup p {
@@ -30,4 +35,11 @@
 }
 .popup span:hover {
     color: var(--color8);
+}
+
+.popup button:hover {
+    background-color: rgba(255,255,255, 0.0625);
+}
+.popup button:active {
+    background-color: rgba(255,255,255, 0.125);
 }

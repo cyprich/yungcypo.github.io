@@ -9,23 +9,30 @@ const Popup = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
-    useEffect(() => {
+    const handleZobrazenie = () => {
         const maSuhlas = localStorage.getItem("suhlas")
 
-        if (location?.state?.popup === "hidden") {
+        if (location.pathname === "/disclaimer") {
             setZobrazitPopup(false)
-        } else if (!maSuhlas) {
+        } else if (maSuhlas === "false") {
             setZobrazitPopup(true)
         }
-    }, []);
 
-    useEffect(() => {
         if (zobrazitPopup) {
             document.body.style.overflow = 'hidden'
         } else {
             document.body.style.overflow = ''
         }
-    }, [zobrazitPopup]);
+    }
+
+
+    useEffect(() => {
+        handleZobrazenie()
+    }, [zobrazitPopup, location]);
+
+    useEffect(() => {
+        handleZobrazenie()
+    }, []);
 
 
     const odsuhlasit = () => {
@@ -42,6 +49,7 @@ const Popup = () => {
                         navigate("/disclaimer", {state: {popup: "hidden"}})
                     }}> vyhlásením o vylúčení zodpovednosti</span>
                 </p>
+                <button onClick={() => {odsuhlasit()}}>Súhlasím</button>
             </div>
         </div>
 

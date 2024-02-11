@@ -46,6 +46,7 @@ const Home = () => {
         }
 
         document.title = "Cypo | Domov"
+        console.log(localStorage)
     }, [location]);
 
     return (

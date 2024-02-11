@@ -104,9 +104,7 @@ const Disclaimer = () => {
                         </button>
                         : <button onClick={() => {setPouzivatelSuhlasi(true)}}>Súhlasím</button>
                 }
-
             </div>
-            <button onClick={() => {localStorage.setItem("suhlas", "false")}}>x</button>
         </div>
     );
 };
