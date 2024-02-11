@@ -5,6 +5,7 @@ import "../css/styles.css"
 import "../css/updates.css"
 
 import updates from "../constants/updates"
+import ImageLoader from "../components/ImageLoader";
 
 const Updates = () => {
     /* scroll to top */
@@ -71,7 +72,7 @@ const Updates = () => {
                                 </div>
                                 <div className="updateimage">
                                     <h4>Ukážka</h4>
-                                    <img src={
+                                    <ImageLoader src={
                                         e.preview
                                             ? e.preview
                                             : null
