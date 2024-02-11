@@ -79,29 +79,6 @@ const Vystuz = () => {
         setZ(d - 0.4 * x)
         setMrd(as * fyd * z)
 
-        // zaokruhlovanie
-        if (fcd) {
-            setFcd(Math.round((fcd) * 1000) / 1000)
-        }
-        if (fyd) {
-            setFyd(Math.round((fyd) * 1000) / 1000)
-        }
-        if (asVypocet) {
-            setAsVypocet(Math.round((asVypocet) * 1000000) / 1000000)
-        }
-        if (x) {
-            setX(Math.round((x) * 1000000) / 1000000)
-        }
-        if (ksi) {
-            setKsi(Math.round((ksi) * 1000) / 1000)
-        }
-        if (z) {
-            setZ(Math.round((z) * 1000000) / 1000000)
-        }
-        if (mrd) {
-            setMrd(Math.round((mrd) * 1000000) / 1000000)
-        }
-
         if (
             dlzkaDosky != null && hrubkaDosky != null && moment != null &&
             beton != null && nosnaOcel != null && rozdelovaciaOcel != null) {
@@ -110,9 +87,9 @@ const Vystuz = () => {
             setZobrazitTabulecku(false)
         }
 
-    }, [dlzkaDosky, hrubkaDosky, moment, beton, nosnaOcel, rozdelovaciaOcel,
-        fck, fyk, d, msd, asmin, asmax, ksimax,
-        fcd, fyd, asVypocet, x, ksi, z, mrd, as
+    }, [
+        dlzkaDosky, hrubkaDosky, moment, beton, nosnaOcel, rozdelovaciaOcel,
+        fck, fcd, fyk, fyd, d, msd, asVypocet, as, asmin, asmax, x, ksi, ksimax, z, mrd
     ]);
 
     // input focus
@@ -157,7 +134,7 @@ const Vystuz = () => {
                             type="number"
                             placeholder={"Dĺžka dosky [m]"}
                             onChange={(e) => {
-                                setDlzkaDosky(e.target.value)
+                                setDlzkaDosky(Number(e.target.value))
                             }}
                             ref={dlzkadoskyref}
                             onKeyDown={(e) => {
@@ -168,7 +145,7 @@ const Vystuz = () => {
                             type="number"
                             placeholder={"Hrúbka dosky [m]"}
                             onChange={(e) => {
-                                setHrubkaDosky(e.target.value)
+                                setHrubkaDosky(Number(e.target.value))
                             }}
                             ref={hrubkadoskyref}
                             onKeyDown={(e) => {
@@ -179,7 +156,7 @@ const Vystuz = () => {
                             type="number"
                             placeholder={"Moment pôsobiaci na dosku [KNm]"}
                             onChange={(e) => {
-                                setMoment(e.target.value)
+                                setMoment(Number(e.target.value))
                             }}
                             ref={momentref}
                             onKeyDown={(e) => {
@@ -240,9 +217,9 @@ const Vystuz = () => {
                             {
                                 zobrazitVysledok
                                     ? null
-                                    : <p style={{paddingBottom: "0.5em"}}>Vyber plochu výstuže na základe požadovaného
-                                        priemeru
-                                        výstuže a počtu prútov</p>
+                                    : <p style={{paddingBottom: "0.5em"}}>
+                                        Vyber plochu výstuže na základe požadovaného priemeru výstuže a počtu prútov
+                                    </p>
                             }
                             <table className={"vystuztabulecka"}>
                                 <thead>
@@ -271,6 +248,9 @@ const Vystuz = () => {
                                                             <td key={keyy}>{y}</td>
                                                         )
                                                     } else {
+                                                        console.log("\n")
+                                                        console.log(asVypocet)
+                                                        console.log(y)
                                                         if (asVypocet <= y) {
                                                             return (
                                                                 <td
@@ -313,14 +293,14 @@ const Vystuz = () => {
                                     </p>
                                     <p><Latex>{`$f_{cd} = \\frac{f_{ck}}{\\gamma_c}$`}</Latex></p>
                                     <p><Latex>{`$f_{cd} = \\frac{` + fck + `}{` + gammac + `}$`}</Latex></p>
-                                    <p><Latex>{`$f_{cd} = ` + fcd + `\\text{MPa}$`}</Latex></p>
+                                    <p><Latex>{`$f_{cd} = ` + fcd.toFixed(3) + `\\text{MPa}$`}</Latex></p>
                                 </div>
                                 <div>
                                     <p>{vystuz.ocele[nosnaOcel]}<Latex>{`$\\space\\Rarr\\space f_{yk} = ` + fyk + `\\text{MPa}$`}</Latex>{}
                                     </p>
                                     <p><Latex>{`$f_{yd} = \\frac{f_{yk}}{\\gamma_s}$`}</Latex></p>
                                     <p><Latex>{`$f_{yd} = \\frac{` + fyk + `}{` + gammas + `}$`}</Latex></p>
-                                    <p><Latex>{`$f_{yd} = ` + fyd + `$`}</Latex></p>
+                                    <p><Latex>{`$f_{yd} = ` + fyd.toFixed(3) + `$`}</Latex></p>
                                 </div>
                             </section>
                             <section>
@@ -338,7 +318,7 @@ const Vystuz = () => {
                                     <p>
                                         <Latex>{`$d = ` + hrubkaDosky + ` - ` + c + ` - \\frac{` + priemerVystuze + `}{2}$`}</Latex>
                                     </p>
-                                    <p><Latex>{`$d = ` + d + ` m$`}</Latex></p>
+                                    <p><Latex>{`$d = ` + d.toFixed(3) + ` m$`}</Latex></p>
                                 </div>
                             </section>
                             <section>
@@ -351,12 +331,13 @@ const Vystuz = () => {
                             \\bigg)
                         $`}</Latex></p>
                                     <p style={{fontSize: "1.375em"}}><Latex>{`$
-                            As = ` + b + ` \\space\\times\\space ` + d + ` \\space\\times\\space \\frac{` + alpha + ` \\space\\times\\space ` + fcd + `}{` + fyd + `}\\space\\times\\space
+                            As = ` + b + ` \\space\\times\\space ` + d.toFixed(3) + ` \\space\\times\\space \\frac{` + alpha + ` \\space\\times\\space ` + fcd.toFixed(3) + `}{` + fyd.toFixed(3) + `}\\space\\times\\space
                             \\bigg(
-                            1 - \\sqrt{\\frac{1}{1} - \\frac{2 \\space\\times\\space ` + msd + `}{` + b + ` \\space\\times\\space ` + d + `^2 \\space\\times\\space ` + alpha + ` \\space\\times\\space ` + fcd + `}}
+                            1 - \\sqrt{\\frac{1}{1} - \\frac{2 \\space\\times\\space ` + msd + `}{` + b + ` \\space\\times\\space ` + d.toFixed(3) + `^2 \\space\\times\\space ` + alpha + ` \\space\\times\\space ` + fcd.toFixed(3) + `}}
                             \\bigg)
                         $`}</Latex></p>
-                                    <p style={{fontSize: "1.375em"}}><Latex>{`$As =  ` + asVypocet + `m^2$`}</Latex></p>
+                                    <p style={{fontSize: "1.375em"}}>
+                                        <Latex>{`$As =  ` + asVypocet.toFixed(6) + `m^2$`}</Latex></p>
                                 </div>
                                 <div>
                                     <p>Volím <Latex>{`$` + priemerVystuze * 1000 + ` \\phi v` + pocetVystuzi + `/m' \\Rarr A_s = ` + as + ` $`}</Latex>
@@ -377,18 +358,18 @@ const Vystuz = () => {
                                                         <Latex>{`$A_{s_{min}} = 0.0015 \\times b \\times d \\space\\space \\small{(ak\\space f_{yk} > 400\\text{MPa})}$`}</Latex>
                                                     </p>
                                                     <p>
-                                                        <Latex>{`$A_{s_{min}} = 0.0015 \\times ` + b + ` \\times ` + d + `$`}</Latex>
+                                                        <Latex>{`$A_{s_{min}} = 0.0015 \\times ` + b + ` \\times ` + d.toFixed(3) + `$`}</Latex>
                                                     </p>
-                                                    <p><Latex>{`$A_{s_{min}} = ` + asmin + ` m^2$`}</Latex></p>
+                                                    <p><Latex>{`$A_{s_{min}} = ` + asmin.toFixed(3) + ` m^2$`}</Latex></p>
                                                 </>
                                                 : <>
                                                     <p>
                                                         <Latex>{`$A_{s_{min}} = 0.6 \\times b \\times \\frac{d}{f_{yk}} \\space \\small{(ak\\space f_{yk} \\ge 400\\text{MPa})}$`}</Latex>
                                                     </p>
                                                     <p>
-                                                        <Latex>{`$A_{s_{min}} = 0.6 \\times ` + b + ` \\times \\frac{` + d + `}{` + fyk + `}$`}</Latex>
+                                                        <Latex>{`$A_{s_{min}} = 0.6 \\times ` + b + ` \\times \\frac{` + d.toFixed(3) + `}{` + fyk + `}$`}</Latex>
                                                     </p>
-                                                    <p><Latex>{`$A_{s_{min}} = ` + asmin + ` m^2$`}</Latex></p>
+                                                    <p><Latex>{`$A_{s_{min}} = ` + asmin.toFixed(3) + ` m^2$`}</Latex></p>
                                                 </>
                                         }
 
@@ -397,11 +378,11 @@ const Vystuz = () => {
                                         <p>
                                             <Latex>{`$A_{s_{max}} = 0.04 \\times ` + b + ` \\times ` + hrubkaDosky + ` $`}</Latex>
                                         </p>
-                                        <p><Latex>{`$A_{s_{max}} = ` + asmax + ` m^2$`}</Latex></p>
+                                        <p><Latex>{`$A_{s_{max}} = ` + asmax.toFixed(3) + ` m^2$`}</Latex></p>
                                         <div></div>
                                         <p><Latex>{`$A_{s_{min}} \\le A_s \\le A_{s_{max}}$`}</Latex></p>
                                         <p>
-                                            <Latex>{`$ ` + asmin + ` \\le ` + as + ` \\le ` + asmax + `\\space\\small{[m^2]}$`}</Latex>
+                                            <Latex>{`$ ` + asmin.toFixed(3) + ` \\le ` + as + ` \\le ` + asmax.toFixed(3) + `\\space\\small{[m^2]}$`}</Latex>
                                         </p>
                                     </div>
                                 </div>
@@ -412,9 +393,9 @@ const Vystuz = () => {
                                             <Latex>{`$x = 1.25 \\space\\times\\space \\frac{A_s \\space\\times\\space f_{yd}}{b \\space\\times\\space \\alpha \\space\\times\\space f_{cd}}$`}</Latex>
                                         </p>
                                         <p>
-                                            <Latex>{`$x = 1.25 \\space\\times\\space \\frac{` + as + ` \\space\\times\\space ` + fyd + `}{` + b + ` \\space\\times\\space ` + alpha + ` \\space\\times\\space ` + fcd + `}$`}</Latex>
+                                            <Latex>{`$x = 1.25 \\space\\times\\space \\frac{` + as + ` \\space\\times\\space ` + fyd.toFixed(3) + `}{` + b + ` \\space\\times\\space ` + alpha + ` \\space\\times\\space ` + fcd.toFixed(3) + `}$`}</Latex>
                                         </p>
-                                        <p><Latex>{`$x = ` + x + ` $`}</Latex></p>
+                                        <p><Latex>{`$x = ` + x.toFixed(6) + ` $`}</Latex></p>
                                     </div>
                                 </div>
                                 <div>
@@ -424,10 +405,10 @@ const Vystuz = () => {
                                             <Latex>{`$\\xi = \\frac{x}{d} = 1.25 \\times \\big( \\frac{A_s}{b\\times d} \\big) \\times \\big( \\frac{f_{yd}}{\\alpha \\times f_{cd}} \\big) \\le \\xi_{max} $`}</Latex>
                                         </p>
                                         <p>
-                                            <Latex>{`$\\xi = \\frac{` + x + `}{` + d + `} = 1.25 \\times \\big( \\frac{` + as + `}{` + b + `\\times ` + d + `} \\big) \\times \\big( \\frac{` + fyd + `}{` + alpha + ` \\times ` + fcd + `} \\big) \\le ` + ksimax + ` $`}</Latex>
+                                            <Latex>{`$\\xi = \\frac{` + x.toFixed(6) + `}{` + d.toFixed(3) + `} = 1.25 \\times \\big( \\frac{` + as + `}{` + b + `\\times ` + d.toFixed(3) + `} \\big) \\times \\big( \\frac{` + fyd.toFixed(3) + `}{` + alpha + ` \\times ` + fcd.toFixed(3) + `} \\big) \\le ` + ksimax + ` $`}</Latex>
                                         </p>
                                         <p>
-                                            <Latex>{`$\\xi = ` + ksi + ` \\le ` + ksimax + ` $`}</Latex>
+                                            <Latex>{`$\\xi = ` + ksi.toFixed(3) + ` \\le ` + ksimax + ` $`}</Latex>
                                         </p>
                                     </div>
                                 </div>
@@ -435,24 +416,26 @@ const Vystuz = () => {
                                     <h4>Moment únostnosti</h4>
                                     <div>
                                         <p><Latex>{`$z = d - 0.4x$`}</Latex></p>
-                                        <p><Latex>{`$z = ` + d + ` - 0.4 \\times ` + x + ` $`}</Latex></p>
-                                        <p><Latex>{`$z = ` + z + `$`}</Latex></p>
+                                        <p><Latex>{`$z = ` + d.toFixed(3) + ` - 0.4 \\times ` + x.toFixed(6) + ` $`}</Latex>
+                                        </p>
+                                        <p><Latex>{`$z = ` + z.toFixed(6) + `$`}</Latex></p>
                                         <div></div>
                                         <p><Latex>{`$M_{RD} = A_s \\times f_{yd} \\times z$`}</Latex></p>
-                                        <p><Latex>{`$M_{RD} = ` + as + ` \\times ` + fyd + ` \\times ` + z + `$`}</Latex>
+                                        <p>
+                                            <Latex>{`$M_{RD} = ` + as + ` \\times ` + fyd.toFixed(3) + ` \\times ` + z.toFixed(6) + `$`}</Latex>
                                         </p>
-                                        <p><Latex>{`$M_{RD} = ` + mrd + ` \\text{MNm}$`}</Latex></p>
+                                        <p><Latex>{`$M_{RD} = ` + mrd.toFixed(6) + ` \\text{MNm}$`}</Latex></p>
                                     </div>
                                     <div>
                                         <p><Latex>{`$M_{RD} \\ge M_{Sd}$`}</Latex></p>
                                         {
                                             mrd >= msd
                                                 ? <>
-                                                    <p><Latex>{`$` + mrd + ` \\ge ` + msd + `$`}</Latex></p>
+                                                    <p><Latex>{`$` + mrd.toFixed(6) + ` \\ge ` + msd + `$`}</Latex></p>
                                                     <h3>Návrh {} <span style={{color: "var(--color7)"}}>Vyhovuje!</span></h3>
                                                 </>
                                                 : <>
-                                                    <p><Latex>{`$` + mrd + ` \\ngeqslant ` + msd + `$`}</Latex></p>
+                                                    <p><Latex>{`$` + mrd.toFixed(6) + ` \\ngeqslant ` + msd + `$`}</Latex></p>
                                                     <h3 style={{color: "var(--colorWarning)"}}>Veľký problém,
                                                         návrh {} nevyhovuje</h3>
                                                 </>
