@@ -140,7 +140,8 @@ header .napisy div:hover p{
 .headertretiriadok {
     background-color: var(--color1);
     /* TODO tuto treba upravit pocet ked sa meni pocet projektov */
-    top: calc(-4 * (2em + 2em + 0.25em));
+    /* top: calc(-4 * (2em + 2em + 0.25em)); */
+    top: -17em;
     right: -12em;
     width: max-content;
     display: flex;
