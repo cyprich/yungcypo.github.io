@@ -93,7 +93,8 @@ const threed = {
             id: 0,
             vyrobca: "Bambu Lab",
             material: "PLA",
-            cena: 18.99,
+            cena: 29.99,
+            realnacena: 18.99,
             farba: {
                 nazov: "Čierna",
                 code: "#000000",
@@ -117,7 +118,8 @@ const threed = {
             id: 1,
             vyrobca: "Bambu Lab",
             material: "PLA",
-            cena: 18.99,
+            cena: 29.99,
+            realnacena: 18.99,
             farba: {
                 nazov: "Červená",
                 code: "#C12E1F",
@@ -187,7 +189,8 @@ const threed = {
             id: 4,
             vyrobca: "eSun",
             material: "PLA+",
-            cena: 17.10,
+            cena: 20.99,
+            realnacena: 17.10,
             farba: {
                 nazov: "Žltá",
                 code: "#fbe625"
@@ -210,7 +213,8 @@ const threed = {
             id: 5,
             vyrobca: "eSun",
             material: "eSilk-PLA",
-            cena: 17.29,
+            cena: 20.99,
+            realnacena: 17.29,
             farba: {
                 nazov: "Modrá",
                 code: "#123cea",
@@ -237,7 +241,8 @@ const threed = {
             id: 6,
             vyrobca: "eSun",
             material: "ePLA-Silk Magic",
-            cena: 25.58,
+            cena: 25.99,
+            realnacena: 25.58,
             farba: {
                 nazov: "Ružovo - Modrá",
                 code: "#e41e95",
@@ -287,7 +292,8 @@ const threed = {
             id: 8,
             vyrobca: "Filament PM",
             material: "PLA",
-            cena: 26.17,
+            cena: 26.90,
+            realnacena: 26.17,
             farba: {
                 nazov: "Zelená",
                 code: "#80bf1a"
