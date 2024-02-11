@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
@@ -27,9 +27,22 @@ import KvadratickeRovnice from "./pages/KvadratickeRovnice";
 import NalepkyNaFilament from "./pages/NalepkyNaFilament";
 
 const App = () => {
+    const [zobrazitZobrazenieNaMobile, setZobrazitZobrazenieNaMobile] = useState(true);
+
     return (
         <>
             <Router>
+                {
+                    zobrazitZobrazenieNaMobile && <div className={"zobrazenieNaMobile"}>
+                        <h3>Zobrazenie na mobile a menších zariadeniach momentálne nie je podporované</h3>
+                        <h4>Môže dôjsť k chybám pri zobrazovaní obsahu</h4>
+                        <p>Ďakujem za pochopenie</p>
+                        <button onClick={() => {
+                            setZobrazitZobrazenieNaMobile(false)
+                        }}>Zavrieť
+                        </button>
+                    </div>
+                }
                 <Header/>
                 <Popup/>
                 <Routes>

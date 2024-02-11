@@ -4,6 +4,7 @@ Zoznam z-indexov, ktoré som upravoval
 | Index | Element              | Source                        |
 |-------|----------------------|-------------------------------|
 | 30    | .popup               | `src/css/popup.css`           |
+| 25    | ZobrazenieNaMobile   | `src/App.jsx`                 |
 | 20    | .threedhistoriapopup | `src/components/CasovaOs.jsx` |
 | 10    | header               | `src/css/header.css`          |
 | 9     | .headerprvyriadok    | `src/css/header.css`          |
