@@ -32,12 +32,6 @@ const Schodisko = () => {
             setH1(Math.round(1500 + (750 / (Math.cos(alpha * (Math.PI / 180))))));
             setH2(Math.round(750 + 1500 * Math.cos(alpha * (Math.PI / 180))));
 
-            console.log("H1")
-            console.log(alpha)
-            console.log(alpha * (Math.PI / 180))
-            console.log(Math.cos(alpha * (Math.PI / 180)))
-
-
             if (typSchodiska === 1) {
                 setL((n - 1) * b)
             } else if (typSchodiska === 2) {

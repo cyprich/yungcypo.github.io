@@ -292,7 +292,6 @@ const Odpisy = () => {
                                             <ul>
                                                 {e.coodpisujeme.map((f, key) => {
                                                     if (rozbalenaPomockaSkupiny === e.cislo) {
-                                                        console.log(key)
                                                         return (
                                                             <li key={key}>{f}</li>
                                                         )

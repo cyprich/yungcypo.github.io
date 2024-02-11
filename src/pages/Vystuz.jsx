@@ -248,9 +248,6 @@ const Vystuz = () => {
                                                             <td key={keyy}>{y}</td>
                                                         )
                                                     } else {
-                                                        console.log("\n")
-                                                        console.log(asVypocet)
-                                                        console.log(y)
                                                         if (asVypocet <= y) {
                                                             return (
                                                                 <td

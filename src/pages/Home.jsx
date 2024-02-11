@@ -46,7 +46,6 @@ const Home = () => {
         }
 
         document.title = "Cypo | Domov"
-        console.log(localStorage)
     }, [location]);
 
     return (
@@ -89,16 +88,24 @@ const Home = () => {
                             </h3>
                         </div>
                         <div className={"omneContent"}>
-                            <SchoolIcon class={"omneIcon"} onClick={() => {navigate("/?scroll=vzdelanie")}}/>
-                            <h3 onClick={() => {navigate("/?scroll=vzdelanie")}}>
+                            <SchoolIcon class={"omneIcon"} onClick={() => {
+                                navigate("/?scroll=vzdelanie")
+                            }}/>
+                            <h3 onClick={() => {
+                                navigate("/?scroll=vzdelanie")
+                            }}>
                                 <span style={{paddingLeft: '0'}}>Fakulta riadenia a informatiky,</span>
                                 UNIZA
                                 <p>Informačné a sieťové technológie</p>
                             </h3>
                         </div>
                         <div className={"omneContent"}>
-                            <SchoolDoneIcon class={"omneIcon"} onClick={() => {navigate("/?scroll=vzdelanie")}}/>
-                            <h3 onClick={() => {navigate("/?scroll=vzdelanie")}}>
+                            <SchoolDoneIcon class={"omneIcon"} onClick={() => {
+                                navigate("/?scroll=vzdelanie")
+                            }}/>
+                            <h3 onClick={() => {
+                                navigate("/?scroll=vzdelanie")
+                            }}>
                                 <span>SOŠ T. Vansovej</span>, Prievidza
                                 <p>Technické a Informatické služby v stavebníctve</p>
                             </h3>
