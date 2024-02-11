@@ -59,6 +59,7 @@ const ThreeDKalkulacka = () => {
     useEffect(() => {
         if (param.get("model") != null) {
             setModel(threed.modely[param.get("model")])
+            setZaKilo(23.90)
             setHmotnost(model?.hmotnost)
             setCasHodiny(model?.cas.hodiny)
             setCasMinuty(model?.cas.minuty)
@@ -118,6 +119,7 @@ const ThreeDKalkulacka = () => {
                                                             value={e.cena}
                                                             key={key}
                                                             disabled={((e.hmotnost.soSpoolom - e.hmotnost.spool) < hmotnost)}
+                                                            selected={model != null && e.farba.nazov == "Biela"}
                                                         >
                                                             {e.farba.nazov + " - " + e.cena.toFixed(2) + "€ / kg"}
                                                         </option>
