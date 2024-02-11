@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of useful stuff">
+        <meta name="keywords" content="Cypo, Staviteľstvo, Návrh schodiska, Výpočet zaťaženia, Návrh výstuže">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <title>Cypo | Staviteľstvo</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/projekty.css">
+        <link rel="icon" href="/assets/images/favicon-black.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+        <link rel="icon" href="/assets/images/favicon-white.ico" type="image/x-icon" media="(prefers-color-scheme: white)">
+    </head>
+    <body>
+        <header>
+            <span>
+                <a href="/">Domov</a>
+                <a href="/#about">O mne</a>
+                <a href="/#contact">Kontakt</a>
+                <a href="/#projects">Projekty</a>
+            </span>
+            <span>
+                <img id="smile" src="/assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
+        </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="/assets/images/arrow.svg" alt="Top" width="100%">
+        </button>
+        <main>
+            <h1>Staviteľstvo</h1>
+            <div>
+                <h2>Návrh schodiska</h2>
+                <p>◦ Ideálny počet stupňov</p>
+                <p>◦ Ideálna výška a šírka stupňa</p>
+                <p>◦ Sklon ramena</p>
+                <p>◦ Podchodná a priechodná výška</p>
+                <p>◦ Možnosť výberu jednoramenného alebo dvojramenného schodiska</p>
+                <p>◦ Možnosť vytlačiť výpočet</p>
+                <a href="/stavitelstvo/navrh-schodiska/">
+                    <button>Návrh schodiska</button>
+                </a>    
+            </div>
+            <div>
+                <h2>Výpočet zaťaženia <span class="lighter">na strop alebo strechu</span></h2>
+                <p>◦ Stále zaťaženie</p>
+                <p>◦ Premenné zaťaženie</p>
+                <p>◦ Celkové zaťaženie</p>
+                <p>◦ Návrhová hodnota zaťaženia</p>
+                <p>◦ Možnosť uložiť výpočet do súboru</p>
+                <p>◦ Možnosť nahrať výpočet zo súboru</p>
+                <a href="/stavitelstvo/vypocet-zatazenia/">
+                    <button>Výpočet zaťaženia</button>
+                </a>
+            </div>
+            <div>
+                <h2>Návrh výstuže</h2>
+                <p>◦ Návrh výstuže</p>
+                <p>◦ Návrh výstuže</p>
+                <p>◦ Návrh výstuže</p>
+                <a href="/stavitelstvo/navrh-vystuze/">
+                    <button>Návrh výstuže</button>
+                </a>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
+            </div>
+        </footer>
+    </body>
+    <script src="/assets/js/topbutton.js"></script>
+    <script src="/assets/js/smile.js"></script>
+
+</html>

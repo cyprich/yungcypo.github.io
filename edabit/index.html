@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Website full of useful stuff">
+        <meta name="keywords" content="Cypo, Edabit, JavaScript, Edabit challenges">
+        <!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+        <title>Cypo | Domov</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/edabit.css">
+        <link rel="icon" href="/assets/images/favicon-black.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+        <link rel="icon" href="/assets/images/favicon-white.ico" type="image/x-icon" media="(prefers-color-scheme: white)">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <span>
+                <a href="/">Domov</a>
+                <a href="/#about">O mne</a>
+                <a href="/#contact">Kontakt</a>
+                <a href="/#projects">Projekty</a>
+            </span>
+            <span>
+                <img id="smile" src="/assets/images/smile.svg" alt="" height="50%" onclick="smileclick()">
+            </span>
+        </header>
+        <button id="top-button" onclick="scrollToTop()">
+            <img src="/assets/images/arrow.svg" alt="Top" width="100%">
+        </button>
+        <main>
+            <a href="https://edabit.com/challenges" target="_blank">
+                <button class="noborder"><h1>Edabit challenges</h1></button>
+            </a>
+            <p>Results are logged into console</p>
+            <hr>
+            <div>
+                <h2>Very Easy</h2>
+                <button onclick="addition1(2, 3)">Return the Sum of Two Numbers</button>
+                <button onclick="convert1(3)">Convert Minutes into Seconds</button>
+                <button onclick="addition2(9)">Return the Next Number from the Integer Passed</button>
+                <button onclick="triArea(3,2)">Area of a Triangle</button>
+                <button onclick="calcAge(20)">Convert Age to Days</button>
+            </div>
+            <div>
+                <h2>Easy</h2>
+                <button onclick="addUp(4)">Add up the Numbers from a Single Number</button>
+                <button onclick="matchHouses(4)">Matchstick Houses</button>
+                <button onclick="shiftToLeft(46, 6)">Left Shift by Powers of Two</button>
+                
+            </div>
+        </main>
+        <footer>
+            <div>
+                <p class="light">Cypo's Website <span class="lighter">v2</span></p>
+                <p class="light">Created by Cypo</p>
+            </div>
+            <div>
+                <p class="light">Zdrojový kód je sprístupnený na <a href="https://github.com/yungcypo/Website">Github</a></p>
+                <p class="light">2020 - 2022</p>
+            </div>
+        </footer>
+    </body>
+    <script src="/assets/js/topbutton.js"></script>
+    <script src="/assets/js/smile.js"></script>
+    <script src="/assets/js/edabit.js"></script>
+</html>
