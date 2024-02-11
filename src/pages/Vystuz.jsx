@@ -47,6 +47,8 @@ const Vystuz = () => {
     const [zobrazitTabulecku, setZobrazitTabulecku] = useState(false);
     const [zobrazitVysledok, setZobrazitVysledok] = useState(false);
 
+    const [forcerUpdate, setForcerUpdate] = useState(false);
+
     useEffect(() => {
         setFck(vystuz.fck[beton])
         setFcd(fck / gammac)
@@ -89,7 +91,8 @@ const Vystuz = () => {
 
     }, [
         dlzkaDosky, hrubkaDosky, moment, beton, nosnaOcel, rozdelovaciaOcel,
-        fck, fcd, fyk, fyd, d, msd, asVypocet, as, asmin, asmax, x, ksi, ksimax, z, mrd
+        fck, fcd, fyk, fyd, d, msd, asVypocet, as, asmin, asmax, x, ksi, ksimax, z, mrd,
+        forcerUpdate
     ]);
 
     // input focus
@@ -169,6 +172,7 @@ const Vystuz = () => {
                     <div>
                         <select name="beton" onChange={(e) => {
                             setBeton(e.target.value)
+                            setForcerUpdate(!forcerUpdate)
                         }}>
                             <option value={null}>Vyber betón</option>
                             <optgroup>
@@ -183,6 +187,7 @@ const Vystuz = () => {
                         </select>
                         <select name="nosnaocel" onChange={(e) => {
                             setNosnaOcel(e.target.value)
+                            setForcerUpdate(!forcerUpdate)
                         }}>>
                             <option value={null}>Vyber nosnú oceľ</option>
                             <optgroup>
@@ -197,6 +202,7 @@ const Vystuz = () => {
                         </select>
                         <select name="rozdelovaciaocel" onChange={(e) => {
                             setRozdelovaciaOcel(e.target.value)
+                            setForcerUpdate(!forcerUpdate)
                         }}>>
                             <option value={null}>Vyber rozdeľovaciu oceľ</option>
                             <optgroup>
@@ -297,7 +303,7 @@ const Vystuz = () => {
                                     </p>
                                     <p><Latex>{`$f_{yd} = \\frac{f_{yk}}{\\gamma_s}$`}</Latex></p>
                                     <p><Latex>{`$f_{yd} = \\frac{` + fyk + `}{` + gammas + `}$`}</Latex></p>
-                                    <p><Latex>{`$f_{yd} = ` + fyd.toFixed(3) + `$`}</Latex></p>
+                                    <p><Latex>{`$f_{yd} = ` + fyd.toFixed(3) + `\\text{MPa}$`}</Latex></p>
                                 </div>
                             </section>
                             <section>
