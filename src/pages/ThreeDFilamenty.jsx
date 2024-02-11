@@ -48,8 +48,8 @@ const ThreeDFilamenty = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
         document.title = "Cypo | 3D | Filamenty"
-        if (params.get("sort") === "cena") {
-            setZoraditPodla("cena")
+        if (params.get("sort") != null) {
+            setZoraditPodla(params.get("sort"))
         }
     }, []);
 
@@ -67,10 +67,10 @@ const ThreeDFilamenty = () => {
                     }}>
                         <option value="default">Predvolené</option>
                         <optgroup>
-                            <option value="abecednevyrobca">Abecedne - výrobca</option>
-                            <option value="abecednefarba">Abecedne - farba</option>
+                            <option value="abecednevyrobca" selected={params.get("sort") === "abecednevyrobca"}>Abecedne - výrobca</option>
+                            <option value="abecednefarba" selected={params.get("sort") === "abecednefarba"}>Abecedne - farba</option>
                             <option value="cena" selected={params.get("sort") === "cena"}>Cena</option>
-                            <option value="hmotnost">Hmotnosť</option>
+                            <option value="hmotnost" selected={params.get("sort") === "hmotnost"}>Hmotnosť</option>
                         </optgroup>
                     </select>
                     <button onClick={() => {
@@ -98,7 +98,7 @@ const ThreeDFilamenty = () => {
                                                 <p>{e.farba.nazov}</p>
                                             </div>
                                             <div>
-                                                <p style={{fontSize: "1.125em"}}>{e.cena.toFixed(2)}€</p>
+                                                <p style={{fontSize: "1.25em"}}>{e.cena.toFixed(2)}€</p>
                                                 <p className="nevyrazne">za 1 kg</p>
                                             </div>
                                         </div>
