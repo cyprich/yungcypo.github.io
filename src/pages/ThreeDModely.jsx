@@ -4,8 +4,9 @@ import "../css/styles.css"
 import "../css/threed.css"
 
 import threed from "../constants/threed";
+
 import SpatNa from "../components/SpatNa";
-import {ReactComponent as CalculatorIcon} from "../images/icons/calculator.svg";
+import ImageLoader from "../components/ImageLoader";
 
 const ThreeDModely = () => {
     const navigate = useNavigate()
@@ -39,9 +40,21 @@ const ThreeDModely = () => {
                             return (
                                 <div className="threedmodel" key={key}>
                                     <Link to={e.linky.printables} target={"_blank"}>
+                                        {
+                                            /*
+
                                         <img
                                             src={e.obrazok}
                                             alt=""
+                                            style={{
+                                                width: "100%",
+                                                borderRadius: "16px 16px 0 0"
+                                            }}
+                                        />
+                                             */
+                                        }
+                                        <ImageLoader
+                                            src={e.obrazok}
                                             style={{
                                                 width: "100%",
                                                 borderRadius: "16px 16px 0 0"
