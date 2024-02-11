@@ -84,16 +84,15 @@ const ThreeDKalkulacka = () => {
                                     <optgroup>
                                         {
                                             threed.filamenty.map((e, key) => {
-                                                if ((e.hmotnost.soSpoolom - e.hmotnost.spool) > hmotnost) {
-                                                    return (
-                                                        <option
-                                                            value={e.cena}
-                                                            key={key}
-                                                        >
-                                                            {e.farba.nazov + " - " + e.cena.toFixed(2) + "€ / kg"}
-                                                        </option>
-                                                    )
-                                                }
+                                                return (
+                                                    <option
+                                                        value={e.cena}
+                                                        key={key}
+                                                        disabled={((e.hmotnost.soSpoolom - e.hmotnost.spool) < hmotnost)}
+                                                    >
+                                                        {e.farba.nazov + " - " + e.cena.toFixed(2) + "€ / kg"}
+                                                    </option>
+                                                )
                                             })
                                         }
                                     </optgroup>
