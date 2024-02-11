@@ -6,6 +6,8 @@ import Footer from "./components/Footer"
 import PageNotFound from "./pages/PageNotFound";
 import Updates from "./pages/Updates"
 import Kontakt from "./components/Kontakt";
+import Disclaimer from "./pages/Disclaimer";
+import Popup from "./pages/Popup";
 
 import Stavitelstvo from "./pages/Stavitelstvo";
 import Schodisko from "./pages/Schodisko";
@@ -29,10 +31,13 @@ const App = () => {
         <>
             <Router>
                 <Header/>
+                <Popup/>
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/updates"} element={<Updates/>}></Route>
                     <Route path={"/kontakt"} element={<Kontakt className={"projekt"}/>}></Route>
+                    <Route path={"/disclaimer"} element={<Disclaimer/>}></Route>
+                    <Route path={"/vyhlasenieovylucenizodpovednosti"} element={<Disclaimer/>}></Route>
 
                     <Route path={"/stavitelstvo"} element={<Stavitelstvo/>}></Route>
                     <Route path={"/schodisko"} element={<Schodisko/>}/>
@@ -50,6 +55,7 @@ const App = () => {
                     <Route path={"/3D/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
                     <Route path={"/piskvorky"} element={<Piskvorky/>}/>
                     <Route path={"/kvadratickerovnice"} element={<KvadratickeRovnice/>}/>
+
                     <Route path={"*"} element={<PageNotFound/>}/>
                 </Routes>
                 <Footer/>
