@@ -88,3 +88,22 @@
 .zatazenie .afterfooter {
     padding-top: 0.5em;
 }
+
+
+.zatazeniedelete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: none;
+    height: 100%;
+}
+.zatazeniedelete:hover {
+    background-color: rgba(0,0,0, 0.125);
+}
+.zatazeniedelete svg {
+    fill: white;
+    transition: none;
+}
+.zatazeniedelete:hover svg {
+    fill: var(--colorWarning);
+}

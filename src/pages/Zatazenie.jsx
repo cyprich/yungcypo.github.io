@@ -6,6 +6,8 @@ import "../css/zatazenie.css"
 import zatazenie from "../constants/zatazenie";
 import SpatNa from "../components/SpatNa";
 
+import {ReactComponent as Delete} from "../images/icons/delete.svg";
+
 const Zatazenie = () => {
     var Latex = require("react-latex");
 
@@ -38,6 +40,8 @@ const Zatazenie = () => {
     const [ce, setCe] = useState(1);
     const [ct, setCt] = useState(1);
     const [so, setSo] = useState(null);
+
+    const [forceUpdate, setForceUpdate] = useState(false);
 
     const pridajRiadok = () => {
         let novyVysledok
@@ -73,6 +77,16 @@ const Zatazenie = () => {
         setHrubkaInputHodnota("")
         setObjemovaTiazInputHodnota("")
     }
+
+    const odstranRiadok = (id) => {
+        let riadky = vysledky
+        riadky.splice(id, 1)  // remove 1 element after id
+        setVysledky(riadky)
+        setForceUpdate(!forceUpdate)
+        materialref.current.focus()
+    }
+
+
 
     // vsetky vypocty
     useEffect(() => {
@@ -144,7 +158,7 @@ const Zatazenie = () => {
         if (gd && gd) {
             setFcd(Math.round((gd + qd) * 1000) / 1000)
         }
-    }, [vysledky, selectValue, gk, so, qk, sk, fck, gd, qd, fcd]);
+    }, [vysledky, selectValue, gk, so, qk, sk, fck, gd, qd, fcd, forceUpdate]);
 
     // focus input
     const materialref = useRef(null);
@@ -241,6 +255,7 @@ const Zatazenie = () => {
                                     <td colSpan={2}>{e.charakteristickaHodnotaZatazenia}</td>
                                     <td>{e.sucinitelZatazenia}</td>
                                     <td colSpan={3}>{e.navrhovaHodnotaZatazenia}</td>
+                                    <td className={"zatazeniedelete"} onClick={() => {odstranRiadok(key)}}><Delete/></td>
                                 </tr>
                             )
                         })}
