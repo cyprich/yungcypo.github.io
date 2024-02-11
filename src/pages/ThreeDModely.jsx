@@ -5,6 +5,7 @@ import "../css/threed.css"
 
 import threed from "../constants/threed";
 import SpatNa from "../components/SpatNa";
+import {ReactComponent as CalculatorIcon} from "../images/icons/calculator.svg";
 
 const ThreeDModely = () => {
     const navigate = useNavigate()
@@ -36,15 +37,30 @@ const ThreeDModely = () => {
                     {
                         threed.modely.map((e, key) => {
                             return (
-                                <Link to={e.linky.printables} target={"_blank"} className="threedmodel" key={key}>
-                                    <img src={e.obrazok} alt="" style={{
-                                        width: "100%",
-                                        borderRadius: "16px 16px 0 0"
-                                    }}
-                                    />
+                                <div className="threedmodel" key={key}>
+                                    <Link to={e.linky.printables} target={"_blank"}>
+                                        <img
+                                            src={e.obrazok}
+                                            alt=""
+                                            style={{
+                                                width: "100%",
+                                                borderRadius: "16px 16px 0 0"
+                                            }}
+                                        />
+                                    </Link>
                                     <div className="threedmodelpismenka">
                                         <h5>{e.nazov}</h5>
                                         <div>
+                                            <img
+                                                src={require("../images/icons/calculator.png")}
+                                                alt=""
+                                                style={{
+                                                    filter: "invert(1)"
+                                                }}
+                                                onClick={() => {
+                                                    navigate("/3D/kalkulacka?model=" + e.id)
+                                                }}
+                                            />
 
                                             {
                                                 e.linky.printables
@@ -90,7 +106,7 @@ const ThreeDModely = () => {
                                             }
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
                             )
                         })
                     }
@@ -106,7 +122,8 @@ const ThreeDModely = () => {
             </div>
             <SpatNa text={"3D tlač"} link={"/3D"}/>
         </>
-    );
+    )
+        ;
 };
 
 export default ThreeDModely;

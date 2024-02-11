@@ -320,69 +320,129 @@ const threed = {
     },
     modely: [
         {
+            id: 0,
             nazov: "Bring Me The Horizon kľúčenka",
             obrazok: require("../images/render/bmth-keychain.png"),
             linky: {
                 printables: "https://www.printables.com/model/712060",
                 makerworld: "https://makerworld.com/en/models/142980",
-            }
+            },
+            hmotnost: 3.6,
+            cas: {
+                hodiny: 0,
+                minuty: 26,
+            },
+            klucenka: true,
         },
         {
+            id: 1,
             nazov: "Sleep Token kľúčenka",
             obrazok: require("../images/render/sleeptoken-side.png"),
             linky: {
                 printables: "https://www.printables.com/model/717559",
-            }
+            },
+            hmotnost: 4.6,
+            cas: {
+                hodiny: 0,
+                minuty: 26,
+            },
+            klucenka: true,
         },
         {
+            id: 2,
             nazov: "Trapstar kľúčenka",
             obrazok: require("../images/render/trapstar-keychain-horizontal-hollow.png"),
             linky: {
                 printables: "https://www.printables.com/model/717923",
-            }
+            },
+            hmotnost: 2.6,
+            cas: {
+                hodiny: 0,
+                minuty: 24,
+            },
+            klucenka: true,
         },
         {
+            id: 3,
             nazov: "That's The Spirit kľúčenka",
             obrazok: require("../images/render/thatsthespirit-keychain-horizontal.png"),
             linky: {
                 printables: "https://www.printables.com/model/720131",
-            }
+            },
+            hmotnost: 4,
+            cas: {
+                hodiny: 0,
+                minuty: 20,
+            },
+            klucenka: true,
         },
         {
+            id: 4,
             nazov: "Cradle of Filth kľúčenka",
             obrazok: require("../images/render/cradleoffilth-v2-2.png"),
             linky: {
                 printables: "https://www.printables.com/model/723584",
                 makerworld: "https://makerworld.com/en/models/143038"
-            }
+            },
+            hmotnost: 2.4,
+            cas: {
+                hodiny: 0,
+                minuty: 19,
+            },
+            klucenka: true,
         },
         {
+            id: 5,
             nazov: "Cradle of Filth kľúčenka - strong version",
             obrazok: require("../images/render/cradleoffilth-v2-1.png"),
             linky: {
                 printables: "https://www.printables.com/model/748967",
-            }
+            },
+            hmotnost: 6.3,
+            cas: {
+                hodiny: 0,
+                minuty: 38,
+            },
+            klucenka: true,
         },
         {
+            id: 6,
             nazov: "Bambu Lab A1 mini Poop Bucket",
             obrazok: require("../images/render/poopbucket.png"),
             linky: {
                 printables: "https://www.printables.com/model/702462",
-            }
+            },
+            hmotnost: 160,
+            cas: {
+                hodiny: 4,
+                minuty: 40,
+            },
         },
         {
+            id: 7,
             nazov: "Nožička na Yenkee podložku",
             obrazok: require("../images/render/nozicka.png"),
             linky: {
                 printables: "https://www.printables.com/model/737593",
-            }
+            },
+            hmotnost: 11,
+            cas: {
+                hodiny: 0,
+                minuty: 57,
+            },
         },
         {
+            id: 8,
             nazov: "Tlačidlo do termostatu",
             obrazok: require("../images/render/tlacidlo.png"),
             linky: {
                 printables: "https://www.printables.com/model/651508",
-            }
+            },
+            hmotnost: 1,
+            cas: {
+                hodiny: 0,
+                minuty: 18,
+            },
         },
     ]
 }

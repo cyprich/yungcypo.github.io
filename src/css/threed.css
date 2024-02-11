@@ -49,6 +49,11 @@
     flex-direction: column;
     gap: 1.5em;
 }
+.threedkalkobsah {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+}
 
 .threedkalk select {
     margin: 0;
@@ -61,6 +66,13 @@
     height: 2.5em;
 }
 
+.threedkalknadpisy p span {
+    color: white;
+    cursor: pointer;
+}
+.threedkalknadpisy p span:hover {
+    color: var(--color7);
+}
 .threedkalkinputy {
     display: flex;
     flex-direction: column;
@@ -89,6 +101,34 @@
     align-items: center;
     gap: 0.5em;
 }
+.threedkalkmodel {
+    width: 100%;
+    margin-top: -4em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1em;
+}
+.threedkalkmodel img {
+    width: 100%;
+}
+
+
+.threedkalkmodel > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    padding: 0.75em;
+}
+.threedkalkmodel > div:last-child img {
+    height: 2em;
+    width: 2em;
+}
+.threedkalkmodel > div:last-child img:hover {
+    transform: scale(110%);
+}
+
 
 .threedmodely {
     background-color: var(--color2);
@@ -111,10 +151,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.threedmodel:hover h5 {
-    color: var(--color7);
 }
 
 .threedmodelpismenka {
