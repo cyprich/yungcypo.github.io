@@ -30,7 +30,21 @@
     background-size: cover;
     filter: invert(1);
     cursor: pointer;
+    animation: sipka 2s linear infinite
 }
+
+@keyframes sipka {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    60% {
+        transform: translate(-50%, -1em);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
 
 .homeComponent {
     min-height: calc(100vh - 4em);
