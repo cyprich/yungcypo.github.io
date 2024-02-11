@@ -9,6 +9,7 @@ import Progressbar from "../components/Progressbar";
 
 import {ReactComponent as ArrowUp} from "../images/icons/arrowup.svg";
 import {ReactComponent as ArrowDown} from "../images/icons/arrowdown.svg";
+import ImageLoader from "../components/ImageLoader";
 
 const ThreeDFilamenty = () => {
     const location = useLocation()
@@ -105,7 +106,7 @@ const ThreeDFilamenty = () => {
                                     key={key}
 
                                 >
-                                    <img src={e.obrazky.preview} alt=""/>
+                                    <ImageLoader src={e.obrazky.preview} alt=""/>
                                     <div>
                                         <div>
                                             <div>

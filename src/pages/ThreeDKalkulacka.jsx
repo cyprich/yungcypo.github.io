@@ -5,6 +5,7 @@ import "../css/threed.css"
 
 import threed from "../constants/threed";
 import SpatNa from "../components/SpatNa";
+import ImageLoader from "../components/ImageLoader";
 
 const ThreeDKalkulacka = () => {
     const navigate = useNavigate()
@@ -269,7 +270,7 @@ const ThreeDKalkulacka = () => {
                     {
                         model && <div className={"threedkalkmodel"}>
                             <h4>{model.nazov}</h4>
-                            <img src={model.obrazok} alt=""/>
+                            <ImageLoader src={model.obrazok} alt=""/>
                             <div>
                                 Stiahnuť na:
                                 {

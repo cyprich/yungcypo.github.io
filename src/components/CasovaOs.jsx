@@ -4,6 +4,7 @@ import "../css/styles.css"
 import "../css/casovaOs.css"
 
 import {ReactComponent as Close} from "../images/icons/close.svg";
+import ImageLoader from "./ImageLoader";
 
 const CasovaOs = ({file}) => {
     const [popupActive, setPopupActive] = useState(false);
@@ -99,7 +100,7 @@ const CasovaOs = ({file}) => {
                                                             setPopupImage(g.zdroj)
                                                             setPopupPopis(g.popis)
                                                         }}>
-                                                            <img src={g.zdroj} alt="" key={key}/>
+                                                            <ImageLoader src={g.zdroj} alt="" key={key}/>
                                                             <p>{g.popis}</p>
                                                         </div>
                                                     )
