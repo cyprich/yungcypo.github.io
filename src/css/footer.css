@@ -53,3 +53,7 @@
 .footertechnologie svg {
     height: 1.25em;
 }
+
+.footertechnologie svg:hover {
+    transform: scale(110%);
+}
