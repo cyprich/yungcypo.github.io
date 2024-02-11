@@ -98,7 +98,11 @@ const ThreeDKalkulacka = () => {
                                     </optgroup>
                                 </select>
                                 <button onClick={() => {
-                                    navigate("/3D/filamenty?sort=cena&from=kalkulacka")
+                                    if (hmotnost != null) {
+                                        navigate("/3D/filamenty?sort=hmotnost&from=kalkulacka&hmotnost=" + hmotnost)
+                                    } else {
+                                        navigate("/3D/filamenty?sort=cena&from=kalkulacka")
+                                    }
                                 }}>Filamenty
                                 </button>
                             </div>

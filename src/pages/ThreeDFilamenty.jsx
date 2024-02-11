@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import "../css/styles.css"
 import "../css/threed.css"
 
@@ -13,6 +13,7 @@ import {ReactComponent as ArrowDown} from "../images/icons/arrowdown.svg";
 const ThreeDFilamenty = () => {
     const location = useLocation()
     const params = new URLSearchParams(location.search);
+    const navigate = useNavigate()
 
     const [otocitPoradie, setOtocitPoradie] = useState(false);
     const [zoraditPodla, setZoraditPodla] = useState("default");
@@ -42,6 +43,12 @@ const ThreeDFilamenty = () => {
                 return vysledok
             }
         })
+    }
+
+    const resetovatHmotnost = () => {
+        const sort = zoraditPodla
+        const from = params.get("from")
+        navigate(location.pathname + "?sort=" + sort + "&from=" + from)
     }
 
     /* scroll to top */
@@ -88,7 +95,16 @@ const ThreeDFilamenty = () => {
                     {
                         sortData().map((e, key) => {
                             return (
-                                <div className="threedfilament" key={key}>
+                                <div
+                                    //className="threedfilament"
+                                    className={
+                                        params.get("hmotnost") > (e.hmotnost.soSpoolom - e.hmotnost.spool)
+                                            ? "threedfilament disabledfilament"
+                                            : "threedfilament"
+                                    }
+                                    key={key}
+
+                                >
                                     <img src={e.obrazky.preview} alt=""/>
                                     <div>
                                         <div>
@@ -114,6 +130,11 @@ const ThreeDFilamenty = () => {
                         })
                     }
                 </div>
+                {
+                    params.get("from")=="kalkulacka" && params.get("hmotnost") > 0
+                        ? <button onClick={() => {resetovatHmotnost()}} style={{marginTop: "1em"}}>Resetovať hmotnosť modelu</button>
+                        : null
+                }
                 <p style={{marginTop: "1em"}} className={"nevyrazne"}>
                     Hmotnosti
                     aktualizované: {threed.hmotnostiAktualizovane.den}. {threed.hmotnostiAktualizovane.mesiac}. {threed.hmotnostiAktualizovane.rok}
