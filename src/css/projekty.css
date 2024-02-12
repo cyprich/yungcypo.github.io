@@ -20,6 +20,7 @@
     height: calc(100vh - 4em - 4em);
 }
 
+
 .carousel-item {
     width: 100vw;
     flex-shrink: 0;
@@ -42,8 +43,7 @@
 .carousel-image {
     justify-self: right;
     height: calc(100vh - 4em - 4em - 2em - 2em);
-    padding: 2em;
-    padding-right: 4em;
+    padding: 2em 4em 2em 2em;
 }
 .carousel-image img {
     height: 100%;
@@ -78,4 +78,55 @@
 .carousel-item:nth-child(4) img {
     position: relative;
     left: 4em;
+}
+
+@media only screen and (max-width: 900px) {
+    .carousel * {
+        overflow: hidden;
+    }
+    .carousel-item.phone {
+        display: block;
+    }
+    .carousel-item.nophone {
+        display: none !important;
+    }
+
+    .carousel h2 {
+        margin-bottom: 0 !important;
+    }
+
+    .carousel-item {
+        padding: 1em;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100vh - 8em);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        /*
+        background-color: rgba(240, 192, 17, 0.5);
+        */
+
+        background-blend-mode: color-dodge;
+    }
+
+    /* posunutie penazi na povodne miesto*/
+    .carousel-item:nth-child(4) img {
+        left: 0;
+    }
+
+    .carousel-description {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .carousel-navigation button {
+        padding: 0;
+    }
+    .carousel-bodky {
+        gap: 0.5em;
+    }
+
 }

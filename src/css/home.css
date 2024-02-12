@@ -1,6 +1,6 @@
 .landing {
     position: relative;
-    height: calc(100vh - 4em);
+    height: calc(100dvh - 4em);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +54,6 @@
 }
 
 .homeComponent h2 {
-    left: 50%;
     text-align: center;
 }
 
@@ -109,4 +108,34 @@
 
 .omneIcon {
     height: 4em;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .homeComponent hr {
+        margin: 0 !important;
+    }
+    .homeComponent h2:first-child {
+        margin-bottom: 0.5em;
+    }
+    .omneContainer {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .omneContent {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .omneContent h5 {
+        font-size: 1.0625em;
+        margin-top: 0.5em;
+    }
+
+    /* TODO vypnuta animacia */
+    .animacia {
+        display: none;
+    }
+
 }

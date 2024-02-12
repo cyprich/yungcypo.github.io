@@ -33,20 +33,9 @@ const Home = () => {
 
     /* scroll to top */
     useEffect(() => {
-        if (params.get("scroll") === "omne" && projektyref.current) {
-            omneref.current.scrollIntoView()
-        } else if (params.get("scroll") === "projekty" && projektyref.current) {
-            projektyref.current.scrollIntoView()
-        } else if (params.get("scroll") === "vzdelanie" && projektyref.current) {
-            vzdelanieref.current.scrollIntoView()
-        } else if (params.get("scroll") === "kontakt" && kontaktref.current) {
-            kontaktref.current.scrollIntoView()
-        } else {
-            window.scrollTo(0, 0)
-        }
-
+        window.scrollTo(0, 0)
         document.title = "Cypo | Domov"
-    }, [location]);
+    }, []);
 
     return (
         <main>
@@ -61,7 +50,7 @@ const Home = () => {
                 <h1>Cyprich</h1>
                 <p>{mudrosti[nahodnaMudrost]}</p>
                 <div className="sipka" onClick={() => {
-                    navigate("/?scroll=omne")
+                    omneref.current.scrollIntoView()
                 }}></div>
             </div>
             <div id="omne" className={"homeComponent"} ref={omneref}>
@@ -87,27 +76,21 @@ const Home = () => {
                                 Slovensko
                             </h3>
                         </div>
+                        {/*
                         <div className={"omneContent"}>
-                            <SchoolIcon class={"omneIcon"} onClick={() => {
-                                navigate("/?scroll=vzdelanie")
-                            }}/>
-                            <h3 onClick={() => {
-                                navigate("/?scroll=vzdelanie")
-                            }}>
+                            <SchoolDoneIcon class={"omneIcon"}/>
+                            <h3>
+                                <span>SOŠ T. Vansovej</span>, Prievidza
+                                <p>Technické a Informatické služby v stavebníctve</p>
+                            </h3>
+                        </div>
+                        */}
+                        <div className={"omneContent"}>
+                            <SchoolIcon class={"omneIcon"}/>
+                            <h3>
                                 <span style={{paddingLeft: '0'}}>Fakulta riadenia a informatiky,</span>
                                 UNIZA
                                 <p>Informačné a sieťové technológie</p>
-                            </h3>
-                        </div>
-                        <div className={"omneContent"}>
-                            <SchoolDoneIcon class={"omneIcon"} onClick={() => {
-                                navigate("/?scroll=vzdelanie")
-                            }}/>
-                            <h3 onClick={() => {
-                                navigate("/?scroll=vzdelanie")
-                            }}>
-                                <span>SOŠ T. Vansovej</span>, Prievidza
-                                <p>Technické a Informatické služby v stavebníctve</p>
                             </h3>
                         </div>
                     </div>
@@ -122,15 +105,15 @@ const Home = () => {
                     }
                 </div>
                 <hr style={{margin: '0 1em'}}/>
-                <div ref={vzdelanieref}>
+                <div>
                     <h3 className={"casovaOsNadpis"}>Moje vzdelanie</h3>
                     <CasovaOs file={vzdelanie}/>
                 </div>
             </div>
-            <div id="projekty" className={"homeComponent"} ref={projektyref}>
+            <div id="projekty" className={"homeComponent"}>
                 <Carousel/>
             </div>
-            <div id="kontakt" className={"kontaktHome"} ref={kontaktref}>
+            <div id="kontakt" className={"kontaktHome"}>
                 <Kontakt style={{textAlign: "center", marginTop: "0"}}/>
             </div>
         </main>

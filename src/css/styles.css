@@ -161,7 +161,20 @@ table {
     padding: 2em;
 }
 
+.phone {
+    display: none;
+}
+
+
+
 @media only screen and (max-width: 900px) {
+    .phone {
+        display: block;
+    }
+    .nophone {
+        display: none !important;
+    }
+
     .zobrazenieNaMobile {
         display: flex;
         flex-direction: column;

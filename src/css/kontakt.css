@@ -53,3 +53,22 @@
 .kontakt .pismenka p:first-child {
     font-size: 1.5em;
 }
+
+@media only screen and (max-width: 900px) {
+    .kontakt .linky {
+        padding: 1em 0 0 0 !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 1em;
+    }
+
+    .kontakt .linky a {
+        width: 100%;
+    }
+
+    .kontakt .pismenka p:first-child {
+        font-size: 1.25em !important;
+    }
+}

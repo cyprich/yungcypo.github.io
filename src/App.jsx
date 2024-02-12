@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer"
+import FooterPhone from "./components/FooterPhone";
 import PageNotFound from "./pages/PageNotFound";
 import Updates from "./pages/Updates"
 import Kontakt from "./components/Kontakt";
@@ -70,6 +71,7 @@ const App = () => {
                     <Route path={"*"} element={<PageNotFound/>}/>
                 </Routes>
                 <Footer/>
+                <FooterPhone/>
             </Router>
         </>
     );

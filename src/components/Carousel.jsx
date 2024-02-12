@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 
 import "../css/styles.css"
@@ -9,6 +9,7 @@ import {ReactComponent as ArrowForward} from "../images/icons/arrowforward.svg";
 import {ReactComponent as ArrowBack} from "../images/icons/arrowback.svg";
 import {ReactComponent as RadioChecked} from "../images/icons/radiochecked.svg";
 import {ReactComponent as RadioUnchecked} from "../images/icons/radiounchecked.svg";
+import background from "../images/background.webp";
 
 const Carousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -21,28 +22,54 @@ const Carousel = () => {
         setActiveIndex(newIndex);
     }
 
+    useEffect(() => {
+    }, [activeIndex]);
+
+
     return (
         <div className={"carousel"}>
             <div className="carousel-items">
                 {projekty.map((projekt, key) => {
                     return (
-                        <div className={"carousel-item"} style={{transform: `translate(-${activeIndex * 100}vw)`}}
-                             key={key}>
-                            <div className={"carousel-description"}>
+                        <>
+                            {/* zobrazenie na pc */}
+                            <div className={"carousel-item nophone"}
+                                 style={{transform: `translate(-${activeIndex * 100}vw)`}}
+                                 key={key}>
+                                <div className={"carousel-description"}>
+                                    <div>
+                                        <h2 style={{color: "var(--color1)"}}>{projekt.title}</h2>
+                                        <p>{projekt.description}</p>
+                                    </div>
+                                    <Link to={projekt.link}>
+                                        <button style={{color: "var(--color1)", borderColor: "var(--color1)"}}>
+                                            <p>Zistiť viac</p>
+                                        </button>
+                                    </Link>
+                                </div>
+                                <div className="carousel-image">
+                                    <img src={(projekt.background)} alt=""/>
+                                </div>
+                            </div>
+                            {/* zobrazenie na mobile */}
+                            <div className={"carousel-item phone"}
+                                 style={{
+                                     transform: `translate(-${activeIndex * 100}vw)`,
+                                     //backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 0.1)), url(${projekt.background})`,
+                                 }}
+                                 key={key + 10}>
                                 <div>
                                     <h2 style={{color: "var(--color1)"}}>{projekt.title}</h2>
                                     <p>{projekt.description}</p>
                                 </div>
+
                                 <Link to={projekt.link}>
                                     <button style={{color: "var(--color1)", borderColor: "var(--color1)"}}>
                                         <p>Zistiť viac</p>
                                     </button>
                                 </Link>
                             </div>
-                            <div className="carousel-image">
-                                <img src={(projekt.background)} alt=""/>
-                            </div>
-                        </div>
+                        </>
                     )
                 })}
             </div>
@@ -55,7 +82,6 @@ const Carousel = () => {
                 <div className="carousel-bodky">
                     {projekty.map((projekt, index) => {
                         return (
-
                             <button onClick={() => {
                                 updateIndex(index)
                             }} key={index}>
