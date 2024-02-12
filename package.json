@@ -1,4 +1,5 @@
 {
+  "homepage": "https://yungcypo.github.io",
   "name": "website",
   "version": "3.0.0-alpha",
   "private": true,
@@ -6,6 +7,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-latex": "^2.0.0",
@@ -14,6 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b react -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
