@@ -1,58 +1,64 @@
-.footerphone {
-    background-color: var(--color1);
-    padding: 1.5em;
-}
+@media only screen and (max-width: 900px) {
+    .phone {
+        display: inherit !important;
+    }
 
-.footerphonepismenka {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-    padding-bottom: 2em;
-}
+    .footerphone {
+        background-color: var(--color1);
+        padding: 1.5em;
+    }
 
-.footerphonepismenka > * {
-    align-self: center;
-}
+    .footerphonepismenka {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        padding-bottom: 2em;
+    }
 
-.footerphonepismenka > *:nth-child(even) {
-    justify-self: end;
-}
+    .footerphonepismenka > * {
+        align-self: center;
+    }
 
-.footerphonevyhlasenieupdates {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-}
+    .footerphonepismenka > *:nth-child(even) {
+        justify-self: end;
+    }
 
-.footerphonetechnologie {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 0.25em;
-}
+    .footerphonevyhlasenieupdates {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
 
-.footerphonetechnologie > div {
-    display: flex;
-    gap: 0.75em;
-}
+    .footerphonetechnologie {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 0.25em;
+    }
 
-
-.footerphonetechnologie svg {
-    height: 1.25em;
-}
-
-.footerphonetechnologie svg:hover {
-    transform: scale(110%);
-}
+    .footerphonetechnologie > div {
+        display: flex;
+        gap: 0.75em;
+    }
 
 
-.footerphoneobrazky {
-    display: flex;
-    justify-content: space-between;
-    align-self: flex-end;
-}
+    .footerphonetechnologie svg {
+        height: 1.25em;
+    }
 
-.footerphoneobrazky img {
-    height: 1.25em;
+    .footerphonetechnologie svg:hover {
+        transform: scale(110%);
+    }
+
+
+    .footerphoneobrazky {
+        display: flex;
+        justify-content: space-between;
+        align-self: flex-end;
+    }
+
+    .footerphoneobrazky img {
+        height: 1.25em;
+    }
 }

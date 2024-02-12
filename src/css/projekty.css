@@ -84,15 +84,13 @@
     .carousel * {
         overflow: hidden;
     }
-    .carousel-item.phone {
-        display: block;
-    }
-    .carousel-item.nophone {
-        display: none !important;
-    }
 
     .carousel h2 {
         margin-bottom: 0 !important;
+    }
+
+    .carousel-item.nophone {
+        display: none !important;
     }
 
     .carousel-item {

@@ -162,7 +162,10 @@ table {
 }
 
 .phone {
-    display: none;
+    display: none !important;
+}
+.nophone {
+    display: block;
 }
 
 
