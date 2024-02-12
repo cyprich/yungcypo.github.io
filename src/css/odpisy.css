@@ -72,9 +72,29 @@
 }
 
 
-
 /* zmeny farby ikonky kalendara */
 .odpisy input[type="month"]::-webkit-calendar-picker-indicator {
     filter: invert(100%);
 }
 
+
+@media only screen and (max-width: 900px) {
+    .odpisy {
+        padding: 1em;
+    }
+
+    .odpisyinputy {
+        padding: 0;
+    }
+    .odpisyinputy > div {
+        display: flex;
+        gap: 1em;
+    }
+    .odpisyinputy button,
+    .odpisyinputy input,
+    .odpisyinputy input[type=month]{
+        width: 100%;
+        padding: 1em 0.5em !important;
+    }
+
+}

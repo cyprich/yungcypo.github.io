@@ -63,6 +63,7 @@
 
 .threedkalk .smallbutton {
     padding: 0.5em;
+    margin-left: 1em;
     width: 2.5em;
     height: 2.5em;
 }
@@ -159,6 +160,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1em;
 }
 
 .threedmodelpismenka > div {
@@ -255,6 +257,10 @@
     margin-bottom: 1em;
     margin-left: 0.5em;
 }
+.threedfilamentyinput > div {
+    display: flex;
+    gap: 1em;
+}
 
 .threedfilamentyinput select {
     margin: 0;
@@ -289,4 +295,59 @@
     min-height: 100vh;
     margin-top: 4em;
     padding: 2em 2em 0 2em;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .threedhistoria > div {
+        padding: 0 1.5em !important;
+    }
+
+
+    .threedkalk {
+        padding: 1em;
+    }
+    .threedkalkobsah {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+    .threedkalkinputy > div {
+        width: calc(100vw - 2em);
+        padding: 1em;
+    }
+    .threedkalkinput > div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .threedkalk .smallbutton {
+        margin-left: 0.5em;
+    }
+    .threedkalkinputy > div:has(h3 span) {
+        text-align: center;
+    }
+    .threedkalkmodel {
+        margin-top: 0;
+    }
+
+
+    .threedmodelymodely {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .threedfilamentyinput {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+    }
+
+    .threedfilamentyfilamenty {
+        display: flex;
+        flex-direction: column;
+    }
+
+
 }

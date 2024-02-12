@@ -120,14 +120,14 @@ const KvadratickeRovnice = () => {
                                     <h4>D = {d}</h4>
                                 </div>
                                 <div>
-                                    <h4>x<sub>1</sub> = {x1}</h4>
+                                    <h4>x<sub>1</sub> = {x1?.toFixed(3)}</h4>
                                 </div>
                                 <div>
-                                    <h4>x<sub>2</sub> = {x2}</h4>
+                                    <h4>x<sub>2</sub> = {x2?.toFixed(3)}</h4>
                                 </div>
                                 <div>
                                     <h4>Korene kvadratickej rovnice: </h4>
-                                    <Latex>{`$K = \\{` + x1 + `;\\space` + x2 + `\\}$`}</Latex>
+                                    <Latex>{`$K = \\{` + x1?.toFixed(3) + `;\\space` + x2?.toFixed(3) + `\\}$`}</Latex>
                                 </div>
                             </div>
                             : null
@@ -143,11 +143,11 @@ const KvadratickeRovnice = () => {
                                     <h4>D = {d}</h4>
                                 </div>
                                 <div>
-                                    <h4>x = {x1}</h4>
+                                    <h4>x = {x1?.toFixed(3)}</h4>
                                 </div>
                                 <div>
                                     <h4>Koreň kvadratickej rovnice: </h4>
-                                    <Latex>{`$K = \\{` + x1 + `\\}$`}</Latex>
+                                    <Latex>{`$K = \\{` + x1?.toFixed(3) + `\\}$`}</Latex>
                                 </div>
                             </div>
                             : null

@@ -44,3 +44,27 @@
 .kvadratickerovnice #resetbutton {
     margin-top: 1em;
 }
+
+
+@media only screen and (max-width: 900px) {
+    .kvadratickerovnice {
+        padding: 1em;
+    }
+    .kvadratickerovnice-item {
+        margin: 1em 0.5em;
+    }
+
+    .kvadratickerovnice-item > div {
+        font-size: 1.25em;
+    }
+    .kvadratickerovnice-input > div > input {
+        width: 33%;
+    }
+
+    .kvadratickerovnice-vysledky {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        margin: 2em 1em 0 1em;
+    }
+}

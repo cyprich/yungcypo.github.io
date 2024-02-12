@@ -306,7 +306,7 @@ const Odpisy = () => {
                                                 {
                                                     (rozbalenaPomockaSkupiny !== e.cislo && e.coodpisujeme.length > 2)
                                                         ? <ul>
-                                                            <li style={{color: "var(--color9)"}}>Ďalšie
+                                                            <li style={{color: "var(--color9)"}} className={"underline"}>Ďalšie
                                                                 ({e.coodpisujeme.length - 2})
                                                             </li>
                                                         </ul>
@@ -320,7 +320,7 @@ const Odpisy = () => {
                             </tbody>
                             <tfoot>
                             <tr>
-                                <td colSpan={4}>
+                                <td colSpan={4} className={"underline"}>
                                     Zdroj:
                                     <Link
                                         to={"https://www.podnikajte.sk/odpisy/zaradovanie-majetku-do-odpisovych-skupin-2022-2023"}
@@ -332,7 +332,7 @@ const Odpisy = () => {
                             <tr onClick={() => {
                                 setPomockaSkupiny(null)
                             }}>
-                                <td colSpan={4}><a>Zbaliť</a></td>
+                                <td colSpan={4}><a className={"underline"}>Zbaliť</a></td>
                             </tr>
                             </tfoot>
                         </table>

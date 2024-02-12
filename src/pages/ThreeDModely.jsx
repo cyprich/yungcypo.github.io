@@ -40,19 +40,6 @@ const ThreeDModely = () => {
                             return (
                                 <div className="threedmodel" key={key}>
                                     <Link to={e.linky.printables} target={"_blank"}>
-                                        {
-                                            /*
-
-                                        <img
-                                            src={e.obrazok}
-                                            alt=""
-                                            style={{
-                                                width: "100%",
-                                                borderRadius: "16px 16px 0 0"
-                                            }}
-                                        />
-                                             */
-                                        }
                                         <ImageLoader
                                             src={e.obrazok}
                                             style={{

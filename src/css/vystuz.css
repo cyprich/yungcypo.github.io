@@ -8,16 +8,19 @@
     flex-direction: column;
     gap: 1em;
 }
+
 .vystuzinputy > div {
     display: flex;
     justify-content: space-between;
     gap: 1em;
 }
+
 .vystuzinputy > div input,
 .vystuzinputy > div select {
     width: 100%;
     height: 3em;
 }
+
 .vystuzinputy select {
     margin: 0;
 }
@@ -26,36 +29,57 @@
 .vystuzvysledky section {
     padding: 1em 0.5em;
 }
+
 .vystuzvysledky section > div {
     padding: 0.5em 1em;
 }
+
 .vystuzvysledky section > div div {
     padding: 0.25em 0.5em;
 }
+
 
 .vystuzvysledky p:has(span) {
     font-size: 1.25em;
     padding: 0.25em 0;
 }
 
+.vystuztabulecka {
+    margin-bottom: 1em;
+}
+
 .vystuztabulecka td {
     padding: 1em;
     border: 1px solid white;
 }
+
 .vystuztabulecka td.selectable {
     user-select: none;
     cursor: pointer;
     transition: 0.1s;
 }
+
 .vystuztabulecka td.selectable:hover {
-    background-color: rgba(0,0,0, 0.125);
+    background-color: rgba(0, 0, 0, 0.125);
 }
+
 .vystuztabulecka td.selectable:active {
-    background-color: rgba(0,0,0, 0.25);
+    background-color: rgba(0, 0, 0, 0.25);
     color: var(--color7);
 }
 
 .vystuztabulecka td.nevyrazne {
     cursor: not-allowed;
-    background-color: rgba(0,0,0, 0.125);
+    background-color: rgba(0, 0, 0, 0.125);
+}
+
+
+@media only screen and (max-width: 900px) {
+    .vystuz {
+        padding: 1em;
+    }
+
+    .vystuzvysledky p {
+        margin: 1em 0;
+    }
 }

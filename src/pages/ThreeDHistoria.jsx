@@ -16,7 +16,6 @@ const ThreeDHistoria = () => {
                 <h2 className={"casovaOsNadpis"}>Ako som sa dostal ku 3D tlači</h2>
                 <div>
                     <CasovaOs file={threed.historia}/>
-                    <div style={{height: "4em"}}></div>
                 </div>
             </div>
             <SpatNa text={"3D tlač"} link={"/3D"}/>

@@ -70,27 +70,33 @@ const ThreeDFilamenty = () => {
                 </div>
                 <div className="threedfilamentyinput">
                     <p>Zoradiť:</p>
-                    <select name="threedfilamentysort" onChange={(e) => {
-                        handleSort(e)
-                    }}>
-                        <option value="default">Predvolené</option>
-                        <optgroup>
-                            <option value="abecednevyrobca" selected={params.get("sort") === "abecednevyrobca"}>Abecedne - výrobca</option>
-                            <option value="abecednefarba" selected={params.get("sort") === "abecednefarba"}>Abecedne - farba</option>
-                            <option value="cena" selected={params.get("sort") === "cena"}>Cena</option>
-                            <option value="hmotnost" selected={params.get("sort") === "hmotnost"}>Hmotnosť</option>
-                        </optgroup>
-                    </select>
-                    <button onClick={() => {
-                        setOtocitPoradie(!otocitPoradie)
-                        sortData()
-                    }}>
-                        {
-                            otocitPoradie
-                                ? <ArrowDown/>
-                                : <ArrowUp/>
-                        }
-                    </button>
+                    <div>
+                        <select name="threedfilamentysort" onChange={(e) => {
+                            handleSort(e)
+                        }}>
+                            <option value="default">Predvolené</option>
+                            <optgroup>
+                                <option value="abecednevyrobca"
+                                        selected={params.get("sort") === "abecednevyrobca"}>Abecedne - výrobca
+                                </option>
+                                <option value="abecednefarba" selected={params.get("sort") === "abecednefarba"}>Abecedne
+                                    - farba
+                                </option>
+                                <option value="cena" selected={params.get("sort") === "cena"}>Cena</option>
+                                <option value="hmotnost" selected={params.get("sort") === "hmotnost"}>Hmotnosť</option>
+                            </optgroup>
+                        </select>
+                        <button onClick={() => {
+                            setOtocitPoradie(!otocitPoradie)
+                            sortData()
+                        }}>
+                            {
+                                otocitPoradie
+                                    ? <ArrowDown/>
+                                    : <ArrowUp/>
+                            }
+                        </button>
+                    </div>
                 </div>
                 <div className="threedfilamentyfilamenty">
                     {
@@ -132,8 +138,10 @@ const ThreeDFilamenty = () => {
                     }
                 </div>
                 {
-                    params.get("from")=="kalkulacka" && params.get("hmotnost") > 0
-                        ? <button onClick={() => {resetovatHmotnost()}} style={{marginTop: "1em"}}>Resetovať hmotnosť modelu</button>
+                    params.get("from") == "kalkulacka" && params.get("hmotnost") > 0
+                        ? <button onClick={() => {
+                            resetovatHmotnost()
+                        }} style={{marginTop: "1em"}}>Resetovať hmotnosť modelu</button>
                         : null
                 }
                 <p style={{marginTop: "1em"}} className={"nevyrazne"}>

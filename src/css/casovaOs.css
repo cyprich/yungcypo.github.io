@@ -112,9 +112,10 @@
 }
 
 
-@media screen and (max-width: 1150px) {
+@media only screen and (max-width: 900px) {
     .casovaOs {
-        width: 80vw;
+        width: 100%;
+        padding: 0 !important;
     }
     .casovaOs .casovaOsElement {
         width: 100%;
@@ -140,7 +141,10 @@
         top: 0;
         left: 50%;
         transform: translateX(calc(-50% + 1px)) translateY(calc(-50% + 1px));
+    }
 
+    .casovaOsElement:last-child {
+        padding-bottom: 0;
     }
 }
 

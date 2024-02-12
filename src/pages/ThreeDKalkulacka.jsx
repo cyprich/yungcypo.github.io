@@ -242,16 +242,18 @@ const ThreeDKalkulacka = () => {
                             <div className="threedkalkinput">
                                 <p>Cenová prirážka <span className="nevyrazne">[{typPrirazky ? "€" : "%"}]</span></p>
                                 <div>
-                                    <input
-                                        type="number"
-                                        placeholder={typPrirazky ? "€" : "%"}
-                                        onChange={(e) => {
-                                            setPrirazka(Number(e.target.value))
-                                        }}
-                                    />
-                                    <button className={"smallbutton"} onClick={(e) => {
-                                        setTypPrirazky(!typPrirazky)
-                                    }}>{typPrirazky ? "€" : "%"}</button>
+                                    <div>
+                                        <input
+                                            type="number"
+                                            placeholder={typPrirazky ? "€" : "%"}
+                                            onChange={(e) => {
+                                                setPrirazka(Number(e.target.value))
+                                            }}
+                                        />
+                                        <button className={"smallbutton"} onClick={(e) => {
+                                            setTypPrirazky(!typPrirazky)
+                                        }}>{typPrirazky ? "€" : "%"}</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
