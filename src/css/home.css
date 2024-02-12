@@ -101,11 +101,6 @@
     padding: 0 0.5ex;
 }
 
-.omneContent:nth-child(3) > *,
-.omneContent:nth-child(4) > * {
-    cursor: pointer;
-}
-
 .omneIcon {
     height: 4em;
 }

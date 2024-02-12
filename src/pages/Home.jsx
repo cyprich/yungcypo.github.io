@@ -22,14 +22,7 @@ const Home = () => {
     // zobrazit ✨toto✨ v O Mne sekcii
     const [zobrazitToto, setZobrazitToto] = useState(true);
 
-    const navigate = useNavigate()
-    const location = useLocation()
-    const params = new URLSearchParams(location.search)
-
     const omneref = useRef(null);
-    const vzdelanieref = useRef(null);
-    const projektyref = useRef(null);
-    const kontaktref = useRef(null);
 
     /* scroll to top */
     useEffect(() => {

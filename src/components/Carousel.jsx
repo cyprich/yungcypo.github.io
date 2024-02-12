@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Link} from "react-router-dom";
 
 import "../css/styles.css"
@@ -13,6 +13,9 @@ import background from "../images/background.webp";
 
 const Carousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+
+    const carouselref = useRef(null);
+
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
             newIndex = projekty.length - 1;
@@ -20,14 +23,11 @@ const Carousel = () => {
             newIndex = 0;
         }
         setActiveIndex(newIndex);
+        carouselref.current.scrollIntoView()
     }
 
-    useEffect(() => {
-    }, [activeIndex]);
-
-
     return (
-        <div className={"carousel"}>
+        <div className={"carousel"} ref={carouselref}>
             <div className="carousel-items">
                 {projekty.map((projekt, key) => {
                     return (
@@ -55,7 +55,6 @@ const Carousel = () => {
                             <div className={"carousel-item phone"}
                                  style={{
                                      transform: `translate(-${activeIndex * 100}vw)`,
-                                     //backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 0.1)), url(${projekt.background})`,
                                  }}
                                  key={key + 10}>
                                 <div>
