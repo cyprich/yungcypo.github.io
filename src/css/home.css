@@ -11,12 +11,14 @@
 .landing h1 {
     font-size: 5em;
     padding: 0;
+    user-select: none;
 }
 
 .landing p {
     font-size: 1.3em;
     color: var(--color7);
     padding: 1em 0.25em;
+    user-select: none;
 }
 
 .landing .sipka {

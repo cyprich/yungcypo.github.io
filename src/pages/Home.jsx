@@ -1,5 +1,4 @@
 import {useEffect, useRef, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
 import "../css/styles.css"
 import "../css/home.css"
 

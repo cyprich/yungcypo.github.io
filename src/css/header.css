@@ -9,189 +9,158 @@ header {
     position: fixed;
     top: 0;
     z-index: 10;
-}
-
-.headerprvyriadok,
-.headerprvyriadok *{
-    z-index: 9;
-}
-.headerdruhyriadok,
-.headerdruhyriadok *{
-    z-index: 8;
-}
-.headertretiriadok,
-.headertretiriadok *{
-    z-index: 7;
-}
-
-.headerprvyriadok {
-    height: 4em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 2em;
 }
 
-header .napisy {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1em;
+.headerwrapper {
     height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerwrapper > div:first-child {
+    height: 2em;
+    width: 2em;
+}
+.headerwrapper > div:first-child:hover {
+    transform: scale(110%);
 }
 
-header .napisy a,
-header .napisy div{
-    height: 100%;
+
+.headerwrapper > div > svg {
+    height: 2em;
+    width: 2em;
+    fill: var(--color6);
+}
+
+.headerpismenka {
+    display: flex;
+    cursor: pointer;
+}
+.headerpismenka > div {
+    position: relative;
+    padding: 0 1.5em;
+    width: 100%;
+    height: 4em;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1em;
-}
-header .napisy div {
-    cursor: default;
 }
 
-header .napisy a:hover p,
-header .napisy div:hover p{
+.headerpismenka > div {
+    z-index: 9;
+}
+
+.headerpismenka > div:hover > a,
+.headerpismenka > div:hover > h4 {
     color: var(--color7);
 }
 
-#smile {
-    height: 2em;
-}
-.smile {
+.headerpismenka > div:hover .headerdropdown {
+    transform: translateY(0);
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.headerdruhyriadok {
+.headerdropdown {
+    position: absolute;
     background-color: var(--color1);
-    margin: 0 6em;
-    width: max-content;
-    display: flex;
+    top: 100%;
+    right: 0;
+    transform: translateY(-100%);
+    z-index: 8 !important;
+    display: none;
     flex-direction: column;
-    border-radius: 0 0 1em 1em;
-    position: relative;
-}
-.headerdruhyriadok::before {
-    content: "";
-    position: absolute;
-    background-color: transparent;
-    height: 2em;
-    width: 1em;
-    top: 0;
-    left: -1em;
-    border-top-right-radius: 25px;
-    box-shadow: 0 -1em 0 0 var(--color1);
-}
-.headerdruhyriadok::after {
-    content: "";
-    position: absolute;
-    background-color: transparent;
-    height: 2em;
-    width: 1em;
-    top: 0;
-    right: -1em;
-    border-top-left-radius: 25px;
-    box-shadow: 0 -1em 0 0 var(--color1);
-}
-
-.headerdruhyriadok::before .hidden,
-.headerdruhyriadok::after .hidden {
-    box-shadow: transparent;
-}
-
-.headerdruhyriadoklink:last-child .headerprojekt:last-child {
+    width: max-content;
     border-radius: 0 0 1em 1em;
 }
 
-.headerprojekt {
-    padding: 1em;
+.headerdropdown img {
+    height: 2.5em;
+}
+
+.headerdropdown > div,
+.headerdropdown > a {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     gap: 1em;
-    transition-duration: 0.1s;
+    align-items: center;
+    padding: 1em;
 }
 
-.headerprojekt:hover {
+.headerdropdown:not(.kontaktydropdown) > a:hover {
     background-color: var(--color3);
 }
-.headerprojekt:active {
-    background-color: var(--color2);
+
+.projektydropdown > a:last-child {
+    border-radius: 0 0 1em 1em;
 }
 
-.headerprojektpismenka {
+.kontaktydropdown {
+    padding: 0 1em 1em 1em;
+}
+.kontaktydropdown > div {
     display: flex;
     flex-direction: column;
-    gap: 0.25em;
+    align-items: flex-start;
+}
+.kontaktydropdown > div > div {
+    display: flex;
+    gap: 1em;
 }
 
-.headerprojektpismenka p:first-child {
-}
-.headerprojektpismenka p:last-child {
-    font-size: 0.75em;
-    color: #999;
+.kontaktydropdown img {
+    height: 2em;
 }
 
+/* PHONE */
+.phone {
+    position: relative;
+}
 
-.headertretiriadok {
-    background-color: var(--color1);
-    /* TODO tuto treba upravit pocet ked sa meni pocet projektov */
-    /* top: calc(-4 * (2em + 2em + 0.25em)); */
-    top: -17em;
-    right: -12em;
-    width: max-content;
+.phone .rotate {
+    transform: rotate(180deg);
+}
+
+.menuactive {
+    position: absolute;
+    top: calc(100% + 1em);
+    right: -2em;
+    width: 100vw;
+    z-index: 8;
+    background-color: var(--color10);
     display: flex;
     flex-direction: column;
     gap: 1em;
-    border-radius: 0 0 1em 1em;
-    position: relative;
-    padding: 1em;
+    padding: 1em 0;
 }
-.headertretiriadok h4 {
-    padding: 1em 0.25em;
+.menuactive > div {
+    padding: 0 1em;
 }
 
-.headertretiriadok img {
-    width: 2em;
-    height: 2em;
-}
-.headertretiriadok img:hover {
-    transform: scale(110%);
-    transition: 0.1s;
+.menuactive p {
+    user-select: none;
 }
 
-.headerkontakt,
-.headernekontakt {
-    padding: 1em;
-}
-.headertretiriadok::before {
-    content: "";
-    position: absolute;
-    background-color: transparent;
-    height: 2em;
-    width: 1em;
-    top: 0;
-    left: -1em;
-    border-top-right-radius: 25px;
-    box-shadow: 0 -1em 0 0 var(--color1);
-}
-.headertretiriadok::after {
-    content: "";
-    position: absolute;
-    background-color: transparent;
-    height: 2em;
-    width: 1em;
-    top: 0;
-    right: -1em;
-    border-top-left-radius: 25px;
-    box-shadow: 0 -1em 0 0 var(--color1);
+.menuactivedropdown {
+    width: 100%;
+    padding: 1em 1em 0 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
-.headertretiriadok::before .hidden,
-.headertretiriadok::after .hidden {
-    box-shadow: transparent;
+.menuactivedropdown > div,
+.menuactivedropdown > a {
+    display: flex;
+    gap: 0.75em;
+    align-items: center;
 }
+
+.menuactivedropdown img {
+    height: 1.5em;
+}
+
+.menuactivedropdown p {
+    color: var(--color6)
+}
+
+
