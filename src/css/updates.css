@@ -55,3 +55,25 @@
 .updatelinky a:hover {
     color: var(--color7);
 }
+
+@media only screen and (max-width: 900px) {
+    .updatesmain {
+        padding: 1em;
+    }
+    .updatesnadpisy h4 {
+        font-size: 1.125em;
+    }
+    .update {
+        display: flex;
+        flex-direction: column;
+    }
+    .updateimage {
+        padding-top: 1em;
+        margin-left: 0;
+    }
+    .updateimage img {
+        width: 100%;
+        height: auto;
+        padding-top: 0;
+    }
+}

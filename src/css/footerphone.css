@@ -5,60 +5,35 @@
 
     .footerphone {
         background-color: var(--color1);
-        padding: 1.5em;
-    }
-
-    .footerphonepismenka {
-        display: grid;
+        padding: 1em;
+        display: grid !important;
         grid-template-columns: 1fr 1fr;
-        gap: 1em;
-        padding-bottom: 2em;
+        gap: 1.5em;
+    }
+    .footerphone img,
+    .footerphone svg {
+        height: 1.25em;
     }
 
-    .footerphonepismenka > * {
-        align-self: center;
+    .footerphone > div:nth-child(2) {
+        justify-self: flex-end;
+        text-align: right;
     }
-
-    .footerphonepismenka > *:nth-child(even) {
-        justify-self: end;
-    }
-
-    .footerphonevyhlasenieupdates {
+    .footerphone > div:nth-child(2) > div {
         display: flex;
-        flex-direction: column;
         gap: 0.5em;
     }
-
-    .footerphonetechnologie {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        gap: 0.25em;
+    .footerphone > div:nth-child(3),
+    .footerphone > div:nth-child(4){
+        text-align: center;
     }
 
-    .footerphonetechnologie > div {
-        display: flex;
-        gap: 0.75em;
-    }
-
-
-    .footerphonetechnologie svg {
-        height: 1.25em;
-    }
-
-    .footerphonetechnologie svg:hover {
-        transform: scale(110%);
-    }
-
-
-    .footerphoneobrazky {
+    .footerphone > div:nth-child(5) {
         display: flex;
         justify-content: space-between;
-        align-self: flex-end;
+        /* nech zabera 2 miesta */
+        grid-column-end: span 2;
+        padding: 0 0.5em;
     }
 
-    .footerphoneobrazky img {
-        height: 1.25em;
-    }
 }
