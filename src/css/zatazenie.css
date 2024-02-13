@@ -107,3 +107,14 @@
 .zatazeniedelete:hover svg {
     fill: var(--colorWarning);
 }
+
+.zatazeniedownload {
+    background-color: var(--color2);
+    padding: 0 2em;
+}
+.zatazeniedownload a {
+    cursor: pointer;
+}
+.zatazeniedownload a:hover {
+    color: var(--color8);
+}

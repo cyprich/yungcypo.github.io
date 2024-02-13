@@ -7,6 +7,7 @@ import zatazenie from "../constants/zatazenie";
 import SpatNa from "../components/SpatNa";
 
 import {ReactComponent as Delete} from "../images/icons/delete.svg";
+import ZatazenieExcel from "../download/Zaťaženie.xlsx"
 
 const Zatazenie = () => {
     var Latex = require("react-latex");
@@ -85,7 +86,6 @@ const Zatazenie = () => {
         setForceUpdate(!forceUpdate)
         materialref.current.focus()
     }
-
 
 
     // vsetky vypocty
@@ -255,7 +255,9 @@ const Zatazenie = () => {
                                     <td colSpan={2}>{e.charakteristickaHodnotaZatazenia}</td>
                                     <td>{e.sucinitelZatazenia}</td>
                                     <td colSpan={3}>{e.navrhovaHodnotaZatazenia}</td>
-                                    <td className={"zatazeniedelete"} onClick={() => {odstranRiadok(key)}}><Delete/></td>
+                                    <td className={"zatazeniedelete"} onClick={() => {
+                                        odstranRiadok(key)
+                                    }}><Delete/></td>
                                 </tr>
                             )
                         })}
@@ -388,9 +390,18 @@ const Zatazenie = () => {
                 </div>
                 {
                     selectValue || materialInputHodnota != "" || hrubkaInputHodnota != "" || objemovaTiazInputHodnota != "" || vysledky.length != 0
-                        ? <button onClick={() => {window.location.reload()}}>Reset</button>
+                        ? <button onClick={() => {
+                            window.location.reload()
+                        }}>Reset</button>
                         : null
                 }
+            </div>
+            <div className={"zatazeniedownload"}>
+                <p>Zaťaženie je možné vypočítať aj pomocou
+                    <a className={"vyrazne"} href={ZatazenieExcel} download={"Výpočet zaťaženia"} target={"_blank"}>
+                        &nbsp;tohto Excel súboru
+                    </a>
+                </p>
             </div>
             <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
         </>
