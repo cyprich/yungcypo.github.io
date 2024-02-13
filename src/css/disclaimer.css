@@ -5,7 +5,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1em;
-
 }
 
 .disclaimer a {
@@ -36,4 +35,10 @@
     height: 0;
     border-bottom: 1px solid white;
     margin: 0.5em 0;
+}
+
+@media only screen and (max-width: 900px) {
+    .disclaimernadpisy h2 {
+        font-size: 2.5em;
+    }
 }
