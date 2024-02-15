@@ -32,7 +32,7 @@ const Home = () => {
     return (
         <main>
             <div className={"landing"} style={{
-                width: '100vw',
+                width: '100dvw',
                 backgroundImage: `linear-gradient(to right, rgba(0,0,0, 0.8), rgba(0,0,0, 0.7), rgba(0,0,0, 0.1)), url(${background})`,
                 backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',

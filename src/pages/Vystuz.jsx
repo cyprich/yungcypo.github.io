@@ -458,6 +458,12 @@ const Vystuz = () => {
                 }
 
             </div>
+            <div className="vystuzmobil">
+                <h2>Výstuž</h2>
+                <h4>Tento projekt nie je určený pre toto zariadenie</h4>
+                <p>Rozlíšenie displeja je moc nízke a došlo by k chybám pri zobrazovaní obsahu</p>
+                <p className={"nevyrazne"}>Odporúča sa displej so šírkou min. 800 px</p>
+            </div>
             <SpatNa text={"Staviteľstvo"} link={"/stavitelstvo"}/>
         </>
     );

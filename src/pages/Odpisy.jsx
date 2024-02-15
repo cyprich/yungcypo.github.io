@@ -154,199 +154,208 @@ const Odpisy = () => {
     }, []);
 
     return (
-        <div className={"odpisy projekt"}>
-            <div className={"odpisynadpisy"}>
-                <h2>Odpisy</h2>
-                <h4>Daňové odpisy dlhodobého majetku pre potreby účtovníctva</h4>
-            </div>
-            <div className="odpisyinputy">
-                <div style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    gap: "0.75em"
-                }}
-                >
-                    <h3>Vstupné údaje</h3>
-                    <div className={"pomoc"} onClick={() => {
-                        setPomockaSkupiny(!pomockaSkupiny);
-                    }}>?
-                    </div>
+        <>
+            <div className={"odpisy projekt"}>
+                <div className={"odpisynadpisy"}>
+                    <h2>Odpisy</h2>
+                    <h4>Daňové odpisy dlhodobého majetku pre potreby účtovníctva</h4>
                 </div>
-                <div>
-                    <div>
-                        <p>Dátum obstarania</p>
-                        <input type="month" onChange={(e) => {
-                            setDatumObstarania(e.target.value)
-                            ocref.current.focus()
-                        }}/>
+                <div className="odpisyinputy">
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        alignItems: "flex-start",
+                        gap: "0.75em"
+                    }}
+                    >
+                        <h3>Vstupné údaje</h3>
+                        <div className={"pomoc"} onClick={() => {
+                            setPomockaSkupiny(!pomockaSkupiny);
+                        }}>?
+                        </div>
                     </div>
                     <div>
-                        <p>Obstarávacia cena</p>
-                        <input
-                            type="number"
-                            placeholder={"min. 1700€"}
-                            min={1700}
-                            onChange={(e) => {
-                                setObstaravaciaCena(Number(e.target.value))
-                            }}
-                            ref={ocref}
-                            onKeyDown={(e) => {
-                                handleKeyPress(e, osref)
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <p>Odpisová skupina</p>
-                        <input
-                            type="number"
-                            placeholder={"0 - 6"}
-                            min={0}
-                            max={6}
-                            onChange={(e) => {
-                                setOdpisovaSkupina(Number(e.target.value))
-                            }}
-                            ref={osref}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                    osref.current.blur()
+                        <div>
+                            <p>Dátum obstarania</p>
+                            <input type="month" onChange={(e) => {
+                                setDatumObstarania(e.target.value)
+                                ocref.current.focus()
+                            }}/>
+                        </div>
+                        <div>
+                            <p>Obstarávacia cena</p>
+                            <input
+                                type="number"
+                                placeholder={"min. 1700€"}
+                                min={1700}
+                                onChange={(e) => {
+                                    setObstaravaciaCena(Number(e.target.value))
+                                }}
+                                ref={ocref}
+                                onKeyDown={(e) => {
+                                    handleKeyPress(e, osref)
+                                }}
+                            />
+                        </div>
+                        <div>
+                            <p>Odpisová skupina</p>
+                            <input
+                                type="number"
+                                placeholder={"0 - 6"}
+                                min={0}
+                                max={6}
+                                onChange={(e) => {
+                                    setOdpisovaSkupina(Number(e.target.value))
+                                }}
+                                ref={osref}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                        osref.current.blur()
+                                    }
+                                }}
+                            />
+                        </div>
+                        <div>
+                            <p>Metóda odpisovania</p>
+                            <button disabled={!(odpisovaSkupina >= 2 && odpisovaSkupina <= 3)} onClick={() => {
+                                setZrychleneOdpisovanie(!zrychleneOdpisovanie)
+                            }}>
+                                {
+                                    zrychleneOdpisovanie
+                                        ? "Zrýchlená"
+                                        : "Rovnomerná"
                                 }
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <p>Metóda odpisovania</p>
-                        <button disabled={!(odpisovaSkupina >= 2 && odpisovaSkupina <= 3)} onClick={() => {
-                            setZrychleneOdpisovanie(!zrychleneOdpisovanie)
-                        }}>
-                            {
-                                zrychleneOdpisovanie
-                                    ? "Zrýchlená"
-                                    : "Rovnomerná"
-                            }
-                        </button>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {
-                vysledky.length > 1
-                    ? <table className={"odpisyvysledky"} style={{paddingTop: "2em"}}>
-                        <thead>
-                        <tr>
-                            <td>Rok</td>
-                            <td>Výpočet</td>
-                            <td>Ročný odpis</td>
-                            <td>Oprávky</td>
-                            <td>Zostatková cena</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {
-                            vysledky.map((e) => {
-                                return (
-                                    <tr>
-                                        <td>{e.rok}</td>
-                                        <td style={{fontSize: "1.125em"}}><Latex>{e.vypocet}</Latex></td>
-                                        <td>{e.rocnyOdpis}</td>
-                                        <td>{e.opravky}</td>
-                                        <td>{e.zostatkovaCena}</td>
-                                    </tr>
-                                )
-                            })
-
-                        }
-                        </tbody>
-                    </table>
-                    : null
-            }
-
-            {
-                pomockaSkupiny
-                    ? <div className="odpisypomockaskupiny">
-                        <table>
+                {
+                    vysledky.length > 1
+                        ? <table className={"odpisyvysledky"} style={{paddingTop: "2em"}}>
                             <thead>
                             <tr>
-                                <td colSpan={4}>Odpisové skupiny - pomôcka</td>
-                            </tr>
-                            <tr>
-                                <td>Číslo skupiny</td>
-                                <td>Doba odpisovania</td>
-                                <td>Možnosť zrýchleného odpisovania</td>
-                                <td>Čo sem zaraďujeme</td>
+                                <td>Rok</td>
+                                <td>Výpočet</td>
+                                <td>Ročný odpis</td>
+                                <td>Oprávky</td>
+                                <td>Zostatková cena</td>
                             </tr>
                             </thead>
                             <tbody>
-                            {odpisoveskupiny.map((e, key) => {
-                                return (
-                                    <tr key={key}>
-                                        <td>{e.cislo}</td>
-                                        <td>{e.dobaodpisovania} {e.dobaodpisovaniapripona}</td>
-                                        {
-                                            e.zrychlene
-                                                ? <td>Áno</td>
-                                                : <td>-</td>
-                                        }
-                                        <td onClick={() => {
-                                            handleClickSkupiny(e.cislo)
-                                        }}>
-                                            <ul>
-                                                {e.coodpisujeme.map((f, key) => {
-                                                    if (rozbalenaPomockaSkupiny === e.cislo) {
-                                                        return (
-                                                            <li key={key}>{f}</li>
-                                                        )
-                                                    } else {
-                                                        if (key < 2) {
+                            {
+                                vysledky.map((e) => {
+                                    return (
+                                        <tr>
+                                            <td>{e.rok}</td>
+                                            <td style={{fontSize: "1.125em"}}><Latex>{e.vypocet}</Latex></td>
+                                            <td>{e.rocnyOdpis}</td>
+                                            <td>{e.opravky}</td>
+                                            <td>{e.zostatkovaCena}</td>
+                                        </tr>
+                                    )
+                                })
+
+                            }
+                            </tbody>
+                        </table>
+                        : null
+                }
+
+                {
+                    pomockaSkupiny
+                        ? <div className="odpisypomockaskupiny">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td colSpan={4}>Odpisové skupiny - pomôcka</td>
+                                </tr>
+                                <tr>
+                                    <td>Číslo skupiny</td>
+                                    <td>Doba odpisovania</td>
+                                    <td>Možnosť zrýchleného odpisovania</td>
+                                    <td>Čo sem zaraďujeme</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {odpisoveskupiny.map((e, key) => {
+                                    return (
+                                        <tr key={key}>
+                                            <td>{e.cislo}</td>
+                                            <td>{e.dobaodpisovania} {e.dobaodpisovaniapripona}</td>
+                                            {
+                                                e.zrychlene
+                                                    ? <td>Áno</td>
+                                                    : <td>-</td>
+                                            }
+                                            <td onClick={() => {
+                                                handleClickSkupiny(e.cislo)
+                                            }}>
+                                                <ul>
+                                                    {e.coodpisujeme.map((f, key) => {
+                                                        if (rozbalenaPomockaSkupiny === e.cislo) {
                                                             return (
                                                                 <li key={key}>{f}</li>
                                                             )
+                                                        } else {
+                                                            if (key < 2) {
+                                                                return (
+                                                                    <li key={key}>{f}</li>
+                                                                )
+                                                            }
                                                         }
+                                                    })}
+                                                    {
+                                                        (rozbalenaPomockaSkupiny !== e.cislo && e.coodpisujeme.length > 2)
+                                                            ? <ul>
+                                                                <li style={{color: "var(--color9)"}}
+                                                                    className={"underline"}>Ďalšie
+                                                                    ({e.coodpisujeme.length - 2})
+                                                                </li>
+                                                            </ul>
+                                                            : null
                                                     }
-                                                })}
-                                                {
-                                                    (rozbalenaPomockaSkupiny !== e.cislo && e.coodpisujeme.length > 2)
-                                                        ? <ul>
-                                                            <li style={{color: "var(--color9)"}} className={"underline"}>Ďalšie
-                                                                ({e.coodpisujeme.length - 2})
-                                                            </li>
-                                                        </ul>
-                                                        : null
-                                                }
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td colSpan={4} className={"underline"}>
-                                    Zdroj:
-                                    <Link
-                                        to={"https://www.podnikajte.sk/odpisy/zaradovanie-majetku-do-odpisovych-skupin-2022-2023"}
-                                        target={"_blank"}
-                                        colSpan={4}
-                                    > www.podnikanie.sk</Link>
-                                </td>
-                            </tr>
-                            <tr onClick={() => {
-                                setPomockaSkupiny(null)
-                            }}>
-                                <td colSpan={4}><a className={"underline"}>Zbaliť</a></td>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    : null
-            }
-            {
-                datumObstarania || obstaravaciaCena || odpisovaSkupina >= 0
-                    ? <button id={"resetbutton"} onClick={() => {
-                        window.location.reload()
-                    }}>Reset</button>
-                    : null
-            }
-        </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colSpan={4} className={"underline"}>
+                                        Zdroj:
+                                        <Link
+                                            to={"https://www.podnikajte.sk/odpisy/zaradovanie-majetku-do-odpisovych-skupin-2022-2023"}
+                                            target={"_blank"}
+                                            colSpan={4}
+                                        > www.podnikanie.sk</Link>
+                                    </td>
+                                </tr>
+                                <tr onClick={() => {
+                                    setPomockaSkupiny(null)
+                                }}>
+                                    <td colSpan={4}><a className={"underline"}>Zbaliť</a></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        : null
+                }
+                {
+                    datumObstarania || obstaravaciaCena || odpisovaSkupina >= 0
+                        ? <button id={"resetbutton"} onClick={() => {
+                            window.location.reload()
+                        }}>Reset</button>
+                        : null
+                }
+            </div>
+            <div className="odpisymobil">
+                <h2>Odpisy</h2>
+                <h4>Tento projekt nie je určený pre toto zariadenie</h4>
+                <p>Rozlíšenie displeja je moc nízke a došlo by k chybám pri zobrazovaní obsahu</p>
+                <p className={"nevyrazne"}>Odporúča sa displej so šírkou min. 600 px</p>
+            </div>
+        </>
     );
 };
 

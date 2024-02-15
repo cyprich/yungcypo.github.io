@@ -96,5 +96,31 @@
         width: 100%;
         padding: 1em 0.5em !important;
     }
+}
 
+
+.odpisymobil {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .odpisy {
+        display: none;
+    }
+
+    .odpisymobil {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0.75em;
+        padding: 6em 1em 1em 1em;
+        background-color: var(--color2);
+        min-height: 75vh;
+    }
+    .odpisymobil * {
+        display: block !important;
+    }
+
+    .odpisyinputy > div {
+        flex-wrap: wrap;
+    }
 }

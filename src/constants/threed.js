@@ -194,6 +194,7 @@ const threed = {
             farba: {
                 nazov: "Žltá",
                 code: "#fbe625"
+				//FBCF25
             },
             hmotnost: {
                 soSpoolom: 1040,

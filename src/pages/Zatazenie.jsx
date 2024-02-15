@@ -4,6 +4,7 @@ import "../css/styles.css"
 import "../css/zatazenie.css"
 
 import zatazenie from "../constants/zatazenie";
+
 import SpatNa from "../components/SpatNa";
 
 import {ReactComponent as Delete} from "../images/icons/delete.svg";
@@ -395,6 +396,12 @@ const Zatazenie = () => {
                         }}>Reset</button>
                         : null
                 }
+            </div>
+            <div className="zatazeniemobil">
+                <h2>Zaťaženie</h2>
+                <h4>Tento projekt nie je určený pre toto zariadenie</h4>
+                <p>Rozlíšenie displeja je moc nízke a došlo by k chybám pri zobrazovaní obsahu</p>
+                <p className={"nevyrazne"}>Odporúča sa displej so šírkou min. 1500 px</p>
             </div>
             <div className={"zatazeniedownload"}>
                 <p>Zaťaženie je možné vypočítať aj pomocou

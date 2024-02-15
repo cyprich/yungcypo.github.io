@@ -23,6 +23,11 @@ const ThreeDFilamenty = () => {
         setZoraditPodla(e.target.value)
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
+
     const sortData = () => {
         let vysledok = 0
         return threed.filamenty.slice().sort((a, b) => {
