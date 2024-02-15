@@ -27,6 +27,8 @@ const ThreeDKalkulacka = () => {
     const [laborZaHodinu, setLaborZaHodinu] = useState(null);
     const [cenaLabor, setCenaLabor] = useState(null);
 
+    const [kruzky, setKruzky] = useState(0);  // kruzky na kluce
+    const [cenaKruzky, setCenaKruzky] = useState(null);
     const [typPrirazky, setTypPrirazky] = useState(false); // false = percenta; true = eura
     const [prirazka, setPrirazka] = useState(null);
 
@@ -34,6 +36,13 @@ const ThreeDKalkulacka = () => {
 
     const [model, setModel] = useState(null);
     const [forceUpdate, setForceUpdate] = useState(false);
+
+    useEffect(() => {
+        if (kruzky < 0) {
+            setKruzky(0)
+        }
+    }, [kruzky]);
+
 
     useEffect(() => {
         setCenaPriamehoMaterialu(Math.round((hmotnost / 1000 * zaKilo) * 100) / 100)
@@ -48,12 +57,17 @@ const ThreeDKalkulacka = () => {
     }, [laborHodiny, laborMinuty, laborZaHodinu]);
 
     useEffect(() => {
+        setCenaKruzky(kruzky * 0.05)
+    }, [kruzky]);
+
+
+    useEffect(() => {
         if (typPrirazky) {
-            setCenaCelkovo(cenaPriamehoMaterialu + cenaElektrika + cenaLabor + prirazka)
+            setCenaCelkovo(cenaPriamehoMaterialu + cenaElektrika + cenaLabor + prirazka + kruzky * 0.05)
         } else {
-            setCenaCelkovo((cenaPriamehoMaterialu + cenaElektrika + cenaLabor) * (1 + (prirazka / 100)))
+            setCenaCelkovo((cenaPriamehoMaterialu + cenaElektrika + cenaLabor + kruzky*0.05) * (1 + (prirazka / 100)))
         }
-    }, [cenaPriamehoMaterialu, cenaElektrika, cenaLabor, prirazka, typPrirazky]);
+    }, [cenaPriamehoMaterialu, cenaElektrika, cenaLabor, prirazka, typPrirazky, kruzky]);
 
 
     useEffect(() => {
@@ -64,6 +78,9 @@ const ThreeDKalkulacka = () => {
             setCasHodiny(model?.cas.hodiny)
             setCasMinuty(model?.cas.minuty)
             setForceUpdate(!forceUpdate)
+            if (model?.klucenka) {
+                setKruzky(1)
+            }
         }
     }, [model, param.get("model")]);
 
@@ -240,6 +257,34 @@ const ThreeDKalkulacka = () => {
                         <div>
                             <h3>4. Ostatné</h3>
                             <div className="threedkalkinput">
+                                <p>Krúžky na klúče <span className="nevyrazne">[ks]</span></p>
+                                <div>
+                                    <div>
+                                        <input
+                                            type="number"
+                                            placeholder={"ks"}
+                                            value={kruzky > 0 ? kruzky : ""}
+                                            onChange={(e) => {
+                                                setKruzky(Number(e.target.value))
+                                            }}
+                                        />
+                                        <button className="smallbutton" onClick={() => {
+                                            setKruzky(kruzky + 1)
+                                        }}>+
+                                        </button>
+                                        <button className="smallbutton" style={{marginLeft: "0.25em"}} onClick={() => {
+                                            setKruzky(kruzky - 1)
+                                        }}>-
+                                        </button>
+                                    </div>
+                                </div>
+                                {
+                                    cenaKruzky > 0 &&
+                                        <h4 style={{margin: "0.25em 0"}}>Cena za krúžky na klúče: <span className="vyrazne">{cenaKruzky?.toFixed(2)}€</span>
+                                        </h4>
+                                }
+                            </div>
+                            <div className="threedkalkinput">
                                 <p>Cenová prirážka <span className="nevyrazne">[{typPrirazky ? "€" : "%"}]</span></p>
                                 <div>
                                     <div>
@@ -261,7 +306,6 @@ const ThreeDKalkulacka = () => {
                             <h3>Konečná cena: <span className="vyrazne underline">{cenaCelkovo?.toFixed(2) + "€"}</span>
                             </h3>
                         </div>
-
                         <button
                             onClick={() => {
                                 navigate("/3D/kalkulacka")

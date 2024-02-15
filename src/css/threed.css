@@ -384,7 +384,10 @@
         align-items: flex-start;
     }
     .threedkalk .smallbutton {
-        margin-left: 0.5em;
+        margin-left: 0.375em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .threedkalkinputy > div:has(h3 span) {
         text-align: center;
