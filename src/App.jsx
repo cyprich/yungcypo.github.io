@@ -20,11 +20,13 @@ import ThreeDHistoria from "./pages/ThreeDHistoria";
 import ThreeDKalkulacka from "./pages/ThreeDKalkulacka";
 import ThreeDModely from "./pages/ThreeDModely";
 import ThreeDFilamenty from "./pages/ThreeDFilamenty";
+import ThreedPrusameter from "./pages/ThreedPrusameter";
 
 import Odpisy from "./pages/Odpisy";
 import Piskvorky from "./pages/Piskvorky";
 import KvadratickeRovnice from "./pages/KvadratickeRovnice";
 import NalepkyNaFilament from "./pages/NalepkyNaFilament";
+
 
 const App = () => {
     return (
@@ -49,7 +51,9 @@ const App = () => {
                     <Route path={"/3D/kalkulacka"} element={<ThreeDKalkulacka/>}/>
                     <Route path={"/3D/modely"} element={<ThreeDModely/>}/>
                     <Route path={"/3D/filamenty"} element={<ThreeDFilamenty/>}/>
+                    <Route path={"/3D/prusameter"} element={<ThreedPrusameter/>}/>
                     <Route path={"/3D/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
+
 
                     <Route path={"/odpisy"} element={<Odpisy/>}/>
                     <Route path={"/piskvorky"} element={<Piskvorky/>}/>

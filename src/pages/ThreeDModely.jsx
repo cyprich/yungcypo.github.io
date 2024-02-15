@@ -32,7 +32,9 @@ const ThreeDModely = () => {
                 <div className="threedmodelynadpisy">
                     <h2>Moje modely</h2>
                     <h4>Modely, ktoré som sám vytvoril</h4>
-                    <p className={"nevyrazne"}>Každý like a stiahnutie modelu mi pomáha v rozvoji 3D tlače</p>
+                    <p className={"nevyrazne"}>Každý like a stiahnutie modelu mi pomáha v rozvoji 3D tlače
+                        <span className={"threedpomoc"} onClick={() => {navigate("/3D/prusameter")}}>?</span>
+                    </p>
                 </div>
                 <div className="threedmodelymodely">
                     {
