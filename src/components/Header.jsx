@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from "react-router-dom";
 
 import "../css/styles.css";
 import "../css/header.css";
@@ -7,8 +8,7 @@ import projekty from "../constants/projekty";
 import kontakt from "../constants/kontakt";
 
 import {ReactComponent as Smile} from "../images/icons/smile.svg";
-import {ReactComponent as Menu} from "../images/icons/menu.svg";
-import {Link, useNavigate} from "react-router-dom";
+import {ReactComponent as Menu} from "../images/icons/menu.svg"
 
 const Header = () => {
     const [ikonkaHovered, setIkonkaHovered] = useState(null);
@@ -144,15 +144,27 @@ const Header = () => {
                         menuActive && <div className="menuactive">
                             <div>
                                 <p
-                                    onClick={() => {handleMenuActiveDropdown("domov")}}
+                                    onClick={() => {
+                                        handleMenuActiveDropdown("domov")
+                                    }}
                                     className={menuActiveDropdown === "domov" ? "vyrazne" : null}
                                 >
-                                    <Link to={"/"} onClick={() => {setMenuActive(false)}}>Domov</Link>
+                                    <Link
+                                        to={"/"}
+                                        onClick={() => {
+                                            setMenuActive(false)
+                                            setMenuActiveDropdown(null)
+                                        }}
+                                    >
+                                        Domov
+                                    </Link>
                                 </p>
                             </div>
                             <div>
                                 <p
-                                    onClick={() => {handleMenuActiveDropdown("projekty")}}
+                                    onClick={() => {
+                                        handleMenuActiveDropdown("projekty")
+                                    }}
                                     className={menuActiveDropdown === "projekty" ? "vyrazne" : null}
                                 >
                                     Projekty
@@ -162,7 +174,10 @@ const Header = () => {
                                         {
                                             projekty.map((e, key) => {
                                                 return (
-                                                    <Link to={e.link} onClick={() => {setMenuActive(false)}} key={key}>
+                                                    <Link to={e.link} onClick={() => {
+                                                        setMenuActive(false)
+                                                        setMenuActiveDropdown(null)
+                                                    }} key={key}>
                                                         <img src={e.icon} alt="" style={{filter: "invert(1)"}}/>
                                                         <p>{e.title}</p>
                                                     </Link>
@@ -174,7 +189,9 @@ const Header = () => {
                             </div>
                             <div>
                                 <p
-                                    onClick={() => {handleMenuActiveDropdown("kontakt")}}
+                                    onClick={() => {
+                                        handleMenuActiveDropdown("kontakt")
+                                    }}
                                     className={menuActiveDropdown === "kontakt" ? "vyrazne" : null}
                                 >
                                     Kontakt
@@ -183,9 +200,12 @@ const Header = () => {
                                     menuActiveDropdown == "kontakt" && <div className={"menuactivedropdown"}>
                                         {
                                             kontakt.map((e, key) => {
-                                                if (!e.linknamiestokontaktu){
+                                                if (!e.linknamiestokontaktu) {
                                                     return (
-                                                        <Link to={e.link} onClick={() => {setMenuActive(false)}} target={"_blank"} key={key}>
+                                                        <Link to={e.link} onClick={() => {
+                                                            setMenuActive(false)
+                                                            setMenuActiveDropdown(null)
+                                                        }} target={"_blank"} key={key}>
                                                             <img src={e.ikonka.bezfarebna} alt=""/>
                                                             <p>{e.username}</p>
                                                         </Link>
@@ -198,7 +218,9 @@ const Header = () => {
                             </div>
                             <div>
                                 <p
-                                    onClick={() => {handleMenuActiveDropdown("linky")}}
+                                    onClick={() => {
+                                        handleMenuActiveDropdown("linky")
+                                    }}
                                     className={menuActiveDropdown === "linky" ? "vyrazne" : null}
                                 >
                                     Ostatné linky
@@ -207,7 +229,7 @@ const Header = () => {
                                     menuActiveDropdown == "linky" && <div className={"menuactivedropdown"}>
                                         {
                                             kontakt.map((e, key) => {
-                                                if (e.linknamiestokontaktu){
+                                                if (e.linknamiestokontaktu) {
                                                     return (
                                                         <Link to={e.link} target={"_blank"} key={key}>
                                                             <img src={e.ikonka.bezfarebna} alt=""/>

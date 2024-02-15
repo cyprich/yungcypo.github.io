@@ -52,7 +52,7 @@ header {
 }
 
 .headerpismenka > div:hover > a,
-.headerpismenka > div:hover > h4 {
+.headerpismenka > div:hover > p {
     color: var(--color7);
 }
 
@@ -85,6 +85,7 @@ header {
     align-items: center;
     padding: 1em;
 }
+
 
 .headerdropdown:not(.kontaktydropdown) > a:hover {
     background-color: var(--color3);
