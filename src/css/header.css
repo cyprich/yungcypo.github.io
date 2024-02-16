@@ -124,7 +124,7 @@ header {
 .menuactive {
     position: absolute;
     top: calc(100% + 1em);
-    right: -2em;
+    left: -2em;
     width: 100vw;
     z-index: 8;
     background-color: var(--color10);
