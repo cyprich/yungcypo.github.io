@@ -18,20 +18,34 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.headerwrapper > div:last-child {
-    height: 2em;
-    width: 2em;
-}
-.headerwrapper > div:last-child:hover {
-    transform: scale(110%);
+
+.headeraccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    height: max-content;
 }
 
-
-.headerwrapper > div > svg {
-    height: 2em;
-    width: 2em;
-    fill: var(--color6);
+.headeraccount a {
+    cursor: pointer;
+    user-select: none;
 }
+
+.headeraccount a:hover {
+    color: var(--color7);
+}
+
+.headeraccount svg {
+    width: 2em;
+    height: 2em;
+}
+.headeraccount img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
 
 .headerpismenka {
     display: flex;

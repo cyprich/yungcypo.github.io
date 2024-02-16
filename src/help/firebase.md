@@ -22,9 +22,20 @@ import {signInWithPopup} from "firebase/auth"
 ```
 
 To get user data
+`npm install react-firebase-hooks`
 ```javascript
-const signInWithGoogle = async () => {
-    const result = await signInWithPopup(auth, provider)
-}
+import {useAuthState} from "react-firebase-hooks/auth"
+
+const [user] = useAuthState(auth)
+    
+console.log(user.displayName)
 ```
 
+Logout 
+```javascript
+import {signOut} from "firebase/auth"
+
+const logout = async () => {
+    await signOut(auth)
+}
+```

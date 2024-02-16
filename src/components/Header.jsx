@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
+import {auth} from "../config/firebase"
+import {useAuthState} from "react-firebase-hooks/auth"
+import {signOut} from "firebase/auth"
 
 import "../css/styles.css";
 import "../css/header.css";
@@ -15,6 +18,8 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     const [menuActiveDropdown, setMenuActiveDropdown] = useState(null);
 
+    const [user] = useAuthState(auth)
+
     const handleHover = (e) => {
         setIkonkaHovered(e)
     }
@@ -28,6 +33,10 @@ const Header = () => {
         } else {
             setMenuActiveDropdown(e)
         }
+    }
+
+    const logout = async () => {
+        await signOut(auth)
     }
 
 
@@ -239,10 +248,18 @@ const Header = () => {
                         </div>
                     }
                 </div>
-                <div>
-                    <Link to={"/"}>
-                        <Smile/>
-                    </Link>
+                <div className={"headeraccount"}>
+                    {
+                        auth?.currentUser
+                            ? <>
+                                <a onClick={logout}>Odhlásiť sa</a>
+                                <img src={user?.photoURL || require("../images/icons/smile.png")} alt=""/>
+                            </>
+                            : <>
+                                <Link to={"/login"}>Prihlásiť sa</Link>
+                                <Smile/>
+                            </>
+                    }
                 </div>
             </div>
         </header>
