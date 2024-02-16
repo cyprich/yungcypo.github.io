@@ -72,7 +72,6 @@ const ThreeDKalkulacka = () => {
 
     useEffect(() => {
         if (param.get("model") != null) {
-            setModel(threed.modely[param.get("model")])
             if (param.get("model") <= threed.modely.length) {
                 setModel(threed.modely[param.get("model")])
                 setZaKilo(23.90)
