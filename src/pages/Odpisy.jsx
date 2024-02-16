@@ -37,10 +37,12 @@ const Odpisy = () => {
 
     const [pomockaSkupiny, setPomockaSkupiny] = useState(false);
     const [rozbalenaPomockaSkupiny, setRozbalenaPomockaSkupiny] = useState(null);
+
+    const [forceUpdate, setForceUpdate] = useState(false);
+
     const handleClickSkupiny = (e) => {
         if (rozbalenaPomockaSkupiny === e) {
             setRozbalenaPomockaSkupiny(null)
-
         } else {
             setRozbalenaPomockaSkupiny(e)
         }
@@ -137,16 +139,6 @@ const Odpisy = () => {
         }
     }, [dlzkaOdpisovania, zrychleneOdpisovanie]);
 
-    // focus inputs
-    const ocref = useRef(null);
-    const osref = useRef(null);
-    const handleKeyPress = (event, nextInputRef) => {
-        if (event.key === "Enter" && nextInputRef.current && !event.shiftKey) {
-            event.preventDefault()
-            nextInputRef.current.focus()
-        }
-    }
-
     // fix ak je odpisova skupina moc malo alebo moc vela
     useEffect(() => {
         if (odpisovaSkupina < -1) {
@@ -156,6 +148,21 @@ const Odpisy = () => {
         }
     }, [odpisovaSkupina]);
 
+    // force update pri zrychlenom odpisovani
+    useEffect(() => {
+        setForceUpdate(!forceUpdate)
+    }, [vysledky]);
+
+
+    // focus inputs
+    const ocref = useRef(null);
+    const osref = useRef(null);
+    const handleKeyPress = (event, nextInputRef) => {
+        if (event.key === "Enter" && nextInputRef.current && !event.shiftKey) {
+            event.preventDefault()
+            nextInputRef.current.focus()
+        }
+    }
 
     const reset = () => {
         setDatumObstarania(null)
@@ -170,6 +177,7 @@ const Odpisy = () => {
         setK2(null)
         setPomockaSkupiny(false)
         setRozbalenaPomockaSkupiny(null)
+        setForceUpdate(!forceUpdate)
 
         window.scrollTo(0, 0)
     }
@@ -249,8 +257,14 @@ const Odpisy = () => {
                                             : odpisovaSkupina
                                     }
                                 />
-                                <button className={"smallbutton"} onClick={() => {setOdpisovaSkupina(odpisovaSkupina + 1)}}>+</button>
-                                <button className={"smallbutton"} onClick={() => {setOdpisovaSkupina(odpisovaSkupina - 1)}}>-</button>
+                                <button className={"smallbutton"} onClick={() => {
+                                    setOdpisovaSkupina(odpisovaSkupina + 1)
+                                }}>+
+                                </button>
+                                <button className={"smallbutton"} onClick={() => {
+                                    setOdpisovaSkupina(odpisovaSkupina - 1)
+                                }}>-
+                                </button>
                             </div>
                         </div>
                         <div>
@@ -269,33 +283,37 @@ const Odpisy = () => {
                 </div>
                 {
                     vysledky.length > 1
-                        ? <table className={"odpisyvysledky"} style={{paddingTop: "2em"}}>
-                            <thead>
-                            <tr>
-                                <td>Rok</td>
-                                <td>Výpočet</td>
-                                <td>Ročný odpis</td>
-                                <td>Oprávky</td>
-                                <td>Zostatková cena</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {
-                                vysledky.map((e) => {
-                                    return (
-                                        <tr>
-                                            <td>{e.rok}</td>
-                                            <td style={{fontSize: "1.125em"}}><Latex>{e.vypocet}</Latex></td>
-                                            <td>{e.rocnyOdpis}</td>
-                                            <td>{e.opravky}</td>
-                                            <td>{e.zostatkovaCena}</td>
-                                        </tr>
-                                    )
-                                })
+                        ? <>
+                            <table className={"odpisyvysledky"} style={{paddingTop: "2em"}}>
+                                <thead>
+                                <tr>
+                                    <td>Rok</td>
+                                    <td>Výpočet</td>
+                                    <td>Ročný odpis</td>
+                                    <td>Oprávky</td>
+                                    <td>Zostatková cena</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {
+                                    vysledky.map((e) => {
+                                        return (
+                                            <tr>
+                                                <td>{e.rok}</td>
+                                                <td style={{fontSize: "1.125em"}}><Latex>{e.vypocet}</Latex></td>
+                                                <td>{e.rocnyOdpis}</td>
+                                                <td>{e.opravky}</td>
+                                                <td>{e.zostatkovaCena}</td>
+                                            </tr>
+                                        )
+                                    })
 
-                            }
-                            </tbody>
-                        </table>
+                                }
+                                </tbody>
+                            </table>
+                            <p className="nevyrazne">Pri viditeľne nezmyselných výsledkoch klikni "Reset" a zadaj vstupné údaje ešte raz</p>
+                            <p className="nevyrazne">Ak používaš Zrýchlenú metódu odpisovania, prepni na Rovnomernú a znova na Zrýchlenú</p>
+                        </>
                         : null
                 }
 
@@ -382,8 +400,9 @@ const Odpisy = () => {
                 {
                     datumObstarania || obstaravaciaCena || odpisovaSkupina >= 0
                         ? <button id={"resetbutton"} onClick={() => {
-                            reset()
-                        }}>Reset</button>
+                                reset()
+                            }}>Reset
+                            </button>
                         : null
                 }
             </div>
