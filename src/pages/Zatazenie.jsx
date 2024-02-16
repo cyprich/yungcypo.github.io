@@ -183,6 +183,28 @@ const Zatazenie = () => {
         }
     }
 
+    const reset = () => {
+        setStrecha(false)
+        setVysledky([])
+        setSelectValue(-1)
+        setNewMaterial(null)
+        setNewHrubka(null)
+        setNewObjemovaTiaz(null)
+        setMaterialInputHodnota("")
+        setHrubkaInputHodnota("")
+        setObjemovaTiazInputHodnota("")
+        setGk(null)
+        setQk(null)
+        setFck(null)
+        setGd(null)
+        setQd(null)
+        setFcd(null)
+        setSk(null)
+        setSo(null)
+
+        window.scrollTo(0, 0)
+    }
+
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -208,7 +230,7 @@ const Zatazenie = () => {
                                         : require("../images/icons/strop.png")
                                 } alt=""/>
                         </button>
-                        <select name="select" onChange={(e) => {
+                        <select name="select" value={selectValue} onChange={(e) => {
                             setSelectValue(e.target.value)
                         }}>
                             <option value={null}>Vyberte {strecha ? "snehovú oblasť" : "typ prevádzky"}</option>
@@ -392,7 +414,7 @@ const Zatazenie = () => {
                 {
                     selectValue || materialInputHodnota != "" || hrubkaInputHodnota != "" || objemovaTiazInputHodnota != "" || vysledky.length != 0
                         ? <button onClick={() => {
-                            window.location.reload()
+                            reset()
                         }}>Reset</button>
                         : null
                 }
