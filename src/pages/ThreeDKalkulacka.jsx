@@ -65,7 +65,7 @@ const ThreeDKalkulacka = () => {
         if (typPrirazky) {
             setCenaCelkovo(cenaPriamehoMaterialu + cenaElektrika + cenaLabor + prirazka + kruzky * 0.05)
         } else {
-            setCenaCelkovo((cenaPriamehoMaterialu + cenaElektrika + cenaLabor + kruzky*0.05) * (1 + (prirazka / 100)))
+            setCenaCelkovo((cenaPriamehoMaterialu + cenaElektrika + cenaLabor + kruzky * 0.05) * (1 + (prirazka / 100)))
         }
     }, [cenaPriamehoMaterialu, cenaElektrika, cenaLabor, prirazka, typPrirazky, kruzky]);
 
@@ -73,17 +73,45 @@ const ThreeDKalkulacka = () => {
     useEffect(() => {
         if (param.get("model") != null) {
             setModel(threed.modely[param.get("model")])
-            setZaKilo(23.90)
-            setHmotnost(model?.hmotnost)
-            setCasHodiny(model?.cas.hodiny)
-            setCasMinuty(model?.cas.minuty)
-            setForceUpdate(!forceUpdate)
-            if (model?.klucenka) {
-                setKruzky(1)
+            if (param.get("model") <= threed.modely.length) {
+                setModel(threed.modely[param.get("model")])
+                setZaKilo(23.90)
+                setHmotnost(model?.hmotnost)
+                setCasHodiny(model?.cas.hodiny)
+                setCasMinuty(model?.cas.minuty)
+                setForceUpdate(!forceUpdate)
+                if (model?.klucenka) {
+                    setKruzky(1)
+                }
+            } else {
+                navigate("/3D/kalkulacka")
             }
         }
     }, [model, param.get("model")]);
 
+    const reset = () => {
+        setHmotnost(null)
+        setZaKilo(null)
+        setCenaPriamehoMaterialu(null)
+        setCasHodiny(null)
+        setCasMinuty(null)
+        setSpotreba(150)
+        setCenakvh(0.18)
+        setCenaElektrika(null)
+        setLaborHodiny(null)
+        setLaborMinuty(null)
+        setLaborZaHodinu(null)
+        setCenaLabor(null)
+        setKruzky(0)
+        setCenaKruzky(null)
+        setTypPrirazky(false)
+        setPrirazka(null)
+        setCenaCelkovo(null)
+        setModel(null)
+
+        navigate("/3D/kalkulacka")
+        window.scrollTo(0, 0)
+    }
 
     /* scroll to top */
     useEffect(() => {
@@ -280,8 +308,9 @@ const ThreeDKalkulacka = () => {
                                 </div>
                                 {
                                     cenaKruzky > 0 &&
-                                        <h4 style={{margin: "0.25em 0"}}>Cena za krúžky na klúče: <span className="vyrazne">{cenaKruzky?.toFixed(2)}€</span>
-                                        </h4>
+                                    <h4 style={{margin: "0.25em 0"}}>Cena za krúžky na klúče: <span
+                                        className="vyrazne">{cenaKruzky?.toFixed(2)}€</span>
+                                    </h4>
                                 }
                             </div>
                             <div className="threedkalkinput">
@@ -308,8 +337,7 @@ const ThreeDKalkulacka = () => {
                         </div>
                         <button
                             onClick={() => {
-                                navigate("/3D/kalkulacka")
-                                window.location.reload()
+                                reset()
                             }}
                             style={{width: "max-content"}}
                         >Reset
