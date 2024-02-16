@@ -18,6 +18,12 @@ const Schodisko = () => {
     const [h2, setH2] = useState(0);  // priechodna vyska
     const [l, setL] = useState(0); // dlzka ramena
 
+    const [selectOption, setSelectOption] = useState(null);
+    const handleChange = (e) => {
+        setSelectOption(Number(e.target.value))
+        setTypSchodiska(Number(e.target.value))
+    }
+
     useEffect(() => {
         if (kv > 680) {
             setN(Math.round(kv / 170))
@@ -38,7 +44,8 @@ const Schodisko = () => {
                 setL((n / 2 - 1) * b)
             }
         }
-    }, [typSchodiska, kv, n, h, b, alpha, h1, h2, l]);
+    }, [selectOption, typSchodiska, kv, n, h, b, alpha, h1, h2, l]);
+
 
     // focus KV input on typSchodiska change
     const kvref = useRef(null);
@@ -46,8 +53,23 @@ const Schodisko = () => {
         if (kvref.current) {
             kvref.current.focus()
         }
-    }, [typSchodiska]);
+    }, [selectOption, typSchodiska]);
 
+    const reset = () => {
+        setTypSchodiska(null)
+        setKv(0)
+        setN(0)
+        setH(0)
+        setB(0)
+        setAlpha(0)
+        setH1(0)
+        setH2(0)
+        setL(0)
+
+        setSelectOption(0)
+
+        window.scrollTo(0, 0)
+    }
 
     /* scroll to top */
     useEffect(() => {
@@ -68,9 +90,10 @@ const Schodisko = () => {
                         name="typSchodiska"
                         id="typSchodiska"
                         onChange={(e) => {
-                            setTypSchodiska(Number(e.target.value));
+                            handleChange(e)
                             // TODO aktualizovat ostatne hodnoty ked sa meni hodnota
                         }}
+                        value={selectOption}
                     >
                         <option value={null}>Vyberte typ schodiska...</option>
                         <optgroup>
@@ -273,7 +296,7 @@ const Schodisko = () => {
                 <div>
                     {
                         typSchodiska
-                            ? <button onClick={() => {window.location.reload()}}>Reset</button>
+                            ? <button onClick={() => {reset()}}>Reset</button>
                             : null
                     }
                 </div>
