@@ -147,6 +147,33 @@ const Odpisy = () => {
         }
     }
 
+    // fix ak je odpisova skupina moc malo alebo moc vela
+    useEffect(() => {
+        if (odpisovaSkupina < -1) {
+            setOdpisovaSkupina(-1)
+        } else if (odpisovaSkupina > 6) {
+            setOdpisovaSkupina(6)
+        }
+    }, [odpisovaSkupina]);
+
+
+    const reset = () => {
+        setDatumObstarania(null)
+        setMesiacObstarania(null)
+        setRokObstarania(null)
+        setObstaravaciaCena(null)
+        setOdpisovaSkupina(-1)
+        setZrychleneOdpisovanie(false)
+        setVysledky([])
+        setDlzkaOdpisovania(null)
+        setK1(null)
+        setK2(null)
+        setPomockaSkupiny(false)
+        setRozbalenaPomockaSkupiny(null)
+
+        window.scrollTo(0, 0)
+    }
+
     /* scroll to top */
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -177,10 +204,11 @@ const Odpisy = () => {
                     <div>
                         <div>
                             <p>Dátum obstarania</p>
-                            <input type="month" onChange={(e) => {
-                                setDatumObstarania(e.target.value)
-                                ocref.current.focus()
-                            }}/>
+                            <input type="month" value={datumObstarania === null ? "" : datumObstarania}
+                                   onChange={(e) => {
+                                       setDatumObstarania(e.target.value)
+                                       ocref.current.focus()
+                                   }}/>
                         </div>
                         <div>
                             <p>Obstarávacia cena</p>
@@ -195,25 +223,35 @@ const Odpisy = () => {
                                 onKeyDown={(e) => {
                                     handleKeyPress(e, osref)
                                 }}
+                                value={obstaravaciaCena === null ? "" : obstaravaciaCena}
                             />
                         </div>
                         <div>
                             <p>Odpisová skupina</p>
-                            <input
-                                type="number"
-                                placeholder={"0 - 6"}
-                                min={0}
-                                max={6}
-                                onChange={(e) => {
-                                    setOdpisovaSkupina(Number(e.target.value))
-                                }}
-                                ref={osref}
-                                onKeyDown={(e) => {
-                                    if (e.key === "Enter") {
-                                        osref.current.blur()
+                            <div style={{display: "flex", alignItems: "center", gap: "0.5em"}}>
+                                <input
+                                    type="number"
+                                    placeholder={"0 - 6"}
+                                    min={0}
+                                    max={6}
+                                    onChange={(e) => {
+                                        setOdpisovaSkupina(Number(e.target.value))
+                                    }}
+                                    ref={osref}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            osref.current.blur()
+                                        }
+                                    }}
+                                    value={
+                                        odpisovaSkupina === -1
+                                            ? ""
+                                            : odpisovaSkupina
                                     }
-                                }}
-                            />
+                                />
+                                <button className={"smallbutton"} onClick={() => {setOdpisovaSkupina(odpisovaSkupina + 1)}}>+</button>
+                                <button className={"smallbutton"} onClick={() => {setOdpisovaSkupina(odpisovaSkupina - 1)}}>-</button>
+                            </div>
                         </div>
                         <div>
                             <p>Metóda odpisovania</p>
@@ -344,7 +382,7 @@ const Odpisy = () => {
                 {
                     datumObstarania || obstaravaciaCena || odpisovaSkupina >= 0
                         ? <button id={"resetbutton"} onClick={() => {
-                            window.location.reload()
+                            reset()
                         }}>Reset</button>
                         : null
                 }
