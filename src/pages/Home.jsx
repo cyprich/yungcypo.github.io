@@ -14,6 +14,8 @@ import {ReactComponent as HumanIcon} from "../images/icons/human.svg";
 import {ReactComponent as HomeIcon} from "../images/icons/home.svg";
 import {ReactComponent as SchoolIcon} from "../images/icons/school.svg";
 import {ReactComponent as SchoolDoneIcon} from "../images/icons/schooldone.svg";
+import {ReactComponent as CakeIcon} from "../images/icons/cake.svg";
+import {ReactComponent as Refresh} from "../images/icons/refresh.svg";
 
 const Home = () => {
     const [nahodnaMudrost, setNahodnaMudrost] = useState(Math.floor(Math.random() * mudrosti?.length));
@@ -22,6 +24,10 @@ const Home = () => {
     const [zobrazitToto, setZobrazitToto] = useState(true);
 
     const omneref = useRef(null);
+
+    const refreshMudrost = () => {
+        setNahodnaMudrost(Math.floor(Math.random() * mudrosti?.length));
+    }
 
     /* scroll to top */
     useEffect(() => {
@@ -40,7 +46,7 @@ const Home = () => {
             }}>
                 <h1>Peter</h1>
                 <h1>Cyprich</h1>
-                <p>{mudrosti[nahodnaMudrost]}</p>
+                <p className={"mudrost"} onClick={() => {refreshMudrost()}}>{mudrosti[nahodnaMudrost]} <Refresh/></p>
                 <div className="sipka" onClick={() => {
                     omneref.current.scrollIntoView()
                 }}></div>
