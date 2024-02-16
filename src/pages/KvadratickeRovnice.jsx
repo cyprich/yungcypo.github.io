@@ -37,6 +37,17 @@ const KvadratickeRovnice = () => {
         }
     }
 
+    const reset = () => {
+        setA(null)
+        setB(null)
+        setC(null)
+        setD(null)
+        setX1(null)
+        setX2(null)
+
+        aref.current.focus()
+        window.scrollTo(0, 0)
+    }
 
     /* scroll to top */
     useEffect(() => {
@@ -81,6 +92,7 @@ const KvadratickeRovnice = () => {
                             onKeyDown={(e) => {
                                 handleKeyPress(e, bref)
                             }}
+                            value={a === null ? "" : a}
                         />
                         <input
                             type="number"
@@ -92,6 +104,7 @@ const KvadratickeRovnice = () => {
                             onKeyDown={(e) => {
                                 handleKeyPress(e, cref)
                             }}
+                            value={b === null ? "" : b}
                         />
                         <input
                             type="number"
@@ -105,6 +118,7 @@ const KvadratickeRovnice = () => {
                                     cref.current.blur()
                                 }
                             }}
+                            value={c === null ? "" : c }
                         />
                     </div>
                 </div>
@@ -162,7 +176,7 @@ const KvadratickeRovnice = () => {
             {
                 a || b || c
                     ? <button id={"resetbutton"} onClick={() => {
-                        window.location.reload()
+                        reset()
                     }}>Reset</button>
                     : null
             }
