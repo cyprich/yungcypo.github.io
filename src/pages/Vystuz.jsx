@@ -17,7 +17,6 @@ const Vystuz = () => {
     const [nosnaOcel, setNosnaOcel] = useState(null);
     const [rozdelovaciaOcel, setRozdelovaciaOcel] = useState(null);
 
-
     const [b, setB] = useState(1);
     const [alpha, setAlpha] = useState(1);
 
@@ -115,6 +114,39 @@ const Vystuz = () => {
         vysledkyref?.current?.scrollIntoView({behavior: 'smooth'})
     }
 
+    const reset = () => {
+        setDlzkaDosky(null)
+        setHrubkaDosky(null)
+        setMoment(null)
+        setBeton(-1)
+        setNosnaOcel(-1)
+        setRozdelovaciaOcel(-1)
+        setFck(null)
+        setFcd(null)
+        setFyk(null)
+        setFyd(null)
+        setD(null)
+        setAs(null)
+        setAsVypocet(null)
+        setAsmin(null)
+        setAsmax(null)
+        setX(null)
+        setKsi(null)
+        setKsimax(null)
+        setZ(null)
+        setMrd(null)
+        setMsd(null)
+        setPriemerVystuze(0.008)
+        setPocetVystuzi(null)
+        setZobrazitTabulecku(false)
+        setZobrazitVysledok(false)
+
+        if (dlzkadoskyref.current) {
+            dlzkadoskyref.current.focus()
+        }
+        window.scrollTo(0, 0)
+    }
+
     /* scroll to top */
     useEffect(() => {
         if (dlzkadoskyref.current) {
@@ -143,6 +175,7 @@ const Vystuz = () => {
                             onKeyDown={(e) => {
                                 handleKeyPress(e, hrubkadoskyref)
                             }}
+                            value={dlzkaDosky === null ? "" : dlzkaDosky}
                         />
                         <input
                             type="number"
@@ -154,6 +187,7 @@ const Vystuz = () => {
                             onKeyDown={(e) => {
                                 handleKeyPress(e, momentref)
                             }}
+                            value={hrubkaDosky === null ? "" : hrubkaDosky}
                         />
                         <input
                             type="number"
@@ -167,10 +201,11 @@ const Vystuz = () => {
                                     momentref.current.blur()
                                 }
                             }}
+                            value={moment === null ? "" : moment}
                         />
                     </div>
                     <div>
-                        <select name="beton" onChange={(e) => {
+                        <select name="beton" value={beton} onChange={(e) => {
                             setBeton(e.target.value)
                             setForcerUpdate(!forcerUpdate)
                         }}>
@@ -185,7 +220,7 @@ const Vystuz = () => {
                                 }
                             </optgroup>
                         </select>
-                        <select name="nosnaocel" onChange={(e) => {
+                        <select name="nosnaocel" value={nosnaOcel} onChange={(e) => {
                             setNosnaOcel(e.target.value)
                             setForcerUpdate(!forcerUpdate)
                         }}>>
@@ -200,7 +235,7 @@ const Vystuz = () => {
                                 }
                             </optgroup>
                         </select>
-                        <select name="rozdelovaciaocel" onChange={(e) => {
+                        <select name="rozdelovaciaocel" value={rozdelovaciaOcel} onChange={(e) => {
                             setRozdelovaciaOcel(e.target.value)
                             setForcerUpdate(!forcerUpdate)
                         }}>>
@@ -452,7 +487,7 @@ const Vystuz = () => {
                 {
                     dlzkaDosky || hrubkaDosky || moment || beton || nosnaOcel || rozdelovaciaOcel
                         ? <button onClick={() => {
-                            window.location.reload()
+                            reset()
                         }}>Reset</button>
                         : null
                 }
