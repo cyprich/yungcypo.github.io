@@ -1,0 +1,44 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logincontent {
+    border: 1px solid var(--color6);
+    border-radius: 1em;
+}
+.logincontent h3 {
+    margin: 1em;
+    text-align: center;
+}
+
+.logincontent > div {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    gap: 1em;
+}
+
+/* TODO enable when ready */
+.logincontent input {
+    color: var(--colorWarning);
+    border-color: var(--colorWarning);
+}
+
+.logincontent button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.logincontent svg {
+    height: 1.75em;
+    width: 1.75em;
+}
+
+.logininputy {
+    display: flex;
+    gap: 1em;
+}
