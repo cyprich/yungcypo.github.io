@@ -23,6 +23,7 @@ import ThreeDHistoria from "./pages/ThreeDHistoria";
 import ThreeDKalkulacka from "./pages/ThreeDKalkulacka";
 import ThreeDModely from "./pages/ThreeDModely";
 import ThreeDFilamenty from "./pages/ThreeDFilamenty";
+import ThreeDFilamentyNovy from "./pages/ThreedFilamentyNovy";
 import ThreedPrusameter from "./pages/ThreedPrusameter";
 
 import Odpisy from "./pages/Odpisy";
@@ -58,6 +59,7 @@ const App = () => {
                     <Route path={"/3D/kalkulacka"} element={<ThreeDKalkulacka/>}/>
                     <Route path={"/3D/modely"} element={<ThreeDModely/>}/>
                     <Route path={"/3D/filamenty"} element={<ThreeDFilamenty/>}/>
+                    <Route path={"/3D/filamenty/novy"} element={<ThreeDFilamentyNovy/>}/>
                     <Route path={"/3D/prusameter"} element={<ThreedPrusameter/>}/>
                     <Route path={"/3D/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
 

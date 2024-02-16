@@ -353,13 +353,35 @@
     display: none;
 }
 
-
-.threedgaleria {
-    background-color: var(--color2);
-    min-height: 100vh;
-    margin-top: 4em;
-    padding: 2em 2em 0 2em;
+.novyfilament {
+    padding: 2em;
 }
+
+.novyfilamentnadpisy {
+    padding-bottom: 1em;
+}
+
+.novyfilamentform {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.novyfilamentform > div {
+    display: flex;
+    gap: 0.5em;
+}
+.novyfilamentform span {
+    cursor: pointer;
+}
+.novyfilamentform .warning {
+    font-size: 1em;
+    text-decoration: none;
+}
+.novyfilamentform .warning:after {
+    content: none;
+}
+
+
 
 
 
