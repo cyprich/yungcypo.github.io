@@ -5,14 +5,12 @@ import {useForm} from "react-hook-form";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup";
 
+import {db, auth} from "../config/firebase"
 import {addDoc, getDocs, collection} from "firebase/firestore"
-import {db} from "../config/firebase"
-
-import {auth} from "../config/firebase"
 import {useAuthState} from "react-firebase-hooks/auth"
 
+
 const NovyFilamentForm = () => {
-    const [permission, setPermission] = useState(false);
     const navigate = useNavigate()
 
     const schema = yup.object().shape({
@@ -44,6 +42,7 @@ const NovyFilamentForm = () => {
         const data = await getDocs(adminRef)
         setAdminUid(data.docs[0].data().uid)
     }
+
 
     // add new filament to database
     const filamentyRef = collection(db, "filamenty")
@@ -86,7 +85,7 @@ const NovyFilamentForm = () => {
     return (
         <>
             {
-                user?.uid === adminUid
+                adminUid === user?.uid
                     ? <form className={"novyfilamentform"} onSubmit={handleSubmit(onCreateFilament)}>
                         <input type="text" placeholder={"ID"} {...register("id")}/>
                         <p className={"warning"}>{errors?.id?.message}</p>
