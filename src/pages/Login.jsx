@@ -1,10 +1,20 @@
 import React from 'react';
+import {auth, provider} from "../config/firebase"
+import {signInWithPopup} from "firebase/auth"
 import "../css/styles.css"
 import "../css/login.css"
 
 import {ReactComponent as GoogleLogo} from "../images/icons/socials/google_color.svg"
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate()
+
+    const signInWithGoogle = async () => {
+        const result = await signInWithPopup(auth, provider)
+        navigate("/")
+    }
+
     return (
         <div className={"login projekt"}>
             <div className={"logincontent"}>
@@ -16,7 +26,7 @@ const Login = () => {
                         <input type="text" placeholder={"E-mail"} disabled={true} title={"Momentálne nedostupné"}/>
                         <input type="password" placeholder={"Heslo"} disabled={true} title={"Momentálne nedostupné"}/>
                     </div>
-                    <button>
+                    <button onClick={signInWithGoogle}>
                         <GoogleLogo/>
                         <p>Pokračovať s Google účtom</p>
                     </button>

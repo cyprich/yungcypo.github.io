@@ -22,8 +22,9 @@
 
 /* TODO enable when ready */
 .logincontent input {
-    color: var(--colorWarning);
-    border-color: var(--colorWarning);
+    color: var(--color9);
+    border-color: var(--color9);
+    cursor: not-allowed;
 }
 
 .logincontent button {
