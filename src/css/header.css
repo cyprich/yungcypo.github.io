@@ -18,11 +18,11 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.headerwrapper > div:first-child {
+.headerwrapper > div:last-child {
     height: 2em;
     width: 2em;
 }
-.headerwrapper > div:first-child:hover {
+.headerwrapper > div:last-child:hover {
     transform: scale(110%);
 }
 
@@ -65,7 +65,7 @@ header {
     position: absolute;
     background-color: var(--color1);
     top: 100%;
-    right: 0;
+    left: 0;
     transform: translateY(-100%);
     z-index: 8 !important;
     display: none;

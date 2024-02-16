@@ -34,11 +34,6 @@ const Header = () => {
     return (
         <header id={"header"}>
             <div className={"headerwrapper"}>
-                <div>
-                    <Link to={"/"}>
-                        <Smile/>
-                    </Link>
-                </div>
                 <div className={"nophone"}>
                     <div className={"headerpismenka"}>
                         <div>
@@ -134,7 +129,6 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div className="phone">
                     <Menu onClick={() => {
@@ -244,6 +238,11 @@ const Header = () => {
                             </div>
                         </div>
                     }
+                </div>
+                <div>
+                    <Link to={"/"}>
+                        <Smile/>
+                    </Link>
                 </div>
             </div>
         </header>
