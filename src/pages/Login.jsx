@@ -21,11 +21,14 @@ const Login = () => {
                 <h3>Prihlásiť sa</h3>
                 <hr/>
                 <div>
-
+                    {
+                    /*
                     <div className={"logininputy"}>
                         <input type="text" placeholder={"E-mail"} disabled={true} title={"Momentálne nedostupné"}/>
                         <input type="password" placeholder={"Heslo"} disabled={true} title={"Momentálne nedostupné"}/>
                     </div>
+                    */
+                    }
                     <button onClick={signInWithGoogle}>
                         <GoogleLogo/>
                         <p>Pokračovať s Google účtom</p>
