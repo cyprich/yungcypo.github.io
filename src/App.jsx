@@ -11,7 +11,7 @@ import Kontakt from "./components/Kontakt";
 import Disclaimer from "./pages/Disclaimer";
 import Popup from "./pages/Popup";
 import Login from "./pages/Login";
-import Signin from "./pages/Signin";
+import Profil from "./pages/Profil"
 
 import Stavitelstvo from "./pages/Stavitelstvo";
 import Schodisko from "./pages/Schodisko";
@@ -31,7 +31,6 @@ import Piskvorky from "./pages/Piskvorky";
 import KvadratickeRovnice from "./pages/KvadratickeRovnice";
 import NalepkyNaFilament from "./pages/NalepkyNaFilament";
 
-
 const App = () => {
     return (
         <>
@@ -46,8 +45,7 @@ const App = () => {
                     <Route path={"/vyhlasenieovylucenizodpovednosti"} element={<Disclaimer/>}></Route>
                     <Route path={"/login"} element={<Login/>}></Route>
                     <Route path={"/prihlasenie"} element={<Login/>}></Route>
-                    <Route path={"/signin"} element={<Signin/>}></Route>
-                    <Route path={"/registracia"} element={<Signin/>}></Route>
+                    <Route path={"/profil"} element={<Profil/>}></Route>
 
                     <Route path={"/stavitelstvo"} element={<Stavitelstvo/>}></Route>
                     <Route path={"/schodisko"} element={<Schodisko/>}/>
