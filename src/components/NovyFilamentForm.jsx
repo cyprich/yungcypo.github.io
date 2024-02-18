@@ -57,7 +57,7 @@ const NovyFilamentForm = () => {
             farba: {
                 nazov: data.farbanazov,
                 kod: data.farbakod,
-                invert: data.farbakod
+                invert: data.farbainvert
             },
             hmotnost: {
                 soSpoolom: data.hmotnostsospoolom,
