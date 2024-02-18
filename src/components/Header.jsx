@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-import {auth} from "../config/firebase"
+import {auth, db} from "../config/firebase"
 import {useAuthState} from "react-firebase-hooks/auth"
 import {signOut} from "firebase/auth"
 
@@ -12,13 +12,12 @@ import kontakt from "../constants/kontakt";
 
 import {ReactComponent as Smile} from "../images/icons/smile.svg";
 import {ReactComponent as Menu} from "../images/icons/menu.svg"
+import {collection, getDocs} from "firebase/firestore";
 
 const Header = () => {
     const [ikonkaHovered, setIkonkaHovered] = useState(null);
     const [menuActive, setMenuActive] = useState(false);
     const [menuActiveDropdown, setMenuActiveDropdown] = useState(null);
-
-    const [user] = useAuthState(auth)
 
     const handleHover = (e) => {
         setIkonkaHovered(e)
@@ -35,9 +34,20 @@ const Header = () => {
         }
     }
 
+
+    // check if user is admin
+    const [user] = useAuthState(auth)
     const logout = async () => {
         await signOut(auth)
     }
+
+    const [adminUid, setAdminUid] = useState(null);
+    const adminRef = collection(db, "admin")
+    const getAdmin = async () => {
+        const data = await getDocs(adminRef)
+        setAdminUid(data.docs[0].data().uid)
+    }
+    getAdmin()
 
 
     return (
@@ -140,7 +150,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="phone">
-                    <Menu onClick={() => {
+                    <Menu style={{fill: "var(--color6)"}} onClick={() => {
                         setMenuActive(!menuActive)
                     }} className={menuActive ? "rotate" : null}/>
                     {
@@ -248,12 +258,27 @@ const Header = () => {
                         </div>
                     }
                 </div>
-                <div className={"headeraccount"}>
+                <div className={"headeraccount"} onClick={() => {handleMenuActiveDropdown(null)}}>
                     {
                         auth?.currentUser
                             ? <>
-                                <a onClick={logout}>Odhlásiť sa</a>
+                                <p>{user.displayName}</p>
                                 <img src={user?.photoURL || require("../images/icons/smile.png")} alt=""/>
+                                <div className={"accountdropdown"}>
+                                    <h4>{user.displayName}</h4>
+                                    <hr/>
+                                    <Link to={"/profil"}>Profil</Link>
+                                    <hr/>
+                                    {
+
+                                        adminUid === user?.uid &&
+                                        <>
+                                            <Link to={"/"}>Admin</Link>
+                                            <hr/>
+                                        </>
+                                    }
+                                    <a onClick={logout}>Odhlásiť sa</a>
+                                </div>
                             </>
                             : <>
                                 <Link to={"/login"}>Prihlásiť sa</Link>
