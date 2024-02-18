@@ -10,6 +10,9 @@ import Progressbar from "../components/Progressbar";
 import {ReactComponent as ArrowUp} from "../images/icons/arrowup.svg";
 import {ReactComponent as ArrowDown} from "../images/icons/arrowdown.svg";
 import ImageLoader from "../components/ImageLoader";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {collection, getDocs} from "firebase/firestore";
+import {auth, db} from "../config/firebase"
 
 const ThreeDFilamenty = () => {
     const location = useLocation()
@@ -23,10 +26,15 @@ const ThreeDFilamenty = () => {
         setZoraditPodla(e.target.value)
     }
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, []);
+    // check if user is admin
+    const [user] = useAuthState(auth)
+    const [adminUid, setAdminUid] = useState(null);
+    const adminRef = collection(db, "admin")
 
+    const getAdmin = async () => {
+        const data = await getDocs(adminRef)
+        setAdminUid(data.docs[0].data().uid)
+    }
 
     const sortData = () => {
         let vysledok = 0
@@ -64,6 +72,7 @@ const ThreeDFilamenty = () => {
         if (params.get("sort") != null) {
             setZoraditPodla(params.get("sort"))
         }
+        getAdmin()
     }, []);
 
     return (
@@ -153,6 +162,11 @@ const ThreeDFilamenty = () => {
                     Hmotnosti
                     aktualizované: {threed.hmotnostiAktualizovane.den}. {threed.hmotnostiAktualizovane.mesiac}. {threed.hmotnostiAktualizovane.rok}
                 </p>
+                {
+                    adminUid === user?.uid
+                        ? <button style={{marginTop: "1em"}} onClick={() => {navigate("/3D/filamenty/novy")}}>Pridať nový filament</button>
+                        : null
+                }
             </div>
             {
                 params.get("from") === "kalkulacka"
