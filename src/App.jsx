@@ -19,6 +19,7 @@ const App = () => {
                         <Route path={"*"} element={<p>404</p>}/>
                     </Routes>
                 </main>
+                <Footer/>
             </Router>
         </>
     );
