@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import "../css-old/styles.css"
-import "../css-old/popup.css"
 import {useLocation, useNavigate} from "react-router-dom";
 
 const Popup = () => {

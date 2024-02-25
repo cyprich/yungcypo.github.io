@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import "../css-old/styles.css"
-import "../css-old/disclaimer.css"
 
 import {ReactComponent as Check} from "../images/icons/check.svg";
 

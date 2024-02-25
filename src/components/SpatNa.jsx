@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import "../css-old/spatna.css"
 
 const SpatNa = (props) => {
     return (

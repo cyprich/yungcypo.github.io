@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react';
-import "../css-old/styles.css"
-import "../css-old/piskvorky.css"
 
 const Piskvorky = () => {
 

@@ -2,9 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Link} from "react-router-dom";
 import Latex from "react-latex";
 
-import "../css-old/styles.css"
-import "../css-old/odpisy.css"
-
 import odpisoveskupiny from "../constants/odpisoveskupiny"
 
 const koeficienty = {

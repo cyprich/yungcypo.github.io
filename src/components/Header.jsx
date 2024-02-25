@@ -4,9 +4,6 @@ import {auth, db} from "../config/firebase"
 import {useAuthState} from "react-firebase-hooks/auth"
 import {signOut} from "firebase/auth"
 
-import "../css-old/styles.css";
-import "../css-old/header.css";
-
 import projekty from "../constants/projekty";
 import kontakt from "../constants/kontakt";
 

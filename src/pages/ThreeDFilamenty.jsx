@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
-import "../css-old/styles.css"
-import "../css-old/threed.css"
 
 import threed from "../constants/threed";
 import SpatNa from "../components/SpatNa";

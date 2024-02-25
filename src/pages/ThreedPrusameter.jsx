@@ -1,6 +1,4 @@
 import React from 'react';
-import "../css-old/styles.css"
-import "../css-old/threed.css"
 
 import SpatNa from "../components/SpatNa";
 import {Link} from "react-router-dom";

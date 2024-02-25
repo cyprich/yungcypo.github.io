@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Latex from "react-latex";
-import "../css-old/styles.css"
-import "../css-old/kvadratickerovnice.css"
 
 const KvadratickeRovnice = () => {
     var Latex = require("react-latex");

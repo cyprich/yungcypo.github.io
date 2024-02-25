@@ -1,6 +1,4 @@
 import React from 'react';
-import "../css-old/styles.css"
-import "../css-old/threed.css"
 
 import NovyFilamentForm from "../components/NovyFilamentForm";
 import SpatNa from "../components/SpatNa";

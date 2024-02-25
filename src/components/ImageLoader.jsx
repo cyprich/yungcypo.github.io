@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import "../css-old/styles.css"
-import "../css-old/imageloader.css"
+import React, {useState} from 'react';
 
 const ImageLoader = ({src, alt, style}) => {
     const [loading, setLoading] = useState(true);

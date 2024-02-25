@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
-import "../css-old/styles.css"
-import "../css-old/footer.css"
-
 import kontakt from "../constants/kontakt";
 
 const Footer = () => {

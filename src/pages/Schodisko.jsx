@@ -1,6 +1,4 @@
 import React, {useEffect, useRef, useState} from 'react';
-import "../css-old/styles.css"
-import "../css-old/schodisko.css"
 import Latex from "react-latex";
 
 import SpatNa from "../components/SpatNa";
