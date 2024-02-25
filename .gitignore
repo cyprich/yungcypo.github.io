@@ -26,3 +26,4 @@ yarn-error.log*
 src/images/3Dgaleria/*
 src/config/
 src/css-old/
+src/**/*.zip

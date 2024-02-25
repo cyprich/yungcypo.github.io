@@ -31,3 +31,8 @@ content: [
 
 Pri každej zmene hlavného css súboru alebo konfigurácie treba spraviť nasledovné:
 `npm run build-css`
+
+
+### Default tailwind values
+**node_modules/tailwindcss/stubs/config.full.js**
+
