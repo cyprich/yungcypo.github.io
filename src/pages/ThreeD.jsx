@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import "../css/styles.css"
-import "../css/threed.css"
+import "../css-old/styles.css"
+import "../css-old/threed.css"
 import {Link} from "react-router-dom";
 
 const ThreeD = () => {

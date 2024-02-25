@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import "../css/styles.css"
-import "../css/nalepkynafilament.css"
+import "../css-old/styles.css"
+import "../css-old/nalepkynafilament.css"
 import threed from "../constants/threed";
 
 const NalepkyNaFilament = () => {

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import "../css/styles.css"
-import "../css/pagenotfound.css"
+import "../css-old/styles.css"
+import "../css-old/pagenotfound.css"
 import {Link} from "react-router-dom";
 
 const PageNotFound = () => {

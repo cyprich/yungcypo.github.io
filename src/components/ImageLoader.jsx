@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import "../css/styles.css"
-import "../css/imageloader.css"
+import "../css-old/styles.css"
+import "../css-old/imageloader.css"
 
 const ImageLoader = ({src, alt, style}) => {
     const [loading, setLoading] = useState(true);

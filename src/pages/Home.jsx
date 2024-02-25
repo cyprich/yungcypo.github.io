@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
-import "../css/styles.css"
-import "../css/home.css"
+import "../css-old/styles.css"
+import "../css-old/home.css"
 
 import CasovaOs from "../components/CasovaOs";
 import Carousel from "../components/Carousel";

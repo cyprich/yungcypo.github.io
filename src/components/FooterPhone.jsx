@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
-import "../css/styles.css"
-import "../css/footerphone.css"
+import "../css-old/styles.css"
+import "../css-old/footerphone.css"
 
 import kontakt from "../constants/kontakt";
 

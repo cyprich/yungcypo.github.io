@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
-import "../css/styles.css"
-import "../css/stavitelstvo.css"
+import "../css-old/styles.css"
+import "../css-old/stavitelstvo.css"
 
 const Stavitelstvo = () => {
 

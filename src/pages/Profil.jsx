@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import "../css/styles.css"
-import "../css/profil.css"
+import "../css-old/styles.css"
+import "../css-old/profil.css"
 import {useAuthState} from "react-firebase-hooks/auth";
 import {auth} from "../config/firebase";
 import {useNavigate} from "react-router-dom";

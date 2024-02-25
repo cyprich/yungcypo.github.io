@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
-import "../css/styles.css"
-import "../css/casovaOs.css"
+import "../css-old/styles.css"
+import "../css-old/casovaOs.css"
 
 import {ReactComponent as Close} from "../images/icons/close.svg";
 import ImageLoader from "./ImageLoader";

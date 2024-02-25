@@ -27,7 +27,6 @@ import ThreeDFilamentyNovy from "./pages/ThreedFilamentyNovy";
 import ThreedPrusameter from "./pages/ThreedPrusameter";
 
 import Odpisy from "./pages/Odpisy";
-import Piskvorky from "./pages/Piskvorky";
 import KvadratickeRovnice from "./pages/KvadratickeRovnice";
 import NalepkyNaFilament from "./pages/NalepkyNaFilament";
 
@@ -62,7 +61,6 @@ const App = () => {
                     <Route path={"/3D/nalepkynafilament"} element={<NalepkyNaFilament/>}/>
 
                     <Route path={"/odpisy"} element={<Odpisy/>}/>
-                    <Route path={"/piskvorky"} element={<Piskvorky/>}/>
                     <Route path={"/kvadratickerovnice"} element={<KvadratickeRovnice/>}/>
 
                     <Route path={"*"} element={<PageNotFound/>}/>

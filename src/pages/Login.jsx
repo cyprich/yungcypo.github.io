@@ -1,8 +1,8 @@
 import React from 'react';
 import {auth, provider} from "../config/firebase"
 import {signInWithPopup} from "firebase/auth"
-import "../css/styles.css"
-import "../css/login.css"
+import "../css-old/styles.css"
+import "../css-old/login.css"
 
 import {ReactComponent as GoogleLogo} from "../images/icons/socials/google_color.svg"
 import {useNavigate} from "react-router-dom";

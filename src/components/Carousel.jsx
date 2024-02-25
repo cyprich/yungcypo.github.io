@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Link} from "react-router-dom";
 
-import "../css/styles.css"
-import "../css/projekty.css"
+import "../css-old/styles.css"
+import "../css-old/projekty.css"
 
 import projekty from "../constants/projekty";
 import {ReactComponent as ArrowForward} from "../images/icons/arrowforward.svg";

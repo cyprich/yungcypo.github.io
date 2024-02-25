@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Latex from "react-latex";
-import "../css/styles.css"
-import "../css/vystuz.css"
+import "../css-old/styles.css"
+import "../css-old/vystuz.css"
 
 import vystuz from "../constants/vystuz";
 import SpatNa from "../components/SpatNa";
