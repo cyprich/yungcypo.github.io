@@ -17,6 +17,8 @@ const Home = () => {
             <CasovaOs subor={vzdelanie} />
                  */
             }
+            <p>Časová Os</p>
+            <p>Projekty</p>
         </div>
     );
 };
