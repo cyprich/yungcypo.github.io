@@ -35,7 +35,7 @@ const items = [
         /*
         image: require("../images/peniaze.png"),
         icon: require("../images/icons/money.png"),
-        
+
          */
         link: "/odpisy"
     },
