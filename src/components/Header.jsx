@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <nav className={"flex justify-between items-center h-16 px-8 w-full bg-black fixed top-0 left-0 z-50 text-gray-50 "}>
+        <nav className={"flex justify-between items-center h-16 px-8 w-full bg-gray-950/50 backdrop-blur-xl fixed top-0 left-0 z-50 text-gray-50 shadow-xl"}>
             <ul className={"flex gap-12 select-none cursor-pointer"}>
                 <li className={"hover:text-red-900"}>Domov</li>
                 <li className={"hover:text-red-900"}>Projekty</li>

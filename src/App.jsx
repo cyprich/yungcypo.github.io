@@ -11,7 +11,7 @@ const App = () => {
         <>
             <Router>
                 <Header/>
-                <div className={"h-16"}></div>
+                <div className={"h-16 bg-red-50"}></div>
                 <main className={"overflow-hidden text-gray-50"}>
                     <Routes>
                         <Route path={"/"} element={<Home/>}/>
