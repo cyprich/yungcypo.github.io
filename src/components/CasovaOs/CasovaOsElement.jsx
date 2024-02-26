@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CasovaOsElement = ({nadpis, podnadpis, popis, obrazky, datum, datumnakoniec, align}) => {
+const CasovaOsElement = ({id, nadpis, podnadpis, popis, obrazky, datum, datumnakoniec, align}) => {
     return (
         <li>
-            <p>{nadpis}</p>
+
         </li>
     );
 };

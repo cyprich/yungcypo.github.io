@@ -5,19 +5,16 @@ import Omne from "../components/home/Omne";
 import CasovaOs from "../components/CasovaOs/CasovaOs";
 
 import vzdelanie from "../constants/vzdelanie";
+import threed from "../constants/threed";
 
 const Home = () => {
     return (
         <div className={"bg-red-50 w-full"}>
             <Hero/>
             <Omne/>
-            {
-                /*
-
             <CasovaOs subor={vzdelanie} />
-                 */
-            }
-            <p>Časová Os</p>
+            <CasovaOs subor={threed.historia} />
+
             <p>Projekty</p>
         </div>
     );
