@@ -8,7 +8,7 @@ import {ReactComponent as Wave2} from "../../images/wave2.2.svg";
 const Omne = () => {
     return (
         <>
-            <ul className={"relative grid grid-cols-3 px-48 py-16 gap-16 bg-red-100"}>
+            <ul className={"relative grid grid-cols-3 mt-8 px-48 py-16 gap-16 bg-red-100"}>
                 <Wave1 class={"absolute top-[-32px]"}/>
                 <OmneItem text={"Prievidza"} src={require("../../images/3dicons/house.png")}/>
                 <OmneItem text={"4. 6. 2003"} src={require("../../images/3dicons/calendar.png")}/>
