@@ -11,7 +11,7 @@ const Karta = ({nadpis, popis, link, obrazok}) => {
             onClick={() => {
                 navigate(link)
             }}>
-            <div className={"flex justify-center items-center aspect-square bg-gray-500/5 border border-red-50 group-hover:border-red-100 rounded-t-2xl"}>
+            <div className={"flex justify-center items-center aspect-square bg-red-50/5 border border-red-50 group-hover:border-red-100 rounded-t-2xl"}>
                 <img className={"group-hover:scale-105 drop-shadow-2xl rounded-t-2xl"} src={obrazok} alt=""/>
             </div>
             <div className={"p-6 border-gray-950 w-full bg-red-50 group-hover:bg-red-100 rounded-b-2xl"}>
