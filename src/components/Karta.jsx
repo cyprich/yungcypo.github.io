@@ -12,7 +12,7 @@ const Karta = ({nadpis, popis, link, obrazok}) => {
                 navigate(link)
             }}>
             <div className={"flex justify-center items-center aspect-square group-hover:bg-red-100/5"}>
-                <img className={"group-hover:scale-105 drop-shadow-2xl"} src={obrazok} alt=""/>
+                <img className={"group-hover:scale-105 drop-shadow-2xl rounded-t-2xl"} src={obrazok} alt=""/>
             </div>
             <div className={"p-6 border-gray-950 w-full bg-red-50 group-hover:bg-red-100 rounded-b-2xl"}>
                 <p className={"text-xl font-bold"}>{nadpis}</p>
