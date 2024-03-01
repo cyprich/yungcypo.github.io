@@ -11,7 +11,7 @@ const Projekty = () => {
                     />
             </svg>
             <section className={"w-full min-h-96 bg-red-800 px-12 py-4"}>
-                <h2 className={"text-6xl font-bold pb-10 text-center text-gray-950"}>Projekty</h2>
+                <h2 className={"text-6xl font-bold pb-10 text-center text-gray-950/90"}>Projekty</h2>
                 <div className={"grid grid-cols-4 gap-12 pb-6"}>
                     {
                         projekty.map((e, key) => {
