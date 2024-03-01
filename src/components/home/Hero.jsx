@@ -8,7 +8,7 @@ const Hero = () => {
                 <p className={"mt-4 ml-1.5"}>Kto druhému zaseje, tak za z hory ozýva</p>
                 <button className={"button button-red mt-4 ml-1"}><p>Zisti viac</p></button>
             </div>
-            <img className={"h-96 w-auto opacity-90"} src={require("../../images/opica.png")} alt=""/>
+            <img className={"h-96 w-auto opacity-90"} src={require("../../images/3danimals/opica.png")} alt=""/>
         </section>
     );
 };

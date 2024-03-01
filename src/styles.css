@@ -2,17 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+.hidescrollbar::-webkit-scrollbar {
+    width: 4px;
+
+}
+
+.hidescrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 @layer components {
     * {
         @apply transition-all duration-300
     }
 
-    .button {
-        @apply py-3 px-6 rounded text-white font-bold drop-shadow-xl
+    input, textarea {
+        @apply px-4 py-2.5 bg-transparent border border-gray-50
     }
+
+    input {
+        @apply rounded-full
+    }
+
+    textarea {
+        @apply rounded-2xl overflow-auto resize-none
+    }
+
+    .noscrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .noscrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .customscrollbar::-webkit-scrollbar {
+        @apply w-2 bg-transparent
+    }
+    .customscrollbar::-webkit-scrollbar-track {
+        margin-block: 8px ;
+    }
+
+    .customscrollbar::-webkit-scrollbar-thumb {
+        @apply bg-gray-50/50 rounded-full
+    }
+
+
+    .button {
+        @apply px-6 py-3 rounded-lg text-white font-bold drop-shadow-xl duration-100
+    }
+
     .button * {
         @apply drop-shadow-xl
     }
+
     .button:active {
         @apply opacity-90
     }
@@ -20,12 +64,15 @@
     .button-gray {
         @apply bg-gray-800
     }
+
     .button-gray:hover {
         @apply bg-gray-700
     }
+
     .button-red {
         @apply bg-red-600
     }
+
     .button-red:hover {
         @apply bg-red-700
     }

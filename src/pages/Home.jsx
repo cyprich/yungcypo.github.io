@@ -4,6 +4,7 @@ import Hero from "../components/home/Hero";
 import Omne from "../components/home/Omne";
 import CasovaOsHome from "../components/home/CasovaOsHome";
 import Projekty from "../components/home/Projekty";
+import Kontakt from "../components/home/Kontakt";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Omne/>
             <CasovaOsHome/>
             <Projekty/>
+            <Kontakt/>
         </div>
     );
 };
