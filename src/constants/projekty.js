@@ -2,7 +2,7 @@ const items = [
     {
         title: "3D Tlač",
         description: "Zistite viac o mojom hobby",
-        image: require("../images/3dicons/puzzle.png"),
+        image: require("../images/3dimages/benchy.png"),
         link: "/3D"
     },
     {
