@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    * {
+        @apply transition-all duration-300
+    }
+
     .button {
         @apply py-3 px-6 rounded text-white font-bold drop-shadow-xl
     }

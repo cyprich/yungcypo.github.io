@@ -3,9 +3,7 @@ import React from 'react';
 import Hero from "../components/home/Hero";
 import Omne from "../components/home/Omne";
 import CasovaOsHome from "../components/home/CasovaOsHome";
-import Carousel from "../components/Carousel/Carousel";
-
-import projekty from "../constants/projekty";
+import Projekty from "../components/home/Projekty";
 
 const Home = () => {
     return (
@@ -13,7 +11,7 @@ const Home = () => {
             <Hero/>
             <Omne/>
             <CasovaOsHome/>
-            <Carousel subor={projekty}/>
+            <Projekty/>
         </div>
     );
 };
