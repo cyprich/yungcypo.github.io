@@ -28,7 +28,7 @@ const Kontakt = () => {
                     kontakt.map((e, key) => {
                         return (
                             <Link
-                                className={"group bg-transparent border p-6 rounded-full hover:scale-105 hover:bg-gray-500/5 drop-shadow-2xl"}
+                                className={"group bg-transparent border p-7 rounded-full hover:scale-105 hover:bg-gray-500/5 drop-shadow-2xl"}
                                 style={{borderColor: e.farba}} to={e.link} target={"_blank"}
                                 title={e.nazov + " : " + e.username}>
                                 <img className={"group-hover:scale-110 drop-shadow-2xl"} src={e.obrazok} alt=""
