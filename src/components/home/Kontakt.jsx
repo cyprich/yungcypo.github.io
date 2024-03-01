@@ -8,7 +8,7 @@ const Kontakt = () => {
     return (
         <section className={"flex flex-col gap-10 px-36 py-16"}>
             <div className={"flex justify-between items-center"}>
-                <div className={"flex flex-col gap-3 border border-gray-200 rounded-2xl p-8 w-1/2"}>
+                <div className={"flex flex-col gap-3 border border-gray-200 rounded-2xl p-8 w-3/5"}>
                     <div>
                         <p className={"mx-1 my-0.5 text-gray-300"}>Máš otázky?</p>
                         <p className={"text-5xl mb-3 font-bold"}>Napíš mi</p>
